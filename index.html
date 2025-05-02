@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Brouillon</title>
+</head>
+<body>
+    
+    <div id="click-me">
+        <span id="counter-txt"></span>
+    </div>
+    <div class="btns">
+        <button class="btn" id="decrease-btn">Decrease</button>
+        <button class="btn" id="reset-btn">Reset</button>
+        <button class="btn" id="increase-btn" >Increase</button>
+    </div>
+
+    <section class="starter">
+        <h2 class="starter__title">Que l'aventure commence !</h2>
+        <h4 class="starter__subtitle">Choisit une Pokéball</h4>
+        <div class="container-balls">
+            <img class="pokeball" id="pokeball-1" src="img/pokeball.png" alt="">
+            <img class="pokeball" id="pokeball-2" src="img/pokeball.png" alt="">
+            <img class="pokeball" id="pokeball-3" src="img/pokeball.png" alt="">
+        </div>
+        <div class="message-wrapper"></div>
+    </section>
+
+    <div class="battlefield">
+        <h2 class="battlefield__title">COMBATTEZ</h2>
+        <img src="img/birds-group.png" alt="" class="birds">
+        <img src="img/bird.png" alt="" class="bird">
+
+        <div class="arena">
+            <div class="arena__card">
+                <p class="arena__card__name">Hericendre</p>
+                <img src="img/hericendre.png" alt="" class="arena__card__pkmn">
+                <span class="arena__card--pv" id="playerPv">100/100</span>
+            </div>
+            
+            <div class="arena__card">
+                <p class="arena__card__name">Kaiminus</p>
+                <img src="img/kaiminus.png" alt="" class="arena__card__pkmn">
+                <span class="pvbar"></span>
+                <span class="arena__card--pv" id="enemyPv">100/100</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -120,6 +120,16 @@ $font-arena: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     }
 }
 
+@keyframes attackTxt {
+    from {
+        opacity: 0;
+        transform: scale(0.7) translateY(400px);
+    } to {
+        opacity: 1;
+        transform: scale(1) translateY(100px);
+    }
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -131,6 +141,7 @@ body {
     margin-top: 5rem;
 }
 
+// Increase decrease buttons
 #click-me {
     background: $btn-color;
     color: rgb(245, 245, 232);
@@ -180,6 +191,8 @@ body {
     }
 }
 
+
+// Pokemon starter choice
 .starter {
     background: beige;
     width: 100%;
@@ -211,7 +224,6 @@ body {
         margin-top: 4rem;
         padding-inline: 10%;
     }
-
     .pokeball {
         width: 10rem;
         height: 10rem;
@@ -229,14 +241,12 @@ body {
             animation: pokeballDisabled 2.3s 0.5s ease-in-out forwards;
         }
     }
-
     .pokemon {
         opacity: 0;
         width: 10rem;
         height: 10rem;
         animation: reveal 1.5s 0.5s ease-out forwards;
     }
-
     .message-wrapper {
         padding-block: 2.5rem;
         .pokeball-message {
@@ -249,6 +259,8 @@ body {
     }
 }
 
+
+// Pokemon battle arena
 .battlefield {
     position: relative;
     width: 100%;
@@ -274,16 +286,17 @@ body {
         color: beige;
         text-align: center;
         margin-bottom: 0;
+        margin-top: 4rem;
         animation: battleTitle 3s 0.2s linear infinite alternate-reverse;
     }
-
+    // Birds decoration
     .birds {
         width: 4rem;
         height: 3rem;
         transform: translateX(-100px);
         animation: leftToRight 20s linear infinite;
         padding-top: 0.5rem;
-        padding-bottom: 2.5rem;
+        padding-bottom: 3rem;
     }
     .bird {
         width: 1rem;
@@ -294,18 +307,22 @@ body {
     }
 }
 
+// Battle zone
 .arena {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    height: 62vh;
     padding-inline: 20%;
+    height: 63vh;
+    // Pokemons in battle
     &__card {
         display: flex;
         flex-direction: column;
         align-items: center;
         transform: translateX(-2000px);
         animation: slideIn 1.3s 1s ease-out forwards;
+        position: relative;
+        padding-bottom: 2.5rem;
         &__name {
             display: block;
             margin: 0;
@@ -325,7 +342,56 @@ body {
             color: rgb(204, 248, 137);
             font-size: 1rem;
             font-weight: 600;
-            padding-top: 2rem;
+            margin-top: 2rem;
         }
+    }
+
+    // Attack menu
+    .attack-menu {
+        position: absolute;
+        bottom: 7.5rem;
+        left: 7.5rem;
+        // transform: translateX(-50px);
+        background: linear-gradient(90deg, rgba(207, 221, 215, 0.945) 0%, rgba(227, 235, 190, 0.96) 93%);
+        border: 2px solid #ffffff;
+        padding: 0.8rem;
+        border-radius: 10px;
+        box-shadow: $boxshadow;
+        z-index: 10;
+        font-family: $font-arena;
+        font-size: 0.8rem;
+        color: rgba(27, 27, 27, 0.897);
+        display: none;
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 4px 17px;
+            border-collapse: collapse;
+            border-radius: 10px;
+        }
+        .attack {
+            border-radius: 20px;
+            transition: 0.2s;
+            &:hover {
+                cursor: pointer;
+                background: linear-gradient(90deg, rgba(161, 185, 175, 0.945) 0%, rgba(205, 214, 166, 0.96) 93%);
+                transform: scale(1.05);
+            }
+        }
+    }
+
+}
+
+.attack-txt-container {
+    display: flex;
+    justify-content: center;
+    .attack-txt {
+        font-family: $font-arena;
+        font-weight: 100;
+        font-size: 1.8rem;
+        color: beige;
+        opacity: 0;
+        animation: attackTxt 0.1s ease-out forwards;
     }
 }

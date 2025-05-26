@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Brouillon</title>
 </head>
+<header>
+    <a href="starter.html">Tu deveniras jamais ce qu'il y a ici...</a>
+</header>
 <body>
     
     <div id="click-me">
@@ -16,93 +19,7 @@
         <button class="btn" id="reset-btn">Reset</button>
         <button class="btn" id="increase-btn" >Increase</button>
     </div>
-
-    <section class="starter">
-        <h2 class="starter__title">Que l'aventure commence !</h2>
-        <h4 class="starter__subtitle">Choisit une Pokéball</h4>
-        <div class="container-balls">
-            <img class="pokeball" id="pokeball-1" src="img/pokeball.png" alt="">
-            <img class="pokeball" id="pokeball-2" src="img/pokeball.png" alt="">
-            <img class="pokeball" id="pokeball-3" src="img/pokeball.png" alt="">
-        </div>
-        <div class="message-wrapper"></div>
-    </section>
     
-    <div class="battlefield">
-        <h2 class="battlefield__title">COMBATTEZ</h2>
-        <img src="img/birds-group.png" alt="" class="birds">
-        <img src="img/bird.png" alt="" class="bird">
-        
-        <div class="attack-txt-container"></div>   
-        <div class="arena">
-            <div class="arena__card">
-                <p class="arena__card__name">Hericendre</p>
-                <img src="img/hericendre.png" alt="" class="arena__card__pkmn pkmnBattle">
-                <span class="arena__card--pv" id="playerPv">100/100</span>
-
-                <div class="attack-menu">
-                    <table>
-                        <thead>
-                            <th>Attaques</th>
-                            <th>Types</th>
-                            <th>Degats</th>
-                        </thead>
-                        <tbody>
-                            <tr onclick="selectAttack('Flammeche')">
-                                <td class="attack">Flammeche</td>
-                                <td>Feu</td>
-                                <td>40</td>
-                            </tr>
-                            <tr onclick="selectAttack('Charge')">
-                                <td class="attack">Charge</td>
-                                <td>Normal</td>
-                                <td>20</td>
-                            </tr>
-                            <tr onclick="selectAttack('Lance-Flamme')">
-                                <td class="attack">Lance-Flamme</td>
-                                <td>Feu</td>
-                                <td>65</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="arena__card">
-                <p class="arena__card__name">Kaiminus</p>
-                <img src="img/kaiminus.png" alt="" class="arena__card__pkmn pkmnBattle">
-                <span class="pvbar"></span>
-                <span class="arena__card--pv" id="enemyPv">100/100</span>
-
-                <div class="attack-menu">
-                    <table>
-                        <thead>
-                            <th>Attaques</th>
-                            <th>Types</th>
-                            <th>Degats</th>
-                        </thead>
-                        <tbody>
-                            <tr onclick="selectAttack('Ecumes')">
-                                <td class="attack">Ecumes</td>
-                                <td>Eau</td>
-                                <td>40</td>
-                            </tr>
-                            <tr onclick="selectAttack('Charge')">
-                                <td class="attack">Charge</td>
-                                <td>Normal</td>
-                                <td>20</td>
-                            </tr>
-                            <tr onclick="selectAttack('Surf')">
-                                <td class="attack">Surf</td>
-                                <td>Eau</td>
-                                <td>65</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <script src="script.js"></script>
+    <script src="/scripts/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Battle</title>
+</head>
+<body>
+        <div class="battlefield">
+        <h2 class="battlefield__title">COMBATTEZ</h2>
+        <img src="img/birds-group.png" alt="" class="birds">
+        <img src="img/bird.png" alt="" class="bird">
+        
+        <div class="attack-txt-container"></div>   
+        <div class="arena">
+            <div class="arena__card">
+                <p class="arena__card__name">Hericendre</p>
+                <img src="img/hericendre.png" alt="" class="arena__card__pkmn pkmnBattle">
+                <span class="arena__card--pv" id="playerPv">100/100</span>
+
+                <div class="attack-menu">
+                    <table>
+                        <thead>
+                            <th>Attaques</th>
+                            <th>Types</th>
+                            <th>Degats</th>
+                        </thead>
+                        <tbody>
+                            <tr onclick="selectAttack('Flammeche')">
+                                <td class="attack">Flammeche</td>
+                                <td>Feu</td>
+                                <td>40</td>
+                            </tr>
+                            <tr onclick="selectAttack('Charge')">
+                                <td class="attack">Charge</td>
+                                <td>Normal</td>
+                                <td>20</td>
+                            </tr>
+                            <tr onclick="selectAttack('Lance-Flamme')">
+                                <td class="attack">Lance-Flamme</td>
+                                <td>Feu</td>
+                                <td>65</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="arena__card">
+                <p class="arena__card__name">Kaiminus</p>
+                <img src="img/kaiminus.png" alt="" class="arena__card__pkmn pkmnBattle">
+                <span class="pvbar"></span>
+                <span class="arena__card--pv" id="enemyPv">100/100</span>
+
+                <div class="attack-menu">
+                    <table>
+                        <thead>
+                            <th>Attaques</th>
+                            <th>Types</th>
+                            <th>Degats</th>
+                        </thead>
+                        <tbody>
+                            <tr onclick="selectAttack('Ecumes')">
+                                <td class="attack">Ecumes</td>
+                                <td>Eau</td>
+                                <td>40</td>
+                            </tr>
+                            <tr onclick="selectAttack('Charge')">
+                                <td class="attack">Charge</td>
+                                <td>Normal</td>
+                                <td>20</td>
+                            </tr>
+                            <tr onclick="selectAttack('Surf')">
+                                <td class="attack">Surf</td>
+                                <td>Eau</td>
+                                <td>65</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/battle.js"></script>
+</body>
+</html>

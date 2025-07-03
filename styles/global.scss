@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap');
+
 $clickbox-color: rgb(230, 154, 154);
 $btn-color: linear-gradient(90deg, rgba(235, 155, 173, 1) 0%, rgba(218, 83, 112, 0.76) 84%);
 $boxshadow: 10px 20px 60px rgba(63, 1, 1, 0.205);
 $btnshadow: rgba(241, 238, 238, 0.24) 0px 3px 10px;
 
 $font-family-pkmn: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$pixel-font: 'Pixelify Sans', 'Jost';
+$pixel-font-large: 'Jersey 20', 'Jost';
 $font-arena: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 body {
@@ -93,7 +98,7 @@ body {
 @keyframes breathingColored {
     from {
         transform: scale(97%);
-        color: rgb(146, 146, 5);
+        color: rgb(146, 57, 5);
         opacity: 0.5;
     } to {
         transform: scale(100%);

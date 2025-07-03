@@ -1,0 +1,137 @@
+@use 'global'as *;
+
+// Pokemon battle arena
+.battlefield {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    &::before {
+        background-image: url(../img/battlefield_grass.jpg);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+        opacity: 0.8;
+    }
+    &__title {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 7rem;
+        font-weight: 200;
+        color: beige;
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 4rem;
+        animation: battleTitle 3s 0.2s linear infinite alternate-reverse;
+    }
+    // Birds decoration
+    .birds {
+        width: 4rem;
+        height: 3rem;
+        transform: translateX(-100px);
+        animation: leftToRight 20s linear infinite;
+        padding-top: 0.5rem;
+        padding-bottom: 3rem;
+    }
+    .bird {
+        width: 1rem;
+        height: auto;
+        display: block;
+        transform: translateX(2000px);
+        animation: rightToLeft 15s 2s linear infinite;
+    }
+}
+
+// Battle zone
+.arena {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-inline: 20%;
+    height: 63vh;
+    // Pokemons in battle
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: translateX(-2000px);
+        animation: slideIn 1.3s 1s ease-out forwards;
+        position: relative;
+        padding-bottom: 2.5rem;
+        &__name {
+            display: block;
+            margin: 0;
+            padding-bottom: 2rem;
+            font-family: $font-arena;
+            font-size: 1.2rem;
+            color: beige;
+        }
+        &__pkmn {
+            width: 14rem;
+            height: 13rem;
+            animation: breathing 2s 0.5s linear infinite alternate-reverse;
+            cursor: pointer;
+        }
+        &--pv {
+            font-family: $font-arena;
+            color: rgb(211, 248, 156);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 2rem;
+        }
+    }
+
+    // Attack menu
+    .attack-menu {
+        position: absolute;
+        bottom: 7.5rem;
+        left: 7.5rem;
+        // transform: translateX(-50px);
+        background: linear-gradient(90deg, rgba(207, 221, 215, 0.945) 0%, rgba(227, 235, 190, 0.96) 93%);
+        border: 2px solid #ffffff;
+        padding: 0.8rem;
+        border-radius: 10px;
+        box-shadow: $boxshadow;
+        z-index: 10;
+        font-family: $font-arena;
+        font-size: 0.8rem;
+        color: rgba(27, 27, 27, 0.897);
+        display: none;
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 4px 17px;
+            border-collapse: collapse;
+            border-radius: 10px;
+        }
+        .attack {
+            border-radius: 20px;
+            transition: 0.2s;
+            &:hover {
+                cursor: pointer;
+                background: linear-gradient(90deg, rgba(161, 185, 175, 0.945) 0%, rgba(205, 214, 166, 0.96) 93%);
+                transform: scale(1.05);
+            }
+        }
+    }
+
+}
+
+.attack-txt-container {
+    display: flex;
+    justify-content: center;
+    .attack-txt {
+        font-family: $font-arena;
+        font-weight: 100;
+        font-size: 1.8rem;
+        color: beige;
+        opacity: 0;
+        animation: attackTxt 0.1s ease-out forwards;
+    }
+}

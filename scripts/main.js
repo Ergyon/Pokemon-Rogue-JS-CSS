@@ -1,73 +1,102 @@
-import { allMoves } from "./moves.js";
 import { pokedex } from "./pokedex.js";
-import { Pokemon } from "./pokemon.js";
+// import { allMoves } from "./moves.js";
+// import { Pokemon } from "./pokemon.js";
 
-// Filtrer pokemons par rank
-function getPokemonRank(rank) {
-    return pokedex.filter(pokemon => pokemon.rank === rank)
-}
+// Generer pokemon random (pokedex, rank, autres)
+export function getRandomPokemon({rank = null, list = null} = {}) {
+    let source = []
 
-// Pokemon random dans un rank donné
-function randomPokemon(pokemonList) {
-    const index = Math.floor(Math.random() * pokemonList.length)
-    return pokemonList[index]
+    if (Array.isArray(list)) {
+        source = list
+    }
+    else if (rank !== null) {
+        source = pokedex.filter(pkmn => pkmn.rank === rank)
+    }
+    else {
+        source = pokedex
+    }
+
+    const index = Math.floor(Math.random() * source.length)
+    return source[index]
 }
 
 // Choisir son starter
-const pokeballs = document.querySelectorAll(".pokeball")
-const starterTextWrap = document.querySelector(".message-wrapper")
-let chosen = false
-
-pokeballs.forEach(pokeball => {
-    pokeball.addEventListener("click", () => {
-        if (chosen) return
-        const randomRank1 = randomPokemon(getPokemonRank(1))
-
-        pokeball.classList.remove("pokeball")
-        pokeball.classList.add("pokemon")
-        pokeball.src = randomRank1.img
-        pokeball.alt = randomRank1.name
-
-        const message = document.createElement("span")
-        message.classList.add("pokeball-message")
-        message.textContent = `Vous obtenez ${randomRank1.name}`
-        starterTextWrap.appendChild(message)
-
-        // Stocker le starter 
-        localStorage.setItem("starter", JSON.stringify(randomRank1))
-
-        pokeballs.forEach(otherBall => {
-            if (!otherBall.classList.contains("pokemon")) {
-                otherBall.classList.add("disabled")
-            }
+if (document.querySelector(".pokeball")) {
+    const pokeballs = document.querySelectorAll(".pokeball")
+    const starterTextWrap = document.querySelector(".message-wrapper")
+    let chosen = false
+    
+    pokeballs.forEach(pokeball => {
+        pokeball.addEventListener("click", () => {
+            if (chosen) return
+    
+            const pkmnStarter = getRandomPokemon({rank:1})
+    
+            pokeball.classList.remove("pokeball")
+            pokeball.classList.add("pokemon")
+            pokeball.src = pkmnStarter.img
+            pokeball.alt = pkmnStarter.name
+    
+            const message = document.createElement("span")
+            message.classList.add("pokeball-message")
+            message.textContent = `Vous obtenez ${pkmnStarter.name}`
+            starterTextWrap.appendChild(message)
+    
+            // Stocker le starter 
+            localStorage.setItem("starter", JSON.stringify(pkmnStarter))
+    
+            pokeballs.forEach(otherBall => {
+                if (!otherBall.classList.contains("pokemon")) {
+                    otherBall.classList.add("disabled")
+                }
+            })
+    
+            chosen = true
         })
-
-        chosen = true
     })
-})
+}
 
-// recuperer et reconstruire le starter stocke
-function loadStarter() {
-    const data = localStorage.getItem("starter")
-    if (!data) return null
+// Faire apparaitre les pokemons au combat
+export function displayPokemons(player, enemy){
+    const arena = document.getElementById("arena")
+    const cardPlayer = document.createElement("div")
+    const pkmnPlayerName = document.createElement("span")
+    const pkmnPlayerImg = document.createElement("img")
+    const pkmnPlayerPv = document.createElement("span")
 
-    const parsed = JSON.parse(data)
-    const moves = parsed.moves
-        .map(m => m.name)
-        .map(name => 
-            Object.values(allMoves).find(m => m.name === name)
-        )
-        .filter(Boolean)
 
-    return new Pokemon(
-        parsed.name,
-        parsed.type,
-        parsed.hp,
-        parsed.attack,
-        parsed.defense,
-        parsed.critical,
-        moves,
-        parsed.img,
-        parsed.rank
-    )
+    const cardEnemy = document.createElement("div")
+    const pkmnEnemyName = document.createElement("span")
+    const pkmnEnemyImg = document.createElement("img")
+    const pkmnEnemyPv = document.createElement("span")
+
+    pkmnPlayerName.textContent = player.name
+    pkmnPlayerPv.textContent = player.hp
+    pkmnPlayerImg.src = player.img
+    pkmnPlayerImg.alt = player.name
+
+    pkmnEnemyName.textContent = enemy.name
+    pkmnEnemyPv.textContent= enemy.hp 
+    pkmnEnemyImg.src = enemy.img
+    pkmnEnemyImg.alt = enemy.name
+
+    const battleTextWrapper = document.querySelector(".battle-txt-container")
+    const pokemonText = document.createElement("span")
+    pokemonText.textContent = `Un ${enemy.name} sauvage apparait`
+    pokemonText.classList.add("pokemon-txt")
+
+    cardPlayer.classList.add("arena__card", "player-appears")
+    pkmnPlayerName.classList.add("arena__card__name")
+    pkmnPlayerPv.classList.add("arena__card--pv")
+    pkmnPlayerImg.classList.add("arena__card__pkmn")
+    
+    cardEnemy.classList.add("arena__card", "enemy-appears")
+    pkmnEnemyName.classList.add("arena__card__name")
+    pkmnEnemyPv.classList.add("arena__card--pv")
+    pkmnEnemyImg.classList.add("arena__card__pkmn")
+
+    cardPlayer.append(pkmnPlayerName, pkmnPlayerImg, pkmnPlayerPv)
+    cardEnemy.append(pkmnEnemyName, pkmnEnemyImg, pkmnEnemyPv)
+    arena.append(cardPlayer, cardEnemy,)
+    battleTextWrapper.appendChild(pokemonText)
 }

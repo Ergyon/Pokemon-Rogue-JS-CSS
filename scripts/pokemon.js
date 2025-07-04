@@ -12,13 +12,21 @@ class Pokemon {
         this.rank = rank
     }
 
+    // Lancer un move
     doMove(move){
         let totalDamage = move.damage
 
-        // Calcul coup critique
-        const critRoll = Math.random() * 100
+        // attaque ratee
+        const precisRoll = Math.random() * 100
+        const miss = precisRoll > move.precision
+        if (miss) {
+            return 0
+        }
+
+        // coup critique
+        const critRoll = Math.random() * 100;
         const isCrit = critRoll < move.critical
-        if (isCrit) {
+        if (isCrit && !miss) {
             const critBonus = move.damage * this.critical
             totalDamage += critBonus
         }

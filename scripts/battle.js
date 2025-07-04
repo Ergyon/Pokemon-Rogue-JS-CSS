@@ -1,56 +1,47 @@
-// Pokemons battle
-const pokemons = document.querySelectorAll('.pkmnBattle')
-const menuAttack = document.querySelectorAll('.attack-menu')
+import { Pokemon } from "./pokemon.js";
+import { allMoves } from "./moves.js";
+import { getRandomPokemon, displayPokemons } from "./main.js";
 
 
-// Show only the selected pokemon's menu
-pokemons.forEach(pokemon => {
-    pokemon.addEventListener('click', () => {
-        document.querySelectorAll(".attack-menu").forEach(menu => {
-            menu.style.display = 'none'
-        })
-        
-        const menu = pokemon.parentElement.querySelector('.attack-menu')
-        
-        if (menu) {
-            menu.style.display = 'block'
-        }
-        
-        document.addEventListener('click', (event) => {
-            if (!menu.contains(event.target) && event.target !== pokemon) {
-                menu.style.display = 'none'
-            }
-        })
-    })
+document.addEventListener("DOMContentLoaded", () => {
+    initBattle()
 })
 
-// Color cells based on the type
-const typeColors = {
-    Feu: '#f1570fde',     
-    Eau: '#3b9cf1',     
-    Normal: '#e7eff0d7',  
-    Plante: '#7AC74C',
+// recuperer et reconstruire le starter stocke
+function loadStarter() {
+    const data = localStorage.getItem("starter")
+    if (!data) return null
+
+    const parsed = JSON.parse(data)
+
+    const moves = parsed.moves
+        .map(m => m?.name || m)
+        .map(name => Object.values(allMoves).find(m => m.name === name))
+        .filter(Boolean)
+
+    return new Pokemon(
+        parsed.name,
+        parsed.type,
+        parsed.hp,
+        parsed.attack,
+        parsed.defense,
+        parsed.critical,
+        moves,
+        parsed.img,
+        parsed.rank
+    )
 }
 
-document.querySelectorAll('.attack-menu tbody tr').forEach(row => {
-    const attackCell = row.querySelector('td.attack')
-    const typeCell = attackCell.nextElementSibling
-    const typeTxt = typeCell.textContent.trim()
 
-    if (typeColors[typeTxt]) {
-        const color = typeColors[typeTxt]
-        typeCell.style.background = color
-    }
-})
-
-
-function selectAttack(attackName) {
-    const attackTxtWrapper = document.querySelector('.attack-txt-container')
-    attackTxtWrapper.innerHTML = ''
+// Lancer combat
+function initBattle() {
+    const starter = loadStarter()
+    let enemy = getRandomPokemon({rank:1})
     
-    const attackTxt = document.createElement('span')
-    attackTxt.classList.add('attack-txt')
-    attackTxt.innerText = "Vous lancez l'attaque " + attackName
-    attackTxtWrapper.appendChild(attackTxt)
+    if (!starter || !enemy) {
+        window.alert("YA PAS DE POKEMOOOONS !!!")
+        return
+    }    
     
+    displayPokemons(starter, enemy)
 }

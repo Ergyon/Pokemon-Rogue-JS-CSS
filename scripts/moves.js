@@ -5,7 +5,6 @@ class Move {
         this.type = type 
         this.damage = damage
         this.precision = precision
-        // TODO creer fonction random pour coup critique
         this.criticChance = criticChance 
         this.img = img
     }
@@ -18,7 +17,7 @@ const viveAttaque = new Move("Vive-attaque", 'Normal', 20, 100, 20, '../img/move
 const pistoletAo = new Move("Pistolet à O",'Eau', 40, 85, 11, '../img/moves/water-1.png')
 const griffe = new Move('Griffe', 'Normal', 23, 95, 23, '../img/moves/')
 const grozyeux = new Move("Groz'Yeux", "Normal", 7, 80, 0, '../img/moves')
-const morsure = new Move('Morsure', 'Normal', 26, 90, 40, '../img/moves')
+const morsure = new Move('Morsure', 'Normal', 26, 90, 30, '../img/moves')
 const tranchherb = new Move("Tranch'Herb", 'Plante', 40, 85, 18, '../img/moves/leafs-2.png')
 const croissance = new Move('Croissance', 'Plante', 20, 99, 0, '../img/moves/')
 

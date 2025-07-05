@@ -1,7 +1,7 @@
 import { Pokemon } from "./pokemon.js";
 import { allMoves } from "./moves.js";
-import { getRandomPokemon, displayPokemons, displayMenuAttack, updateHp } from "./main.js";
-
+import { getRandomPokemon, displayPokemons, displayMenuAttack } from "./main.js";
+import { updateHp, showMessage } from "./main.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initBattle()
@@ -36,6 +36,7 @@ function loadStarter() {
 }
 
 
+
 // Lancer combat
 function initBattle() {
     pkmnPlayer = loadStarter()
@@ -54,29 +55,41 @@ function initBattle() {
     })
 }
 
+
+
 // Lancer l'attaque choisie + attaque de l'ennemie
 export function doAttack(move) {
     pkmnPlayer.doMove(move, pkmnEnemy)
-    updateHp(pkmnEnemy, 'enemy')
+    setTimeout(() => {
+        updateHp(pkmnEnemy, 'enemy')
+    }, 700);
+    showMessage(`${pkmnPlayer.name} lance ${move.name}`)
 
+    
     if (pkmnEnemy.isKO()) {
-        console.log(`${pkmnEnemy.name} est KO !`)
+        showMessage(`${pkmnEnemy.name} est KO...`)
         return
     }
 
     // si l'ennemie n'a plus de pp
     const PPmove = pkmnEnemy.moves.filter(move => move.pp > 0)
     if (PPmove. length === 0) {
-        console.log(`${pkmnEnemy.name} ne peut plus utiliser ${move.pp}`)
+        showMessage(`${pkmnEnemy.name} ne peut plus utiliser ${move.pp}`)
         return
     }
 
     // attaque de l'ennemi
-    const enemyMove = pkmnEnemy.moves[Math.floor(Math.random() * pkmnEnemy.moves.length)]
-    pkmnEnemy.doMove(enemyMove, pkmnPlayer)
-    updateHp(pkmnPlayer, 'player')
+    setTimeout(() => {
+        const enemyMove = pkmnEnemy.moves[Math.floor(Math.random() * pkmnEnemy.moves.length)]
+        pkmnEnemy.doMove(enemyMove, pkmnPlayer)
+        setTimeout(() => {
+            updateHp(pkmnPlayer, 'player')
+        }, 700);
+        showMessage(`${pkmnEnemy.name} lance ${enemyMove.name}`)
 
-    if (pkmnPlayer.isKO()) {
-        console.log(`${pkmnPlayer.name} est KO...`)
+        if (pkmnPlayer.isKO()) {
+        showMessage(`${pkmnPlayer.name} est KO...`)
+        return
     }
+    }, 2500)
 }

@@ -20,7 +20,7 @@ class Pokemon {
             console.log(`${this.name} ne peut plus utiliser ${move.name}...`)
             return 
         }
-
+        
         // attaque ratee
         const precisRoll = Math.random() * 100
         const miss = precisRoll > move.precision
@@ -28,24 +28,24 @@ class Pokemon {
             console.log(`${this.name} rate son attaque...`)
             return 
         }
-
+        
         // degats de base
         let damage = move.damage + this.attack - target.defense
         damage = Math.max(1, damage)
-
+        
         // coup critique
         const critRoll = Math.random() * 100;
-        const isCrit = critRoll < move.critical
+        const isCrit = critRoll < move.criticChance
         if (isCrit) {
             const critBonus = move.damage * this.critical
             damage += critBonus
+            console.log('Coup critique !')
         }
 
         // apllication des degats
         target.hp -= Math.floor(damage)
         move.pp--
-
-        console.log(`${this.name} lance ${move.name}`)
+        
     }
 
     // Etre KO

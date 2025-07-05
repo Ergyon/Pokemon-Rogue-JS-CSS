@@ -12,36 +12,36 @@ class Move {
     }
 }
 // NORMAL
-const charge = new Move('Charge','Normal', 18, 95, 19, 'img/moves/...png', 35)
-const rugissement = new Move('Rugissement', 'Normal', 0, 90, 0,  '../img/moves', 30)
-const viveAttaque = new Move("Vive-attaque", 'Normal', 20, 100, 20, '../img/moves', 30)
-const griffe = new Move('Griffe', 'Normal', 23, 95, 23, '../img/moves/', 30)
-const grozyeux = new Move("Groz'Yeux", "Normal", 0, 80, 0, '../img/moves', 25)
-const morsure = new Move('Morsure', 'Normal', 26, 90, 30, '../img/moves', 25)
-const croissance = new Move('Croissance', 'Plante', 0, 99, 0, '../img/moves/', 20)
+const charge = new Move('Charge','Normal', 18, 95, 19, 'img/moves/...png', 30)
+const rugissement = new Move('Rugissement', 'Normal', 0, 95, 0,  '../img/moves', 25)
+const viveAttaque = new Move("Vive-attaque", 'Normal', 20, 100, 20, '../img/moves', 25)
+const griffe = new Move('Griffe', 'Normal', 23, 95, 33, '../img/moves/', 25)
+const grozyeux = new Move("Groz'Yeux", "Normal", 0, 90, 0, '../img/moves', 20)
+const morsure = new Move('Morsure', 'Normal', 26, 90, 30, '../img/moves', 20)
+const croissance = new Move('Croissance', 'Normal', 0, 99, 0, '../img/moves/', 15)
 const armure = new Move('Armure', 'Normal', 0, 100, 0, 'img', 20)
 const berceuse = new Move('Berceuse', 'Normal', 0, 71, 0, 'img', 15)
-const coupdboule = new Move("Coup d'boule", 'Normal', 26, 89, 40, 'img', 30)
+const coupdboule = new Move("Coup d'boule", 'Normal', 26, 89, 40, 'img', 25)
 const brouillard = new Move('Brouillard', 'Normal', 0, 68, 0, 'img', 15)
 // FEU
-const flammeche = new Move('Flammèche', 'Feu', 40, 85, 10, '../img/moves/flame-1.png', 20)
+const flammeche = new Move('Flammèche', 'Feu', 35, 85, 13, '../img/moves/flame-1.png', 20)
 // EAU
-const pistoletAo = new Move("Pistolet à O",'Eau', 40, 85, 11, '../img/moves/water-1.png', 20)
+const pistoletAo = new Move("Pistolet à O",'Eau', 35, 85, 15, '../img/moves/water-1.png', 20)
 // PLANTE
-const tranchherb = new Move("Tranch'Herb", 'Plante', 40, 85, 18, '../img/moves/leafs-2.png', 20)
-const fouetliane = new Move("Fouet Lianes", 'Plante', 30, 95, 26, 'img', 25)
+const tranchherb = new Move("Tranch'Herb", 'Plante', 36, 85, 20, '../img/moves/leafs-2.png', 20)
+const fouetliane = new Move("Fouet Lianes", 'Plante', 25, 95, 26, 'img', 25)
 // FOUDRE
-const eclair = new Move('Eclair', 'Foudre', 40, 81, 16, 'img', 20)
+const eclair = new Move('Eclair', 'Foudre', 35, 81, 16, 'img', 20)
 // PSY
 const hypnose = new Move('Hypnose', 'Psy', 0, 70, 0, 'img', 15)
-const chocmental = new Move('Choc mental', 'Psy', 33, 88, 15, 'img', 25)
+const chocmental = new Move('Choc mental', 'Psy', 33, 88, 15, 'img', 20)
 // POISON
 const dardvenin = new Move('Dard-Venin', 'Poison', 23, 92, 37, 'img', 25)
-const detritus = new Move("Détritus", 'Poison', 28, 84, 23, 'img', 20)
+const detritus = new Move("Détritus", 'Poison', 28, 75, 45, 'img', 20)
 // VOL
-const tornade = new Move('Tornade', 'Vol', 38, 94, 14, 'img', 20)
+const tornade = new Move('Tornade', 'Vol', 34, 94, 14, 'img', 20)
 // ROCHE
-const jetpierre = new Move('Jet Pierres', 'Roche', 31, 97, 36, 'img', 30)
+const jetpierre = new Move('Jet Pierres', 'Roche', 31, 82, 36, 'img', 25)
 // COMBAT
 
 // DRAGON

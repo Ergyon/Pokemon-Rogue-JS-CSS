@@ -1,6 +1,7 @@
 import { pokedex } from "./pokedex.js";
 import { doAttack } from "./battle.js";
 
+
 // Generer pokemon random (pokedex, rank, autres)
 export function getRandomPokemon({rank = null, list = null} = {}) {
     let source = []
@@ -193,6 +194,7 @@ function attackColor(type) {
     }
 }
 
+// Animation barre de vie
 export function updateHp(pokemon, side) {
     const card = document.querySelector(`.${side}-appears`)
     const hpValue = card.querySelector('.hp-value')
@@ -210,4 +212,14 @@ export function updateHp(pokemon, side) {
     } else if (pourcentage < 40) {
         hpFill.classList.add('mid')
     }
+}
+
+// Bulle message combat
+export function showMessage(text) {
+    const TextWrapper = document.querySelector(".battle-txt-container")
+    TextWrapper.innerHTML = ''
+    const attackText = document.createElement('span')
+    attackText.classList.add('battle-txt')
+    attackText.textContent = text
+    TextWrapper.appendChild(attackText)
 }

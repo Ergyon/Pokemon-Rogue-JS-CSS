@@ -146,13 +146,20 @@
     display: flex;
     justify-content: center;
     margin-inline: auto;
-    .attack-txt {
-        font-family: $font-arena;
+    .battle-txt {
+        border: 1px solid rgba(54, 53, 50, 0.897);
+        border-radius: 6px;
+        background-color: rgb(236, 229, 216);
+        width: 25%;
+        height: auto;
+        text-align: center;
+        font-family: $pixel-font;
+        padding: 4px;
         font-weight: 100;
-        font-size: 1.8rem;
-        color: beige;
+        font-size: 1.3rem;
+        color: rgba(65, 65, 65, 0.87);
         opacity: 0;
-        animation: attackTxt 0.1s ease-out forwards;
+        animation: pokemonTxt 1.6s ease forwards;
     }
     .pokemon-txt {
         border: 1px solid rgba(54, 53, 50, 0.897);
@@ -165,7 +172,7 @@
         padding: 4px;
         font-weight: 100;
         font-size: 1.3rem;
-        color: rgba(65, 65, 65, 0.87);
+        color: rgba(14, 4, 102, 0.74);
         opacity: 0;
         animation: pokemonTxt 2.4s ease forwards 2.7s;
     }
@@ -187,7 +194,6 @@
     width: 100%;
     border: 1px solid black;
     border-radius: 15px;
-    // background: linear-gradient(90deg,rgba(80, 138, 84, 1) 0%, rgba(17, 214, 17, 1) 100%);
     background-color: #42e947; /* Vert */
     transition: width 0.5s ease;
 }

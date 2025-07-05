@@ -4,6 +4,7 @@ class Pokemon {
         this.name = name
         this.type = type 
         this.hp = hp
+        this.maxHP = hp
         this.attack = attack
         this.defense = defense 
         this.critical = critical
@@ -13,26 +14,45 @@ class Pokemon {
     }
 
     // Lancer un move
-    doMove(move){
-        let totalDamage = move.damage
+    doMove(move, target){
+        // Si pp restant
+        if (move.pp <= 0) {
+            console.log(`${this.name} ne peut plus utiliser ${move.name}...`)
+            return 
+        }
 
         // attaque ratee
         const precisRoll = Math.random() * 100
         const miss = precisRoll > move.precision
         if (miss) {
-            return 0
+            console.log(`${this.name} rate son attaque...`)
+            return 
         }
+
+        // degats de base
+        let damage = move.damage + this.attack - target.defense
+        damage = Math.max(1, damage)
 
         // coup critique
         const critRoll = Math.random() * 100;
         const isCrit = critRoll < move.critical
-        if (isCrit && !miss) {
+        if (isCrit) {
             const critBonus = move.damage * this.critical
-            totalDamage += critBonus
+            damage += critBonus
         }
 
-        return totalDamage
+        // apllication des degats
+        target.hp -= Math.floor(damage)
+        move.pp--
+
+        console.log(`${this.name} lance ${move.name}`)
     }
+
+    // Etre KO
+    isKO() {
+        return this.hp <= 0
+    }
+    
 }
 
 export { Pokemon }

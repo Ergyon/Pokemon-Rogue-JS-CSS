@@ -1,11 +1,14 @@
 import { Pokemon } from "./pokemon.js";
 import { allMoves } from "./moves.js";
-import { getRandomPokemon, displayPokemons } from "./main.js";
+import { getRandomPokemon, displayPokemons, displayMenuAttack, updateHp } from "./main.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
     initBattle()
 })
+
+let pkmnPlayer = null
+let pkmnEnemy = null
 
 // recuperer et reconstruire le starter stocke
 function loadStarter() {
@@ -35,13 +38,45 @@ function loadStarter() {
 
 // Lancer combat
 function initBattle() {
-    const starter = loadStarter()
-    let enemy = getRandomPokemon({rank:1})
+    pkmnPlayer = loadStarter()
+    pkmnEnemy = getRandomPokemon({rank:1})
     
-    if (!starter || !enemy) {
+    if (!pkmnPlayer || !pkmnEnemy) {
         window.alert("YA PAS DE POKEMOOOONS !!!")
         return
     }    
     
-    displayPokemons(starter, enemy)
+    displayPokemons(pkmnPlayer, pkmnEnemy)
+
+    const playerImg = document.querySelector('.player-appears .arena__card__pkmn')
+    playerImg.addEventListener("click", () => {
+        displayMenuAttack(pkmnPlayer, doAttack)
+    })
+}
+
+// Lancer l'attaque choisie + attaque de l'ennemie
+export function doAttack(move) {
+    pkmnPlayer.doMove(move, pkmnEnemy)
+    updateHp(pkmnEnemy, 'enemy')
+
+    if (pkmnEnemy.isKO()) {
+        console.log(`${pkmnEnemy.name} est KO !`)
+        return
+    }
+
+    // si l'ennemie n'a plus de pp
+    const PPmove = pkmnEnemy.moves.filter(move => move.pp > 0)
+    if (PPmove. length === 0) {
+        console.log(`${pkmnEnemy.name} ne peut plus utiliser ${move.pp}`)
+        return
+    }
+
+    // attaque de l'ennemi
+    const enemyMove = pkmnEnemy.moves[Math.floor(Math.random() * pkmnEnemy.moves.length)]
+    pkmnEnemy.doMove(enemyMove, pkmnPlayer)
+    updateHp(pkmnPlayer, 'player')
+
+    if (pkmnPlayer.isKO()) {
+        console.log(`${pkmnPlayer.name} est KO...`)
+    }
 }

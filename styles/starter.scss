@@ -19,7 +19,7 @@
         padding-bottom: 2rem;
         transform: translateX(-100%);
         transform-origin: center;
-        animation: slideIn 1.5s 0.3s cubic-bezier(.82,-0.2,.24,.96) forwards;
+        animation: slideInLeft 1.5s 0.3s cubic-bezier(.82,-0.2,.24,.96) forwards;
     }
     &__subtitle {
         font-family: $pixel-font-large;

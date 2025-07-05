@@ -1,5 +1,9 @@
 @use 'global'as *;
 
+.hidden {
+    display: none;
+}
+
 // Pokemon battle arena
 .battlefield {
     position: relative;
@@ -78,23 +82,6 @@
             position: relative;
             margin-bottom: 3rem;
         }
-        &--pv {
-            position: absolute;
-            bottom: 0;
-            left: 50;
-            font-family: $font-arena;
-            color: rgb(225, 241, 199);
-            border: 1px solid white;
-            border-radius: 15px;
-            background: linear-gradient(90deg,rgba(80, 138, 84, 1) 0%, rgba(17, 214, 17, 1) 100%);
-            font-size: 0.9rem;
-            font-weight: 400;
-            width: 7rem;
-            height: 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
     }
     .player-appears {
         transform: translateX(-2000px);
@@ -106,35 +93,47 @@
         animation: slideInRight 1.5s 1.6s ease-in-out forwards;
     }
 
+
+
     // Attack menu
     .attack-menu {
         position: absolute;
-        bottom: 7.5rem;
-        left: 7.5rem;
+        bottom: 18%;
+        left: 30%;
         background: linear-gradient(90deg, rgba(207, 221, 215, 0.945) 0%, rgba(227, 235, 190, 0.96) 93%);
         border: 2px solid #ffffff;
         padding: 0.8rem;
         border-radius: 10px;
         box-shadow: $boxshadow;
+        font-family: $pixel-font-large;
         z-index: 10;
-        font-family: $font-arena;
-        font-size: 0.8rem;
-        color: rgba(27, 27, 27, 0.897);
-        display: none;
         table {
             border-collapse: collapse;
+            width: 240px;
+            font-size: 1.2rem;
+            color: rgb(61, 61, 61);
         }
-        th, td {
-            padding: 4px 17px;
-            border-collapse: collapse;
+        th {
+            color: rgba(27, 27, 27, 0.897);
+            font-family: $pixel-font;
             border-radius: 10px;
+            padding-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        td {
+            padding-block: 0.3rem;
+            padding-inline: 8px;
+        }
+        .pp {
+            text-align: center;
+            font-size: 1rem;
+            color: rgb(90, 89, 89);
         }
         .attack {
             border-radius: 20px;
             transition: 0.2s;
             &:hover {
                 cursor: pointer;
-                background: linear-gradient(90deg, rgba(161, 185, 175, 0.945) 0%, rgba(205, 214, 166, 0.96) 93%);
                 transform: scale(1.05);
             }
         }
@@ -142,6 +141,7 @@
 
 }
 
+// Bulle de message
 .battle-txt-container {
     display: flex;
     justify-content: center;
@@ -169,4 +169,96 @@
         opacity: 0;
         animation: pokemonTxt 2.4s ease forwards 2.7s;
     }
+}
+
+
+// Barre de vie
+.hp-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #fffcfc34;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.hp-fill {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 15px;
+    // background: linear-gradient(90deg,rgba(80, 138, 84, 1) 0%, rgba(17, 214, 17, 1) 100%);
+    background-color: #42e947; /* Vert */
+    transition: width 0.5s ease;
+}
+
+.hp-fill.mid {
+    background-color: orange !important;
+}
+
+.hp-fill.low {
+    background-color: red !important;
+}
+
+.hp-value {
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 4px;
+    font-family: $font-arena;
+    color: rgb(233, 245, 214);
+    font-size: 0.9rem;
+    font-weight: 400;
+    background-color: rgba(48, 47, 47, 0.384);
+    border-radius: 15px;
+    padding: 2px;
+}
+
+
+
+
+
+
+// Couleurs types attaques menu
+.type-Feu:hover {
+    background-color: rgba(226, 14, 14, 0.76);
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Eau:hover {
+    background-color: rgba(69, 122, 238, 0.863);
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Plante:hover {
+    background-color: rgba(137, 216, 18, 0.911);
+}
+.type-Foudre:hover {
+    background-color: rgb(238, 238, 0);
+}
+.type-Psy:hover {
+    background-color: rgba(192, 75, 192, 0.87);
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Poison:hover {
+    background-color: rgba(95, 10, 77, 0.877);
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Vol:hover {
+    background-color: rgb(161, 197, 191);
+}
+.type-Roche:hover {
+    background-color: rgba(105, 105, 105, 0.836);
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Combat:hover {
+    background-color: rgba(134, 71, 12, 0.753);
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Sol:hover {
+    background-color: rgb(160, 141, 58);
+}
+.type-Dragon:hover{
+    background-color: rgb(43, 29, 36);
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Normal:hover {
+    background: linear-gradient(90deg, rgba(161, 185, 175, 0.945) 0%, rgba(205, 214, 166, 0.96) 93%);
 }

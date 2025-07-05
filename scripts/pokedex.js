@@ -177,7 +177,7 @@ const racaillou = new Pokemon(
     13,
     16,
     0.62,
-    [allMoves.charge, allMoves.armure, allMoves.jetpierre, allMoves.croissance],
+    [allMoves.charge, allMoves.armure, allMoves.jetpierre, allMoves.coupdboule],
     '/img/pokemons/racaillou.png',
     1
 )

@@ -1,7 +1,7 @@
-import { Pokemon } from "./pokemon.js";
+import { getRandomPokemon } from "./main.js";
 import { allMoves } from "./moves.js";
-import { getRandomPokemon, displayPokemons, displayMenuAttack } from "./main.js";
-import { updateHp, showMessage } from "./main.js";
+import { Pokemon } from "./pokemon.js";
+import { displayPokemons, showMessage, updateHp } from "./ui.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initBattle()
@@ -47,49 +47,48 @@ function initBattle() {
         return
     }    
     
-    displayPokemons(pkmnPlayer, pkmnEnemy)
+    displayPokemons(pkmnPlayer, pkmnEnemy, doAttack)
 
-    const playerImg = document.querySelector('.player-appears .arena__card__pkmn')
-    playerImg.addEventListener("click", () => {
-        displayMenuAttack(pkmnPlayer, doAttack)
-    })
 }
 
 
 
 // Lancer l'attaque choisie + attaque de l'ennemie
 export function doAttack(move) {
-    pkmnPlayer.doMove(move, pkmnEnemy)
+    const playerMessages = pkmnPlayer.doMove(move, pkmnEnemy).split('\n')    
+    playerMessages.forEach((msg, i) => {
+        setTimeout(() => {
+            showMessage(msg)
+        }, i * 1200)
+    })
+
+
     setTimeout(() => {
         updateHp(pkmnEnemy, 'enemy')
-    }, 700);
-    showMessage(`${pkmnPlayer.name} lance ${move.name}`)
+    }, playerMessages.length * 800);
 
+    if (pkmnEnemy.isKO()) return
     
-    if (pkmnEnemy.isKO()) {
-        showMessage(`${pkmnEnemy.name} est KO...`)
-        return
-    }
-
-    // si l'ennemie n'a plus de pp
-    const PPmove = pkmnEnemy.moves.filter(move => move.pp > 0)
-    if (PPmove. length === 0) {
-        showMessage(`${pkmnEnemy.name} ne peut plus utiliser ${move.pp}`)
-        return
-    }
-
     // attaque de l'ennemi
     setTimeout(() => {
+        const PPmove = pkmnEnemy.moves.filter(move => move.pp > 0)
+        if (PPmove. length === 0) {
+            showMessage(`${pkmnEnemy.name} ne peut plus utiliser ${move.pp}`)
+            return
+        }
         const enemyMove = pkmnEnemy.moves[Math.floor(Math.random() * pkmnEnemy.moves.length)]
-        pkmnEnemy.doMove(enemyMove, pkmnPlayer)
+        const enemyMessages = pkmnEnemy.doMove(enemyMove, pkmnPlayer).split('\n')
+
+        enemyMessages.forEach((msg, i) => {
+            setTimeout(() => {
+                showMessage(msg)
+            }, i * 1200);
+        })
         setTimeout(() => {
             updateHp(pkmnPlayer, 'player')
-        }, 700);
-        showMessage(`${pkmnEnemy.name} lance ${enemyMove.name}`)
+        }, enemyMessages.length * 800);
 
-        if (pkmnPlayer.isKO()) {
-        showMessage(`${pkmnPlayer.name} est KO...`)
-        return
-    }
-    }, 2500)
+    }, playerMessages.length * 1000 + 1000);
 }
+
+ 

@@ -1,3 +1,4 @@
+
 // Pokemon
 class Pokemon {
     constructor(name, type, hp, attack, defense, critical, moves = [], img = '', rank) {
@@ -15,23 +16,25 @@ class Pokemon {
 
     // Lancer un move
     doMove(move, target){
+        let messages = []
         // Si pp restant
         if (move.pp <= 0) {
-            console.log(`${this.name} ne peut plus utiliser ${move.name}...`)
+            messages.push(`${this.name} ne peut plus utiliser ${move.name}...`)
             return 
         }
+        
+        // attaque de base
+        messages.push(`${this.name} utilise ${move.name}`)
+        let damage = move.damage + this.attack - target.defense
+        damage = Math.max(1, damage)
         
         // attaque ratee
         const precisRoll = Math.random() * 100
         const miss = precisRoll > move.precision
         if (miss) {
-            console.log(`${this.name} rate son attaque...`)
-            return 
+            messages.push(`${this.name} rate son attaque...`)
+            return messages.join('\n')
         }
-        
-        // degats de base
-        let damage = move.damage + this.attack - target.defense
-        damage = Math.max(1, damage)
         
         // coup critique
         const critRoll = Math.random() * 100;
@@ -39,13 +42,18 @@ class Pokemon {
         if (isCrit) {
             const critBonus = move.damage * this.critical
             damage += critBonus
-            console.log('Coup critique !')
+            messages.push('Coup critique !')
         }
 
         // apllication des degats
         target.hp -= Math.floor(damage)
         move.pp--
         
+        if (target.hp <= 0) {
+            messages.push(`${target.name} est KO...`)
+        }
+
+        return messages.join('\n')
     }
 
     // Etre KO
@@ -56,3 +64,4 @@ class Pokemon {
 }
 
 export { Pokemon }
+

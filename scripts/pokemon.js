@@ -1,3 +1,4 @@
+import { typeAdvantage } from "./types.js"
 
 // Pokemon
 class Pokemon {
@@ -20,13 +21,15 @@ class Pokemon {
         // Si pp restant
         if (move.pp <= 0) {
             messages.push(`${this.name} ne peut plus utiliser ${move.name}...`)
-            return 
+            return messages.join('\n')
         }
         
         // attaque de base
         messages.push(`${this.name} utilise ${move.name}`)
         let damage = move.damage + this.attack - target.defense
-        damage = Math.max(1, damage)
+        const damageBonus = typeAdvantage(move.type, target.type)
+        const totalDamage = Math.max(0, damage * damageBonus)
+        
         
         // attaque ratee
         const precisRoll = Math.random() * 100
@@ -35,7 +38,13 @@ class Pokemon {
             messages.push(`${this.name} rate son attaque...`)
             return messages.join('\n')
         }
-        
+
+        if (damageBonus > 1) {
+            messages.push("C'est super efficace !")
+        } else if (damageBonus < 1)  {
+            messages.push("Ce n'est pas très efficace...")
+        }
+
         // coup critique
         const critRoll = Math.random() * 100;
         const isCrit = critRoll < move.criticChance
@@ -46,13 +55,12 @@ class Pokemon {
         }
 
         // apllication des degats
-        target.hp -= Math.floor(damage)
+        target.hp -= Math.floor(totalDamage)
         move.pp--
         
         if (target.hp <= 0) {
-            messages.push(`${target.name} est KO...`)
-        }
-
+        messages.push(`${target.name} est KO...`)
+    }
         return messages.join('\n')
     }
 

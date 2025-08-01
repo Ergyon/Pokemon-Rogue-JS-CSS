@@ -1,10 +1,12 @@
 import { allMoves } from "./moves.js"
-import { Pokemon  } from "./pokemon.js"
+import { Pokemon } from "./pokemon.js"
+import { TYPES } from "./types.js"
+
 
 // Rank I
 const hericendre = new Pokemon(
     'Héricendre',
-    'Feu',
+    TYPES.FEU,
     120,
     18,
     14,
@@ -14,9 +16,10 @@ const hericendre = new Pokemon(
     1
 )
 
+
 const kaiminus = new Pokemon(
     'Kaiminus',
-    'Eau',
+    TYPES.EAU,
     122,
     15,
     14,
@@ -28,7 +31,7 @@ const kaiminus = new Pokemon(
 
 const germignon = new Pokemon(
     'Germignon',
-    'Plante',
+    TYPES.PLANTE,
     130,
     13,
     18,
@@ -40,7 +43,7 @@ const germignon = new Pokemon(
 
 const bulbizare = new Pokemon(
     'Bulbizare',
-    'Plante',
+    TYPES.PLANTE,
     133,
     14,
     19,
@@ -52,7 +55,7 @@ const bulbizare = new Pokemon(
 
 const canartichot = new Pokemon(
     'Canartichot',
-    'Normal',
+    TYPES.NORMAL,
     114,
     13,
     10,
@@ -64,7 +67,7 @@ const canartichot = new Pokemon(
 
 const carapuce = new Pokemon(
     'Carapuce',
-    'Eau',
+    TYPES.EAU,
     123,
     16,
     13,
@@ -76,8 +79,8 @@ const carapuce = new Pokemon(
 
 const evoli = new Pokemon(
     'Evoli',
-    'Normal',
-    '117',
+    TYPES.NORMAL,
+    117,
     13,
     15,
     1,
@@ -88,8 +91,8 @@ const evoli = new Pokemon(
 
 const fantominus = new Pokemon(
     'Fantominus',
-    'Psy',
-    '117',
+    TYPES.PSY,
+    117,
     13,
     16,
     0.8,
@@ -100,7 +103,7 @@ const fantominus = new Pokemon(
 
 const goupix = new Pokemon(
     'Goupix',
-    'Feu',
+    TYPES.FEU,
     120,
     15,
     12,
@@ -112,7 +115,7 @@ const goupix = new Pokemon(
 
 const miaous = new Pokemon(
     'Miaous',
-    'Normal',
+    TYPES.NORMAL,
     116,
     14,
     14,
@@ -124,8 +127,8 @@ const miaous = new Pokemon(
 
 const nidoran = new Pokemon(
     'Nidoran',
-    'Poison',
-    '124',
+    TYPES.POISON,
+    124,
     13,
     11,
     0.7,
@@ -136,8 +139,8 @@ const nidoran = new Pokemon(
 
 const pikachu = new Pokemon(
     'Pikachu',
-    'Foudre',
-    '119',
+    TYPES.FOUDRE,
+    119,
     17,
     13,
     0.78,
@@ -148,7 +151,7 @@ const pikachu = new Pokemon(
 
 const poissirene = new Pokemon(
     'Possirène',
-    'Eau',
+    TYPES.EAU,
     114,
     13,
     17,
@@ -160,7 +163,7 @@ const poissirene = new Pokemon(
 
 const ponyta = new Pokemon(
     'Ponyta',
-    'Feu',
+    TYPES.FEU,
     120,
     16,
     11,
@@ -172,7 +175,7 @@ const ponyta = new Pokemon(
 
 const racaillou = new Pokemon(
     'Racaillou',
-    'Roche',
+    TYPES.ROCHE,
     118,
     13,
     16,
@@ -184,8 +187,8 @@ const racaillou = new Pokemon(
 
 const rondoudou = new Pokemon(
     'Rondoudou',
-    'Normal',
-    '128',
+    TYPES.NORMAL,
+    128,
     12,
     17,
     0.54,
@@ -196,7 +199,7 @@ const rondoudou = new Pokemon(
 
 const roucool = new Pokemon(
     'Roucool',
-    'Vol',
+    TYPES.VOL,
     115,
     14,
     14,
@@ -206,9 +209,9 @@ const roucool = new Pokemon(
     1
 )
 
-const salameche= new Pokemon(
+const salameche = new Pokemon(
     'Salamèche',
-    'Feu',
+    TYPES.FEU,
     121,
     17,
     14,
@@ -220,7 +223,7 @@ const salameche= new Pokemon(
 
 const smogo = new Pokemon(
     'Smogo',
-    'Posion',
+    TYPES.POISON,
     124,
     12,
     16,
@@ -232,7 +235,7 @@ const smogo = new Pokemon(
 
 const voltorbe = new Pokemon(
     'Voltorbe',
-    'Foudre',
+    TYPES.FOUDRE,
     116,
     12,
     14,
@@ -244,7 +247,7 @@ const voltorbe = new Pokemon(
 
 const watwat = new Pokemon(
     'Watwat',
-    'Foudre',
+    TYPES.FOUDRE,
     119,
     13,
     13,
@@ -254,11 +257,9 @@ const watwat = new Pokemon(
     1
 )
 
-
-// Rank II
 const aquali = new Pokemon(
     'Aquali',
-    'Eau',
+    TYPES.EAU,
     165,
     25,
     25,
@@ -270,7 +271,7 @@ const aquali = new Pokemon(
 
 const carabaffe = new Pokemon(
     'Carabaffe',
-    'Eau',
+    TYPES.EAU,
     162,
     27,
     22,
@@ -282,7 +283,7 @@ const carabaffe = new Pokemon(
 
 const colossinge = new Pokemon(
     'Colossinge',
-    'Combat',
+    TYPES.COMBAT,
     151,
     25,
     20,
@@ -294,7 +295,7 @@ const colossinge = new Pokemon(
 
 const dardargnan = new Pokemon(
     'Dardargnan',
-    'Plante',
+    TYPES.PLANTE,
     160,
     29,
     23,
@@ -306,7 +307,7 @@ const dardargnan = new Pokemon(
 
 const dodrio = new Pokemon(
     'Dodrio',
-    'Vol',
+    TYPES.VOL,
     153,
     20,
     24,
@@ -318,7 +319,7 @@ const dodrio = new Pokemon(
 
 const draco = new Pokemon(
     'Draco',
-    'Dragon',
+    TYPES.DRAGON,
     169,
     24,
     27,
@@ -330,7 +331,7 @@ const draco = new Pokemon(
 
 const electrode = new Pokemon(
     'Electrode',
-    'Foudre',
+    TYPES.FOUDRE,
     170,
     27,
     22,
@@ -342,7 +343,7 @@ const electrode = new Pokemon(
 
 const elektek = new Pokemon(
     'Elektek',
-    'Foudre',
+    TYPES.FOUDRE,
     145,
     21,
     21,
@@ -354,7 +355,7 @@ const elektek = new Pokemon(
 
 const feunard = new Pokemon(
     'Feunard',
-    'Feu',
+    TYPES.FEU,
     156,
     28,
     19,
@@ -366,7 +367,7 @@ const feunard = new Pokemon(
 
 const feurisson = new Pokemon(
     'Feurisson',
-    'Feu',
+    TYPES.FEU,
     167,
     30,
     26,
@@ -378,7 +379,7 @@ const feurisson = new Pokemon(
 
 const flagadoss = new Pokemon(
     'Flagadoss',
-    'Eau',
+    TYPES.EAU,
     158,
     20,
     30,
@@ -390,7 +391,7 @@ const flagadoss = new Pokemon(
 
 const gravalanch = new Pokemon(
     'Gravalanch',
-    'Roche',
+    TYPES.ROCHE,
     171,
     23,
     22,
@@ -400,11 +401,9 @@ const gravalanch = new Pokemon(
     2
 )
 
-
-
 const ratatac = new Pokemon(
     'Ratata',
-    'Normal',
+    TYPES.NORMAL,
     150,
     30,
     23,
@@ -424,3 +423,4 @@ const pokedex = [
 ]
 
 export { pokedex }
+

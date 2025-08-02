@@ -35,8 +35,6 @@ function loadStarter() {
     )
 }
 
-
-
 // Lancer combat
 function initBattle() {
     pkmnPlayer = loadStarter()
@@ -48,10 +46,7 @@ function initBattle() {
     }    
     
     displayPokemons(pkmnPlayer, pkmnEnemy, doAttack)
-
 }
-
-
 
 // Lancer l'attaque choisie + attaque de l'ennemie
 export function doAttack(move) {
@@ -61,7 +56,6 @@ export function doAttack(move) {
             showMessage(msg)
         }, i * 1200)
     })
-
 
     setTimeout(() => {
         updateHp(pkmnEnemy, 'enemy')
@@ -91,4 +85,3 @@ export function doAttack(move) {
     }, playerMessages.length * 1000 + 1000);
 }
 
- 

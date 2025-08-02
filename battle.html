@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/battle.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/styles/css/battlefield.css" />
     <title>Battle</title>
-</head>
-<body>
-        <div class="battlefield">
-        <h2 class="battlefield__title">COMBATTEZ</h2>
-        <img src="img/birds-group.png" alt="" class="birds">
-        <img src="img/bird.png" alt="" class="bird">
-        
-        <div class="battle-txt-container"></div>   
-        <div id="arena" class="arena">
-            <div id="attackMenu" class="attack-menu hidden"></div>
+  </head>
+  <body>
+    <div class="battlefield">
+      <h2 class="battlefield__title">COMBATTEZ</h2>
+      <img
+        src="assets/img/scenes/birds-group.png"
+        alt="des oiseaux"
+        class="birds"
+      />
+      <img src="assets/img/scenes/bird.png" alt="un oiseau" class="bird" />
 
-        </div>
+      <div class="battle-txt-container"></div>
+      <div id="arena" class="arena">
+        <div id="attackMenu" class="attack-menu hidden"></div>
+      </div>
     </div>
 
-    <script type="module" src="./scripts/battle.js"></script>
-</body>
+    <script type="module" src="/scripts/game/battle.js"></script>
+  </body>
 </html>

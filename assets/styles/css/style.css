@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap");
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.battle-txt-container {
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+}
+.battle-txt-container .battle-txt {
+  border: 1px solid rgba(54, 53, 50, 0.897);
+  border-radius: 6px;
+  background-color: rgb(236, 229, 216);
+  width: 25%;
+  height: auto;
+  text-align: center;
+  font-family: "Pixelify Sans", "Jost";
+  padding: 4px;
+  font-weight: 100;
+  font-size: 1.3rem;
+  color: rgba(65, 65, 65, 0.87);
+  opacity: 0;
+  animation: messageBubble 2s ease forwards;
+}
+.battle-txt-container .pokemon-txt {
+  border: 1px solid rgba(54, 53, 50, 0.897);
+  border-radius: 6px;
+  background-color: rgb(235, 221, 196);
+  width: 30%;
+  height: auto;
+  text-align: center;
+  font-family: "Pixelify Sans", "Jost";
+  padding: 4px;
+  font-weight: 100;
+  font-size: 1.3rem;
+  color: rgba(14, 4, 102, 0.74);
+  opacity: 0;
+  animation: messageBubble 2.4s ease forwards 2.7s;
+}/*# sourceMappingURL=style.css.map */

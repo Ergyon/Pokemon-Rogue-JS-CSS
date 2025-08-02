@@ -1,0 +1,233 @@
+@use 'global'as *;
+@use 'style' as *;
+@use 'animations' as*;
+
+.hidden {
+    display: none;
+}
+
+// Pokemon battle arena
+.battlefield {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    &::before {
+        background-image: url(../../img/scenes/battlefield_grass.jpg);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+        opacity: 0.8;
+    }
+    &__title {
+        font-family: $pixel-font-large, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 7rem;
+        font-weight: 700;
+        color: beige;
+        text-align: center;
+        margin-bottom: 1rem;
+        margin-top: 3rem;
+        animation: battleTitle 3s 0.2s linear infinite alternate-reverse;
+    }
+    // Birds decoration
+    .birds {
+        width: 4rem;
+        height: 3rem;
+        transform: translateX(-100px);
+        animation: leftToRight 20s linear infinite;
+        margin-top: 0.5rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.7;
+    }
+    .bird {
+        width: 1rem;
+        height: auto;
+        display: block;
+        transform: translateX(2000px);
+        animation: rightToLeft 15s 2s linear infinite;
+        margin-bottom: 5rem;
+    }
+}
+
+// Battle zone
+.arena {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-inline: 22%;
+    height: 63vh;
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        margin-bottom: 5.2rem;
+        &__name {
+            display: block;
+            margin: 0;
+            padding-bottom: 2rem;
+            font-family: $font-arena;
+            font-size: 1.2rem;
+            color: beige;
+        }
+        &__pkmn {
+            width: 14rem;
+            height: 15rem;
+            object-fit: contain;
+            animation: breathing 2s 0.5s linear infinite alternate-reverse;
+            cursor: pointer;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+    }
+    .player-appears {
+        transform: translateX(-2000px);
+        animation: playerAppears 1.3s 0.8s ease-out forwards;
+
+    }
+    .enemy-appears {
+        transform: translateX(2000px);
+        animation: enemyAppears 1.5s 1.6s ease-in-out forwards;
+    }
+
+    // Attack menu
+    .attack-menu {
+        position: absolute;
+        bottom: 18%;
+        left: 30%;
+        background: $colorNormal;
+        border: 2px solid #ffffff;
+        padding: 0.8rem;
+        border-radius: 10px;
+        box-shadow: 15px 45px 73px -26px rgba(71, 70, 70, 0.836);
+        font-family: $pixel-font-large;
+        z-index: 10;
+        table {
+            border-collapse: collapse;
+            width: 240px;
+            font-size: 1.2rem;
+            color: rgb(61, 61, 61);
+        }
+        th {
+            color: rgba(27, 27, 27, 0.897);
+            font-family: $pixel-font;
+            border-radius: 10px;
+            padding-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        td {
+            padding-block: 0.3rem;
+            padding-inline: 8px;
+        }
+        .pp {
+            text-align: center;
+            font-size: 1rem;
+            color: rgb(90, 89, 89);
+        }
+        .attack {
+            border-radius: 20px;
+            transition: 0.2s;
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+            }
+        }
+    }
+
+}
+
+// Barre de vie
+.hp-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #fffcfc34;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+.hp-fill {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: $colorHp;
+    transition: width 0.5s ease;
+}
+.hp-fill.mid {
+    background-color: $colorHp-mid !important;
+}
+.hp-fill.low {
+    background-color: $colorHp-low !important;
+}
+.hp-value {
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 4px;
+    font-family: $font-arena;
+    color: rgb(233, 245, 214);
+    font-size: 0.9rem;
+    font-weight: 400;
+    background-color: rgba(48, 47, 47, 0.384);
+    border-radius: 15px;
+    padding: 2px;
+}
+
+// Couleurs types attaques
+.type-Feu:hover {
+    background-color: $colorFeu;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Eau:hover {
+    background-color: $colorEau;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Plante:hover {
+    background-color: $colorplante;
+}
+.type-Foudre:hover {
+    background-color: $colorFoudre;
+}
+.type-Psy:hover {
+    background-color: $colorPsy;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Poison:hover {
+    background-color: $colorPoison;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Vol:hover {
+    background-color: $colorVol;
+}
+.type-Roche:hover {
+    background-color: $colorRoche;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Combat:hover {
+    background-color: $colorCombat;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Sol:hover {
+    background-color: $colorSol;
+}
+.type-Dragon:hover{
+    background-color: $colorDragon;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Tenebres:hover {
+    background-color: $colorTenebres;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Spectre:hover {
+    background-color: $colorSpectre;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Normal:hover {
+    background: $colorNormal;
+}
+

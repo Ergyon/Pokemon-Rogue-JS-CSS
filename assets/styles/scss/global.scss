@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap');
+
+// Fonts
+$font-family-pkmn: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$pixel-font: 'Pixelify Sans', 'Jost';
+$pixel-font-large: 'Jersey 20', 'Jost';
+$font-arena: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+// Colors 
+    // Types 
+$colorFeu: rgba(226, 14, 14, 0.76);
+$colorEau: rgba(69, 122, 238, 0.863);
+$colorplante: rgba(137, 216, 18, 0.911);
+$colorFoudre: rgb(238, 238, 0);
+$colorPsy: rgba(192, 75, 192, 0.87);
+$colorPoison: rgba(95, 10, 77, 0.877);
+$colorVol: rgb(161, 197, 191);
+$colorRoche: rgba(105, 105, 105, 0.836);
+$colorCombat: rgba(134, 71, 12, 0.753);
+$colorSol: rgb(160, 141, 58);
+$colorDragon: rgb(56, 35, 46);
+$colorTenebres: rgba(29, 29, 29, 0.89);
+$colorSpectre: rgba(141, 117, 156, 0.89);
+$colorNormal: linear-gradient(90deg, rgba(161, 185, 175, 0.945) 0%, rgba(205, 214, 166, 0.96) 93%);
+
+    // Hp 
+$colorHp: #42e947;
+$colorHp-mid: orange;
+$colorHp-low: red;

@@ -150,19 +150,21 @@ export function updateHp(pokemon, side) {
 }
 
 // colorer les attaques dans le menu en fonction du type
-export function attackColor(type) {
+function attackColor(typeObj) {
+    const type = typeObj.name
     switch(type) {
-        case 'Feu': return 'type-Feu'
-        case 'Eau': return 'type-Eau'
-        case 'Plante': return 'type-Plante'
-        case 'Foudre': return 'type-Foudre'
-        case 'Psy': return 'type-Psy'
-        case 'Poison': return 'type-Poison'
-        case 'Vol': return 'type-Vol'
-        case 'Roche': return 'type-Roche'
-        case 'Combat': return 'type-Combat'
-        case 'Sol': return 'type-Sol'
-        case 'Dragon': return 'type-Dragon'
+        case 'FEU': return 'type-Feu'
+        case 'EAU': return 'type-Eau'
+        case 'PLANTE': return 'type-Plante'
+        case 'FOUDRE': return 'type-Foudre'
+        case 'PSY': return 'type-Psy'
+        case 'POISON': return 'type-Poison'
+        case 'VOL': return 'type-Vol'
+        case 'ROCHE': return 'type-Roche'
+        case 'COMBAT': return 'type-Combat'
+        case 'SOL': return 'type-Sol'
+        case 'DRAGON': return 'type-Dragon'
+        case 'TENEBRES': return 'type-Tenebres'
         default : return 'type-Normal'
     }
 }

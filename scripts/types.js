@@ -11,7 +11,7 @@ export const TYPES = {
     SOL: {name: "SOL" },
     POISON: {name: "POISON" },
     TENEBRES: {name: "TENEBRES"},
-    DRAGON: {name: "DRAGON"},
+    DRAGON: {name: "DRAGON"}
 }
 
 const weaknesses = {
@@ -25,7 +25,7 @@ const weaknesses = {
     COMBAT: ["VOL", "PSY"],
     SOL: ["PLANTE", "EAU"],
     POISON: ["PSY", "SOL"],
-    TENEBRES: ["COMBAT",],
+    TENEBRES: ["COMBAT"],
     DRAGON: ["DRAGON"]
 }
 
@@ -34,10 +34,6 @@ export function typeAdvantage(attType, defType) {
     if (weaknesses[defType.name]?.includes(attType.name)) {
         const weaknessBonus = Math.random() * (2.2 - 1.3) + 1.3
         return weaknessBonus
-    }
-
-    if (attType.name === defType.name) {
-        return 0.5
     }
     return 1
 }

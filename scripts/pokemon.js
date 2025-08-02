@@ -2,7 +2,20 @@ import { typeAdvantage } from "./types.js"
 
 // Pokemon
 class Pokemon {
-    constructor(name, type, hp, attack, defense, critical, moves = [], img = '', rank, status, statusDuration=0) {
+    constructor(
+        name,
+        type, 
+        hp, 
+        attack, 
+        defense, 
+        critical, 
+        moves = [], 
+        img = '', 
+        rank, 
+        status, 
+        statusDuration = 0,
+        poisonDamage = 0
+    ) {
         this.name = name
         this.type = type 
         this.hp = hp
@@ -14,7 +27,8 @@ class Pokemon {
         this.img = img 
         this.rank = rank
         this.status = status
-        this.statusDuration = 0
+        this.statusDuration = statusDuration
+        this.poisonDamage = poisonDamage
     }
 
     // Lancer un move
@@ -22,12 +36,8 @@ class Pokemon {
         let messages = []
 
         // check status
-        if (this.status === 'sleep') {
-            messages.push(`${this.name} dort encore...`)
-            this.applyStatusEffect(messages)
-            return messages.join('\n')
-        }
         this.applyStatusEffect(messages)
+        if (this.status === 'sleep') return messages.join('\n')
 
         // Si pp restant
         if (move.pp <= 0) {
@@ -71,10 +81,14 @@ class Pokemon {
             
             if (target.hp <= 0) {
             messages.push(`${target.name} est KO...`)
+            } else if (typeof move.effect === 'function') {
+                move.effect(this, target, messages)
             }
             
         }
-        else if((move.category === 'status' || 'stats') && typeof move.effect === 'function') {
+
+        // attaque non physique
+        else if((move.category === 'status' || move.category === 'stats') && typeof move.effect === 'function') {
             messages.push(`${this.name} utilise ${move.name}`)
             move.effect(this, target, messages)
             move.pp --
@@ -87,26 +101,30 @@ class Pokemon {
         return this.hp <= 0
     }
     
-
+    // Effets status
     applyStatusEffect(messages) {
-        if (this.status === 'poison') {
-            const poisonDamage = move.poisonDamage
-            this.hp = Math.max(0, this.hp - poisonDamage)
-            messages.push(`${this.name} souffre du poison...`)
-            this.statusDuration--
-            if (this.statusDuration <= 0) {
-                this.status = null
-                messages.push(`${this.name} n'est plus empoisonné !`)
-            } 
-        else if (this.status === 'sleep') {
-            this.statusDuration--
-            if (this.statusDuration <= 0) {
-                this.status = null
-                messages.push(`${this.name} se réveille !`)
-            } 
-        }
+    if (this.status === 'poison') {
+        const poisonDamage = this.poisonDamage
+        this.hp -= poisonDamage
+        messages.push(`${this.name} souffre du poison...`)
+        this.statusDuration--
+        if (this.statusDuration <= 0) {
+            this.status = null
+            messages.push(`${this.name} n'est plus empoisonné !`)
+        } 
+    } 
+    else if (this.status === 'sleep') {
+        this.statusDuration--
+        if (this.statusDuration <= 0) {
+            this.status = null
+            messages.push(`${this.name} se réveille !`)
+        } else {
+            messages.push(`${this.name} dort encore...`)
         }
     }
+}
+
+    
 }
 
 export { Pokemon }

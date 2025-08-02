@@ -262,8 +262,12 @@
     background-color: rgb(160, 141, 58);
 }
 .type-Dragon:hover{
-    background-color: rgb(43, 29, 36);
+    background-color: rgb(43, 27, 35);
     color: rgba(227, 235, 190, 0.96);
+}
+.type-Tenebres:hover {
+    background-color: black;
+    color: wheat;
 }
 .type-Normal:hover {
     background: linear-gradient(90deg, rgba(161, 185, 175, 0.945) 0%, rgba(205, 214, 166, 0.96) 93%);

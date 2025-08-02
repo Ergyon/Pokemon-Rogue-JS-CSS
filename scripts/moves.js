@@ -1,3 +1,4 @@
+import { poisonEffect } from "./move-effect.js"
 import { TYPES } from "./types.js"
 
 class Move {
@@ -11,10 +12,6 @@ class Move {
         pp = 10,
         category = 'physical',
         effect = null,
-        poisonDamage = 0,
-        burnDamage = 0,
-        attackChange = 0,
-        defenseChange = 0
     ) {
         this.name = name
         this.type = type 
@@ -25,11 +22,7 @@ class Move {
         this.pp = pp
         this.maxPP = pp
         this.category = category
-        this.effect = effect
-        this.poisonDamage = poisonDamage
-        this.burnDamage = burnDamage
-        this.attackChange = attackChange 
-        this.defenseChange = defenseChange 
+        this.effect = effect     
     }
 }
 
@@ -70,9 +63,15 @@ const croissance = new Move('Croissance', TYPES.NORMAL, 0, 99, 0, '../img/moves/
         messages.push(`${user.name} augmente son attaque.`)
     }
 )
+const soin = new Move('Soin', TYPES.NORMAL, 0, 100, 0, 'img', 15, 'stats',
+    (user, target, messages) => {
+        user.hp += 45
+        messages.push(`${user.name} se soigne.`)
+    }
+)
 
 // STATUS
-const berceuse = new Move('Berceuse', TYPES.NORMAL, 0, 71, 0, 'img', 15, 'status', 
+const berceuse = new Move('Berceuse', TYPES.NORMAL, 0, 58, 0, 'img', 15, 'status', 
     (user, target, messages) => {
         if (!target.status) {
             target.status = 'sleep'
@@ -83,7 +82,7 @@ const berceuse = new Move('Berceuse', TYPES.NORMAL, 0, 71, 0, 'img', 15, 'status
         }
     }
 )
-const hypnose = new Move('Hypnose', TYPES.PSY, 0, 70, 0, 'img', 15, 'status', 
+const hypnose = new Move('Hypnose', TYPES.PSY, 0, 63, 0, 'img', 15, 'status', 
     (user, target, messages) => {
         if (!target.status) {
             target.status = 'sleep'
@@ -99,7 +98,6 @@ const hypnose = new Move('Hypnose', TYPES.PSY, 0, 70, 0, 'img', 15, 'status',
 const charge = new Move('Charge', TYPES.NORMAL, 18, 95, 19, 'img/moves/...png', 30)
 const viveAttaque = new Move("Vive-attaque", TYPES.NORMAL, 20, 100, 20, '../img/moves', 25)
 const griffe = new Move('Griffe', TYPES.NORMAL, 23, 95, 33, '../img/moves/', 25)
-const morsure = new Move('Morsure', TYPES.NORMAL, 26, 90, 30, '../img/moves', 20)
 const coupdboule = new Move("Coup d'boule", TYPES.NORMAL, 26, 89, 40, 'img', 25)
 
 // FEU
@@ -119,28 +117,11 @@ const eclair = new Move('Eclair', TYPES.FOUDRE, 35, 81, 16, 'img', 20)
 const chocmental = new Move('Choc mental', TYPES.PSY, 33, 88, 15, 'img', 20)
 
 // POISON
-const dardvenin = new Move('Dard-Venin', TYPES.POISON, 23, 92, 33, 'img', 25, 'status', 
-    (user, target, messages) => {
-        if (!target.status) {
-            target.status = 'poison'
-            target.statusDuration = 1 + Math.floor(Math.random() * 3)
-            messages.push(`${target.name} est empoisonné.`)
-        } else {
-            messages.push(`Mais ça n'a aucun effet.`)
-        }    
-    }, 
-    10)
+const dardvenin = new Move('Dard-Venin', TYPES.POISON, 23, 92, 33, 'img', 25, 'physical', 
+    poisonEffect(0.4, 15, 4))
 
-const detritus = new Move("Détritus", TYPES.POISON, 28, 75, 45, 'img', 20, 'status',
-    (user, target, messages) => {
-        if (!target.status) {
-            target.status = 'poison'
-            target.statusDuration = 2 + Math.floor(Math.random() * 4)
-            messages.push(`${target.name} est empoisonné`)
-        } else {
-            messages.push(`Mais ça n'a aucun effet.`)
-        }
-    }
+const detritus = new Move("Détritus", TYPES.POISON, 48, 75, 45, 'img', 20, 'physical', 
+    poisonEffect(0.5, 25, 4)
 )
 
 // VOL
@@ -152,12 +133,18 @@ const jetpierre = new Move('Jet Pierres', TYPES.ROCHE, 31, 82, 36, 'img', 25)
 // SOL
 const seisme = new Move('Seisme', TYPES.SOL, 100, 100, 70, 'img', 10)
 
+// TENEBRES
+const morsure = new Move('Morsure', TYPES.TENEBRES, 26, 90, 30, 'img', 20)
+const machouille = new Move('Machouille', TYPES.TENEBRES, 60, 90, 48, 'img', 20)
+
 const allMoves = {
     // Niv I
     flammeche, charge, rugissement, viveAttaque, pistoletAo, griffe, grozyeux, morsure,
     tranchherb, croissance, armure, berceuse, coupdboule, brouillard, fouetliane, eclair,
     hypnose, chocmental, dardvenin, detritus, tornade, jetpierre, jetsable, 
-    
+   
+    // Niv II
+    soin, machouille,
     // Niv III
     seisme
 }

@@ -20,7 +20,15 @@ function loadStarter() {
 
     const moves = parsed.moves
         .map(m => m?.name || m)
-        .map(name => Object.values(allMoves).find(m => m.name === name))
+        // reconstruire le nom de l'attaque car accent, aposrophe etc...
+        .map(name => {
+            const key = name
+            .toLowerCase()
+            .normalize('NFD') 
+            .replace(/[\u0300-\u036f]/g, '') 
+            .replace(/[^a-z0-9]/gi, '')
+            return allMoves[key]
+        })
         .filter(Boolean)
 
     return new Pokemon(

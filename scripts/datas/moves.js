@@ -2,126 +2,168 @@ import { boostAttack, boostDefense, healingSelf, isAsleep, lowerAttack, lowerDef
 import { TYPES } from "./types.js"
 
 class Move {
-    constructor(
+    constructor({
         name,
         type,
-        damage,
-        precision,
-        criticChance,
+        damage = 0,
+        precision = 100,
+        criticChance = 0,
         img = '',
         pp = 10,
         category = 'physical',
-        effect = null,
-    ) {
+        effect = null
+    }) {
         this.name = name
-        this.type = type 
+        this.type = type
         this.damage = damage
         this.precision = precision
-        this.criticChance = criticChance 
+        this.criticChance = criticChance
         this.img = img
         this.pp = pp
         this.maxPP = pp
         this.category = category
-        this.effect = effect     
+        this.effect = effect
     }
 }
 
-                    // STATS
-const rugissement = new Move('Rugissement', TYPES.NORMAL, 0, 95, 0,  '../img/moves', 25, 'stats',
-    lowerAttack(-1)
-)
-const grozyeux = new Move("Groz'Yeux", TYPES.NORMAL, 0, 90, 0, '../img/moves', 20, 'stats',
-    lowerDefense(-1)
-)
-const armure = new Move('Armure', TYPES.NORMAL, 0, 100, 0, 'img', 20, 'stats', 
-    boostDefense(2)
-)
-const brouillard = new Move('Brouillard', TYPES.NORMAL, 0, 68, 0, 'img', 15, 'stats',
-    lowerPrecision(0.95)
-)
-const jetsable = new Move('Jet-Sable', TYPES.NORMAL, 0, 75, 0, 'img', 15, 'stats',
-    lowerPrecision(0.93)
-)
-const croissance = new Move('Croissance', TYPES.NORMAL, 0, 99, 0, '../img/moves/', 15, 'stats',
-    boostAttack(2)
-)
-const soin = new Move('Soin', TYPES.NORMAL, 0, 100, 0, 'img', 15, 'stats',
-    healingSelf(45)
-)
+function createMove(config) {
+    return new Move(config);
+}
 
-                    // STATUS
-const berceuse = new Move('Berceuse', TYPES.NORMAL, 0, 48, 0, 'img', 15, 'status', 
-    isAsleep((2 + Math.floor(Math.random() * 4)))
-)
-const hypnose = new Move('Hypnose', TYPES.PSY, 0, 54, 0, 'img', 15, 'status', 
-    isAsleep((1 + Math.floor(Math.random() * 3)))
-)
+                                                ///// RANK I /////
+
+// STATS
+const rugissement = createMove({ 
+    name: 'Rugissement', type: TYPES.NORMAL, precision: 95, pp: 25, category: 'stats', effect: lowerAttack(-1) });   
+const brouillard = createMove({ 
+    name: 'Brouillard', type: TYPES.NORMAL, precision: 68, pp: 15, category: 'stats', effect: lowerPrecision(0.95) });
+const grozyeux = createMove({ 
+    name: "Groz'Yeux", type: TYPES.NORMAL, precision: 90, pp: 20, category: 'stats', effect: lowerDefense(-1) });
+const croissance = createMove({ 
+    name: 'Croissance', type: TYPES.NORMAL, precision: 99, pp: 15, category: 'stats', effect: boostAttack(2) });
+const armure = createMove({ 
+    name: 'Armure', type: TYPES.NORMAL, precision: 100, pp: 20, category: 'stats', effect: boostDefense(2) });
+const jetsable = createMove({ 
+    name: 'Jet-Sable', type: TYPES.NORMAL, precision: 75, pp: 15, category: 'stats', effect: lowerPrecision(0.95) });
+
+// STATUS
+const hypnose = createMove({ 
+    name: 'Hypnose', type: TYPES.PSY, precision: 54, pp: 15, category: 'status', effect: isAsleep(1 + Math.floor(Math.random() * 3)) });
+const berceuse = createMove({ 
+    name: 'Berceuse', type: TYPES.NORMAL, precision: 48, pp: 15, category: 'status', effect: isAsleep(2 + Math.floor(Math.random() * 4)) });
+
+// HYBRIDES
+const dardvenin = createMove({ 
+    name: 'Dard-Venin', type: TYPES.POISON, damage: 23, precision: 92, criticChance: 33, img: 'img', pp: 25, 
+    category: 'physical', 
+    effect: poisonEffect(0.4, 15, 4) });
+const coupdboue = createMove({
+    name: "Coup d'boue", type: TYPES.SOL, damage: 27, precision: 78, criticChance: 42, img: 'img', pp: 30, 
+    category: 'physical', 
+    effect: lowerPrecision(0.92)})
+
+// PHYSICAL
+        //Feu 
+        const flammeche = createMove({ 
+            name: 'Flammèche', type: TYPES.FEU, damage: 35, precision: 85, criticChance: 13, img: '../img/moves/flame-1.png', pp: 20 });
+        // Eau
+        const pistoletAo = createMove({ 
+            name: 'Pistolet à O', type: TYPES.EAU, damage: 35, precision: 85, criticChance: 15, img: '../img/moves/water-1.png', pp: 20 });
+        // Plante
+        const tranchherb = createMove({ 
+            name: "Tranch'Herb", type: TYPES.PLANTE, damage: 36, precision: 85, criticChance: 20, img: '../img/moves/leafs-2.png', pp: 20 });
+        const fouetliane = createMove({ 
+            name: 'Fouet Lianes', type: TYPES.PLANTE, damage: 25, precision: 95, criticChance: 26, img: 'img', pp: 25 })
+        // Foudre   
+        const eclair = createMove({ 
+            name: 'Eclair', type: TYPES.FOUDRE, damage: 35, precision: 81, criticChance: 16, img: 'img', pp: 20 });
+        // Psy
+        const chocmental = createMove({ 
+            name: 'Choc mental', type: TYPES.PSY, damage: 33, precision: 88, criticChance: 15, img: 'img', pp: 20 });
+        // Vol
+        const tornade = createMove({ 
+            name: 'Tornade', type: TYPES.VOL, damage: 34, precision: 94, criticChance: 14, img: 'img', pp: 20 });
+        // Combat
+
+        // Roche
+        const jetpierre = createMove({ 
+            name: 'Jet Pierres', type: TYPES.ROCHE, damage: 31, precision: 82, criticChance: 36, img: 'img', pp: 25 });
+        // Sol
+        
+        // Dragon
+
+        // Tenebres
+
+        // Spectre
+        const lechouille = createMove({ 
+            name: 'Léchouille', type: TYPES.SPECTRE, damage: 23, precision: 85, criticChance: 40, img: 'img', pp: 25 });
+        // Normal
+        const charge = createMove({ 
+            name: 'Charge', type: TYPES.NORMAL, damage: 18, precision: 95, criticChance: 19, img: 'img/moves/...png', pp: 30 });
+        const viveAttaque = createMove({ 
+            name: 'Vive-attaque', type: TYPES.NORMAL, damage: 20, precision: 100, criticChance: 20, img: '../img/moves', pp: 25 });
+        const griffe = createMove({ 
+            name: 'Griffe', type: TYPES.NORMAL, damage: 23, precision: 95, criticChance: 33, img: '../img/moves/', pp: 25 });
+        const morsure = createMove({ 
+            name: 'Morsure', type: TYPES.TENEBRES, damage: 26, precision: 90, criticChance: 30, img: 'img', pp: 20 });
+        const coupdboule = createMove({ 
+            name: "Coup d'boule", type: TYPES.NORMAL, damage: 26, precision: 89, criticChance: 40, img: 'img', pp: 25 });
+                
 
 
-                    // PHYSIQUES
+                                                ///// RANK II /////
 
-// NORMAL
-const charge = new Move('Charge', TYPES.NORMAL, 18, 95, 19, 'img/moves/...png', 30)
-const viveAttaque = new Move("Vive-attaque", TYPES.NORMAL, 20, 100, 20, '../img/moves', 25)
-const griffe = new Move('Griffe', TYPES.NORMAL, 23, 95, 33, '../img/moves/', 25)
-const coupdboule = new Move("Coup d'boule", TYPES.NORMAL, 26, 89, 40, 'img', 25)
+// STATS
+const soin = createMove({ 
+    name: 'Soin', type: TYPES.NORMAL, precision: 100, pp: 15, category: 'stats', effect: healingSelf(45) });
 
-// FEU
-const flammeche = new Move('Flammèche', TYPES.FEU, 35, 85, 13, '../img/moves/flame-1.png', 20)
+// STATUS
 
-// EAU
-const pistoletAo = new Move("Pistolet à O", TYPES.EAU, 35, 85, 15, '../img/moves/water-1.png', 20)
+// HIBRIDES
+const detritus = createMove({ 
+    name: 'Détritus', type: TYPES.POISON, damage: 48, precision: 75, criticChance: 45, img: 'img', pp: 20, 
+    category: 'physical', 
+    effect: poisonEffect(0.5, 25, 4) });
 
-// PLANTE
-const tranchherb = new Move("Tranch'Herb", TYPES.PLANTE, 36, 85, 20, '../img/moves/leafs-2.png', 20)
-const fouetliane = new Move("Fouet Lianes", TYPES.PLANTE, 25, 95, 26, 'img', 25)
-
-// FOUDRE
-const eclair = new Move('Eclair', TYPES.FOUDRE, 35, 81, 16, 'img', 20)
-
-// PSY
-const chocmental = new Move('Choc mental', TYPES.PSY, 33, 88, 15, 'img', 20)
-
-// POISON
-const dardvenin = new Move('Dard-Venin', TYPES.POISON, 23, 92, 33, 'img', 25, 'physical', 
-    poisonEffect(0.4, 15, 4))
-
-const detritus = new Move("Détritus", TYPES.POISON, 48, 75, 45, 'img', 20, 'physical', 
-    poisonEffect(0.5, 25, 4)
-)
-
-// VOL
-const tornade = new Move('Tornade', TYPES.VOL, 34, 94, 14, 'img', 20)
-
-// ROCHE
-const jetpierre = new Move('Jet Pierres', TYPES.ROCHE, 31, 82, 36, 'img', 25)
-
-// SOL
-const seisme = new Move('Seisme', TYPES.SOL, 100, 100, 70, 'img', 10)
-
-// TENEBRES
-const morsure = new Move('Morsure', TYPES.TENEBRES, 26, 90, 30, 'img', 20)
-const machouille = new Move('Machouille', TYPES.TENEBRES, 60, 90, 48, 'img', 20)
-
-// SPECTRE
-const lechouille = new Move('Léchouille', TYPES.SPECTRE, 23, 85, 40, 'img', 25)
+// PHYSICAL
+const machouille = createMove({ 
+    name: 'Machouille', type: TYPES.TENEBRES, damage: 60, precision: 90, criticChance: 48, img: 'img', pp: 20 });
 
 
 
+                                                ///// RANK III /////
+// PHYSICAL
+const seisme = createMove({ 
+    name: 'Seisme', type: TYPES.SOL, damage: 100, precision: 100, criticChance: 70, img: 'img', pp: 10 });
 
+
+
+const movesByRank = {
+  rank1: 
+  ['flammeche', 'charge', 'rugissement', 'viveAttaque', 'pistoletAo', 'griffe', 
+    'grozYeux', 'morsure', 'trancherb', 'croissance', 'armure', 'berceuse', 'coupdboule', 
+    'brouillard', 'fouetliane', 'eclair', 'hypnose', 'chocmental', 'dardvenin', 'tornade', 
+    'jetpierre', 'jetsable', 'lechouille', 'coupdboue'],
+  rank2: 
+  ['soin', 'machouille'],
+  rank3: 
+  ['seisme']
+}
 
 
 const allMoves = {
-    // Niv I
-    flammeche, charge, rugissement, viveAttaque, pistoletAo, griffe, grozyeux, morsure,
-    tranchherb, croissance, armure, berceuse, coupdboule, brouillard, fouetliane, eclair,
-    hypnose, chocmental, dardvenin, detritus, tornade, jetpierre, jetsable, lechouille,
    
-    // Niv II
-    soin, machouille,
-    // Niv III
-    seisme
+        flammeche, charge, rugissement, viveAttaque, pistoletAo, griffe, grozyeux, morsure,
+        tranchherb, croissance, armure, berceuse, coupdboule, brouillard, fouetliane, eclair,
+        hypnose, chocmental, dardvenin, tornade, jetpierre, jetsable, lechouille, coupdboue,
+    
+    
+        soin, machouille, detritus,
+    
+  
+        seisme
+    
 }
 
-export { allMoves }
+export { allMoves, movesByRank }
 

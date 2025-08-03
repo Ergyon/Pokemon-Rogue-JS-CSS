@@ -154,7 +154,7 @@ export function updateBattleUI(player, enemy, messages) {
     setTimeout(() => {
         updateHp(player, 'player')
         updateHp(enemy, 'enemy')
-    }, 1500)
+    }, 1400)
     const lastMsg = messages[messages.length - 1]
     if (lastMsg) {
         showMessage(lastMsg)
@@ -176,6 +176,7 @@ function attackColor(typeObj) {
         case 'COMBAT': return 'type-Combat'
         case 'SOL': return 'type-Sol'
         case 'DRAGON': return 'type-Dragon'
+        case 'SPECTRE': return 'type=Spectre'
         case 'TENEBRES': return 'type-Tenebres'
         default : return 'type-Normal'
     }

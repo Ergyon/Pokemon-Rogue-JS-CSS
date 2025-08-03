@@ -1,7 +1,8 @@
 import { allMoves } from "../datas/moves.js";
-import { displayPokemons, showMessage, updateHp } from "../displays/ui.js";
+import { delay, displayPokemons, showMessage, updateBattleUI } from "../displays/ui.js";
+import { mainGameLoop } from "./main.js";
 import { Pokemon } from "./pokemon.js";
-import { getRandomPokemon } from "./starter.js";
+import { getRandomPokemon } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initBattle()
@@ -37,6 +38,8 @@ function loadStarter() {
 
 // Lancer combat
 function initBattle() {
+    const messages = []
+
     pkmnPlayer = loadStarter()
     pkmnEnemy = getRandomPokemon({rank:1})
     
@@ -45,44 +48,55 @@ function initBattle() {
         return
     }    
     
-    displayPokemons(pkmnPlayer, pkmnEnemy, doAttack)
-    
-}
+    function updateUI() {
+        updateBattleUI(pkmnPlayer, pkmnEnemy, messages)
+    }
 
-// Lancer l'attaque choisie + attaque de l'ennemie
-export function doAttack(move) {
-    const playerMessages = pkmnPlayer.doMove(move, pkmnEnemy).split('\n')    
-    playerMessages.forEach((msg, i) => {
-        setTimeout(() => {
-            showMessage(msg)
-        }, i * 1400)
+    displayPokemons(pkmnPlayer, pkmnEnemy, (move) => {
+        mainGameLoop(move, pkmnPlayer, pkmnEnemy, updateUI)
     })
-
-    setTimeout(() => {
-        updateHp(pkmnEnemy, 'enemy')
-    }, playerMessages.length * 600);
-
-    if (pkmnEnemy.isKO()) return
     
-    // attaque de l'ennemi
-    setTimeout(() => {
-        const PPmove = pkmnEnemy.moves.filter(move => move.pp > 0)
-        if (PPmove. length === 0) {
-            showMessage(`${pkmnEnemy.name} ne peut plus utiliser ${move.pp}`)
-            return
-        }
-        const enemyMove = pkmnEnemy.moves[Math.floor(Math.random() * pkmnEnemy.moves.length)]
-        const enemyMessages = pkmnEnemy.doMove(enemyMove, pkmnPlayer).split('\n')
-
-        enemyMessages.forEach((msg, i) => {
-            setTimeout(() => {
-                showMessage(msg)
-            }, i * 1400);
-        })
-        setTimeout(() => {
-            updateHp(pkmnPlayer, 'player')
-        }, enemyMessages.length * 600);
-
-    }, playerMessages.length * 1000 + 1500);
 }
 
+// Gestion de tour
+export async function handleTurn(attacker, defender, moves, messages, updateUI) {
+    const statusMesssages = []
+
+    const canAct = attacker.applyStatusEffect(statusMesssages)
+
+    for (const msg of statusMesssages) {
+        messages.push(msg)
+        showMessage(msg)
+        updateUI()
+        await delay(1000)
+    }
+
+    if (!canAct) return
+
+    updateUI()
+    await delay(500)
+
+    if (attacker.isKO()) {
+        messages.push(`${attacker.name} tombe KO...`)
+        updateUI()
+        await delay(1000)
+        return
+    }
+
+    const moveMessages = attacker.doMove(moves, defender).split('\n')
+    for (const msg of moveMessages) {
+        messages.push(msg)
+        showMessage(msg)
+        updateUI()
+        await delay(1000)
+    }
+
+    updateUI()
+    await delay(500)
+
+    if (defender.isKO()) {
+        messages.push(`${defender.name} tombe KO...`)
+        updateUI()
+        await delay(1000)
+    }
+}

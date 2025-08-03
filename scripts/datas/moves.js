@@ -1,4 +1,4 @@
-import { poisonEffect } from "../game/move-effect.js"
+import { boostAttack, boostDefense, healingSelf, isAsleep, lowerAttack, lowerDefense, lowerPrecision, poisonEffect } from "../game/move-effect.js"
 import { TYPES } from "./types.js"
 
 class Move {
@@ -26,73 +26,39 @@ class Move {
     }
 }
 
-// STATS
+                    // STATS
 const rugissement = new Move('Rugissement', TYPES.NORMAL, 0, 95, 0,  '../img/moves', 25, 'stats',
-    (user, target, messages) => {
-        target.attack *= 0.8
-        messages.push(`L'attaque de ${target.name} baisse.`)
-    }
+    lowerAttack(-1)
 )
-const grozyeux = new Move("Groz'Yeux", TYPES.NORMAL, 0, 90, 0, '../img/moves', 20, 'status',
-    (user, target, messages) => {
-        target.defense *= 0.78
-        messages.push(`La défense de ${target.name} baisse.`)
-    }
+const grozyeux = new Move("Groz'Yeux", TYPES.NORMAL, 0, 90, 0, '../img/moves', 20, 'stats',
+    lowerDefense(-1)
 )
 const armure = new Move('Armure', TYPES.NORMAL, 0, 100, 0, 'img', 20, 'stats', 
-    (user, target, messages) => {
-        user.defense *= 1.25
-        messages.push(`${user.name} augment sa défense.`)
-    }
+    boostDefense(2)
 )
 const brouillard = new Move('Brouillard', TYPES.NORMAL, 0, 68, 0, 'img', 15, 'stats',
-    (user, target, messages) => {
-        target.moves.forEach(move => move.precision *= 0.93)
-        messages.push(`La précision de ${target.name} baisse.`)
-    }
+    lowerPrecision(0.95)
 )
 const jetsable = new Move('Jet-Sable', TYPES.NORMAL, 0, 75, 0, 'img', 15, 'stats',
-    (user, target, messages) => {
-        target.moves.forEach(move => move.precision *= 0.91)
-        messages.push(`La précision de ${target.name} baisse.`)
-    }
+    lowerPrecision(0.93)
 )
 const croissance = new Move('Croissance', TYPES.NORMAL, 0, 99, 0, '../img/moves/', 15, 'stats',
-    (user, target, messages) => {
-        user.attack *= 1.3
-        messages.push(`${user.name} augmente son attaque.`)
-    }
+    boostAttack(2)
 )
 const soin = new Move('Soin', TYPES.NORMAL, 0, 100, 0, 'img', 15, 'stats',
-    (user, target, messages) => {
-        user.hp += 45
-        messages.push(`${user.name} se soigne.`)
-    }
+    healingSelf(45)
 )
 
-// STATUS
-const berceuse = new Move('Berceuse', TYPES.NORMAL, 0, 58, 0, 'img', 15, 'status', 
-    (user, target, messages) => {
-        if (!target.status) {
-            target.status = 'sleep'
-            target.statusDuration = 2 + Math.floor(Math.random() * 3)
-            messages.push(`${target.name} s'endort profondément... zzz`)
-        } else {
-            messages.push("Mais ça n'a aucun effet.")
-        }
-    }
+                    // STATUS
+const berceuse = new Move('Berceuse', TYPES.NORMAL, 0, 48, 0, 'img', 15, 'status', 
+    isAsleep((2 + Math.floor(Math.random() * 4)))
 )
-const hypnose = new Move('Hypnose', TYPES.PSY, 0, 63, 0, 'img', 15, 'status', 
-    (user, target, messages) => {
-        if (!target.status) {
-            target.status = 'sleep'
-            target.statusDuration = 1 + Math.floor(Math.random() * 2)
-            messages.push(`${target.name} s'endort... zzz`)
-        } else {
-            messages.push("Mais ça n'a aucun effet.")
-        }
-    })
+const hypnose = new Move('Hypnose', TYPES.PSY, 0, 54, 0, 'img', 15, 'status', 
+    isAsleep((1 + Math.floor(Math.random() * 3)))
+)
 
+
+                    // PHYSIQUES
 
 // NORMAL
 const charge = new Move('Charge', TYPES.NORMAL, 18, 95, 19, 'img/moves/...png', 30)
@@ -139,6 +105,11 @@ const machouille = new Move('Machouille', TYPES.TENEBRES, 60, 90, 48, 'img', 20)
 
 // SPECTRE
 const lechouille = new Move('Léchouille', TYPES.SPECTRE, 23, 85, 40, 'img', 25)
+
+
+
+
+
 
 const allMoves = {
     // Niv I

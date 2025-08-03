@@ -101,7 +101,7 @@
         position: absolute;
         bottom: 18%;
         left: 30%;
-        background: $colorNormal;
+        background: $colorAttackMenu;
         border: 2px solid #ffffff;
         padding: 0.8rem;
         border-radius: 10px;
@@ -229,5 +229,6 @@
 }
 .type-Normal:hover {
     background: $colorNormal;
+    
 }
 

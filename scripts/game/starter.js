@@ -1,23 +1,4 @@
-import { pokedex } from "../datas/pokedex.js";
-
-
-// Generer pokemon random (pokedex, rank, autres)
-export function getRandomPokemon({rank = null, list = null} = {}) {
-    let source = []
-
-    if (Array.isArray(list)) {
-        source = list
-    }
-    else if (rank !== null) {
-        source = pokedex.filter(pkmn => pkmn.rank === rank)
-    }
-    else {
-        source = pokedex
-    }
-
-    const index = Math.floor(Math.random() * source.length)
-    return source[index]
-}
+import { getRandomPokemon } from "./utils.js"
 
 // Choisir son starter
 if (document.querySelector(".pokeball")) {

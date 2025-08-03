@@ -108,7 +108,7 @@ export function displayMenuAttack(pokemon, doAttack) {
 // Bulle message combat
 export function showMessage(text) {
     const TextWrapper = document.querySelector(".battle-txt-container")
-    TextWrapper.innerHTML = ''
+    TextWrapper.innerHTML =''
     const attackText = document.createElement('span')
     attackText.classList.add('battle-txt')
     attackText.textContent = text
@@ -149,6 +149,18 @@ export function updateHp(pokemon, side) {
     }
 }
 
+// Update UI battle
+export function updateBattleUI(player, enemy, messages) {
+    setTimeout(() => {
+        updateHp(player, 'player')
+        updateHp(enemy, 'enemy')
+    }, 1500)
+    const lastMsg = messages[messages.length - 1]
+    if (lastMsg) {
+        showMessage(lastMsg)
+    }
+}
+
 // colorer les attaques dans le menu en fonction du type
 function attackColor(typeObj) {
     const type = typeObj.name
@@ -169,3 +181,13 @@ function attackColor(typeObj) {
     }
 }
 
+// delay pour boucle tour
+export function delay(ms) {
+    return new Promise(resume => setTimeout(resume, ms))
+}
+
+// to do
+// export function updateStatus(pokemon, side) {
+//     const container = document.querySelector(`.${side}-status`);
+//     container.textContent = pokemon.status ? `Statut : ${pokemon.status}` : '';
+// }

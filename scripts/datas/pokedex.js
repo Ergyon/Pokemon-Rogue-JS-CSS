@@ -3,7 +3,7 @@ import { allMoves } from "./moves.js"
 import { TYPES } from "./types.js"
 
 
-// Rank I
+                    // Rank I
 const hericendre = new Pokemon(
     'Héricendre',
     TYPES.FEU,
@@ -15,8 +15,6 @@ const hericendre = new Pokemon(
     '../assets/img/pokemons/hericendre.png',
     1
 )
-
-
 const kaiminus = new Pokemon(
     'Kaiminus',
     TYPES.EAU,
@@ -28,7 +26,6 @@ const kaiminus = new Pokemon(
     '../assets/img/pokemons/kaiminus.png',
     1
 )
-
 const germignon = new Pokemon(
     'Germignon',
     TYPES.PLANTE,
@@ -40,7 +37,6 @@ const germignon = new Pokemon(
     '../assets/img/pokemons/germignon.png',
     1
 )
-
 const bulbizare = new Pokemon(
     'Bulbizare',
     TYPES.PLANTE,
@@ -52,7 +48,6 @@ const bulbizare = new Pokemon(
     '../assets/img/pokemons/bulbizare.png',
     1
 )
-
 const canartichot = new Pokemon(
     'Canartichot',
     TYPES.NORMAL,
@@ -64,7 +59,6 @@ const canartichot = new Pokemon(
     '../assets/img/pokemons/canartichot.png',
     1
 )
-
 const carapuce = new Pokemon(
     'Carapuce',
     TYPES.EAU,
@@ -76,7 +70,6 @@ const carapuce = new Pokemon(
     '../assets/img/pokemons/carapuce.png',
     1
 )
-
 const evoli = new Pokemon(
     'Evoli',
     TYPES.NORMAL,
@@ -88,7 +81,6 @@ const evoli = new Pokemon(
     '../assets/img/pokemons/evoli.png',
     1
 )
-
 const fantominus = new Pokemon(
     'Fantominus',
     TYPES.SPECTRE,
@@ -100,7 +92,6 @@ const fantominus = new Pokemon(
     '../assets/img/pokemons/fantominus.png',
     1
 )
-
 const goupix = new Pokemon(
     'Goupix',
     TYPES.FEU,
@@ -112,7 +103,6 @@ const goupix = new Pokemon(
     '../assets/img/pokemons/goupix.png',
     1
 )
-
 const miaous = new Pokemon(
     'Miaous',
     TYPES.NORMAL,
@@ -124,7 +114,6 @@ const miaous = new Pokemon(
     '../assets/img/pokemons/miaous.png',
     1
 )
-
 const nidoran = new Pokemon(
     'Nidoran',
     TYPES.POISON,
@@ -136,7 +125,6 @@ const nidoran = new Pokemon(
     '../assets/img/pokemons/nidoran-male.png',
     1
 )
-
 const pikachu = new Pokemon(
     'Pikachu',
     TYPES.FOUDRE,
@@ -148,7 +136,6 @@ const pikachu = new Pokemon(
     '../assets/img/pokemons/pikachu.png',
     1
 )
-
 const poissirene = new Pokemon(
     'Possirène',
     TYPES.EAU,
@@ -160,7 +147,6 @@ const poissirene = new Pokemon(
     '../assets/img/pokemons/poissirene.png',
     1
 )
-
 const ponyta = new Pokemon(
     'Ponyta',
     TYPES.FEU,
@@ -172,7 +158,6 @@ const ponyta = new Pokemon(
     '../assets/img/pokemons/ponyta.png',
     1
 )
-
 const racaillou = new Pokemon(
     'Racaillou',
     TYPES.ROCHE,
@@ -184,7 +169,6 @@ const racaillou = new Pokemon(
     '../assets/img/pokemons/racaillou.png',
     1
 )
-
 const rondoudou = new Pokemon(
     'Rondoudou',
     TYPES.NORMAL,
@@ -196,7 +180,6 @@ const rondoudou = new Pokemon(
     '../assets/img/pokemons/rondoudou.png',
     1
 )
-
 const roucool = new Pokemon(
     'Roucool',
     TYPES.VOL,
@@ -208,7 +191,6 @@ const roucool = new Pokemon(
     '../assets/img/pokemons/roucool.png',
     1
 )
-
 const salameche = new Pokemon(
     'Salamèche',
     TYPES.FEU,
@@ -220,7 +202,6 @@ const salameche = new Pokemon(
     '../assets/img/pokemons/salameche.png',
     1
 )
-
 const smogo = new Pokemon(
     'Smogo',
     TYPES.POISON,
@@ -232,7 +213,6 @@ const smogo = new Pokemon(
     '../assets/img/pokemons/smogo.png',
     1
 )
-
 const voltorbe = new Pokemon(
     'Voltorbe',
     TYPES.FOUDRE,
@@ -244,7 +224,6 @@ const voltorbe = new Pokemon(
     '../assets/img/pokemons/voltorbe.png',
     1
 )
-
 const watwat = new Pokemon(
     'Watwat',
     TYPES.FOUDRE,
@@ -257,6 +236,11 @@ const watwat = new Pokemon(
     1
 )
 
+
+
+                    // RANK II
+
+                    
 const aquali = new Pokemon(
     'Aquali',
     TYPES.EAU,
@@ -268,7 +252,6 @@ const aquali = new Pokemon(
     '../assets/img/pokemons/aquali.png',
     2
 )
-
 const carabaffe = new Pokemon(
     'Carabaffe',
     TYPES.EAU,
@@ -280,7 +263,6 @@ const carabaffe = new Pokemon(
     '../assets/img/pokemons/carabaffe.png',
     2
 )
-
 const colossinge = new Pokemon(
     'Colossinge',
     TYPES.COMBAT,
@@ -292,7 +274,6 @@ const colossinge = new Pokemon(
     '../assets/img/pokemons/colossinge.png',
     2
 )
-
 const dardargnan = new Pokemon(
     'Dardargnan',
     TYPES.PLANTE,
@@ -304,7 +285,6 @@ const dardargnan = new Pokemon(
     '../assets/img/pokemons/dardargnan.png',
     2
 )
-
 const dodrio = new Pokemon(
     'Dodrio',
     TYPES.VOL,
@@ -316,7 +296,6 @@ const dodrio = new Pokemon(
     '../assets/img/pokemons/dodrio.png',
     2
 )
-
 const draco = new Pokemon(
     'Draco',
     TYPES.DRAGON,
@@ -328,7 +307,6 @@ const draco = new Pokemon(
     '../assets/img/pokemons/draco.png',
     2
 )
-
 const electrode = new Pokemon(
     'Electrode',
     TYPES.FOUDRE,
@@ -340,7 +318,6 @@ const electrode = new Pokemon(
     '../assets/img/pokemons/electrode.png',
     2
 )
-
 const elektek = new Pokemon(
     'Elektek',
     TYPES.FOUDRE,
@@ -352,7 +329,6 @@ const elektek = new Pokemon(
     '../assets/img/pokemons/elektek.png',
     2
 )
-
 const feunard = new Pokemon(
     'Feunard',
     TYPES.FEU,
@@ -364,7 +340,6 @@ const feunard = new Pokemon(
     '../assets/img/pokemons/feunard.png',
     2
 )
-
 const feurisson = new Pokemon(
     'Feurisson',
     TYPES.FEU,
@@ -376,7 +351,6 @@ const feurisson = new Pokemon(
     '../assets/img/pokemons/feurisson.png',
     2
 )
-
 const flagadoss = new Pokemon(
     'Flagadoss',
     TYPES.EAU,
@@ -388,7 +362,6 @@ const flagadoss = new Pokemon(
     '../assets/img/pokemons/flagadoss.png',
     2
 )
-
 const gravalanch = new Pokemon(
     'Gravalanch',
     TYPES.ROCHE,
@@ -400,7 +373,6 @@ const gravalanch = new Pokemon(
     '../assets/img/pokemons/gravalanch.png',
     2
 )
-
 const ratatac = new Pokemon(
     'Ratata',
     TYPES.NORMAL,
@@ -412,6 +384,9 @@ const ratatac = new Pokemon(
     '../assets/img/pokemons/ratata.png',
     2
 )
+
+
+
 
 const pokedex = [
     hericendre, kaiminus, germignon, bulbizare, canartichot, carapuce, evoli, fantominus,

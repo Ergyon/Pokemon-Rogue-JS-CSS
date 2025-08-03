@@ -22,9 +22,17 @@ $colorSol: rgb(160, 141, 58);
 $colorDragon: rgb(56, 35, 46);
 $colorTenebres: rgba(29, 29, 29, 0.89);
 $colorSpectre: rgba(141, 117, 156, 0.89);
-$colorNormal: linear-gradient(90deg, rgba(161, 185, 175, 0.945) 0%, rgba(205, 214, 166, 0.96) 93%);
+$colorNormal: linear-gradient(90deg, rgba(224, 238, 224, 0.295) 0%, rgba(184, 248, 164, 0.96) 93%);
 
     // Hp 
 $colorHp: #42e947;
 $colorHp-mid: orange;
 $colorHp-low: red;
+
+    // Utiles
+$colorAttackMenu: linear-gradient(90deg, rgba(161, 185, 175, 0.945) 0%, rgba(205, 214, 166, 0.96) 93%);
+
+
+// Shadows
+$boxshadow: 10px 20px 60px rgba(63, 1, 1, 0.205);
+$btnshadow: rgba(241, 238, 238, 0.479) 0px 3px 10px;

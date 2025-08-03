@@ -70,3 +70,13 @@ export function typeAdvantage(attType, defType) {
     }
     return 1
 }
+
+// function getTypeMultiplier(attackType, targetType) {
+//     const table = {
+//         FEU: { PLANTE: 2, EAU: 0.5 },
+//         EAU: { FEU: 2, PLANTE: 0.5 },
+//         PLANTE: { EAU: 2, FEU: 0.5 },
+//         // etc.
+//     }
+//     return (table[attackType]?.[targetType] ?? 1)
+// }

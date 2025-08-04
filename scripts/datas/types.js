@@ -1,82 +1,51 @@
 export const TYPES = {
-    EAU: {name: "EAU" },
-    FEU: {name: "FEU" },
-    PLANTE: {name: "PLANTE" },
-    NORMAL: {name: "NORMAL" },
-    VOL: {name: "VOL" },
-    PSY: {name: "PSY"},
-    FOUDRE: {name: "FOUDRE" },
-    ROCHE: {name: "ROCHE"},
-    COMBAT: {name: "COMBAT"},
-    SOL: {name: "SOL" },
-    POISON: {name: "POISON" },
-    TENEBRES: {name: "TENEBRES"},
-    SPECTRE: {name: "SPECTRE"},
-    DRAGON: {name: "DRAGON"}
+    EAU: "EAU",
+    FEU: "FEU",
+    PLANTE: "PLANTE",
+    NORMAL: "NORMAL",
+    VOL: "VOL",
+    PSY: "PSY",
+    FOUDRE: "FOUDRE",
+    ROCHE: "ROCHE",
+    COMBAT: "COMBAT",
+    SOL: "SOL",
+    POISON: "POISON",
+    TENEBRES: "TENEBRES",
+    SPECTRE: "SPECTRE",
+    DRAGON: "DRAGON"
 }
 
-// faiblesses
-const weaknesses = {
-    EAU: ["PLANTE", "FOUDRE"],
-    FEU: ["EAU", "SOL"],
-    PLANTE: ["FEU", "POISON", "VOL"],
-    NORMAL: ["COMBAT"],
-    VOL: ["FOUDRE", "ROCHE"],
-    FOUDRE: ["SOL"],
-    ROCHE: ["EAU", "PLANTE", "COMBAT"],
-    COMBAT: ["VOL", "PSY"],
-    SOL: ["PLANTE", "EAU"],
-    POISON: ["PSY", "SOL"],
-    TENEBRES: ["COMBAT"],
-    SPECTRE: ["SPECTRE", "TENEBRES"],
-    DRAGON: ["DRAGON"]
+
+// Faiblesses, resistances, immunites
+const TYPES_TABLE = {
+    FEU:     { PLANTE: 2, EAU: 0.5, FEU: 0.5, DRAGON: 0.5, ROCHE: 0.5 },
+    EAU:     { FEU: 2, ROCHE: 2, SOL: 2, PLANTE: 0.5, POISON: 0.5, EAU: 0.5, DRAGON: 0.5, FOUDRE: 0.5, },
+    PLANTE:  { EAU: 2, ROCHE: 2, SOL: 2, FEU: 0.5, PLANTE: 0.5, DRAGON: 0.5 },
+    NORMAL:  { ROCHE: 0.5, SPECTRE: 0},
+    VOL:     { PLANTE: 2, COMBAT: 2, ROCHE: 0.5, FOUDRE: 0.5 },
+    FOUDRE:  { EAU: 2, VOL: 2, PLANTE: 0.5, FOUDRE: 0.5, DRAGON: 0.5, SOL: 0 },
+    ROCHE:   { FEU: 2, VOL: 2, COMBAT: 0.5, SOL: 0.5},
+    COMBAT:  { NORMAL: 2, ROCHE: 2, TENEBRES: 2, VOL: 0.5, PSY: 0.5, POISON: 0.5, SPECTRE: 0 },
+    SOL:     { FEU: 2, FOUDRE: 2, POISON: 2, ROCHE: 2, PLANTE: 0.5, VOL: 0 },
+    POISON:  { PLANTE: 2, SOL: 0.5, POISON: 0.5, ROCHE: 0.5, SOL: 0.5, SPECTRE: 0.5},
+    PSY:     { COMBAT: 2, POISON: 2, PSY: 0.5, TENEBRES: 0 },
+    TENEBRES:{ PSY: 2, SPECTRE: 2, TENEBRES: 0.5, COMBAT: 0.5},
+    SPECTRE: { SPECTRE: 2, PSY: 2, TENEBRES: 0.5, NORMAL: 0 },
+    DRAGON:  { DRAGON: 2 }
 }
 
-// resistances
-const resistances = {
-    EAU: ["EAU", "FEU"],
-    FEU: ["FEU", "PLANTE"],
-    PLANTE: ["PLANTE", "EAU", "SOL", "FOUDRE"],
-    NORMAL: [""],
-    VOL: ["COMBAT", "PLANTE", "SOL"],
-    FOUDRE: ["FOUDRE", "VOL"],
-    ROCHE: ["NORMAL", "FEU", "POISON", "VOL"],
-    COMBAT: ["ROCHE", "TENEBRES"],
-    SOL: ["POISON", "ROCHE"],
-    POISON: ["COMBAT", "PLANTE", "POISON"],
-    TENEBRES: ["TENEBRES"],
-    SPECTRE: ["POISON"],
-    DRAGON: ["EAU", "FOUDRE", "FEU", "PLANTE"]
-}
 
-// immunites
-const immunities = {
-    VOL: ["SOL"],
-    SOL: ["FOUDRE"],
-    TENEBRES: ["PSY"],
-    SPECTRE: ["COMBAT", "NORMAL"]
-}
-
+// degats en fonction du type
 export function typeAdvantage(attType, defType) {
-    if (weaknesses[defType.name]?.includes(attType.name)) {
-        const weaknessBonus = Math.random() * (2 - 1.5) + 1.5
-        return weaknessBonus
-    } 
-    else if (resistances[defType.name]?.includes(attType.name)) {
-        return 0.5
-    }
-    else if (immunities[defType.name]?.includes(attType.name)) {
-        return 0
-    }
-    return 1
-}
+    const attack = attType
+    const defense = defType
 
-// function getTypeMultiplier(attackType, targetType) {
-//     const table = {
-//         FEU: { PLANTE: 2, EAU: 0.5 },
-//         EAU: { FEU: 2, PLANTE: 0.5 },
-//         PLANTE: { EAU: 2, FEU: 0.5 },
-//         // etc.
-//     }
-//     return (table[attackType]?.[targetType] ?? 1)
-// }
+    const multiplier = TYPES_TABLE[attack]?.[defense]
+
+    if (multiplier === 2) {
+        const bonus = Math.random() * (1.5 - 1.25) + 1.25
+        return {bonus, base: 2}
+    }
+
+    return {bonus: multiplier ?? 1, base: multiplier ?? 1}
+}

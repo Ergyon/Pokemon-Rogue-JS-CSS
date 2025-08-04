@@ -162,8 +162,7 @@ export function updateBattleUI(player, enemy, messages) {
 }
 
 // colorer les attaques dans le menu en fonction du type
-function attackColor(typeObj) {
-    const type = typeObj.name
+function attackColor(type) {
     switch(type) {
         case 'FEU': return 'type-Feu'
         case 'EAU': return 'type-Eau'

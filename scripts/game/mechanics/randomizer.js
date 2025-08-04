@@ -1,4 +1,4 @@
-import { pokedex } from "../datas/pokedex.js"
+import { pokedex } from "../../datas/pokedex.js"
 
 // Generer pokemon random (pokedex, rank, autres)
 export function getRandomPokemon({rank = null, list = null} = {}) {
@@ -25,3 +25,4 @@ export function getRandomMove(pokemon) {
     const random = Math.floor(Math.random() * availablesMoves.length)
     return availablesMoves[random]
 }
+

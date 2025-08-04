@@ -1,4 +1,4 @@
-import { getRandomPokemon } from "./utils.js"
+import { getRandomPokemon } from "./mechanics/randomizer.js"
 
 // Choisir son starter
 if (document.querySelector(".pokeball")) {

@@ -1,47 +1,20 @@
-import { allMoves } from "../datas/moves.js";
-import { delay, displayPokemons, showMessage, updateBattleUI } from "../displays/ui.js";
+import { constructPokemon } from "../datas/storage.js";
+import { delay, displayPokemons, showMessage, updateBattleUI } from "../UI/displays.js";
 import { mainGameLoop } from "./main.js";
-import { Pokemon } from "./pokemon.js";
-import { getRandomPokemon } from "./utils.js";
+import { getRandomPokemon } from "./mechanics/randomizer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initBattle()
 })
 
-let pkmnPlayer = null
+let pkmnPlayer = loadStarter()
 let pkmnEnemy = null
 
 // recuperer et reconstruire le starter stocke
 function loadStarter() {
     const data = localStorage.getItem("starter")
     if (!data) return null
-
-    const parsed = JSON.parse(data)
-
-    const moves = parsed.moves
-        .map(m => m?.name || m)
-        // reconstruire le nom de l'attaque car accent, aposrophe etc...
-        .map(name => {
-            const key = name
-            .toLowerCase()
-            .normalize('NFD') 
-            .replace(/[\u0300-\u036f]/g, '') 
-            .replace(/[^a-z0-9]/gi, '')
-            return allMoves[key]
-        })
-        .filter(Boolean)
-
-    return new Pokemon(
-        parsed.name,
-        parsed.type,
-        parsed.hp,
-        parsed.attack,
-        parsed.defense,
-        parsed.critical,
-        moves,
-        parsed.img,
-        parsed.rank
-    )
+    return constructPokemon(JSON.parse(data))
 }
 
 // Lancer combat

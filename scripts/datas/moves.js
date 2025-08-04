@@ -1,5 +1,8 @@
-import { boostAttack, boostDefense, healingSelf, isAsleep, lowerAttack, lowerDefense, lowerPrecision, poisonEffect } from "../game/move-effect.js"
+import { boostAttack, boostDefense, healingSelf, lowerAttack, lowerDefense, lowerPrecision } from "../game/mechanics/stats-change.js"
+import { isAsleep, isPoisoned } from "../game/mechanics/status.js"
 import { TYPES } from "./types.js"
+
+
 
 class Move {
     constructor({
@@ -34,60 +37,167 @@ function createMove(config) {
 
 // STATS
 const rugissement = createMove({ 
-    name: 'Rugissement', type: TYPES.NORMAL, precision: 95, pp: 25, category: 'stats', effect: lowerAttack(-1) });   
+    name: 'Rugissement', 
+    type: TYPES.NORMAL, 
+    precision: 95, pp: 25, 
+    category: 'stats', 
+    effect: lowerAttack() });   
+
 const brouillard = createMove({ 
-    name: 'Brouillard', type: TYPES.NORMAL, precision: 68, pp: 15, category: 'stats', effect: lowerPrecision(0.95) });
+    name: 'Brouillard', 
+    type: TYPES.NORMAL, 
+    precision: 68, pp: 15, 
+    category: 'stats', 
+    effect: lowerPrecision(0.95) });
+
 const grozyeux = createMove({ 
-    name: "Groz'Yeux", type: TYPES.NORMAL, precision: 90, pp: 20, category: 'stats', effect: lowerDefense(-1) });
+    name: "Groz'Yeux", 
+    type: TYPES.NORMAL, 
+    precision: 90, pp: 20, 
+    category: 'stats', 
+    effect: lowerDefense() });
+
 const croissance = createMove({ 
-    name: 'Croissance', type: TYPES.NORMAL, precision: 99, pp: 15, category: 'stats', effect: boostAttack(2) });
+    name: 'Croissance',
+    type: TYPES.NORMAL, 
+    precision: 99, pp: 15, 
+    category: 'stats', 
+    effect: boostAttack(2) });
+
 const armure = createMove({ 
-    name: 'Armure', type: TYPES.NORMAL, precision: 100, pp: 20, category: 'stats', effect: boostDefense(2) });
+    name: 'Armure', 
+    type: TYPES.NORMAL, 
+    precision: 100, pp: 20, 
+    category: 'stats', 
+    effect: boostDefense(2) });
+
 const jetsable = createMove({ 
-    name: 'Jet-Sable', type: TYPES.NORMAL, precision: 75, pp: 15, category: 'stats', effect: lowerPrecision(0.95) });
+    name: 'Jet-Sable', 
+    type: TYPES.NORMAL, 
+    precision: 75, pp: 15, 
+    category: 'stats', 
+    effect: lowerPrecision(0.95) });
 
-// STATUS
+        // STATUS
 const hypnose = createMove({ 
-    name: 'Hypnose', type: TYPES.PSY, precision: 54, pp: 15, category: 'status', effect: isAsleep(1 + Math.floor(Math.random() * 3)) });
-const berceuse = createMove({ 
-    name: 'Berceuse', type: TYPES.NORMAL, precision: 48, pp: 15, category: 'status', effect: isAsleep(2 + Math.floor(Math.random() * 4)) });
+    name: 'Hypnose', 
+    type: TYPES.PSY, 
+    precision: 54, pp: 15, 
+    category: 'status', 
+    effect: isAsleep(1 + Math.floor(Math.random() * 3)) });
 
-// HYBRIDES
+const berceuse = createMove({ 
+    name: 'Berceuse', 
+    type: TYPES.NORMAL, 
+    precision: 48, pp: 15, 
+    category: 'status', 
+    effect: isAsleep(2 + Math.floor(Math.random() * 4)) });
+
+        // HYBRIDES
 const dardvenin = createMove({ 
-    name: 'Dard-Venin', type: TYPES.POISON, damage: 23, precision: 92, criticChance: 33, img: 'img', pp: 25, 
+    name: 'Dard-Venin', 
+    type: TYPES.POISON, 
+    damage: 23, 
+    precision: 92, 
+    criticChance: 33, 
+    img: 'img', 
+    pp: 25, 
     category: 'physical', 
-    effect: poisonEffect(0.4, 15, 4) });
+    effect: isPoisoned(0.4, 15, (1 + Math.floor(Math.random() * 3)) )});
+
 const coupdboue = createMove({
-    name: "Coup d'boue", type: TYPES.SOL, damage: 27, precision: 78, criticChance: 42, img: 'img', pp: 30, 
+    name: "Coup d'boue", 
+    type: TYPES.SOL, 
+    damage: 27, 
+    precision: 78, 
+    criticChance: 42, 
+    img: 'img', 
+    pp: 30, 
     category: 'physical', 
     effect: lowerPrecision(0.92)})
 
-// PHYSICAL
+                // PHYSICAL
         //Feu 
         const flammeche = createMove({ 
-            name: 'Flammèche', type: TYPES.FEU, damage: 35, precision: 85, criticChance: 13, img: '../img/moves/flame-1.png', pp: 20 });
+            name: 'Flammèche', 
+            type: TYPES.FEU, 
+            damage: 35, 
+            precision: 85, 
+            criticChance: 13, 
+            img: '../img/moves/flame-1.png', 
+            pp: 20 });
+
         // Eau
-        const pistoletAo = createMove({ 
-            name: 'Pistolet à O', type: TYPES.EAU, damage: 35, precision: 85, criticChance: 15, img: '../img/moves/water-1.png', pp: 20 });
+        const pistoletao = createMove({ 
+            name: 'Pistolet à O', 
+            type: TYPES.EAU, 
+            damage: 35, 
+            precision: 85, 
+            criticChance: 15, 
+            img: '../img/moves/water-1.png', 
+            pp: 20 });
+
         // Plante
         const tranchherb = createMove({ 
-            name: "Tranch'Herb", type: TYPES.PLANTE, damage: 36, precision: 85, criticChance: 20, img: '../img/moves/leafs-2.png', pp: 20 });
+            name: "Tranch'Herb", 
+            type: TYPES.PLANTE, 
+            damage: 36, 
+            precision: 85, 
+            criticChance: 20, 
+            img: '../img/moves/leafs-2.png', 
+            pp: 20 });
+
         const fouetliane = createMove({ 
-            name: 'Fouet Lianes', type: TYPES.PLANTE, damage: 25, precision: 95, criticChance: 26, img: 'img', pp: 25 })
+            name: 'Fouet Lianes', 
+            type: TYPES.PLANTE, 
+            damage: 25, 
+            precision: 95, 
+            criticChance: 26, 
+            img: 'img', 
+            pp: 25 })
+        
         // Foudre   
         const eclair = createMove({ 
-            name: 'Eclair', type: TYPES.FOUDRE, damage: 35, precision: 81, criticChance: 16, img: 'img', pp: 20 });
+            name: 'Eclair', 
+            type: TYPES.FOUDRE, 
+            damage: 35, 
+            precision: 81, 
+            criticChance: 16, 
+            img: 'img', 
+            pp: 20 });
+
         // Psy
         const chocmental = createMove({ 
-            name: 'Choc mental', type: TYPES.PSY, damage: 33, precision: 88, criticChance: 15, img: 'img', pp: 20 });
+            name: 'Choc mental', 
+            type: TYPES.PSY, 
+            damage: 33, 
+            precision: 88, 
+            criticChance: 15, 
+            img: 'img', 
+            pp: 20 });
+
         // Vol
         const tornade = createMove({ 
-            name: 'Tornade', type: TYPES.VOL, damage: 34, precision: 94, criticChance: 14, img: 'img', pp: 20 });
+            name: 'Tornade', 
+            type: TYPES.VOL, 
+            damage: 34, 
+            precision: 94, 
+            criticChance: 14, 
+            img: 'img',
+            pp: 20 });
+
         // Combat
 
         // Roche
         const jetpierre = createMove({ 
-            name: 'Jet Pierres', type: TYPES.ROCHE, damage: 31, precision: 82, criticChance: 36, img: 'img', pp: 25 });
+            name: 'Jet Pierres', 
+            type: TYPES.ROCHE, 
+            damage: 31, 
+            precision: 82, 
+            criticChance: 36, 
+            img: 'img', 
+            pp: 25 });
+
         // Sol
         
         // Dragon
@@ -96,45 +206,109 @@ const coupdboue = createMove({
 
         // Spectre
         const lechouille = createMove({ 
-            name: 'Léchouille', type: TYPES.SPECTRE, damage: 23, precision: 85, criticChance: 40, img: 'img', pp: 25 });
+            name: 'Léchouille', 
+            type: TYPES.SPECTRE, 
+            damage: 23, 
+            precision: 85, 
+            criticChance: 40, 
+            img: 'img', 
+            pp: 25 });
+
         // Normal
         const charge = createMove({ 
-            name: 'Charge', type: TYPES.NORMAL, damage: 18, precision: 95, criticChance: 19, img: 'img/moves/...png', pp: 30 });
-        const viveAttaque = createMove({ 
-            name: 'Vive-attaque', type: TYPES.NORMAL, damage: 20, precision: 100, criticChance: 20, img: '../img/moves', pp: 25 });
+            name: 'Charge', 
+            type: TYPES.NORMAL, 
+            damage: 18, 
+            precision: 95, 
+            criticChance: 19, 
+            img: 'img/moves/...png', 
+            pp: 30 });
+
+        const viveattaque = createMove({ 
+            name: 'Vive-attaque', 
+            type: TYPES.NORMAL, 
+            damage: 20, 
+            precision: 100, 
+            criticChance: 20, 
+            img: '../img/moves', 
+            pp: 25 });
+
         const griffe = createMove({ 
-            name: 'Griffe', type: TYPES.NORMAL, damage: 23, precision: 95, criticChance: 33, img: '../img/moves/', pp: 25 });
+            name: 'Griffe', 
+            ype: TYPES.NORMAL, 
+            damage: 23, 
+            precision: 95, 
+            criticChance: 33, 
+            img: '../img/moves/', 
+            pp: 25 });
+
         const morsure = createMove({ 
-            name: 'Morsure', type: TYPES.TENEBRES, damage: 26, precision: 90, criticChance: 30, img: 'img', pp: 20 });
+            name: 'Morsure', 
+            type: TYPES.TENEBRES, 
+            damage: 26, precision: 90,
+            criticChance: 30, 
+            img: 'img', 
+            pp: 20 });
+
         const coupdboule = createMove({ 
-            name: "Coup d'boule", type: TYPES.NORMAL, damage: 26, precision: 89, criticChance: 40, img: 'img', pp: 25 });
+            name: "Coup d'boule", 
+            type: TYPES.NORMAL, 
+            damage: 26, 
+            precision: 89, 
+            criticChance: 40, 
+            img: 'img', 
+            pp: 25 });
                 
 
 
                                                 ///// RANK II /////
 
-// STATS
+        // STATS
 const soin = createMove({ 
-    name: 'Soin', type: TYPES.NORMAL, precision: 100, pp: 15, category: 'stats', effect: healingSelf(45) });
+    name: 'Soin', 
+    type: TYPES.NORMAL, 
+    precision: 100, 
+    img: 'img',
+    pp: 15, 
+    category: 'stats', 
+    effect: healingSelf(45) });
 
-// STATUS
+        // STATUS
 
-// HIBRIDES
+        // HIBRIDES
 const detritus = createMove({ 
-    name: 'Détritus', type: TYPES.POISON, damage: 48, precision: 75, criticChance: 45, img: 'img', pp: 20, 
+    name: 'Détritus', 
+    type: TYPES.POISON, 
+    damage: 48, 
+    precision: 75, 
+    criticChance: 45, 
+    img: 'img', 
+    pp: 20, 
     category: 'physical', 
-    effect: poisonEffect(0.5, 25, 4) });
+    effect: isPoisoned(0.5, 25, (2 + Math.floor(Math.random() * 4))) });
 
-// PHYSICAL
+                // PHYSICAL
 const machouille = createMove({ 
-    name: 'Machouille', type: TYPES.TENEBRES, damage: 60, precision: 90, criticChance: 48, img: 'img', pp: 20 });
+    name: 'Machouille', 
+    type: TYPES.TENEBRES, 
+    damage: 60, 
+    precision: 90, 
+    criticChance: 48, 
+    img: 'img', 
+    pp: 20 });
 
 
 
                                                 ///// RANK III /////
-// PHYSICAL
+                // PHYSICAL
 const seisme = createMove({ 
-    name: 'Seisme', type: TYPES.SOL, damage: 100, precision: 100, criticChance: 70, img: 'img', pp: 10 });
+    name: 'Seisme', 
+    type: TYPES.SOL, 
+    damage: 100, 
+    precision: 100, 
+    criticChance: 70, 
+    img: 'img', 
+    pp: 10 });
 
 
 
@@ -153,7 +327,7 @@ const movesByRank = {
 
 const allMoves = {
    
-        flammeche, charge, rugissement, viveAttaque, pistoletAo, griffe, grozyeux, morsure,
+        flammeche, charge, rugissement, viveattaque, pistoletao, griffe, grozyeux, morsure,
         tranchherb, croissance, armure, berceuse, coupdboule, brouillard, fouetliane, eclair,
         hypnose, chocmental, dardvenin, tornade, jetpierre, jetsable, lechouille, coupdboue,
     

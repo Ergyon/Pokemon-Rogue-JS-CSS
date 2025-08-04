@@ -1,6 +1,6 @@
-import { delay } from "../displays/ui.js"
+import { delay } from "../UI/displays.js"
 import { handleTurn } from "./battle.js"
-import { getRandomMove } from "./utils.js"
+import { getRandomMove } from "./mechanics/randomizer.js"
 
 
 export async function mainGameLoop(chosenMove, pkmnPlayer, pkmnEnemy, updateUI) {

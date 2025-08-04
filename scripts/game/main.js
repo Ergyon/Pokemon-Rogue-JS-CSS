@@ -1,6 +1,6 @@
 import { delay } from "../UI/displays.js"
-import { handleTurn } from "./battle.js"
-import { getRandomMove } from "./mechanics/randomizer.js"
+import { getRandomMove } from "./config/randomizer.js"
+import { handleTurn } from "./fight.js"
 
 
 export async function mainGameLoop(chosenMove, pkmnPlayer, pkmnEnemy, updateUI) {
@@ -14,3 +14,4 @@ export async function mainGameLoop(chosenMove, pkmnPlayer, pkmnEnemy, updateUI) 
     const enemyMove = getRandomMove(pkmnEnemy)
     await handleTurn(pkmnEnemy, pkmnPlayer, enemyMove, messages, updateUI)
 }
+

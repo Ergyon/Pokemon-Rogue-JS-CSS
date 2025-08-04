@@ -1,4 +1,4 @@
-import { Pokemon } from "../game/pokemon.js"
+import { Pokemon } from "../game/class/pokemon.js"
 import { allMoves } from "./moves.js"
 import { TYPES } from "./types.js"
 

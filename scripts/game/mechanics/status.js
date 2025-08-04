@@ -87,3 +87,12 @@ export function isParalyzed(duration= 0, chance = 0.1) {
         }
     }
 }
+
+// heal status
+export function healStatus() {
+    return (user, messages) => {
+        user.status = null
+        user.statusDuration = 0
+        messages.push(`${user.name} retrouve son état normal.`)
+    }
+}

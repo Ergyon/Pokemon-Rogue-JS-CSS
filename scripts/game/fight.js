@@ -1,10 +1,10 @@
 import { constructPokemon } from "../datas/storage.js";
 import { delay, displayPokemons, showMessage, updateBattleUI } from "../UI/displays.js";
+import { getRandomPokemon } from "./config/randomizer.js";
 import { mainGameLoop } from "./main.js";
-import { getRandomPokemon } from "./mechanics/randomizer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    initBattle()
+    initFight()
 })
 
 let pkmnPlayer = loadStarter()
@@ -18,7 +18,7 @@ function loadStarter() {
 }
 
 // Lancer combat
-function initBattle() {
+function initFight() {
     const messages = []
 
     pkmnPlayer = loadStarter()

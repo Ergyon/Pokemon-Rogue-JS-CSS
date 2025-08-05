@@ -50,7 +50,6 @@ class Pokemon {
     }
     changeStage(stat, amount) {
         this.stages[stat] = Math.max(-10, Math.min(10, this.stages[stat] + amount))
-        console.log(`${this.name} a un stage de ${stat} à ${this.stages[stat]}`)
     }
     stageMultiplier(stage) {
         return Math.max(0.03, 1 + (stage * 0.1))
@@ -91,7 +90,15 @@ class Pokemon {
 
             const {bonus:damageBonus, base: typeBase} = typeAdvantage(move.type, target.type)
             let totalDamage = Math.floor(Math.max(0, damage * damageBonus))
-
+            
+            // attaque ratee
+            const precisRoll = Math.random() * 100
+            const miss = precisRoll > move.precision
+            if (miss) {
+                messages.push(`${this.name} rate son attaque...`)
+                return messages.join('\n')
+            }  
+            
             // avatange de type ou non
             if (typeBase === 0) {
                 totalDamage = 0 
@@ -104,15 +111,7 @@ class Pokemon {
             else if (typeBase === 0.5) {
                 messages.push("Ce n'est pas très efficace...")
             }
-    
-            // attaque ratee
-            const precisRoll = Math.random() * 100
-            const miss = precisRoll > move.precision
-            if (miss) {
-                messages.push(`${this.name} rate son attaque...`)
-                return messages.join('\n')
-            }  
-
+            
             // coup critique
             const critRoll = Math.random() * 100;
             const isCrit = critRoll < move.criticChance

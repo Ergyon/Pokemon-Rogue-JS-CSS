@@ -1,4 +1,5 @@
 import { pokedex } from "../../datas/pokedex.js"
+import { allTrainers } from "../class/trainer.js"
 
 // Generer pokemon random (pokedex, rank, autres)
 export function getRandomPokemon({rank = null, list = null} = {}) {
@@ -6,11 +7,9 @@ export function getRandomPokemon({rank = null, list = null} = {}) {
 
     if (Array.isArray(list)) {
         source = list
-    }
-    else if (rank !== null) {
+    } else if (rank !== null) {
         source = pokedex.filter(pkmn => pkmn.rank === rank)
-    }
-    else {
+    } else {
         source = pokedex
     }
 
@@ -26,3 +25,9 @@ export function getRandomMove(pokemon) {
     return availablesMoves[random]
 }
 
+// Genere un trainer aleatoire
+export function getRandomTrainer() {
+    const source = allTrainers
+    const index = Math.floor(Math.random() * source.length)
+    return source[index]
+}

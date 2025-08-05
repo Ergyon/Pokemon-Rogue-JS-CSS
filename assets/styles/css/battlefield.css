@@ -377,7 +377,8 @@ body {
 }
 
 .type-Plante:hover {
-  background-color: rgba(137, 216, 18, 0.911);
+  background-color: rgb(39, 175, 62);
+  color: wheat;
 }
 
 .type-Foudre:hover {

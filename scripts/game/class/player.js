@@ -1,5 +1,5 @@
 export class Player {
-    constructor(name, img) {
+    constructor({name, img}) {
         this.name = name
         this.team = []
         this.inventory = []
@@ -7,6 +7,7 @@ export class Player {
         this.badges = []
         this.img = img
     }
+
 
     addPokemon(pokemon) {
         if (this.team.length < 3) {
@@ -17,8 +18,16 @@ export class Player {
         }
     } 
 
+    choosePokemon(pokemon) {
+        
+    }
+
     earnMoney(amount) {
         this.money += amount
+    }
+
+    getBadge(badge) {
+        this.badges.push(badge)
     }
 
     getItem(item) {
@@ -48,3 +57,9 @@ export class Player {
         }
     }
 }
+
+export const mainPlayer = new Player({
+    name: '',
+    img: ''
+})
+

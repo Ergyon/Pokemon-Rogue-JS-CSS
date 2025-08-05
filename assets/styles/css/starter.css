@@ -1,11 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap");
-body {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+@keyframes leftToRight {
+  from {
+    transform: translateX(-800px);
+  }
+  to {
+    transform: translateX(2100px);
+  }
 }
-
+@keyframes rightToLeft {
+  from {
+    transform: translateX(2000px);
+  }
+  to {
+    transform: translateX(-1400px);
+  }
+}
+@keyframes breathingColored {
+  from {
+    transform: scale(97%);
+    color: rgb(146, 57, 5);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(100%);
+    color: rgba(74, 57, 221, 0.678);
+    opacity: 1;
+  }
+}
+@keyframes breathing {
+  from {
+    transform: scale(95%);
+  }
+  to {
+    transform: scale(100%);
+  }
+}
 @keyframes pokeball {
   0%, 20%, 40%, 60%, 80% {
     transform: rotate(0deg);
@@ -50,7 +80,14 @@ body {
     transform: scale(80%);
   }
 }
-@keyframes slideInLeft {
+@keyframes battleTitle {
+  from {
+    transform: scale(0.8) scaleX(1.6);
+    opacity: 0.6;
+    color: beige;
+  }
+}
+@keyframes playerAppears {
   0% {
     transform: translateX(-100%) scaleY(1);
   }
@@ -73,7 +110,7 @@ body {
     transform: translateX(0) scaleY(1);
   }
 }
-@keyframes slideInRight {
+@keyframes enemyAppears {
   0% {
     transform: translateX(200%) scaleY(1);
   }
@@ -96,76 +133,14 @@ body {
     transform: translateX(0) scaleY(1);
   }
 }
-@keyframes breathing {
-  from {
-    transform: scale(95%);
-  }
-  to {
-    transform: scale(100%);
-  }
-}
-@keyframes breathingColored {
-  from {
-    transform: scale(97%);
-    color: rgb(146, 57, 5);
-    opacity: 0.5;
-  }
-  to {
-    transform: scale(100%);
-    color: rgba(74, 57, 221, 0.678);
-    opacity: 1;
-  }
-}
-@keyframes battleTitle {
-  from {
-    transform: scale(0.8) scaleX(1.9);
-    opacity: 0.6;
-    color: beige;
-  }
-}
-@keyframes leftToRight {
-  from {
-    transform: translateX(-800px);
-  }
-  to {
-    transform: translateX(2100px);
-  }
-}
-@keyframes rightToLeft {
-  from {
-    transform: translateX(2000px);
-  }
-  to {
-    transform: translateX(-1400px);
-  }
-}
-@keyframes attackTxt {
-  from {
-    opacity: 0;
-    transform: scale(0.7) translateY(400px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(100px);
-  }
-}
-@keyframes pokemonTxt {
+@keyframes messageBubble {
   0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  10% {
-    opacity: 0.7;
+    opacity: 1;
+    transform: translateY(8px);
   }
   30% {
     opacity: 1;
     transform: translateY(0);
-  }
-  60% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
   }
   95% {
     opacity: 1;
@@ -173,7 +148,7 @@ body {
   }
   100% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
 }
 .starter {
@@ -195,7 +170,7 @@ body {
   padding-bottom: 2rem;
   transform: translateX(-100%);
   transform-origin: center;
-  animation: slideInLeft 1.5s 0.3s cubic-bezier(0.82, -0.2, 0.24, 0.96) forwards;
+  animation: playerAppears 1.5s 0.3s cubic-bezier(0.82, -0.2, 0.24, 0.96) forwards;
 }
 .starter__subtitle {
   font-family: "Jersey 20", "Jost";
@@ -238,7 +213,7 @@ body {
   animation: reveal 1.5s 0.5s ease-out forwards;
 }
 .starter .message-wrapper {
-  margin-top: 5.5rem;
+  margin-top: 7.5rem;
 }
 .starter .message-wrapper .pokeball-message {
   opacity: 0;

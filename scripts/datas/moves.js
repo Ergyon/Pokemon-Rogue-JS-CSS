@@ -39,42 +39,48 @@ function createMove(config) {
 const rugissement = createMove({ 
     name: 'Rugissement', 
     type: TYPES.NORMAL, 
-    precision: 95, pp: 25, 
+    precision: 95, 
+    pp: 25, 
     category: 'stats', 
     effect: lowerAttack() });   
 
 const brouillard = createMove({ 
     name: 'Brouillard', 
     type: TYPES.NORMAL, 
-    precision: 68, pp: 15, 
+    precision: 68, 
+    pp: 15, 
     category: 'stats', 
-    effect: lowerPrecision(0.95) });
+    effect: lowerPrecision(0.93) });
 
 const grozyeux = createMove({ 
     name: "Groz'Yeux", 
     type: TYPES.NORMAL, 
-    precision: 90, pp: 20, 
+    precision: 90, 
+    pp: 20, 
     category: 'stats', 
     effect: lowerDefense() });
 
 const croissance = createMove({ 
     name: 'Croissance',
     type: TYPES.NORMAL, 
-    precision: 99, pp: 15, 
+    precision: 99, 
+    pp: 15, 
     category: 'stats', 
     effect: boostAttack(2) });
 
 const armure = createMove({ 
     name: 'Armure', 
     type: TYPES.NORMAL, 
-    precision: 100, pp: 20, 
+    precision: 100, 
+    pp: 20, 
     category: 'stats', 
     effect: boostDefense(2) });
 
 const jetsable = createMove({ 
     name: 'Jet-Sable', 
     type: TYPES.NORMAL, 
-    precision: 75, pp: 15, 
+    precision: 75, 
+    pp: 15, 
     category: 'stats', 
     effect: lowerPrecision(0.95) });
 
@@ -82,14 +88,16 @@ const jetsable = createMove({
 const hypnose = createMove({ 
     name: 'Hypnose', 
     type: TYPES.PSY, 
-    precision: 54, pp: 15, 
+    precision: 54, 
+    pp: 15, 
     category: 'status', 
     effect: isAsleep(1 + Math.floor(Math.random() * 3)) });
 
 const berceuse = createMove({ 
     name: 'Berceuse', 
     type: TYPES.NORMAL, 
-    precision: 48, pp: 15, 
+    precision: 48, 
+    pp: 15, 
     category: 'status', 
     effect: isAsleep(2 + Math.floor(Math.random() * 4)) });
 
@@ -114,7 +122,7 @@ const coupdboue = createMove({
     img: 'img', 
     pp: 30, 
     category: 'physical', 
-    effect: lowerPrecision(0.92)})
+    effect: lowerPrecision(0.97)})
 
                 // PHYSICAL
         //Feu 
@@ -245,7 +253,8 @@ const coupdboue = createMove({
         const morsure = createMove({ 
             name: 'Morsure', 
             type: TYPES.TENEBRES, 
-            damage: 26, precision: 90,
+            damage: 26, 
+            precision: 90,
             criticChance: 30, 
             img: 'img', 
             pp: 20 });
@@ -255,7 +264,7 @@ const coupdboue = createMove({
             type: TYPES.NORMAL, 
             damage: 26, 
             precision: 89, 
-            criticChance: 40, 
+            criticChance: 35, 
             img: 'img', 
             pp: 25 });
                 

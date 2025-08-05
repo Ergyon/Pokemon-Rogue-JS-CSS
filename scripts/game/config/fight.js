@@ -1,14 +1,18 @@
-import { constructPokemon } from "../datas/storage.js";
-import { delay, displayPokemons, showMessage, updateBattleUI } from "../UI/displays.js";
-import { getRandomPokemon } from "./config/randomizer.js";
-import { mainGameLoop } from "./main.js";
+import { constructPokemon } from "../../datas/storage.js";
+import { delay, displayPokemons, showMessage, updateBattleUI } from "../../UI/displays.js";
+import { mainPlayer } from "../class/player.js";
+import { mainGameLoop } from "../main.js";
+import { initDuelsLoop } from "./duelsLoop.js";
+import { getRandomPokemon } from "./randomizer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    initFight()
+    initFirstFight()
 })
 
-let pkmnPlayer = loadStarter()
+
+let pkmnPlayer = null
 let pkmnEnemy = null
+
 
 // recuperer et reconstruire le starter stocke
 function loadStarter() {
@@ -17,12 +21,17 @@ function loadStarter() {
     return constructPokemon(JSON.parse(data))
 }
 
-// Lancer combat
-function initFight() {
+
+// Lancer 1er combat avec starter
+function initFirstFight() {
+    let isFightOver = false
     const messages = []
 
     pkmnPlayer = loadStarter()
+    mainPlayer.team.push(pkmnPlayer)
+    
     pkmnEnemy = getRandomPokemon({rank:1})
+    pkmnEnemy.hp = 5
     
     if (!pkmnPlayer || !pkmnEnemy) {
         window.alert("YA PAS DE POKEMOOOONS !!!")
@@ -33,11 +42,20 @@ function initFight() {
         updateBattleUI(pkmnPlayer, pkmnEnemy, messages)
     }
 
-    displayPokemons(pkmnPlayer, pkmnEnemy, (move) => {
-        mainGameLoop(move, pkmnPlayer, pkmnEnemy, updateUI)
+    displayPokemons(pkmnPlayer, pkmnEnemy, async (move) => {
+        if (isFightOver) return
+
+        await mainGameLoop(move, mainPlayer, null, pkmnPlayer, pkmnEnemy, updateUI)
+        
+        if (pkmnEnemy.isKO()) {
+            isFightOver = true
+            showMessage("Les duels commencent...")
+            await delay(2000)
+            await initDuelsLoop(mainPlayer)
+        }
     })
-    
 }
+
 
 // Gestion de tour
 export async function handleTurn(attacker, defender, moves, messages, updateUI) {
@@ -69,7 +87,7 @@ export async function handleTurn(attacker, defender, moves, messages, updateUI) 
         messages.push(msg)
         showMessage(msg)
         updateUI()
-        await delay(1000)
+        await delay(500)
     }
 
     updateUI()
@@ -78,6 +96,6 @@ export async function handleTurn(attacker, defender, moves, messages, updateUI) 
     if (defender.isKO()) {
         messages.push(`${defender.name} tombe KO...`)
         updateUI()
-        await delay(1000)
+        await delay(500)
     }
 }

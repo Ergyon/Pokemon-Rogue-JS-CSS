@@ -1,4 +1,5 @@
 @use 'global' as *;
+@use 'animations' as*;
 
 // Pokemon starter choice
 .starter {
@@ -19,7 +20,7 @@
         padding-bottom: 2rem;
         transform: translateX(-100%);
         transform-origin: center;
-        animation: slideInLeft 1.5s 0.3s cubic-bezier(.82,-0.2,.24,.96) forwards;
+        animation: playerAppears 1.5s 0.3s cubic-bezier(.82,-0.2,.24,.96) forwards;
     }
     &__subtitle {
         font-family: $pixel-font-large;
@@ -62,7 +63,7 @@
         animation: reveal 1.5s 0.5s ease-out forwards;
     }
     .message-wrapper {
-        margin-top: 5.5rem;
+        margin-top: 7.5rem;
         .pokeball-message {
             opacity: 0;
             animation: pokeballmessage 0.6s 2s ease-out forwards;

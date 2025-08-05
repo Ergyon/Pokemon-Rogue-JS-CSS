@@ -14,7 +14,7 @@ export const STATUS = {
 // poison
 export function isPoisoned(
     chance = 0.2,
-    poisonDamage = 0,
+    poisonDamage = 1,
     duration = 1
 ) {    
     return (user, target, messages) => {
@@ -23,8 +23,6 @@ export function isPoisoned(
             target.statusDuration = duration
             target.poisonDamage = poisonDamage
             messages.push(`${target.name} est empoisonné !`)
-        } else {
-            messages.push("Mais ça n'a aucun effet.")
         }
     }
 }
@@ -37,13 +35,11 @@ export function isBurned(
     duration = 1
 ) {
     return (user, target, messages) => {
-        if (target.status !== 'burnt' && target.status !== 'poison' && Math.random() < chance) {
+        if (target.status !== 'burnt' && Math.random() < chance) {
             target.status = STATUS.BURN
             target.statusDuration = duration
             target.burnDamage = burnDamage
             messages.push(`${target.name} est brûlé !`)
-        } else {
-            messages.push("Mais ça n'a aucun effet.")
         }
     }
 }
@@ -70,8 +66,6 @@ export function isFrozen(duration = 0, chance = 0.05) {
             target.status = STATUS.FROZEN
             target.statusDuration = duration
             messages.push(`${target.name} est gelé !`)
-        } else {
-            messages.push("Mais ça n'a aucun effet.")
         }
     }
 }

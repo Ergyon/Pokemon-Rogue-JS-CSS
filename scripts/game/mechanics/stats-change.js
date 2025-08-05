@@ -43,9 +43,9 @@ export function healingSelf(amount = 1) {
     return (user, target, messages) => {
         if (user.hp < user.maxHP) {
             user.hp = Math.min(user.hp + amount, user.maxHP)
-            messages.push(`${user.name} se soigne.`)
+            messages.push(`${user.name} récupère ${amount} PV.`)
         } else {
-            messages.push(`Les PV de ${user.name} sont au maximum.`)
+            messages.push(`Les PV de ${user.name} sont déjà au maximum.`)
         }
     }
 }

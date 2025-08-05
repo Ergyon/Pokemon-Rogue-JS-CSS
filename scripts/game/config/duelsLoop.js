@@ -1,7 +1,7 @@
-import { delay, showMessage } from '../../UI/displays.js'
+import { showMessage } from '../../UI/battle/displayText.js'
+import { delay } from '../../UI/utils/utils.js'
 import { initDuel } from './duel.js'
 import { getRandomTrainer } from './randomizer.js'
-
 
 export async function initDuelsLoop(mainPlayer) {
     let round = 1 

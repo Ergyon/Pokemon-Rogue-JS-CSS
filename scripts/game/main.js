@@ -1,4 +1,5 @@
-import { delay, displayKO } from "../UI/displays.js"
+import { displayKO } from "../UI/battle/undisplay.js"
+import { delay } from "../UI/utils/utils.js"
 import { handleTurn } from "./config/fight.js"
 import { getRandomMove } from "./config/randomizer.js"
 

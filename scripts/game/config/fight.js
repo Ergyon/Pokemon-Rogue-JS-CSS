@@ -1,5 +1,9 @@
 import { constructPokemon } from "../../datas/storage.js";
-import { delay, displayPokemons, showMessage, undisplayPokemons, updateBattleUI } from "../../UI/displays.js";
+import { updateBattleUI } from "../../UI/battle/displayMove.js";
+import { displayPokemons } from "../../UI/battle/displayPokemons.js";
+import { showMessage } from "../../UI/battle/displayText.js";
+import { undisplayPokemons } from "../../UI/battle/undisplay.js";
+import { delay } from "../../UI/utils/utils.js";
 import { mainPlayer } from "../class/player.js";
 import { mainGameLoop } from "../main.js";
 import { initDuelsLoop } from "./duelsLoop.js";

@@ -1,63 +1,48 @@
-// Faire apparaitre les pokemons au combat
-export function displayPokemons(player, enemy, doAttack){
-    const arena = document.getElementById("arena")
+// Creation d'un display pokemon
+function createPokemonCard(pokemon, side, doAttack) {
+    const card = document.createElement('div')
+    card.dataset.side = side
+    const name = document.createElement('span')
+    const img = document.createElement('img')
+    const HpBar = document.createElement('div')
+    const HpFill = document.createElement('div')
+    const HpValue = document.createElement('span')
 
-    const cardPlayer = document.createElement("div")
-    const pkmnPlayerName = document.createElement("span")
-    const pkmnPlayerImg = document.createElement("img")
-    const pvBarPlayer = document.createElement("div")
-    const pvFillPlayer = document.createElement("div")
-    const pvValuePlayer = document.createElement('span')
-    
-    const cardEnemy = document.createElement("div")
-    const pkmnEnemyName = document.createElement("span")
-    const pkmnEnemyImg = document.createElement("img")
-    const pvBarEnemy = document.createElement("div")
-    const pvFillEnemy = document.createElement("div")
-    const pvValueEnemy = document.createElement('span')
-    
-    pkmnPlayerName.textContent = player.name
-    pkmnPlayerImg.src = player.img
-    pkmnPlayerImg.alt = player.name
-    pvValuePlayer.textContent = `${player.hp}/${player.maxHP}`
+    name.textContent = pokemon.name
+    img.src = pokemon.img
+    img.alt = pokemon.name
+    HpValue.textContent = `${pokemon.hp}/${pokemon.maxHP}`
 
-    pkmnPlayerImg.addEventListener("click", () => {
-        displayMenuAttack(player, doAttack)
-    })
+    if (side === 'player') {
+        img.addEventListener('click', () => displayMenuAttack(pokemon, doAttack))
+    }
 
-    pkmnEnemyName.textContent = enemy.name
-    pkmnEnemyImg.src = enemy.img
-    pkmnEnemyImg.alt = enemy.name
-    pvValueEnemy.textContent = `${enemy.hp}/${enemy.maxHP}`
-    
+    card.classList.add("arena__card", `${side}-appears`);
+    name.classList.add("arena__card__name");
+    img.classList.add("arena__card__pkmn");
+    HpBar.classList.add('hp-bar');
+    HpFill.classList.add('hp-fill');
+    HpValue.classList.add('hp-value');
 
-    cardPlayer.classList.add("arena__card", "player-appears")
-    pkmnPlayerName.classList.add("arena__card__name")
-    pkmnPlayerImg.classList.add("arena__card__pkmn")
-    pvBarPlayer.classList.add('hp-bar')
-    pvFillPlayer.classList.add('hp-fill')
-    pvValuePlayer.classList.add('hp-value')
-    
-    cardEnemy.classList.add("arena__card", "enemy-appears")
-    pkmnEnemyName.classList.add("arena__card__name")
-    pkmnEnemyImg.classList.add("arena__card__pkmn")
-    pvBarEnemy.classList.add('hp-bar')
-    pvFillEnemy.classList.add('hp-fill')
-    pvValueEnemy.classList.add('hp-value')
+    HpBar.appendChild(HpFill);
+    card.append(name, img, HpBar, HpValue);
 
-    pvBarPlayer.appendChild(pvFillPlayer)
-    cardPlayer.append(pkmnPlayerName, pkmnPlayerImg, pvBarPlayer, pvValuePlayer)
+    return card;
+}
 
-    pvBarEnemy.appendChild(pvFillEnemy)
-    cardEnemy.append(pkmnEnemyName, pkmnEnemyImg, pvBarEnemy, pvValueEnemy)
 
-    arena.append(cardPlayer, cardEnemy,)
+// Display les deux pokemons
+export function displayPokemons(player, enemy, doAttack) {
+    const arena = document.getElementById('arena')
+
+    const cardPlayer = createPokemonCard(player, 'player', doAttack)
+    const cardEnemy = createPokemonCard(enemy, 'enemy', doAttack)
+    arena.append(cardPlayer, cardEnemy)
 
     const battleTextWrapper = document.querySelector(".battle-txt-container")
-    const pokemonText = document.createElement("span")
+    const pokemonText = document.createElement('span')
     pokemonText.textContent = `Un ${enemy.name} sauvage apparait !`
-    pokemonText.classList.add("pokemon-txt")
-
+    pokemonText.classList.add('pokemon-txt')
     battleTextWrapper.appendChild(pokemonText)
 }
 
@@ -105,15 +90,6 @@ export function displayMenuAttack(pokemon, doAttack) {
     menu.appendChild(table)
 }
 
-// Bulle message combat
-export function showMessage(text) {
-    const TextWrapper = document.querySelector(".battle-txt-container")
-    TextWrapper.innerHTML =''
-    const attackText = document.createElement('span')
-    attackText.classList.add('battle-txt')
-    attackText.textContent = text
-    TextWrapper.appendChild(attackText)
-}
 
 // Masquer moveset
 function hideMenu() {
@@ -129,9 +105,22 @@ document.addEventListener("click", (e) => {
     }
 })
 
+
+// Bulle message combat
+export function showMessage(text) {
+    const TextWrapper = document.querySelector(".battle-txt-container")
+    TextWrapper.innerHTML =''
+    const attackText = document.createElement('span')
+    attackText.classList.add('battle-txt')
+    attackText.textContent = text
+    TextWrapper.appendChild(attackText)
+}
+
+
 // Animation barre de vie
 export function updateHp(pokemon, side) {
-    const card = document.querySelector(`.${side}-appears`)
+    const card = document.querySelector(`[data-side="${side}"]`)
+    if (!card) return
     const hpValue = card.querySelector('.hp-value')
     const hpFill = card.querySelector('.hp-fill')
 
@@ -149,6 +138,7 @@ export function updateHp(pokemon, side) {
     }
 }
 
+
 // Update UI battle
 export function updateBattleUI(player, enemy, messages) {
     setTimeout(() => {
@@ -160,6 +150,7 @@ export function updateBattleUI(player, enemy, messages) {
         showMessage(lastMsg)
     }
 }
+
 
 // colorer les attaques dans le menu en fonction du type
 function attackColor(type) {
@@ -179,6 +170,24 @@ function attackColor(type) {
         case 'TENEBRES': return 'type-Tenebres'
         default : return 'type-Normal'
     }
+}
+
+// pokemon ko
+export async function displayKO(side) {
+    const card = document.querySelector(`.${side}-appears`)
+    if (!card) return
+           
+    const img = card.querySelector('.arena__card__pkmn')
+    img.classList.add('arena__card__pkmn--ko')
+
+    await new Promise((res) => setTimeout(res, 1600))
+    card.remove()
+}
+
+// vider l'arene
+export function undisplayPokemons() {
+    const cards = document.querySelectorAll('.arena__card')
+    cards.forEach(card => card.remove())
 }
 
 // delay pour boucle tour

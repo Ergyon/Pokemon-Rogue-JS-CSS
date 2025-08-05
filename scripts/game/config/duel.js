@@ -14,7 +14,7 @@ export async function initDuel(player, trainer) {
     return new Promise(resolve => {
         displayPokemons(pkmnPlayer, pkmnEnemy, (move) => {
             mainGameLoop(move, player, trainer, pkmnPlayer, pkmnEnemy, () => 
-                updateBattleUI(pkmnPlayer, pkmnEnemy), resolve              
+                updateBattleUI(pkmnPlayer, pkmnEnemy, messages), resolve              
             )
         })
     })

@@ -84,7 +84,11 @@
             cursor: pointer;
             position: relative;
             margin-bottom: 3rem;
+            &--ko {
+                animation: isKO 1.3s ease-in forwards;
+            }
         }
+        
     }
     .player-appears {
         transform: translateX(-2000px);

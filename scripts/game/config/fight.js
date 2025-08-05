@@ -1,5 +1,5 @@
 import { constructPokemon } from "../../datas/storage.js";
-import { delay, displayPokemons, showMessage, updateBattleUI } from "../../UI/displays.js";
+import { delay, displayPokemons, showMessage, undisplayPokemons, updateBattleUI } from "../../UI/displays.js";
 import { mainPlayer } from "../class/player.js";
 import { mainGameLoop } from "../main.js";
 import { initDuelsLoop } from "./duelsLoop.js";
@@ -49,6 +49,7 @@ function initFirstFight() {
         
         if (pkmnEnemy.isKO()) {
             isFightOver = true
+            undisplayPokemons()
             showMessage("Les duels commencent...")
             await delay(2000)
             await initDuelsLoop(mainPlayer)

@@ -1,4 +1,5 @@
-import { displayKO } from "../UI/battle/undisplay.js"
+import { updateBattleUI } from "../UI/displayBattle/displayMove.js"
+import { displayKO } from "../UI/displayBattle/undisplay.js"
 import { delay } from "../UI/utils/utils.js"
 import { handleTurn } from "./config/fight.js"
 import { getRandomMove } from "./config/randomizer.js"
@@ -28,19 +29,17 @@ export async function mainGameLoop(
                 return
             } else {
                 pkmnEnemy = trainer.choosePokemon()
-                // updateUI()
+                updateBattleUI()
             }
         }
     } 
-    // si combat sauvage
-    else {
-        return
-    }
-    
+
     await delay(1000)
 
     // tour enemmi
     const enemyMove = getRandomMove(pkmnEnemy)
+    if (!enemyMove) return
+    
     await handleTurn(pkmnEnemy, pkmnPlayer, enemyMove, messages, updateUI)
 
     // si pokemon player ko

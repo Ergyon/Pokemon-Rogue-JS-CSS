@@ -48,7 +48,7 @@ const bulbizare = new Pokemon({
     defense: 16,
     critical: 0.8,
     moves: [allMoves.charge, allMoves.tranchherb, allMoves.fouetliane, allMoves.armure],
-    img: '../assets/img/pokemons/bulbizare.png',
+    img: 'https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif',
     rank: 1
 })
 
@@ -72,7 +72,7 @@ const carapuce = new Pokemon({
     defense: 13,
     critical: 0.72,
     moves: [allMoves.pistoletao, allMoves.morsure, allMoves.grozyeux, allMoves.charge],
-    img: '../assets/img/pokemons/carapuce.png',
+    img: 'https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif',
     rank: 1
 })
 
@@ -96,7 +96,8 @@ const fantominus = new Pokemon({
     defense: 16,
     critical: 0.8,
     moves: [allMoves.hypnose, allMoves.chocmental, allMoves.grozyeux, allMoves.lechouille],
-    img: '../assets/img/pokemons/fantominus.png',
+    // img: '../assets/img/pokemons/fantominus.png',
+    img: "https://img.pokemondb.net/sprites/diamond-pearl/normal/gastly.png",
     rank: 1
 })
 
@@ -108,7 +109,7 @@ const goupix = new Pokemon({
     defense: 12,
     critical: 0.99,
     moves: [allMoves.flammeche, allMoves.rugissement, allMoves.viveattaque, allMoves.morsure],
-    img: '../assets/img/pokemons/goupix.png',
+    img: 'https://img.pokemondb.net/sprites/black-white/anim/normal/vulpix.gif',
     rank: 1
 })
 
@@ -120,7 +121,7 @@ const miaous = new Pokemon({
     defense: 14,
     critical: 1.15,
     moves: [allMoves.griffe, allMoves.morsure, allMoves.rugissement, allMoves.hypnose],
-    img: '../assets/img/pokemons/miaous.png',
+    img: 'https://img.pokemondb.net/sprites/black-white/anim/normal/meowth.gif',
     rank: 1
 })
 
@@ -132,7 +133,7 @@ const nidoran = new Pokemon({
     defense: 11,
     critical: 0.7,
     moves: [allMoves.morsure, allMoves.charge, allMoves.rugissement, allMoves.dardvenin],
-    img: '../assets/img/pokemons/nidoran-male.png',
+    img: 'https://img.pokemondb.net/sprites/black-white/anim/normal/nidoran-m.gif',
     rank: 1
 })
 
@@ -144,7 +145,7 @@ const pikachu = new Pokemon({
     defense: 13,
     critical: 0.78,
     moves: [allMoves.viveattaque, allMoves.charge, allMoves.grozyeux, allMoves.eclair],
-    img: '../assets/img/pokemons/pikachu.png',
+    img: 'https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu-f.gif',
     rank: 1
 })
 
@@ -180,7 +181,7 @@ const racaillou = new Pokemon({
     defense: 16,
     critical: 0.62,
     moves: [allMoves.charge, allMoves.armure, allMoves.jetpierre, allMoves.coupdboule],
-    img: '../assets/img/pokemons/racaillou.png',
+    img: 'https://img.pokemondb.net/sprites/black-white/anim/normal/geodude.gif',
     rank: 1
 })
 
@@ -192,7 +193,7 @@ const rondoudou = new Pokemon({
     defense: 17,
     critical: 0.54,
     moves: [allMoves.berceuse, allMoves.charge, allMoves.coupdboule, allMoves.rugissement],
-    img: '../assets/img/pokemons/rondoudou.png',
+    img: 'https://img.pokemondb.net/sprites/black-white/anim/normal/jigglypuff.gif',
     rank: 1
 })
 
@@ -204,7 +205,7 @@ const roucool = new Pokemon({
     defense: 14,
     critical: 0.77,
     moves: [allMoves.viveattaque, allMoves.rugissement, allMoves.jetsable, allMoves.tornade],
-    img: '../assets/img/pokemons/roucool.png',
+    img: 'https://img.pokemondb.net/sprites/black-white/anim/normal/pidgey.gif',
     rank: 1
 })
 
@@ -216,7 +217,7 @@ const salameche = new Pokemon({
     defense: 14,
     critical: 0.58,
     moves: [allMoves.jetsable, allMoves.griffe, allMoves.flammeche, allMoves.grozyeux],
-    img: '../assets/img/pokemons/salameche.png',
+    img: 'https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif',
     rank: 1
 })
 

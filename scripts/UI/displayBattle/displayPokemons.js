@@ -1,4 +1,4 @@
-import { displayMenuAttack } from "./menus/displayMoveset.js"
+import { displayMenuAttack } from "./displayMenus/displayMoveset.js"
 
 // Creation d'un display pokemon
 function createPokemonCard(pokemon, side, doAttack) {

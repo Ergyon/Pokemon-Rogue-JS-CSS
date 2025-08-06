@@ -1,5 +1,5 @@
-import { updateBattleUI } from "../../UI/battle/displayMove.js"
-import { displayPokemons } from "../../UI/battle/displayPokemons.js"
+import { updateBattleUI } from "../../UI/displayBattle/displayMove.js"
+import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js"
 import { mainGameLoop } from "../main.js"
 
 export async function initDuel(player, trainer) {

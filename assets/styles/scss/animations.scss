@@ -1,3 +1,5 @@
+@use 'global' as *;
+
 // Utiles
 @keyframes leftToRight {
     from {
@@ -57,6 +59,15 @@
         transform: scale(1);
     }
 }
+@keyframes pokeballDisabled {
+    from {
+        opacity: 1;
+        transform: scale(100%);
+    } to {
+        opacity: 0.5;
+        transform: scale(75%);
+    }
+}
 @keyframes pokeballmessage {
     from {
         opacity: 0;
@@ -66,20 +77,15 @@
         transform: scale(100%);
     }
 }
-@keyframes pokeballDisabled {
-    from {
-        opacity: 1;
-        transform: scale(100%);
-    } to {
-        opacity: 0.5;
-        transform: scale(80%);
-    }
-}
 @keyframes battleTitle {
-    from {
+     0% {
         transform: scale(0.8) scaleX(1.6);
-        opacity: 0.6;
-        color: beige;
+        opacity: 0.3;
+        color: $colorNormal;
+    } 100% {
+        transform: scale(0.7) scaleX(1.5);
+        opacity: 0.7;
+        color: $colorSpectre;
     }
 }
 
@@ -176,5 +182,17 @@
     100% {
         opacity: 0;
         transform: translateY(15px);
+    }
+}
+// slide up
+@keyframes slideUp {
+    from {
+        // transform: scale(0.1);
+        transform: translateY(60px);
+        opacity: 0.2;
+    } to {
+        // transform: scale(1);
+        transform: translateY(0);
+        opacity: 1;
     }
 }

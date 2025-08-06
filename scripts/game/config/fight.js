@@ -1,8 +1,9 @@
+import { pokedex } from "../../datas/pokedex.js";
 import { constructPokemon } from "../../datas/storage.js";
-import { updateBattleUI } from "../../UI/battle/displayMove.js";
-import { displayPokemons } from "../../UI/battle/displayPokemons.js";
-import { showMessage } from "../../UI/battle/displayText.js";
-import { undisplayPokemons } from "../../UI/battle/undisplay.js";
+import { updateBattleUI } from "../../UI/displayBattle/displayMove.js";
+import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js";
+import { showMessage } from "../../UI/displayBattle/displayText.js";
+import { undisplayPokemons } from "../../UI/displayBattle/undisplay.js";
 import { delay } from "../../UI/utils/utils.js";
 import { mainPlayer } from "../class/player.js";
 import { mainGameLoop } from "../main.js";
@@ -11,6 +12,7 @@ import { getRandomPokemon } from "./randomizer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initFirstFight()
+    console.log(pokedex[14])
 })
 
 
@@ -35,7 +37,7 @@ function initFirstFight() {
     mainPlayer.team.push(pkmnPlayer)
     
     pkmnEnemy = getRandomPokemon({rank:1})
-    pkmnEnemy.hp = 5
+    // pkmnEnemy.hp = 5
     
     if (!pkmnPlayer || !pkmnEnemy) {
         window.alert("YA PAS DE POKEMOOOONS !!!")

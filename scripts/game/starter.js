@@ -1,38 +1,51 @@
-import { getRandomPokemon } from "./config/randomizer.js"
+import { getRandomPokemon } from "./config/randomizer.js";
 
 // Choisir son starter
-if (document.querySelector(".pokeball")) {
-    const pokeballs = document.querySelectorAll(".pokeball")
-    const starterTextWrap = document.querySelector(".message-wrapper")
-    let chosen = false
-    
-    pokeballs.forEach(pokeball => {
-        pokeball.addEventListener("click", () => {
-            if (chosen) return
-    
-            const pkmnStarter = getRandomPokemon({rank:1})
-    
-            pokeball.classList.remove("pokeball")
-            pokeball.classList.add("pokemon")
-            pokeball.src = pkmnStarter.img
-            pokeball.alt = pkmnStarter.name
-    
-            const message = document.createElement("span")
-            message.classList.add("pokeball-message")
-            message.textContent = `Vous obtenez ${pkmnStarter.name}`
-            starterTextWrap.appendChild(message)
-    
-            // Stocker le starter 
-            localStorage.setItem("starter", JSON.stringify(pkmnStarter))
-    
-            pokeballs.forEach(otherBall => {
-                if (!otherBall.classList.contains("pokemon")) {
-                    otherBall.classList.add("disabled")
-                }
-            })
-    
-            chosen = true
-        })
+const pokeballs = document.querySelectorAll(".pokeball");
+const starterTextWrap = document.querySelector(".message-wrapper");
+const battleLink = document.querySelector(".fight-link-wrap")
+let chosen = false;
+
+window.addEventListener("DOMContentLoaded", () => {
+    pokeballs.forEach((ball, index) => {
+        setTimeout(() => {
+            ball.classList.add("visible");
+        }, index * 900)
     })
+})
+
+
+function chooseStarter(pokeball) {
+    if (chosen) return
+
+    // pokemon random rank I
+    const pkmnStarter = getRandomPokemon({ rank: 1 })
+
+    pokeball.classList.remove("pokeball", "visible")
+    pokeball.classList.add("pokemon")
+    pokeball.src = pkmnStarter.img
+    pokeball.alt = pkmnStarter.name
+
+    const message = document.createElement("span")
+    message.classList.add("pokeball-message")
+    message.textContent = `Vous obtenez ${pkmnStarter.name}`
+    starterTextWrap.appendChild(message)
+
+    // stock dans le local storage
+    localStorage.setItem("starter", JSON.stringify(pkmnStarter))
+
+    pokeballs.forEach(otherBall => {
+        if (otherBall !== pokeball) {
+            otherBall.classList.remove("visible")
+            otherBall.classList.add("disabled")
+        }
+    })
+
+    chosen = true
+    battleLink.classList.add('fight-link-wrap__anim')
 }
+
+pokeballs.forEach(pokeball => {
+    pokeball.addEventListener("click", () => chooseStarter(pokeball))
+})
 

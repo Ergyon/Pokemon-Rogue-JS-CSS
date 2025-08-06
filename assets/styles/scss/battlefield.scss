@@ -29,11 +29,12 @@
         font-family: $pixel-font-large, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         font-size: 7rem;
         font-weight: 700;
-        color: beige;
+        // color: beige;
         text-align: center;
         margin-bottom: 1rem;
         margin-top: 3rem;
-        animation: battleTitle 3s 0.2s linear infinite alternate-reverse;
+        opacity: 0;
+        animation: battleTitle 4s 4s linear infinite alternate-reverse;
     }
     // Birds decoration
     .birds {
@@ -83,7 +84,7 @@
             animation: breathing 2s 0.5s linear infinite alternate-reverse;
             cursor: pointer;
             position: relative;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             &--ko {
                 animation: isKO 1.3s ease-in forwards;
             }

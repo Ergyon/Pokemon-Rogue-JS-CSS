@@ -67,8 +67,6 @@ class Pokemon {
     }
 
 
-
-
     // Lancer un move
     doMove(move, target){
         let messages = []

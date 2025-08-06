@@ -71,7 +71,7 @@ function attackColor(type) {
         case 'COMBAT': return 'type-Combat'
         case 'SOL': return 'type-Sol'
         case 'DRAGON': return 'type-Dragon'
-        case 'SPECTRE': return 'type=Spectre'
+        case 'SPECTRE': return 'type-Spectre'
         case 'TENEBRES': return 'type-Tenebres'
         default : return 'type-Normal'
     }

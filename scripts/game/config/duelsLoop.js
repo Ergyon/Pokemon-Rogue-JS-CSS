@@ -1,4 +1,4 @@
-import { showMessage } from '../../UI/battle/displayText.js'
+import { showMessage } from '../../UI/displayBattle/displayText.js'
 import { delay } from '../../UI/utils/utils.js'
 import { initDuel } from './duel.js'
 import { getRandomTrainer } from './randomizer.js'

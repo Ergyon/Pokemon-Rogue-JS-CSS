@@ -1,5 +1,5 @@
-import { typeAdvantage } from "../../datas/types.js"
 import { StatusEffect } from "../mechanics/status-effect.js"
+import { typeAdvantage } from "../mechanics/types-table.js"
 
 // Pokemon
 class Pokemon {

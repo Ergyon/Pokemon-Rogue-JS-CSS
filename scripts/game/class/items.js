@@ -1,11 +1,10 @@
-import { healingSelf } from "../mechanics/stats-change"
-
 export class Item {
-    constructor(name, effect, category = 'stats', rank = 1) {
-        this.name = name
-        this.effect = effect
-        this.category = category
-        this.rank = rank
+    constructor(config) {
+        this.name = config.name
+        this.effect = config.effect
+        this.category = config.category
+        this.rank = config.rank
+        this.price = config.price
     }
 
     canUse(pokemon) {
@@ -17,16 +16,4 @@ export class Item {
     }
 }
 
-
-// rank I
-const potion = new Item('Potion', healingSelf(30), 'stats', 1)
-
-
-
-const allItems = {
-    potion
-}
-
-
- export { allItems }
 

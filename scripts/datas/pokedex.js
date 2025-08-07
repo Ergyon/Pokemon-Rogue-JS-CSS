@@ -431,6 +431,8 @@ const pokedex = [
     // rank II
     aquali, carabaffe, colossinge, dardargnan, dodrio, draco, electrode, elektek,
     feunard, feurisson, flagadoss, gravalanch, ratatac
+
+    // rank III
 ]
 
 export { pokedex }

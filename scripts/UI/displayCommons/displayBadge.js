@@ -3,11 +3,11 @@ import { createRandomCard } from "./createRandomCard.js"
 
 
 export function displayBadges(confirm) {
-    
+
     let selectedBadge = null
 
     // overlay
-    const overlay = document.createElement(div)
+    const overlay = document.createElement('div')
     overlay.classList.add('overlay__badge')
 
     // modale
@@ -26,10 +26,10 @@ export function displayBadges(confirm) {
     container.classList.add('modal-badges__container')
 
     // badges
-    const badges = Array.from({length: 1}, () => getRandomBadge())
+    const badges = Array.from({length: 2}, () => getRandomBadge())
 
     badges.forEach(el => {
-        const card = createRandomCard(el, select, container)
+        const card = createRandomCard(el, confirm, container)
         container.appendChild(card)
     })
 
@@ -49,7 +49,7 @@ export function displayBadges(confirm) {
         }
     })
 
-    modal.appendChild(title, subtitle, container, confirmBtn)
+    modal.append(title, subtitle, container, confirmBtn)
     overlay.appendChild(modal)
     document.body.appendChild(overlay)
 

@@ -1,18 +1,18 @@
-import { Badge } from "../game/class/badges";
+import { Badge } from "../game/class/badges.js";
 
 const attackBadge = new Badge({
     name: "Badge Attaque",
-    img: '../../assets/img/badges/attackbadge.png',
+    img: '',
     description: "Augmente légèrement l'attaque de toute votre équipe",
-    effect: increaseAttack(1),
+    // effect: increaseAttack(1),
     rank: 1,
 })
 
 const defenseBadge = new Badge({
     name: 'Badge Défense',
-    img: '../../assets/img/badges/defensebadge.png',
+    img: '',
     description: "Augmente légèrement la défense de toute votre équipe",
-    effect: increaseDefense(1),
+    // effect: increaseDefense(1),
     rank: 1,
 })
 

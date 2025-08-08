@@ -1,25 +1,71 @@
-import { allTextes } from "../../datas/text"
 
-export function displayMessages(index) {
-    const wrapper = document.createElement(div)
-    wrapper.classlist.add('modal-messages')
-
-    const content  = document.createElement('div')
-    content.classList.add('modal-messages__content')
+// Bulle principale de textes
+export function displayMessages(messages, {
+    onDone = null,
+    autoClose = false,
+    modalClass = 'modal-messages',
+    textClass = 'modal-messages__txt',
+    nextClass = 'modal-messages__next'
+} = {}) {
+    
+    let index = 0
+    
+    // bulle texte
+    const modal = document.createElement('div')
+    modal.classList.add(modalClass)
 
     const text = document.createElement('p')
-    text.classList.add('modal-messages__content__txt')
-    text.textContent = allTextes[index.text]
+    text.classList.add(textClass)
+    text.textContent = messages[index]
 
-    const nextBtn = document.createElement('button')
-    nextBtn.classlist.add('modal-messages__next')
-    nextBtn.textContent = '>'
+    const next = document.createElement('button')
+    next.classList.add(nextClass)
+    next.textContent = '▶'
 
-    nextBtn.addEventListener('click', () => {
-        text.textContent = ''
+    modal.append(text, next)
+    document.body.appendChild(modal)
+
+    let resolveRef = () => {}
+
+    // passer le texte
+    function advance() {
         index++
-        text.textContent = allTextes[index.text]
-    })
+        if (index >= messages.length) {
+            finish()
+        } else {
+            text.textContent = messages[index]
+        }
+    }
 
-    if (index > allTextes.length) return
+    // handlers 
+    const onKey = (e) => {
+        if (e.repeat) return
+        if (e.code === 'Enter' || e.code === 'Space') {
+            e.preventDefault()
+            advance()
+        }
+    }
+
+    next.addEventListener('click', advance)
+    document.addEventListener('keydown', onKey)
+
+    // nettoyer
+    const cleanUp = () => {
+        next.removeEventListener('click', onClickAdvance)
+        document.removeEventListener('keydown', onKey)
+        if (autoClose) modal.remove()
+    }
+
+    // fin des textes
+    function finish() {
+        cleanUp()
+        if (typeof onDone === 'function') {
+            onDone()
+        }
+        resolveRef()
+    }
+
+    return new Promise((resolve) => {
+        resolveRef = resolve
+    })
 }

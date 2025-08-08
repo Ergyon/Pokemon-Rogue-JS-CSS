@@ -1,4 +1,3 @@
-import { pokedex } from "../../datas/pokedex.js";
 import { constructPokemon } from "../../datas/storage.js";
 import { updateBattleUI } from "../../UI/displayBattle/displayMove.js";
 import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js";
@@ -12,7 +11,6 @@ import { getRandomPokemon } from "./randomizer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initFirstFight()
-    console.log(pokedex[14])
 })
 
 

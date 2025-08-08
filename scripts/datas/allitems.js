@@ -1,5 +1,6 @@
-import { healingSelf } from "../game/mechanics/stats-change"
-import { healStatus } from "../game/mechanics/status"
+import { Item } from "../game/class/items.js"
+import { healingSelf } from "../game/mechanics/stats-change.js"
+import { healStatus } from "../game/mechanics/status.js"
 
 // heals
 const potion = new Item({

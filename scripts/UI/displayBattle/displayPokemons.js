@@ -41,10 +41,11 @@ export function displayPokemons(player, enemy, doAttack) {
     const cardEnemy = createPokemonCard(enemy, 'enemy', doAttack)
     arena.append(cardPlayer, cardEnemy)
 
-    const battleTextWrapper = document.querySelector(".battle-txt-container")
+    const textWrapper = document.querySelector(".battle-txt-container")
+
     const pokemonText = document.createElement('span')
     pokemonText.textContent = `Un ${enemy.name} sauvage apparait !`
     pokemonText.classList.add('pokemon-txt')
-    battleTextWrapper.appendChild(pokemonText)
+    textWrapper.appendChild(pokemonText)
 }
 

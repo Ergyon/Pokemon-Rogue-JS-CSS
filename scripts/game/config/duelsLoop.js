@@ -8,7 +8,6 @@ export async function initDuelsLoop(mainPlayer) {
 
     while (round <= 5) {
         const trainer = getRandomTrainer()
-        console.log("Trainer choisi :", trainer)
         trainer.generateTeam(2, 1)
 
         showMessage(`${trainer.name} vous provoque en duel !`)

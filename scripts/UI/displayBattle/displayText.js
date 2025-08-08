@@ -1,5 +1,5 @@
 // Bulle message combat
-export function showMessage(text) {
+export function showBattleTxt(text) {
     const textWrapper = document.querySelector(".battle-txt-container")
     textWrapper.innerHTML =''
 

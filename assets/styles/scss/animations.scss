@@ -33,6 +33,13 @@
         transform: scale(100%);
     }
 }
+@keyframes caret-blink {
+    50% { opacity: 0 }
+}
+@keyframes nextPulse {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-2px); }
+}
 
 // Starter pokeball
 @keyframes pokeball {
@@ -187,11 +194,9 @@
 // slide up
 @keyframes slideUp {
     from {
-        // transform: scale(0.1);
         transform: translateY(60px);
         opacity: 0.2;
     } to {
-        // transform: scale(1);
         transform: translateY(0);
         opacity: 1;
     }

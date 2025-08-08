@@ -8,7 +8,8 @@ const potion = new Item({
     effect: healingSelf(30),
     category: 'stats',
     rank: 1,
-    price: 300
+    price: 300,
+    img: '../../assets/img/items/medicine/potion.png'
 })
 
 const superpotion = new Item({
@@ -16,7 +17,8 @@ const superpotion = new Item({
     effect: healingSelf(60),
     category: 'stats',
     rank: 2,
-    price: 800
+    price: 800,
+    img: '../../assets/img/items/medicine/superpotion.png',
 })
 
 const hyperpotion = new Item({
@@ -24,15 +26,17 @@ const hyperpotion = new Item({
     effect:healingSelf(120),
     category: 'stats',
     rank: 3,
-    price: 1200
+    price: 1200,
+    img: '../../assets/img/items/medicine/hyperpotion.png',
 })
 
-const guerison = new Item({
-    name: 'Guéruison',
+const potionmax = new Item({
+    name: 'Guérison',
     effect: healingSelf(300), 
     category: 'stats',
     rank: 3,
-    price: 2000
+    price: 2000,
+    img: '../../assets/img/items/medicine/max-potion.png',
 })
 
 // status 
@@ -41,47 +45,53 @@ const antipara = new Item({
     effect: healStatus(),
     category: 'status',
     rank: 1,
-    price: 350
+    price: 350,
+    img: '../../assets/img/items/medicine/antipara.png',
 })
 
 const antidote = new Item({
     name: 'Antidote',
     effect: healStatus(),
     rank: 1,
-    price: 350
+    price: 350,
+    img: '../../assets/img/items/medicine/antidote.png',
 })
 
 const antibrule = new Item({
-    name: 'Antti-brûle',
+    name: 'Anti-brûle',
     effect: healStatus(),
     rank: 1,
-    price: 350
+    price: 350,
+    img: '../../assets/img/items/medicine/antibrule.png',
 })
 
 const antigele = new Item({
     name: 'Anti-gêle',
     effect: healStatus(),
     rank: 1,
-    price: 350
+    price: 350,
+    img: '../../assets/img/items/medicine/ice-heal.png',
 })
 
 const reveil = new Item({
     name: 'Réveil',
     effect: healStatus(),
     rank: 1,
-    price: 350
+    price: 350,
+    img: '../../assets/img/items/medicine/reveil.png',
 })
 
-const allItems = {
+const allItems = [
     // rank I
     potion, antipara, antidote, antibrule, antigele, reveil,
 
     // rank II
     superpotion,
     // rank III
-    hyperpotion, guerison
-}
+    hyperpotion, potionmax
+]
 
 
  export { allItems }
 
+ 

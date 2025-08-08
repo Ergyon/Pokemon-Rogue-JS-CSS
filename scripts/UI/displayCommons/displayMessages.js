@@ -5,7 +5,8 @@ export function displayMessages(messages, {
     autoClose = false,
     modalClass = 'modal-messages',
     textClass = 'modal-messages__txt',
-    nextClass = 'modal-messages__next'
+    nextClass = 'modal-messages__next',
+    charDelay = 20
 } = {}) {
     
     let index = 0
@@ -21,19 +22,38 @@ export function displayMessages(messages, {
     const next = document.createElement('button')
     next.classList.add(nextClass)
     next.textContent = '▶'
+    next.disabled = true
+    next.style.visibility = 'hidden'
 
     modal.append(text, next)
     document.body.appendChild(modal)
 
     let resolveRef = () => {}
+    let typing = false
+
+    // text typing
+    async function typeText(chars) {
+        typing = true
+        next.disabled = true
+        next.style.visibility = 'hidden'
+        text.textContent = ''
+        for (let i = 0; i < chars.length; i++) {
+            text.textContent += chars[i]
+            await new Promise(r => setTimeout(r, charDelay))
+        }
+        typing = false
+        next.disabled = false
+        next.style.visibility = 'visible'
+    }
 
     // passer le texte
     function advance() {
+        if (typing) return
         index++
         if (index >= messages.length) {
             finish()
         } else {
-            text.textContent = messages[index]
+            typeText(messages[index])
         }
     }
 
@@ -46,14 +66,15 @@ export function displayMessages(messages, {
         }
     }
 
+    typeText(messages[index])
     next.addEventListener('click', advance)
     document.addEventListener('keydown', onKey)
 
     // nettoyer
     const cleanUp = () => {
-        next.removeEventListener('click', onClickAdvance)
+        next.removeEventListener('click', advance)
         document.removeEventListener('keydown', onKey)
-        if (autoClose) modal.remove()
+        if (autoClose || index >= messages.length) modal.remove()
     }
 
     // fin des textes

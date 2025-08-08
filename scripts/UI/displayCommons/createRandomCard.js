@@ -1,4 +1,9 @@
+// Creer une carte random selectionnable
 export function createRandomCard(el, onSelect, container,) {
+    if (!el) {
+    console.warn('[createRandomCard] élément invalide:', el);
+    return null;
+    }
 
     const card = document.createElement('div')
     card.classList.add('random-card')
@@ -24,10 +29,10 @@ export function createRandomCard(el, onSelect, container,) {
 
     // selectionne
     card.addEventListener('click', () => {
-        card.classList.add('random-card--selected')
-
         const alreadySelected = container.querySelector('.random-card--selected')
         if (alreadySelected) return 
+        
+        card.classList.add('random-card--selected')
 
         // desactive
         container.querySelectorAll('.random-card').forEach(c => {

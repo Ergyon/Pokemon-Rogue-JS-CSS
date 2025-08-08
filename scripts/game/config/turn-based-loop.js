@@ -1,11 +1,11 @@
-import { updateBattleUI } from "../UI/displayBattle/displayMove.js"
-import { displayKO } from "../UI/displayBattle/undisplay.js"
-import { delay } from "../UI/utils/utils.js"
-import { handleTurn } from "./config/fight.js"
-import { getRandomMove } from "./config/randomizer.js"
+import { updateBattleUI } from "../../UI/displayBattle/displayMove.js"
+import { displayKO } from "../../UI/displayBattle/undisplay.js"
+import { delay } from "../../UI/utils/utils.js"
+import { handleTurn } from "./handle-turn.js"
+import { getRandomMove } from "./randomizer.js"
 
 
-export async function mainGameLoop(
+export async function turnBasedLoop(
     chosenMove, 
     player,
     trainer,
@@ -34,7 +34,7 @@ export async function mainGameLoop(
         }
     } 
 
-    await delay(1000)
+    await delay(700)
 
     // tour enemmi
     const enemyMove = getRandomMove(pkmnEnemy)

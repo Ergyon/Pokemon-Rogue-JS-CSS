@@ -42,7 +42,15 @@ function chooseStarter(pokeball) {
     })
 
     chosen = true
-    battleLink.classList.add('fight-link-wrap__anim')
+
+    const linkContainer = document.getElementById('battle-link')
+
+    const gameLink = document.createElement('a')
+    gameLink.href = './battle.html'
+    gameLink.classList.add('fight-link-wrap fight-link-wrap__anim')
+
+    linkContainer.appendChild(gameLink)
+
 }
 
 pokeballs.forEach(pokeball => {

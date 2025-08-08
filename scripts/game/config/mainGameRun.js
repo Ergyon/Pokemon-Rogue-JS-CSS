@@ -1,27 +1,27 @@
-import { showMessage } from '../../UI/displayBattle/displayText.js'
+import { showBattleTxt } from '../../UI/displayBattle/displayText.js'
 import { delay } from '../../UI/utils/utils.js'
 import { initDuel } from './duel.js'
 import { getRandomTrainer } from './randomizer.js'
 
-export async function initDuelsLoop(mainPlayer) {
+export async function mainGameRun(mainPlayer) {
     let round = 1 
 
     while (round <= 5) {
         const trainer = getRandomTrainer()
         trainer.generateTeam(2, 1)
 
-        showMessage(`${trainer.name} vous provoque en duel !`)
+        showBattleTxt(`${trainer.name} vous provoque en duel !`)
         await delay (1200)
 
         const result = await initDuel(mainPlayer, trainer)
 
         if (result === 'lose') {
-            showMessage(`${trainer.name} remporte le combat.`)
+            showBattleTxt(`${trainer.name} remporte le combat.`)
             break
         } else if (result === 'win'){
-            showMessage(`${mainPlayer.name} gagne le combat !`)
+            showBattleTxt(`${mainPlayer.name} gagne le combat !`)
             mainPlayer.earnMoney(trainer.gain)
-            showMessage(`${mainPlayer.name} gagne ${trainer.gain}$`)
+            showBattleTxt(`${mainPlayer.name} gagne ${trainer.gain}$`)
             round++
         } else {
            console.warn("Erreur", result) 
@@ -30,6 +30,6 @@ export async function initDuelsLoop(mainPlayer) {
     }
     
     if (round > 5) {
-        showMessage("Vous devenez Maitre Pokemon !")
+        showBattleTxt("Vous devenez Maitre Pokemon !")
     }
 }

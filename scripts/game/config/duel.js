@@ -1,6 +1,6 @@
 import { updateBattleUI } from "../../UI/displayBattle/displayMove.js"
 import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js"
-import { mainGameLoop } from "../main.js"
+import { turnBasedLoop } from "./turn-based-loop.js"
 
 export async function initDuel(player, trainer) {
     let pkmnPlayer = player.team.find(p => !p.isKO())
@@ -14,7 +14,7 @@ export async function initDuel(player, trainer) {
 
     return new Promise(resolve => {
         displayPokemons(pkmnPlayer, pkmnEnemy, (move) => {
-            mainGameLoop(move, player, trainer, pkmnPlayer, pkmnEnemy, () => 
+            turnBasedLoop(move, player, trainer, pkmnPlayer, pkmnEnemy, () => 
                 updateBattleUI(pkmnPlayer, pkmnEnemy, messages), resolve              
             )
         })

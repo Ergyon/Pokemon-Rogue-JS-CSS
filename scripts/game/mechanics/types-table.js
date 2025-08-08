@@ -1,7 +1,7 @@
 // Faiblesses, resistances, immunites
 const TYPES_TABLE = {
     FEU:     { PLANTE: 2, EAU: 0.5, FEU: 0.5, DRAGON: 0.5, ROCHE: 0.5 },
-    EAU:     { FEU: 2, ROCHE: 2, SOL: 2, PLANTE: 0.5, POISON: 0.5, EAU: 0.5, DRAGON: 0.5, FOUDRE: 0.5, },
+    EAU:     { FEU: 2, ROCHE: 2, SOL: 2, PLANTE: 0.5, EAU: 0.5, DRAGON: 0.5, FOUDRE: 0.5, },
     PLANTE:  { EAU: 2, ROCHE: 2, SOL: 2, FEU: 0.5, PLANTE: 0.5, DRAGON: 0.5 },
     NORMAL:  { ROCHE: 0.5, SPECTRE: 0},
     VOL:     { PLANTE: 2, COMBAT: 2, ROCHE: 0.5, FOUDRE: 0.5 },

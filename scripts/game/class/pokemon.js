@@ -74,7 +74,7 @@ class Pokemon {
         // si pp restant
         if (move.pp <= 0) {
             messages.push(`${this.name} ne peut plus utiliser ${move.name}...`)
-            return messages.join('\n')
+            return messages
         }  
 
         // attaque de base
@@ -94,14 +94,14 @@ class Pokemon {
             const miss = precisRoll > move.precision
             if (miss) {
                 messages.push(`${this.name} rate son attaque...`)
-                return messages.join('\n')
+                return messages
             }  
             
             // avatange de type ou non
             if (typeBase === 0) {
                 totalDamage = 0 
                 messages.push(`Ça n'affecte pas ${target.name}`)
-                return messages.join('\n')
+                return messages
             } 
             else if (typeBase === 2) {
                 messages.push("C'est super efficace !")
@@ -125,9 +125,11 @@ class Pokemon {
             
             if (target.hp <= 0) {
             messages.push(`${target.name} est KO...`)
-            } else if (typeof move.effect === 'function') {
-                move.effect(this, target, messages)
-            }
+            } 
+
+            // if (typeof move.effect === 'function') {
+            //     move.effect(this, target, messages)
+            // }
             
         }
 
@@ -137,7 +139,7 @@ class Pokemon {
             move.effect(this, target, messages)
             move.pp --
         }
-        return messages.join('\n')
+        return messages
     }
 }
 

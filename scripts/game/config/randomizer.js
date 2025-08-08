@@ -3,7 +3,7 @@ import { allItems } from "../../datas/allitems.js"
 import { pokedex } from "../../datas/pokedex.js"
 import { allTrainers } from "../class/trainer.js"
 
-// Generer pokemon random (pokedex, rank, autres)
+// generer pokemon random (pokedex, rank, autres)
 export function getRandomPokemon({rank = null, list = null} = {}) {
     let source = []
 
@@ -19,7 +19,7 @@ export function getRandomPokemon({rank = null, list = null} = {}) {
     return source[index]
 }
 
-// Genere une attaque aleatoire
+// genere une attaque aleatoire
 export function getRandomMove(pokemon) {
     const availablesMoves = pokemon.moves.filter(m => m.pp > 0)
     if (availablesMoves.length === 0) return null
@@ -27,7 +27,7 @@ export function getRandomMove(pokemon) {
     return availablesMoves[random]
 }
 
-// Genere un trainer aleatoire
+// genere un trainer aleatoire
 export function getRandomTrainer() {
     const source = allTrainers
     const index = Math.floor(Math.random() * source.length)
@@ -35,9 +35,10 @@ export function getRandomTrainer() {
 }
 
 // genere un item random
-export function getRandomItem(rank = null) {
+export function getRandomItem({rank} = {}) {
     const source = allItems
-    const index = Math.floor(Math.random() * source.length)
+    const pool = rank ? source.filter(it => it.rank === rank) : source
+    const index = Math.floor(Math.random() * pool.length)
     return source[index]
 }
 

@@ -1,7 +1,10 @@
+import { displayBattleTxt } from "../utils/utils.js"
+
 // Animation barre de vie
 export function updateHp(pokemon, side) {
     const card = document.querySelector(`[data-side="${side}"]`)
     if (!card) return
+
     const hpValue = card.querySelector('.hp-value')
     const hpFill = card.querySelector('.hp-fill')
 
@@ -27,6 +30,6 @@ export function updateBattleUI(player, enemy, messages) {
     }, 1400)
     const lastMsg = messages[messages.length - 1]
     if (lastMsg) {
-        showMessage(lastMsg)
+        displayBattleTxt(lastMsg)
     }
 }

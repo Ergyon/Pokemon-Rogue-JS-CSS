@@ -36,6 +36,19 @@
     transform: scale(100%);
   }
 }
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes nextPulse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
 @keyframes pokeball {
   0%, 20%, 40%, 60%, 80% {
     transform: rotate(0deg);
@@ -188,107 +201,89 @@
     opacity: 1;
   }
 }
-.starter {
-  background: beige;
+.modal-messages {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  margin-top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: clamp(8px, 2vh, 24px);
+  width: min(920px, 100vw - 24px);
+  height: 80px;
+  z-index: 1000;
+  background: #fdfdfd linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
+  border: 2px solid #0f4755;
+  border-radius: 14px;
+  padding: 14px 64px 16px 18px;
+  box-shadow: 0 6px 0 0 #0f4755, 0 12px 24px rgba(0, 0, 0, 0.4);
 }
-.starter__title {
-  font-size: 5rem;
-  font-family: "Jersey 20", "Jost";
-  color: rgb(71, 120, 255);
-  margin-top: 0;
-  padding-top: 5rem;
-  padding-bottom: 2rem;
-  transform: translateX(-100%);
-  animation: playerAppears 1.5s 0.3s cubic-bezier(0.82, -0.2, 0.24, 0.96) forwards;
-}
-.starter__subtitle {
-  font-family: "Jersey 20", "Jost";
-  font-size: 2rem;
-  color: rgba(54, 105, 146, 0.795);
-  margin: 0;
-  padding-bottom: 4rem;
-  opacity: 0;
-  animation: breathingColored 1s ease-in-out alternate-reverse infinite 5.2s;
-}
-.starter .container-balls {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 5rem;
-  padding-inline: 12%;
-}
-.starter .pokeball {
-  width: 11.3rem;
-  height: 11.3rem;
-  cursor: pointer;
-  border-radius: 100%;
-  opacity: 0;
-  transform: scale(0);
-  transition: transform 1.7s ease 1.7s, opacity 0.7s ease-in-out 1.7s;
-}
-.starter .pokeball.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-.starter .pokeball:hover {
-  animation: pokeball 1s cubic-bezier(0.8, 0.29, 0.83, 0.67) forwards;
-  box-shadow: 10px 20px 60px rgba(63, 1, 1, 0.205);
-}
-.starter .pokeball.disabled {
-  pointer-events: none;
-  box-shadow: none;
-  animation: pokeballDisabled 2.3s 0.5s ease-in-out forwards;
-}
-.starter .pokemon {
-  opacity: 0;
-  -o-object-fit: fill;
-     object-fit: fill;
-  width: 11.3rem;
-  height: auto;
-  animation: reveal 1.5s 0.5s ease-out forwards;
-}
-.starter .message-wrapper {
-  margin-top: 7.5rem;
-}
-.starter .message-wrapper .pokeball-message {
-  opacity: 0;
-  animation: pokeballmessage 0.6s 2s ease-out forwards;
-  font-family: "Pixelify Sans", "Jost";
-  font-size: 2.2rem;
-  font-weight: 400;
-  color: rgb(87, 78, 78);
-}
-
-.fight-link-wrap {
-  text-align: center;
-  background-color: rgba(0, 0, 255, 0.582);
-  padding-block: 1rem;
+.modal-messages::before {
+  content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  inset: -6px;
+  border: 2px solid #0f4755;
+  border-radius: 18px;
+  pointer-events: none;
+}
+.modal-messages::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 60px;
+  height: 0;
+  border-bottom: 2px dotted rgba(15, 71, 85, 0.2);
+  pointer-events: none;
+}
+.modal-messages .modal-messages__txt {
   margin: 0;
+  padding-right: 48px;
+  font-family: "Jersey 20", "Jost";
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #111;
+  white-space: pre-wrap;
+  min-height: 2.8em;
+}
+.modal-messages .modal-messages__txt.is-typing::after {
+  content: "";
+  display: inline-block;
+  vertical-align: baseline;
+  width: 0.6ch;
+  height: 1em;
+  margin-left: 2px;
+  border-right: 2px solid #0f4755;
+  animation: caret-blink 1s steps(1, end) infinite;
+}
+.modal-messages .modal-messages__next {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 32px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 2px solid #0f4755;
+  background: linear-gradient(180deg, #ffffff 0%, #eaeaea 100%);
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 0.1;
+  padding: 2px 2px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 0 #0f4755, inset 0 0 0 2px rgba(42, 109, 176, 0.08);
+}
+.modal-messages .modal-messages__next:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 0 #0f4755, inset 0 0 0 2px rgba(42, 109, 176, 0.12);
+}
+.modal-messages .modal-messages__next:not(:disabled) {
+  animation: next-pulse 1200ms ease-in-out infinite;
+}
+.modal-messages .modal-messages__next:disabled {
   opacity: 0;
-}
-.fight-link-wrap__anim {
-  animation: slideUp 1.5s forwards 2.5s;
-}
-
-.fight-link {
-  color: whitesmoke;
-  text-decoration: none;
-  font-size: 1rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  transition: 0.3s ease;
-}
-.fight-link:hover {
-  font-size: 1.6rem;
-  color: white;
-  border-bottom: 1px solid rgb(221, 208, 180);
-}/*# sourceMappingURL=starter.css.map */
+  visibility: hidden;
+  pointer-events: none;
+  animation: none;
+}/*# sourceMappingURL=dialogue.css.map */

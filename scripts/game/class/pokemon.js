@@ -2,7 +2,7 @@ import { StatusEffect } from "../mechanics/status-effect.js"
 import { typeAdvantage } from "../mechanics/types-table.js"
 
 // Pokemon
-class Pokemon {
+export class Pokemon {
     constructor(config) {
         this.name = config.name
         this.type = config.type
@@ -143,5 +143,5 @@ class Pokemon {
     }
 }
 
-export { Pokemon }
+
 

@@ -1,5 +1,5 @@
 import { Pokemon } from "../../../game/class/pokemon.js"
-import { allMoves } from "../../moves.js"
+import { allMoves } from "../../MOVES/allMoves.js"
 import { TYPES } from "../../types.js"
 
 // EAU

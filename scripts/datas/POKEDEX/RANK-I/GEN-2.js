@@ -1,11 +1,8 @@
 import { Pokemon } from "../../../game/class/pokemon.js"
-import { allMoves } from "../../moves.js"
+import { allMoves } from "../../MOVES/allMoves.js"
 import { TYPES } from "../../types.js"
 
-// EAU
-// PLANTE
-// FEU
-// FOUDRE
+
 const germignon = new Pokemon({
     name: 'Germignon',
     type: TYPES.PLANTE,
@@ -13,7 +10,7 @@ const germignon = new Pokemon({
     attack: 15,
     defense: 16,
     critical: 0.74,
-    moves: [allMoves.fouet_lianes, allMoves.juicegraine, allMoves.rugissement, allMoves.tranchherbe],
+    moves: [allMoves.fouetliane, allMoves.juicegraine, allMoves.rugissement, allMoves.tranchherbe],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/chikorita.gif",
     rank: 1
 })
@@ -25,7 +22,7 @@ const hericendre = new Pokemon({
     attack: 17,
     defense: 14,
     critical: 0.91,
-    moves: [allMoves.flammèche, allMoves.viveattaque, allMoves.griffe, allMoves.rugissement],
+    moves: [allMoves.flammeche, allMoves.viveattaque, allMoves.griffe, allMoves.rugissement],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/cyndaquil.gif",
     rank: 1
 })
@@ -37,7 +34,7 @@ const kaiminus = new Pokemon({
     attack: 18,
     defense: 15,
     critical: 0.82,
-    moves: [allMoves.pistolet_a_o, allMoves.griffe, allMoves.viveattaque, allMoves.crocs_eclair],
+    moves: [allMoves.pistoletao, allMoves.griffe, allMoves.viveattaque, allMoves.crocs_eclair],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/totodile.gif",
     rank: 1
 })
@@ -97,7 +94,7 @@ const loupio = new Pokemon({
     attack: 16,
     defense: 15,
     critical: 0.84,
-    moves: [allMoves.etincelle, allMoves.pistolet_a_o, allMoves.mur_lumiere, allMoves.cageeclair],
+    moves: [allMoves.etincelle, allMoves.pistoletao, allMoves.mur_lumiere, allMoves.cageeclair],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/chinchou.gif",
     rank: 1
 })
@@ -121,7 +118,7 @@ const natu = new Pokemon({
     attack: 13,
     defense: 12,
     critical: 0.78,
-    moves: [allMoves.choc_mental, allMoves.coupdmain, allMoves.puissance, allMoves.rugissement],
+    moves: [allMoves.chocmental, allMoves.coupdmain, allMoves.puissance, allMoves.rugissement],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/natu.gif",
     rank: 1
 })
@@ -145,7 +142,7 @@ const joliflor = new Pokemon({
     attack: 15,
     defense: 16,
     critical: 0.81,
-    moves: [allMoves.tranchherbe, allMoves.poudre_dodo, allMoves.meteores, allMoves.gigadraine],
+    moves: [allMoves.tranchherb, allMoves.poudre_dodo, allMoves.meteores, allMoves.gigadraine],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/bellossom.gif",
     rank: 1
 })
@@ -157,7 +154,7 @@ const maril = new Pokemon({
     attack: 12,
     defense: 14,
     critical: 0.72,
-    moves: [allMoves.pistolet_a_o, allMoves.ecume, allMoves.rugissement, allMoves.bulles_d_o],
+    moves: [allMoves.pistoletao, allMoves.ecume, allMoves.rugissement, allMoves.bulles_d_o],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/marill.gif",
     rank: 1
 })
@@ -169,7 +166,7 @@ const granivol = new Pokemon({
     attack: 11,
     defense: 12,
     critical: 0.76,
-    moves: [allMoves.fouet_lianes, allMoves.poudre_toxik, allMoves.rugissement, allMoves.tranchherbe],
+    moves: [allMoves.fouetliane, allMoves.poudre_toxik, allMoves.rugissement, allMoves.tranchherbe],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/hoppip.gif",
     rank: 1
 })
@@ -337,7 +334,7 @@ const limagma = new Pokemon({
     attack: 14,
     defense: 13,
     critical: 0.67,
-    moves: [allMoves.flammèche, allMoves.murLumiere, allMoves.crocsFeu, allMoves.tourRapide],
+    moves: [allMoves.flammeche, allMoves.murLumiere, allMoves.crocsFeu, allMoves.tourRapide],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/slugma.gif",
     rank: 1
 })
@@ -361,7 +358,7 @@ const corayon = new Pokemon({
     attack: 14,
     defense: 17,
     critical: 0.74,
-    moves: [allMoves.pistoletAO, allMoves.bouclier, allMoves.ecume, allMoves.chocMental],
+    moves: [allMoves.pistoletao, allMoves.bouclier, allMoves.ecume, allMoves.chocMental],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/corsola.gif",
     rank: 1
 })
@@ -421,7 +418,7 @@ const embrylex = new Pokemon({
     attack: 19,
     defense: 15,
     critical: 0.77,
-    moves: [allMoves.morsure, allMoves.jetDeSable, allMoves.rugissement, allMoves.crocsFeu],
+    moves: [allMoves.morsure, allMoves.jetsable, allMoves.rugissement, allMoves.crocsFeu],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/larvitar.gif",
     rank: 1
 })

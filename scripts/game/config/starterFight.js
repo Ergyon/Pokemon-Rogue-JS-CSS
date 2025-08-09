@@ -11,12 +11,6 @@ import { getRandomPokemon } from "./randomizer.js";
 import { turnBasedLoop } from "./turn-based-loop.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    displayChoiceModal({
-        rankLeft: 1,
-        rankRight: 1,
-        countLeft: 4,
-        countRight: 4,
-    })
     initFirstFight()
 })
 
@@ -42,7 +36,6 @@ function initFirstFight() {
     mainPlayer.team.push(pkmnPlayer)
     
     pkmnEnemy = getRandomPokemon({rank:1})
-    pkmnEnemy.hp = 2
     updateUI()
     
     if (!pkmnPlayer || !pkmnEnemy) {
@@ -69,7 +62,7 @@ function initFirstFight() {
         
             // randomizer pkmns & items
             const choice = await displayChoiceModal({
-                rankLeft: 2,
+                rankLeft: 1,
                 rankRight: 1,
                 countLeft: 3,
                 countRight:3

@@ -215,30 +215,31 @@
 
 .modal-choice {
   background: #fdfdfd linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
-  border: 4px solid #1b1b1b;
+  border: 2px solid rgba(0, 0, 0, 0.35);
   border-radius: 12px;
-  box-shadow: 0 6px 0 0 #1b1b1b, 0 12px 20px rgba(0, 0, 0, 0.35);
-  max-width: 680px;
-  width: 90%;
-  padding: 16px;
+  box-shadow: 0 2px 0 0 #808ea7, 0 12px 20px rgba(0, 0, 0, 0.35);
+  max-width: 800px;
+  width: 100%;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  animation: slideUp 1.5s ease-out forwards;
 }
 
 .modal-choice__title {
-  font-size: 1.4rem;
+  font-size: 2rem;
+  font-family: "Jersey 20", "Jost";
   text-align: center;
   margin: 0;
-  padding-bottom: 8px;
-  border-bottom: 2px solid rgba(27, 27, 27, 0.15);
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(128, 142, 167, 0.15);
 }
 
 .modal-choice__content {
   display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 3rem;
 }
 
 .modal-choice__confirmBtn {
@@ -246,25 +247,25 @@
   padding: 8px 16px;
   font-size: 1rem;
   font-weight: bold;
-  color: #1b1b1b;
-  background: #ffcc00;
-  border: 3px solid #1b1b1b;
-  border-radius: 8px;
+  color: rgb(231, 226, 217);
+  background: rgba(56.4703557312, 22.0296442688, 56.4703557312, 0.87);
+  border: 1px solid #ffcc00;
+  border-radius: 15px;
   cursor: pointer;
-  box-shadow: 0 3px 0 0 #1b1b1b;
+  box-shadow: 0 2px 0 0 #808ea7;
+  opacity: 0;
+  animation: slideUp 1.3s ease-out forwards 1.5s;
 }
 .modal-choice__confirmBtn:hover {
-  background: rgb(229.5, 183.6, 0);
+  background: #fdfdfd linear-gradient(90deg, rgba(6, 60, 94, 0.7058823529) 0%, #544868 100%);
+  border-radius: 17px;
 }
 .modal-choice__confirmBtn:active {
   transform: translateY(2px);
-  box-shadow: 0 1px 0 0 #1b1b1b;
+  box-shadow: 0 1px 0 0 #808ea7;
 }
 
 .random-container {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
   width: 100%;
 }
 @media (max-width: 620px) {
@@ -280,9 +281,9 @@
 
 .random-card {
   background: #fdfdfd linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
-  border: 3px solid #1b1b1b;
-  border-radius: 10px;
-  box-shadow: 0 4px 0 0 #1b1b1b, 0 10px 18px rgba(0, 0, 0, 0.35);
+  border: 1px solid #808ea7;
+  border-radius: 100px;
+  box-shadow: 0 1px 0 0 #808ea7, 0 10px 18px rgba(0, 0, 0, 0.35);
   overflow: hidden;
   cursor: pointer;
   -webkit-user-select: none;
@@ -293,13 +294,14 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-bottom: 1.5rem;
 }
 .random-card::before {
   content: "";
   position: absolute;
-  inset: -6px;
-  border: 3px solid #1b1b1b;
-  border-radius: 14px;
+  inset: -16px;
+  border: 1px solid #808ea7;
+  border-radius: 100px;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.12s ease;
@@ -309,23 +311,24 @@
 }
 .random-card:active {
   transform: translateY(0);
-  box-shadow: 0 2px 0 0 #1b1b1b, 0 6px 12px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 2px 0 0 #808ea7, 0 6px 12px rgba(0, 0, 0, 0.35);
 }
 
 .random-card__img {
   width: 5rem;
   aspect-ratio: 4/3;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
-  border-bottom: 2px solid rgba(27, 27, 27, 0.15);
+  padding: 1rem;
 }
 
 .random-card__title {
   font-weight: 700;
   font-size: 1rem;
   color: #111;
-  padding: 10px 10px 6px;
+  font-family: "Pixelify Sans", "Jost";
+  padding-bottom: 0.5rem;
 }
 
 .random-card__description {
@@ -336,17 +339,11 @@
 }
 
 .random-card--selected {
-  outline: 4px solid #ffcc00;
-  outline-offset: 3px;
+  outline: 3px solid #ffcc00;
   transform: translateY(-2px);
-  box-shadow: 0 4px 0 0 #1b1b1b, 0 12px 20px rgba(0, 0, 0, 0.35);
+  background: #fdfdfd linear-gradient(180deg, rgba(6, 60, 94, 0.7058823529) 0%, #f6f6f6 100%);
+  box-shadow: 0 2px 0 0 #808ea7, 0 10px 20px rgba(0, 0, 0, 0.35);
 }
 .random-card--selected::before {
   opacity: 1;
-}
-
-.random-card--disabled {
-  filter: grayscale(0.7) brightness(0.95);
-  opacity: 0.7;
-  cursor: default;
 }/*# sourceMappingURL=randomizer.css.map */

@@ -3,7 +3,6 @@ import { getRandomPokemon } from "./config/randomizer.js";
 // Choisir son starter
 const pokeballs = document.querySelectorAll(".pokeball");
 const starterTextWrap = document.querySelector(".message-wrapper");
-const battleLink = document.querySelector(".fight-link-wrap")
 let chosen = false;
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -43,12 +42,12 @@ function chooseStarter(pokeball) {
 
     chosen = true
 
-    const linkContainer = document.getElementById('battle-link')
-
+    const linkContainer = document.querySelector('.fight-link-wrap')
+    linkContainer.classList.add('fight-link-wrap__anim')
     const gameLink = document.createElement('a')
     gameLink.href = './battle.html'
-    gameLink.classList.add('fight-link-wrap fight-link-wrap__anim')
-
+    gameLink.classList.add('fight-link')
+    gameLink.textContent = 'Lancer un combat'
     linkContainer.appendChild(gameLink)
 
 }

@@ -1,7 +1,7 @@
-import { allBadges } from "../../datas/allbadges.js"
-import { allItems } from "../../datas/allitems.js"
-import { pokedex } from "../../datas/pokedex.js"
-import { allTrainers } from "../class/trainer.js"
+import { allBadges } from "../../datas/allbadges.js";
+import { allItems } from "../../datas/allitems.js";
+import { POKEDEX } from "../../datas/POKEDEX/pokedex.js";
+import { allTrainers } from "../class/trainer.js";
 
 // generer pokemon random (pokedex, rank, autres)
 export function getRandomPokemon({rank = null, list = null} = {}) {
@@ -9,15 +9,20 @@ export function getRandomPokemon({rank = null, list = null} = {}) {
 
     if (Array.isArray(list)) {
         source = list
+        if (source.length === 0) {
+        console.warn('[getRandomPokemon] verifie tes imports ou si tu as cree le rank connard', r, '(POKEDEX=', POKEDEX.length, ')');
+        return undefined
+        }
     } else if (rank !== null) {
-        source = pokedex.filter(pkmn => pkmn.rank === rank)
+        source = POKEDEX.filter(pkmn => pkmn.rank === rank)
     } else {
-        source = pokedex
+        source = POKEDEX
     }
 
     const index = Math.floor(Math.random() * source.length)
     return source[index]
 }
+
 
 // genere une attaque aleatoire
 export function getRandomMove(pokemon) {

@@ -20,7 +20,7 @@ export function constructPokemon(pkmnData) {
         
     return new Pokemon({
         name: pkmnData.name,
-        type: TYPES[pkmnData.type.name], 
+        type: TYPES[pkmnData.type], 
         hp: pkmnData.maxHP,
         attack: pkmnData.attack,
         defense: pkmnData.defense,

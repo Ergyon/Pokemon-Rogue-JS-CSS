@@ -11,6 +11,12 @@ import { getRandomPokemon } from "./randomizer.js";
 import { turnBasedLoop } from "./turn-based-loop.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+    displayChoiceModal({
+        rankLeft: 1,
+        rankRight: 1,
+        countLeft: 4,
+        countRight: 4,
+    })
     initFirstFight()
 })
 
@@ -63,7 +69,7 @@ function initFirstFight() {
         
             // randomizer pkmns & items
             const choice = await displayChoiceModal({
-                rankLeft: 1,
+                rankLeft: 2,
                 rankRight: 1,
                 countLeft: 3,
                 countRight:3

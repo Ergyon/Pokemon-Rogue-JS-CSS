@@ -325,6 +325,7 @@ body {
   animation: breathing 2s 0.5s linear infinite alternate-reverse;
   cursor: pointer;
   position: relative;
+  image-rendering: pixelated;
   margin-bottom: 2.5rem;
 }
 .arena__card__pkmn--ko {

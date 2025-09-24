@@ -11,8 +11,15 @@ const tornade = createMove({
     img: 'img',
     pp: 20 })
 
-
+const picpic = createMove({
+    name: 'picpic',
+    type: TYPES.VOL,
+    damage: 24,
+    precision: 90,
+    criticChance: 35,
+    img: 'img',
+    pp: 25 })
 
 export const MOVES_VOL = {
-    tornade
+    tornade, picpic
 }

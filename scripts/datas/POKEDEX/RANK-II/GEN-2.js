@@ -14,7 +14,18 @@ const feurisson = new Pokemon({
     rank: 2
 })
 
+const scorvol = new Pokemon({
+    name: 'Scorvol',
+    type: TYPES.SOL,
+    hp: 149,
+    attack: 25,
+    defense: 25,
+    critical: 1.05,
+    moves: [allMoves.crochetvenin, allMoves.viveattaque, allMoves.abri, allMoves.griffe],
+    img: "https://img.pokemondb.net/sprites/black-white/anim/normal/gligar.gif",
+    rank: 2
+})
 
 export const RANK_II_GEN_2 = [
-    feurisson
+    feurisson, scorvol
 ]

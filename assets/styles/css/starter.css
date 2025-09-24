@@ -265,6 +265,7 @@
   width: 11.3rem;
   height: auto;
   animation: reveal 1.5s 0.5s ease-out forwards;
+  image-rendering: pixelated;
 }
 .starter .message-wrapper {
   margin-top: 7.5rem;

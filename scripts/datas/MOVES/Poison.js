@@ -10,9 +10,10 @@ const dardvenin = createMove({
     precision: 92, 
     criticChance: 33, 
     img: 'img', 
-    pp: 25, 
     category: 'physical', 
-    effect: isPoisoned(0.4, 15, (1 + Math.floor(Math.random() * 3)) )})
+    effect: isPoisoned(0.4, 15, (1 + Math.floor(Math.random() * 3))),
+    pp: 25
+})
 
     const detritus = createMove({ 
         name: 'Détritus', 
@@ -21,9 +22,10 @@ const dardvenin = createMove({
         precision: 75, 
         criticChance: 45, 
         img: 'img', 
-        pp: 20, 
         category: 'physical', 
-        effect: isPoisoned(0.5, 25, (2 + Math.floor(Math.random() * 4))) })
+        effect: isPoisoned(0.5, 25, (2 + Math.floor(Math.random() * 4))),
+        pp: 20
+    })
 
 
 

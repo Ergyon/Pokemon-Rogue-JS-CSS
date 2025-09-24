@@ -52,7 +52,6 @@ const rugissement = createMove({
         category: 'stats', 
         effect: boostDefense(1) });
 
-
     const jetsable = createMove({ 
         name: 'Jet-Sable', 
         type: TYPES.NORMAL, 
@@ -61,6 +60,13 @@ const rugissement = createMove({
         category: 'stats', 
         effect: lowerPrecision(0.95) })
 
+    const charme = createMove({ 
+        name: 'Charme', 
+        type: TYPES.NORMAL, 
+        precision: 70, 
+        pp: 15, 
+        category: 'stats', 
+        effect: lowerAttack(-2) })
 
 // STATUS
 const berceuse = createMove({ 
@@ -123,5 +129,5 @@ const charge = createMove({
 export const MOVES_NORMAL = {
     rugissement, brouillard, grozyeux, croissance, armure, boularmure,
     jetsable, berceuse, charge, viveattaque, griffe, coupdboule, 
-    soin
+    soin, charme,
 }

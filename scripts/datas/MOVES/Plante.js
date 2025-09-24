@@ -1,5 +1,6 @@
 import { TYPES } from "../../datas/types.js";
 import { createMove } from "../../game/class/move.js";
+import { healingSelf } from "../../game/mechanics/stats-change.js";
 
 
 const tranchherb = createMove({ 
@@ -20,6 +21,18 @@ const tranchherb = createMove({
     img: 'img', 
     pp: 25 })
 
+    const volvie = createMove({ 
+    name: "Vol'vie", 
+    type: TYPES.PLANTE, 
+    damage: 20, 
+    precision: 90, 
+    criticChance: 29, 
+    img: 'img', 
+    effect: healingSelf(20),
+    category: 'physical',
+    pp: 30
+})
+
     export const MOVES_PLANTE = {
-        tranchherb, fouetliane
+        tranchherb, fouetliane, volvie
     }

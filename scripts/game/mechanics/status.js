@@ -9,8 +9,6 @@ export const STATUS = {
 }
 
 
-
-
 // poison
 export function isPoisoned(
     chance = 0.2,
@@ -60,7 +58,7 @@ export function isAsleep(duration = 0) {
 
 
 // gele
-export function isFrozen(duration = 0, chance = 0.05) {
+export function isFrozen(chance = 0.05, duration = 0,) {
     return (user, target, messages) => {
         if (target.status !== 'frozen' && Math.random() < chance) {
             target.status = STATUS.FROZEN
@@ -72,7 +70,7 @@ export function isFrozen(duration = 0, chance = 0.05) {
 
 
 // paralysie
-export function isParalyzed(duration= 0, chance = 0.1) {
+export function isParalyzed(chance = 0.1, duration = 0) {
     return (user, target, messages) => {
         if (target.status !== 'paralyzed' && target.status !== 'sleep' && Math.random() < chance) {
             target.status = STATUS.PARALYZED

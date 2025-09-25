@@ -406,8 +406,8 @@ const embrylex = new Pokemon({
 export const RANK_I_GEN_2 = [
     germignon, hericendre, kaiminus, fouinette, hoothoot, coxy, 
     mimigal, loupio, togepi, natu, watwat, joliflor, maril, 
-    granivol,  capumain, tournegrin, yanma, axoloto, zarbi, 
-    girafarig, pomdepik, insolourdo, scorvol, snubull, qwilfish, 
+    granivol,  capumain, tournegrin, yanma, axoloto, 
+    girafarig, pomdepik, insolourdo, snubull, qwilfish, 
     caratroc, teddiursa, limagma, marcacrin, corayon, 
     remoraid, malosse, phanpy, cerfrousse, embrylex
 ]

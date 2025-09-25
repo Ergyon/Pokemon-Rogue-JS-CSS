@@ -10,7 +10,7 @@ const amonita = new Pokemon({
     attack: 16,
     defense: 16,
     critical: 0.75,
-    moves: [allMoves.pistoletao, allMoves.jetsable, allMoves.coupdboue, allMoves.grozyeux],
+    moves: [allMoves.pistoletao, allMoves.jetsable, allMoves.pouvantique, allMoves.roulade],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/omanyte.gif",
     rank: 1
 })
@@ -34,7 +34,7 @@ const hypotrempe = new Pokemon({
     attack: 13,
     defense: 15,
     critical: 0.68,
-    moves: [allMoves.charge, allMoves.bullesdeau, allMoves.rugissement, allMoves.ouragan],
+    moves: [allMoves.charge, allMoves.ecumes, allMoves.rugissement, allMoves.ouragan],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/horsea.gif",
     rank: 1
 })
@@ -46,7 +46,7 @@ const krabby = new Pokemon({
     attack: 15,
     defense: 13,
     critical: 0.85,
-    moves: [allMoves.bullesdeau, allMoves.armure, allMoves.pistoletao, allMoves.griffe],
+    moves: [allMoves.bullesdo, allMoves.armure, allMoves.pistoletao, allMoves.griffe],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/krabby.gif",
     rank: 1
 })
@@ -58,7 +58,7 @@ const magicarpe = new Pokemon({
     attack: 16,
     defense: 14,
     critical: 0.8,
-    moves: [allMoves.charge, allMoves.mimiqueue, allMoves.bullesdeau, allMoves.grozyeux],
+    moves: [allMoves.charge],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/magikarp-f.gif",
     rank: 1
 })
@@ -94,7 +94,7 @@ const ptitard = new Pokemon({
     attack: 14,
     defense: 13,
     critical: 0.71,
-    moves: [allMoves.pistoletao, allMoves.hypnose, allMoves.bullesdeau, allMoves.coupdboule],
+    moves: [allMoves.pistoletao, allMoves.hypnose, allMoves.ecumes, allMoves.charge],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/poliwag.gif",
     rank: 1
 })
@@ -118,7 +118,7 @@ const tentacool = new Pokemon({
     attack: 14,
     defense: 16,
     critical: 0.84,
-    moves: [allMoves.ligotage, allMoves.pistoletao, allMoves.dardvenin, allMoves.grozyeux],
+    moves: [allMoves.ligotage, allMoves.bullesdo, allMoves.dardvenin, allMoves.grozyeux],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/tentacool.gif",
     rank: 1
 })
@@ -229,7 +229,7 @@ const magneti = new Pokemon({
     attack: 12,
     defense: 12,
     critical: 0.75,
-    moves: [allMoves.eclair, allMoves.charge, allMoves.ondefolie, allMoves.cageeclair],
+    moves: [allMoves.etincelle, allMoves.charge, allMoves.ondefolie, allMoves.cageeclair],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/magnemite.gif",
     rank: 1
 })
@@ -253,7 +253,7 @@ const voltorbe = new Pokemon({
     attack: 14,
     defense: 14,
     critical: 1,
-    moves: [allMoves.armure, allMoves.croissance, allMoves.eclair, allMoves.coupdboule],
+    moves: [allMoves.armure, allMoves.charge, allMoves.eclair, allMoves.coupdboule],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/voltorb.gif",
     rank: 1
 })
@@ -278,7 +278,7 @@ const mimitoss = new Pokemon({
     attack: 12,
     defense: 12,
     critical: 0.58,
-    moves: [allMoves.griffe, allMoves.morsure, allMoves.dardvenin, allMoves.hypnose],
+    moves: [allMoves.griffe, allMoves.charge, allMoves.dardvenin, allMoves.poudredodo],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/venonat.gif",
     rank: 1
 })
@@ -363,7 +363,7 @@ const ramoloss = new Pokemon({
     attack: 14,
     defense: 15,
     critical: 0.64,
-    moves: [allMoves.charge, allMoves.chocmental, allMoves.bullesdeau, allMoves.ondefolie],
+    moves: [allMoves.charge, allMoves.chocmental, allMoves.pistoletao, allMoves.ondefolie],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/slowpoke.gif",
     rank: 1
 })
@@ -512,7 +512,7 @@ const chenipan = new Pokemon({
     attack: 11,
     defense: 11,
     critical: 0.6,
-    moves: [allMoves.rugissement, allMoves.charge, allMoves.dardvenin, allMoves.grozyeux],
+    moves: [allMoves.rugissement, allMoves.charge, allMoves.dardvenin, allMoves.paraspore],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/caterpie.gif",
     rank: 1
 })
@@ -537,7 +537,7 @@ const kokyas = new Pokemon({
     attack: 12,
     defense: 14,
     critical: 0.82,
-    moves: [allMoves.bullesdeau, allMoves.boularmure, allMoves.ventglace, allMoves.ondefolie],
+    moves: [allMoves.ecumes, allMoves.boularmure, allMoves.ventglace, allMoves.ondefolie],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/shellder.gif",
     rank: 1
 })
@@ -598,7 +598,7 @@ const melofee = new Pokemon({
     attack: 11,
     defense: 15,
     critical: 0.72,
-    moves: [allMoves.charge, allMoves.berceuse, allMoves.coupdboule, allMoves.metronome],
+    moves: [allMoves.charge, allMoves.berceuse, allMoves.coupdboule, allMoves.charge],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/clefairy.gif",
     rank: 1
 })
@@ -622,7 +622,7 @@ const rondoudou = new Pokemon({
     attack: 12,
     defense: 17,
     critical: 0.54,
-    moves: [allMoves.berceuse, allMoves.charge, allMoves.coupdboule, allMoves.rugissement],
+    moves: [allMoves.berceuse, allMoves.charge, allMoves.coupdboule, allMoves.charme],
     img: 'https://img.pokemondb.net/sprites/black-white/anim/normal/jigglypuff.gif',
     rank: 1
 })
@@ -663,5 +663,5 @@ export const RANK_I_GEN_1 = [
     mimitoss, psykokwak, ferossinge, caninos, ptitard, abra, machoc,
     chetiflor, tentacool, ramoloss, magneti, doduo, otaria, tadmorv, kokyas,
     soporifik, krabby, osselait, hypotrempe, stari, magicarpe, amonita, kabuto,
-    minidraco
+    minidraco, noeuneouf, piafabec
 ]

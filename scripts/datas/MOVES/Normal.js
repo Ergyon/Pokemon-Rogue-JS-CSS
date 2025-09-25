@@ -125,9 +125,100 @@ const charge = createMove({
             img: 'img', 
             pp: 25 });   
 
+        const ligotage = createMove({ 
+            name: "Ligotage", 
+            type: TYPES.NORMAL, 
+            damage: 17, 
+            precision: 91, 
+            criticChance: 15, 
+            img: 'img', 
+            pp: 35 }); 
+
+        const fauxchage = createMove({ 
+                name: 'Faux-Chage', 
+                type: TYPES.NORMAL, 
+                damage: 28, 
+                precision: 95, 
+                criticChance: 20, 
+                img: 'img', 
+                pp: 20 })
+
+        const crocmort = createMove({
+            name: "Croc'Mort",
+            type: TYPES.NORMAL,
+            damage: 30,
+            precision: 80,
+            criticChance: 30,
+            img: 'img',
+            pp: 20 })
+
+        const tranche = createMove({
+            name: "Tranche",
+            type: TYPES.NORMAL,
+            damage: 40,
+            precision: 95,
+            criticChance: 50,
+            img: 'img',
+            pp: 15 })  
+            
+        const plaquage = createMove({
+            name: "Plaquage",
+            type: TYPES.NORMAL,
+            damage: 48,
+            precision: 95,
+            criticChance: 18,
+            img: 'img',
+            pp: 15 })  
+
+        const meteores = createMove({
+            name: "Météores",
+            type: TYPES.NORMAL,
+            damage: 37,
+            precision: 100,
+            criticChance: 30,
+            img: 'img',
+            pp: 15 })
+
+        const guillotine = createMove({
+            name: "Guillotine",
+            type: TYPES.NORMAL,
+            damage: 500,
+            precision: 5,
+            img: 'img',
+            pp: 5 })
+
+        const ultimawashi = createMove({
+            name: "Ultimawashi",
+            type: TYPES.NORMAL,
+            damage: 80,
+            precision: 60,
+            criticChance: 8,
+            img: 'img',
+            pp: 5 })
+
+        const koudkorne = createMove({
+            name: "Koud'Korne",
+            type: TYPES.NORMAL,
+            damage: 40,
+            precision: 81,
+            criticChance: 32,
+            img: 'img',
+            pp: 25 })
+
+        const ultralaser = createMove({
+            name: "Ultralaser",
+            type: TYPES.NORMAL,
+            damage: 130,
+            precision: 80,
+            criticChance: 5,
+            img: 'img',
+            pp: 5 })
+
+
 
 export const MOVES_NORMAL = {
     rugissement, brouillard, grozyeux, croissance, armure, boularmure,
     jetsable, berceuse, charge, viveattaque, griffe, coupdboule, 
-    soin, charme,
+    soin, charme, ligotage, fauxchage, crocmort, tranche, plaquage, meteores,
+    guillotine, ultimawashi, koudkorne, ultralaser
 }

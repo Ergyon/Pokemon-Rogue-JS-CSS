@@ -10,7 +10,7 @@ const florizarre = new Pokemon({
   attack: 48,
   defense: 52,
   critical: 0.58,
-  moves: [allMoves.fouet_lianes, allMoves.tranchherbe, allMoves.dardvenin, allMoves.bombbeurk],
+  moves: [allMoves.plaquage, allMoves.megasangsue, allMoves.telluriforce, allMoves.megafouet],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif",
   rank: 3
 })
@@ -22,7 +22,7 @@ const dracaufeu = new Pokemon({
   attack: 54,
   defense: 44,
   critical: 0.78,
-  moves: [allMoves.flammèche, allMoves.danseflamme, allMoves.lanceflamme, allMoves.tornade],
+  moves: [allMoves.lamedair, allMoves.dracogriffe, allMoves.lanceflamme, allMoves.seisme],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif",
   rank: 3
 })
@@ -34,7 +34,7 @@ const tortank = new Pokemon({
   attack: 46,
   defense: 58,
   critical: 0.5,
-  moves: [allMoves.pistoletao, allMoves.morsure, allMoves.coudkrane, allMoves.hydrocanon],
+  moves: [allMoves.surf, allMoves.blizzard, allMoves.aurasphere, allMoves.hydrocanon],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/blastoise.gif",
   rank: 3
 })
@@ -46,7 +46,7 @@ const roucarnage = new Pokemon({
   attack: 47,
   defense: 40,
   critical: 0.72,
-  moves: [allMoves.viveattaque, allMoves.tornade, allMoves.jetsable, allMoves.rugissement],
+  moves: [allMoves.ventviolent, allMoves.ultralaser, allMoves.jetsable, allMoves.lamedair],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/pidgeot.gif",
   rank: 3
 })
@@ -58,7 +58,7 @@ const nidoqueen = new Pokemon({
   attack: 50,
   defense: 56,
   critical: 0.46,
-  moves: [allMoves.dardvenin, allMoves.coudkrane, allMoves.seisme, allMoves.grozyeux],
+  moves: [allMoves.surf, allMoves.tonnerre, allMoves.seisme, allMoves.toxik],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/nidoqueen.gif",
   rank: 3
 })
@@ -70,7 +70,7 @@ const nidoking = new Pokemon({
   attack: 56,
   defense: 48,
   critical: 0.6,
-  moves: [allMoves.dardvenin, allMoves.coudkrane, allMoves.seisme, allMoves.viveattaque],
+  moves: [allMoves.directtoxik, allMoves.megacorne, allMoves.seisme, allMoves.lamederoc],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/nidoking.gif",
   rank: 3
 })
@@ -82,7 +82,7 @@ const raflesia = new Pokemon({
   attack: 44,
   defense: 49,
   critical: 0.52,
-  moves: [allMoves.tranchherbe, allMoves.dardvenin, allMoves.parasport, allMoves.bombbeurk],
+  moves: [allMoves.megasangsue, allMoves.poudredodo, allMoves.tempeteflorale, allMoves.plaquage],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/vileplume.gif",
   rank: 3
 })
@@ -94,7 +94,7 @@ const arcanin = new Pokemon({
   attack: 58,
   defense: 42,
   critical: 0.76,
-  moves: [allMoves.flammèche, allMoves.morsure, allMoves.danseflamme, allMoves.lanceflamme],
+  moves: [allMoves.machouille, allMoves.deflagration, allMoves.aeropique, allMoves.lanceflamme],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/arcanine.gif",
   rank: 3
 })
@@ -106,7 +106,7 @@ const tartard = new Pokemon({
   attack: 48,
   defense: 52,
   critical: 0.48,
-  moves: [allMoves.pistoletao, allMoves.hypnose, allMoves.coudkrane, allMoves.hydroqueue],
+  moves: [allMoves.surf, allMoves.hypnose, allMoves.aurasphere, allMoves.exploforce],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/poliwrath.gif",
   rank: 3
 })
@@ -118,7 +118,7 @@ const alakazam = new Pokemon({
   attack: 57,
   defense: 35,
   critical: 0.84,
-  moves: [allMoves.chocmental, allMoves.psyko, allMoves.viveattaque, allMoves.grozyeux],
+  moves: [allMoves.ballombre, allMoves.psyko, allMoves.ecosphere, allMoves.soin],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/alakazam.gif",
   rank: 3
 })
@@ -130,7 +130,7 @@ const mackogneur = new Pokemon({
   attack: 58,
   defense: 48,
   critical: 0.62,
-  moves: [allMoves.coupdepoing, allMoves.sismique, allMoves.coudkrane, allMoves.viveattaque],
+  moves: [allMoves.eboulement, allMoves.ultralaser, allMoves.lamederoc, allMoves.poingeclair],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/machamp.gif",
   rank: 3
 })
@@ -142,7 +142,7 @@ const empiflor = new Pokemon({
   attack: 52,
   defense: 41,
   critical: 0.66,
-  moves: [allMoves.fouet_lianes, allMoves.tranchherbe, allMoves.dardvenin, allMoves.parasport],
+  moves: [allMoves.poudredodo, allMoves.megasangsue, allMoves.lamefeuille, allMoves.plaquage],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/victreebel.gif",
   rank: 3
 })
@@ -154,7 +154,7 @@ const tentacruel = new Pokemon({
   attack: 46,
   defense: 45,
   critical: 0.58,
-  moves: [allMoves.pistoletao, allMoves.dardvenin, allMoves.hydroqueue, allMoves.viveattaque],
+  moves: [allMoves.hydrocanon, allMoves.directtoxik, allMoves.gigasangsue, allMoves.laserglace],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/tentacruel.gif",
   rank: 3
 })
@@ -166,7 +166,7 @@ const grolem = new Pokemon({
   attack: 52,
   defense: 58,
   critical: 0.54,
-  moves: [allMoves.seisme, allMoves.lanceflamme, allMoves.explosion, allMoves.coudkrane],
+  moves: [allMoves.seisme, allMoves.lamederoc, allMoves.exploforce, allMoves.eboulement],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/golem.gif",
   rank: 3
 })
@@ -178,7 +178,7 @@ const grotadmorv = new Pokemon({
   attack: 48,
   defense: 38,
   critical: 0.65,
-  moves: [allMoves.bombbeurk, allMoves.charge, allMoves.morsure, allMoves.acide],
+  moves: [allMoves.toxik, allMoves.seisme, allMoves.detricanon, allMoves.ballombre],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/muk.gif",
   rank: 3
 })
@@ -190,7 +190,7 @@ const ectoplasma = new Pokemon({
   attack: 44,
   defense: 40,
   critical: 0.78,
-  moves: [allMoves.ballombre, allMoves.chocmental, allMoves.hypnose, allMoves.explosion],
+  moves: [allMoves.ballombre, allMoves.vibrobscur, allMoves.detricanon, allMoves.psyko],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif",
   rank: 3
 })
@@ -202,7 +202,7 @@ const rhinoferos = new Pokemon({
   attack: 56,
   defense: 52,
   critical: 0.41,
-  moves: [allMoves.seisme, allMoves.coudkrane, allMoves.lameDeRoc, allMoves.choc],
+  moves: [allMoves.seisme, allMoves.megacorne, allMoves.lamederoc, allMoves.tunnelier],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/rhydon.gif",
   rank: 3
 })
@@ -214,7 +214,7 @@ const leveinard = new Pokemon({
   attack: 40,
   defense: 38,
   critical: 0.42,
-  moves: [allMoves.laserGlace, allMoves.psyko, allMoves.eclatMagique, allMoves.torgnoles],
+  moves: [allMoves.plaquage, allMoves.laserglace, allMoves.psyko, allMoves.exploforce],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/chansey.gif",
   rank: 3
 })
@@ -226,7 +226,7 @@ const leviator = new Pokemon({
   attack: 54,
   defense: 46,
   critical: 0.62,
-  moves: [allMoves.hydroqueue, allMoves.dracorage, allMoves.coudkrane, allMoves.morsure],
+  moves: [allMoves.surf, allMoves.dracorage, allMoves.blizzard, allMoves.ultralaser],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/gyarados.gif",
   rank: 3
 })
@@ -238,7 +238,7 @@ const lokhlass = new Pokemon({
   attack: 46,
   defense: 50,
   critical: 0.59,
-  moves: [allMoves.laserGlace, allMoves.hydrocanon, allMoves.psyko, allMoves.plenitude],
+  moves: [allMoves.laserglace, allMoves.hydrocanon, allMoves.plaquage, allMoves.fatalfoudre],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/lapras.gif",
   rank: 3
 })
@@ -250,7 +250,7 @@ const amonistar = new Pokemon({
   attack: 50,
   defense: 58,
   critical: 0.48,
-  moves: [allMoves.lameDeRoc, allMoves.hydrocanon, allMoves.seisme, allMoves.coudkrane],
+  moves: [allMoves.machouille, allMoves.hydrocanon, allMoves.pouvantique, allMoves.surf],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/omastar.gif",
   rank: 3
 })
@@ -262,7 +262,7 @@ const kabutops = new Pokemon({
   attack: 56,
   defense: 46,
   critical: 0.74,
-  moves: [allMoves.coupe, allMoves.coudkrane, allMoves.lameDeRoc, allMoves.hydroqueue],
+  moves: [allMoves.tranche, allMoves.lamederoc, allMoves.gigasangsue, allMoves.surf],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/kabutops.gif",
   rank: 3
 })
@@ -274,7 +274,7 @@ const ptera = new Pokemon({
   attack: 54,
   defense: 44,
   critical: 0.80,
-  moves: [allMoves.coudkrane, allMoves.lameDeRoc, allMoves.attaqueAile, allMoves.morsure],
+  moves: [allMoves.aeropique, allMoves.dracochoc, allMoves.lamederoc, allMoves.ultralaser],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/aerodactyl.gif",
   rank: 3
 })
@@ -286,7 +286,7 @@ const ronflex = new Pokemon({
   attack: 56,
   defense: 50,
   critical: 0.40,
-  moves: [allMoves.lameDeRoc, allMoves.seisme, allMoves.charge, allMoves.morsure],
+  moves: [allMoves.martopoing, allMoves.seisme, allMoves.deflagration, allMoves.tonnerre],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif",
   rank: 3
 })
@@ -298,7 +298,7 @@ const dracolosse = new Pokemon({
   attack: 58,
   defense: 54,
   critical: 0.66,
-  moves: [allMoves.dracorage, allMoves.coudkrane, allMoves.lameDeRoc, allMoves.hydroqueue],
+  moves: [allMoves.dracocharge, allMoves.fatalfoudre, allMoves.ultralaser, allMoves.laserglace],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/dragonite.gif",
   rank: 3
 })

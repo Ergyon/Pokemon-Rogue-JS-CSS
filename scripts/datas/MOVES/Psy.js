@@ -22,8 +22,33 @@ const chocmental = createMove({
     img: 'img', 
     pp: 20 })
 
+    const rafalepsy = createMove({ 
+        name: 'Rafale Psy', 
+        type: TYPES.PSY, 
+        damage: 45, 
+        precision: 80, 
+        criticChance: 23, 
+        img: 'img', 
+        pp: 20 })
 
+    const psykoudboul = createMove({ 
+        name: "Psykoud'Boul", 
+        type: TYPES.PSY, 
+        damage: 57, 
+        precision: 83, 
+        criticChance: 16, 
+        img: 'img', 
+        pp: 20 })
+
+    const psyko = createMove({ 
+        name: "Psyko", 
+        type: TYPES.PSY, 
+        damage: 90, 
+        precision: 85, 
+        criticChance: 20, 
+        img: 'img', 
+        pp: 15 })   
 
 export const MOVES_PSY = {
-    hypnose, chocmental
+    hypnose, chocmental, rafalepsy, psykoudboul, psyko
 }

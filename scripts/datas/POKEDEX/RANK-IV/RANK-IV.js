@@ -9,7 +9,7 @@ const artikodin = new Pokemon({
   attack: 60,
   defense: 58,
   critical: 0.72,
-  moves: [allMoves.laserGlace, allMoves.attaqueAile, allMoves.ventViolent, allMoves.plenitude],
+  moves: [allMoves.ventviolent, allMoves.laserglace, allMoves.lamedair, allMoves.blizzard],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/articuno.gif",
   rank: 4
 })
@@ -21,7 +21,7 @@ const electhor = new Pokemon({
   attack: 65,
   defense: 55,
   critical: 0.75,
-  moves: [allMoves.eclair, allMoves.cageeclair, allMoves.tonnerre, allMoves.attaqueAile],
+  moves: [allMoves.tonnerre, allMoves.aeropique, allMoves.fatalfoudre, allMoves.ultralaser],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/zapdos.gif",
   rank: 4
 })
@@ -33,7 +33,7 @@ const sulfura = new Pokemon({
   attack: 68,
   defense: 50,
   critical: 0.78,
-  moves: [allMoves.lanceflamme, allMoves.attaqueAile, allMoves.ventViolent, allMoves.danseflamme],
+  moves: [allMoves.lanceflamme, allMoves.ventviolent, allMoves.deflagration, allMoves.lamedair],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/moltres.gif",
   rank: 4
 })
@@ -45,7 +45,7 @@ const mewtwo = new Pokemon({
   attack: 70,
   defense: 60,
   critical: 0.88,
-  moves: [allMoves.psyko, allMoves.auraSphere, allMoves.ballombre, allMoves.laserGlace],
+  moves: [allMoves.psyko, allMoves.aurasphere, allMoves.vibrobscur, allMoves.lanceflamme],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/mewtwo.gif",
   rank: 4
 })
@@ -57,7 +57,7 @@ const mew = new Pokemon({
   attack: 65,
   defense: 55,
   critical: 0.83,
-  moves: [allMoves.psyko, allMoves.lanceflamme, allMoves.eclair, allMoves.laserGlace],
+  moves: [allMoves.psyko, allMoves.dracochoc, allMoves.tonnerre, allMoves.tempeteflorale],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/mew.gif",
   rank: 4
 })

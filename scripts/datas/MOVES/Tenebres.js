@@ -13,16 +13,32 @@ const morsure = createMove({
     pp: 20 })
         
     const machouille = createMove({ 
-        name: 'Machouille', 
-        type: TYPES.TENEBRES, 
-        damage: 60, 
-        precision: 90, 
-        criticChance: 48, 
-        img: 'img', 
-        pp: 20 })
+    name: 'Machouille', 
+    type: TYPES.TENEBRES, 
+    damage: 50, 
+    precision: 90, 
+    criticChance: 48, 
+    img: 'img', 
+    pp: 20 })
 
+    const aboiement = createMove({ 
+    name: 'Aboiement', 
+    type: TYPES.TENEBRES, 
+    damage: 40, 
+    precision: 81, 
+    criticChance: 18, 
+    img: 'img', 
+    pp: 20 })
 
+    const vibrobscur = createMove({ 
+    name: 'Vibrobscur', 
+    type: TYPES.TENEBRES, 
+    damage: 55, 
+    precision: 83, 
+    criticChance: 11, 
+    img: 'img', 
+    pp: 15 })
 
 export const MOVES_TENEBRES = {
-    morsure, machouille
+    morsure, machouille, aboiement, vibrobscur
 }

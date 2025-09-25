@@ -1,6 +1,10 @@
+import { MOVES_COMBAT } from "./Combat.js"
+import { MOVES_DRAGON } from "./Dragon.js"
 import { MOVES_EAU } from "./Eau.js"
 import { MOVES_FEU } from "./Feu.js"
 import { MOVES_FOUDRE } from "./Foudre.js"
+import { MOVES_GLACE } from "./Glace.js"
+import { MOVES_INSECTE } from "./Insecte.js"
 import { MOVES_NORMAL } from "./Normal.js"
 import { MOVES_PLANTE } from "./Plante.js"
 import { MOVES_POISON } from "./Poison.js"
@@ -23,5 +27,9 @@ export const allMoves = {
     ...MOVES_ROCHE,
     ...MOVES_SPECTRE,
     ...MOVES_TENEBRES,
-    ...MOVES_PSY
+    ...MOVES_PSY,
+    ...MOVES_COMBAT,
+    ...MOVES_INSECTE,
+    ...MOVES_DRAGON,
+    ...MOVES_GLACE
 }

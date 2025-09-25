@@ -21,27 +21,65 @@ const eclair = createMove({
     precision: 81, 
     criticChance: 16, 
     img: 'img', 
+    category: 'physical',
+    effect: isParalyzed(0.05, 1 + Math.floor(Math.random() * 3)),
     pp: 20 })
 
     const etincelle = createMove({ 
-    name: 'Etincelle', 
-    type: TYPES.FOUDRE, 
-    damage: 25, 
-    precision: 85, 
-    criticChance: 13, 
-    img: 'img', 
-    pp: 30 })
+        name: 'Etincelle', 
+        type: TYPES.FOUDRE, 
+        damage: 25, 
+        precision: 85, 
+        criticChance: 13, 
+        img: 'img', 
+        category: 'physical',
+        effect: isParalyzed(0.05, 1 + Math.floor(Math.random() * 3)),
+        pp: 30 })
 
     const rayoncharge = createMove({ 
-    name: 'Rayon chargé', 
-    type: TYPES.FOUDRE, 
-    damage: 21, 
-    precision: 95, 
-    criticChance: 33, 
-    img: 'img', 
-    pp: 35 })
+        name: 'Rayon chargé', 
+        type: TYPES.FOUDRE, 
+        damage: 21, 
+        precision: 95, 
+        criticChance: 33, 
+        img: 'img', 
+        category: 'physical',
+        effect: isParalyzed(0.05, 1 + Math.floor(Math.random() * 3)),
+        pp: 35 })
 
+    const tonnerre = createMove({ 
+        name: 'Tonerre', 
+        type: TYPES.FOUDRE, 
+        damage: 60, 
+        precision: 95, 
+        criticChance: 18, 
+        img: 'img', 
+        category: 'physical',
+        effect: isParalyzed(0.1, 1 + Math.floor(Math.random() * 3)),
+        pp: 15 })
+
+    const poingeclair = createMove({ 
+        name: "Poing Eclair", 
+        type: TYPES.FOUDRE, 
+        damage: 45, 
+        precision: 73, 
+        criticChance: 17, 
+        img: 'img', 
+        category: 'physical',
+        effect: isParalyzed(0.08, (1 + Math.floor(Math.random() * 3))),
+        pp: 15 })
+
+    const fatalfoudre= createMove({ 
+        name: "Fatal Foudre", 
+        type: TYPES.FOUDRE, 
+        damage: 110, 
+        precision: 70, 
+        criticChance: 10, 
+        img: 'img', 
+        category: 'physical',
+        effect: isParalyzed(0.2, (1 + Math.floor(Math.random() * 3))),
+        pp: 10 })
 
 export const MOVES_FOUDRE = {
-    eclair, etincelle, cageeclair, rayoncharge
+    eclair, etincelle, cageeclair, rayoncharge, tonnerre, poingeclair, fatalfoudre
 }

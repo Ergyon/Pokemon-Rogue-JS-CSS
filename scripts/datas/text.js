@@ -12,6 +12,17 @@ export const tutoText = [
     "Et bien c'est ce que nous allons voir."
 ]
 
+export const gameOver = [
+    "Vous avez perdu contre un tout petit pokémon sauvage mdr x)",
+    "Pardon, je ne devrais pas rire... Vous devez être très jeune.",
+    "Quoi qu'il en soit l'aventure est terminée pour vous."
+]
+
+export const gameOverDuel = [
+    "Bravo !",
+    "Vous gagnez le combat !"
+]
+
 // relancer le randomizer (1ere fois)
 export const retry1text = [
     "Vous vous en sortez bien...",
@@ -22,7 +33,7 @@ export const retry1text = [
 // relancer le randomizer (2eme fois)
 export const retry2text = [
     "Vous vous en sortez bien...",
-    "Vous feriez un bon adversaire sur la route 11...",
+    "Vous feriez un bon adversaire à Carmin-sur-Mer...",
     "J'ai donc décidé de vous offrir un cadeau, enfin si vous avez l'argent bien entendu."
 ]
 

@@ -1,5 +1,5 @@
 import { constructPokemon } from "../../datas/storage.js";
-import { tutoText } from "../../datas/text.js";
+import { gameOver } from "../../datas/text.js";
 import { updateBattleUI } from "../../UI/displayBattle/displayMove.js";
 import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js";
 import { undisplayPokemons } from "../../UI/displayBattle/undisplay.js";
@@ -30,13 +30,14 @@ function loadStarter() {
 // Lancer 1er combat avec starter
 function initFirstFight() {
     let isFightOver = false
-    const messages = []
 
     pkmnPlayer = loadStarter()
     mainPlayer.team.push(pkmnPlayer)
+    pkmnPlayer.hp = 2
     
     pkmnEnemy = getRandomPokemon({rank:1})
     updateUI()
+    // pkmnEnemy.hp = 2
     
     if (!pkmnPlayer || !pkmnEnemy) {
         window.alert("YA PAS DE POKEMOOOONS !!!")
@@ -44,7 +45,7 @@ function initFirstFight() {
     }    
     
     function updateUI() {
-        updateBattleUI(pkmnPlayer, pkmnEnemy, messages)
+        updateBattleUI(pkmnPlayer, pkmnEnemy)
     }
 
     displayPokemons(pkmnPlayer, pkmnEnemy, async (move) => {
@@ -58,7 +59,7 @@ function initFirstFight() {
             undisplayPokemons()
 
             // tuto
-            await displayMessages(tutoText)
+            // await displayMessages(tutoText)
         
             // randomizer pkmns & items
             const choice = await displayChoiceModal({
@@ -73,6 +74,11 @@ function initFirstFight() {
 
             // lancement du mainGame
             await mainGameRun(mainPlayer)
+        } 
+        else if (pkmnPlayer.isKO) {
+            isFightOver = true 
+            undisplayPokemons()
+            displayMessages(gameOver)
         }
     })
 }

@@ -114,9 +114,9 @@ const tartard = new Pokemon({
 const alakazam = new Pokemon({
   name: 'Alakazam',
   type: TYPES.PSY,
-  hp: 198,
+  hp: 225,
   attack: 57,
-  defense: 35,
+  defense: 40,
   critical: 0.84,
   moves: [allMoves.ballombre, allMoves.psyko, allMoves.ecosphere, allMoves.soin],
   img: "https://img.pokemondb.net/sprites/black-white/anim/normal/alakazam.gif",

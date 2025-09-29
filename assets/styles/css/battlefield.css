@@ -451,7 +451,8 @@ body {
 }
 
 .type-Vol:hover {
-  background-color: rgb(161, 197, 191);
+  background-color: rgb(158, 179, 175);
+  color: rgba(227, 235, 190, 0.96);
 }
 
 .type-Roche:hover {
@@ -466,6 +467,7 @@ body {
 
 .type-Sol:hover {
   background-color: rgb(160, 141, 58);
+  color: rgba(227, 235, 190, 0.96);
 }
 
 .type-Dragon:hover {
@@ -480,6 +482,16 @@ body {
 
 .type-Spectre:hover {
   background-color: rgba(130, 110, 141, 0.89);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Glace:hover {
+  background-color: rgb(38, 201, 255);
+  color: rgb(255, 246, 246);
+}
+
+.type-Insecte:hover {
+  background-color: rgba(19, 78, 19, 0.87);
   color: rgba(227, 235, 190, 0.96);
 }
 

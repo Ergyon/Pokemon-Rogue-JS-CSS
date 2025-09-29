@@ -1,4 +1,3 @@
-import { updateBattleUI } from "../../UI/displayBattle/displayMove.js"
 import { displayKO } from "../../UI/displayBattle/undisplay.js"
 import { delay } from "../../UI/utils/utils.js"
 import { handleTurn } from "./handle-turn.js"
@@ -29,7 +28,7 @@ export async function turnBasedLoop(
                 return
             } else {
                 pkmnEnemy = trainer.choosePokemon()
-                updateBattleUI()
+                updateUI()
             }
         }
     } 
@@ -53,7 +52,7 @@ export async function turnBasedLoop(
         // envoyer un autre pokemon
         else {
             pkmnPlayer = player.choosePokemon()
-            // updateUI()
+            updateUI()
         }
     }
 }

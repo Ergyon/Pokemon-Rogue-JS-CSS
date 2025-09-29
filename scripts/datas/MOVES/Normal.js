@@ -89,130 +89,129 @@ const berceuse = createMove({
 
 // PHYSICAL
 const charge = createMove({ 
-        name: 'Charge', 
+    name: 'Charge', 
+    type: TYPES.NORMAL, 
+    damage: 18, 
+    precision: 95, 
+    criticChance: 19, 
+    img: 'img/moves/...png', 
+    pp: 30 })
+
+    const viveattaque = createMove({ 
+        name: 'Vive-attaque', 
         type: TYPES.NORMAL, 
-        damage: 18, 
+        damage: 20, 
+        precision: 100, 
+        criticChance: 20, 
+        img: '../img/moves', 
+        pp: 25 })
+
+    const griffe = createMove({ 
+        name: 'Griffe', 
+        type: TYPES.NORMAL, 
+        damage: 23, 
         precision: 95, 
-        criticChance: 19, 
-        img: 'img/moves/...png', 
-        pp: 30 })
+        criticChance: 33, 
+        img: '../img/moves/', 
+        pp: 25 })
 
-        const viveattaque = createMove({ 
-            name: 'Vive-attaque', 
-            type: TYPES.NORMAL, 
-            damage: 20, 
-            precision: 100, 
-            criticChance: 20, 
-            img: '../img/moves', 
-            pp: 25 })
+    const coupdboule = createMove({ 
+        name: "Coup d'boule", 
+        type: TYPES.NORMAL, 
+        damage: 26, 
+        precision: 89, 
+        criticChance: 35, 
+        img: 'img', 
+        pp: 25 });   
 
+    const ligotage = createMove({ 
+        name: "Ligotage", 
+        type: TYPES.NORMAL, 
+        damage: 17, 
+        precision: 91, 
+        criticChance: 15, 
+        img: 'img', 
+         pp: 35 }); 
 
-        const griffe = createMove({ 
-            name: 'Griffe', 
-            ype: TYPES.NORMAL, 
-            damage: 23, 
-            precision: 95, 
-            criticChance: 33, 
-            img: '../img/moves/', 
-            pp: 25 })
+    const fauxchage = createMove({ 
+        name: 'Faux-Chage', 
+        type: TYPES.NORMAL, 
+        damage: 28, 
+        precision: 95, 
+        criticChance: 20, 
+        img: 'img', 
+        pp: 20 })
 
-        const coupdboule = createMove({ 
-            name: "Coup d'boule", 
-            type: TYPES.NORMAL, 
-            damage: 26, 
-            precision: 89, 
-            criticChance: 35, 
-            img: 'img', 
-            pp: 25 });   
+    const crocmort = createMove({
+        name: "Croc'Mort",
+        type: TYPES.NORMAL,
+        damage: 30,
+        precision: 80,
+        criticChance: 30,
+        img: 'img',
+        pp: 20 })
 
-        const ligotage = createMove({ 
-            name: "Ligotage", 
-            type: TYPES.NORMAL, 
-            damage: 17, 
-            precision: 91, 
-            criticChance: 15, 
-            img: 'img', 
-            pp: 35 }); 
-
-        const fauxchage = createMove({ 
-                name: 'Faux-Chage', 
-                type: TYPES.NORMAL, 
-                damage: 28, 
-                precision: 95, 
-                criticChance: 20, 
-                img: 'img', 
-                pp: 20 })
-
-        const crocmort = createMove({
-            name: "Croc'Mort",
-            type: TYPES.NORMAL,
-            damage: 30,
-            precision: 80,
-            criticChance: 30,
-            img: 'img',
-            pp: 20 })
-
-        const tranche = createMove({
-            name: "Tranche",
-            type: TYPES.NORMAL,
-            damage: 40,
-            precision: 95,
-            criticChance: 50,
-            img: 'img',
-            pp: 15 })  
+    const tranche = createMove({
+        name: "Tranche",
+        type: TYPES.NORMAL,
+        damage: 40,
+        precision: 95,
+        criticChance: 50,
+        img: 'img',
+        pp: 15 })  
             
-        const plaquage = createMove({
-            name: "Plaquage",
-            type: TYPES.NORMAL,
-            damage: 48,
-            precision: 95,
-            criticChance: 18,
-            img: 'img',
-            pp: 15 })  
+    const plaquage = createMove({
+        name: "Plaquage",
+        type: TYPES.NORMAL,
+        damage: 48,
+        precision: 95,
+        criticChance: 18,
+        img: 'img',
+        pp: 15 })  
 
-        const meteores = createMove({
-            name: "Météores",
-            type: TYPES.NORMAL,
-            damage: 37,
-            precision: 100,
-            criticChance: 30,
-            img: 'img',
-            pp: 15 })
+    const meteores = createMove({
+        name: "Météores",
+        type: TYPES.NORMAL,
+        damage: 37,
+        precision: 100,
+        criticChance: 30,
+        img: 'img',
+        pp: 15 })
 
-        const guillotine = createMove({
-            name: "Guillotine",
-            type: TYPES.NORMAL,
-            damage: 500,
-            precision: 5,
-            img: 'img',
-            pp: 5 })
+    const guillotine = createMove({
+        name: "Guillotine",
+        type: TYPES.NORMAL,
+        damage: 500,
+        precision: 5,
+        img: 'img',
+        pp: 5 })
 
-        const ultimawashi = createMove({
-            name: "Ultimawashi",
-            type: TYPES.NORMAL,
-            damage: 80,
-            precision: 60,
-            criticChance: 8,
-            img: 'img',
-            pp: 5 })
+    const ultimawashi = createMove({
+        name: "Ultimawashi",
+        type: TYPES.NORMAL,
+        damage: 80,
+        precision: 60,
+        criticChance: 8,
+        img: 'img',
+        pp: 5 })
 
-        const koudkorne = createMove({
-            name: "Koud'Korne",
-            type: TYPES.NORMAL,
-            damage: 40,
-            precision: 81,
-            criticChance: 32,
-            img: 'img',
-            pp: 25 })
+    const koudkorne = createMove({
+        name: "Koud'Korne",
+        type: TYPES.NORMAL,
+        damage: 40,
+        precision: 81,
+        criticChance: 32,
+        img: 'img',
+        pp: 25 })
 
-        const ultralaser = createMove({
-            name: "Ultralaser",
-            type: TYPES.NORMAL,
-            damage: 130,
-            precision: 80,
-            criticChance: 5,
-            img: 'img',
-            pp: 5 })
+    const ultralaser = createMove({
+        name: "Ultralaser",
+        type: TYPES.NORMAL,
+        damage: 130,
+        precision: 80,
+        criticChance: 5,
+        img: 'img',
+        pp: 5 })
 
 
 

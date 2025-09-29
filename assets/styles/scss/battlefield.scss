@@ -210,6 +210,7 @@
 }
 .type-Vol:hover {
     background-color: $colorVol;
+    color: rgba(227, 235, 190, 0.96);
 }
 .type-Roche:hover {
     background-color: $colorRoche;
@@ -221,6 +222,7 @@
 }
 .type-Sol:hover {
     background-color: $colorSol;
+    color: rgba(227, 235, 190, 0.96);
 }
 .type-Dragon:hover{
     background-color: $colorDragon;
@@ -232,6 +234,14 @@
 }
 .type-Spectre:hover {
     background-color: $colorSpectre;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Glace:hover {
+    background-color: $colorGlace;
+    color: rgb(255, 246, 246);
+}
+.type-Insecte:hover {
+    background-color: $colorInsecte;
     color: rgba(227, 235, 190, 0.96);
 }
 .type-Normal:hover {

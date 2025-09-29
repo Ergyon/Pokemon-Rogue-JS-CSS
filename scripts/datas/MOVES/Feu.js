@@ -65,7 +65,7 @@ const flammeche = createMove({
         criticChance: 15, 
         img: '../img/moves/flame-1.png', 
         category: 'physical',
-        effect: isBurned(0.05, 1 + Math.floor(Math.random() * 3)),
+        effect: isBurned(0.1, 1 + Math.floor(Math.random() * 3)),
         pp: 15 })
 
     const canicule = createMove({ 

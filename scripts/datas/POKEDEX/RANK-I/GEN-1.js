@@ -314,7 +314,7 @@ const nosferapti = new Pokemon({
     attack: 14,
     defense: 14,
     critical: 0.55,
-    moves: [allMoves.ondefolie, allMoves.rugissement, allMoves.morsure, allMoves.charge],
+    moves: [allMoves.grozyeux, allMoves.rugissement, allMoves.morsure, allMoves.charge],
     img: "https://img.pokemondb.net/sprites/black-white/anim/normal/zubat-f.gif",
     rank: 1
 })

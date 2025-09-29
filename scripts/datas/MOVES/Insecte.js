@@ -8,7 +8,7 @@ const paraspore = createMove({
     type: TYPES.INSECTE, 
     precision: 70, 
     img: 'img',
-    category: 'statuts',
+    category: 'status',
     effect: isParalyzed(1, (1 + Math.floor(Math.random() * 3))),
     pp: 20 })
 
@@ -17,7 +17,7 @@ const paraspore = createMove({
         type: TYPES.INSECTE, 
         precision: 70, 
         img: 'img',
-        category: 'statuts',
+        category: 'status',
         effect: isAsleep((1 + Math.floor(Math.random() * 3))),
         pp: 20 })
 
@@ -26,7 +26,7 @@ const paraspore = createMove({
         type: TYPES.INSECTE, 
         precision: 70, 
         img: 'img',
-        category: 'statuts',
+        category: 'status',
         effect: isPoisoned(1, 30, (1 + Math.floor(Math.random() * 3))),
         pp: 20 })
 

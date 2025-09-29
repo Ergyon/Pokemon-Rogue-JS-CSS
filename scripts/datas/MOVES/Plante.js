@@ -67,7 +67,7 @@ const volvie = createMove({
         pp: 10 })    
 
     const tempeteflorale = createMove({ 
-        name: "Méga-Sangsue", 
+        name: "Tempête Florale", 
         type: TYPES.PLANTE, 
         damage: 85, 
         precision: 90, 

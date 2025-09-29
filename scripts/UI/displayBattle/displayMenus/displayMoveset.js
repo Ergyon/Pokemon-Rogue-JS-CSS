@@ -73,6 +73,8 @@ function attackColor(type) {
         case 'DRAGON': return 'type-Dragon'
         case 'SPECTRE': return 'type-Spectre'
         case 'TENEBRES': return 'type-Tenebres'
+        case 'GLACE': return 'type-Glace'
+        case "INSECTE": return 'type-Insecte'
         default : return 'type-Normal'
     }
 }

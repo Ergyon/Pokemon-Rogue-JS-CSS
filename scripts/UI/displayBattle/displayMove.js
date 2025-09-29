@@ -1,4 +1,3 @@
-import { displayBattleTxt } from "../utils/utils.js"
 
 // Animation barre de vie
 export function updateHp(pokemon, side) {
@@ -23,13 +22,9 @@ export function updateHp(pokemon, side) {
 }
 
 // Update UI battle
-export function updateBattleUI(player, enemy, messages) {
+export function updateBattleUI(player, enemy) {
     setTimeout(() => {
         updateHp(player, 'player')
         updateHp(enemy, 'enemy')
     }, 1400)
-    const lastMsg = messages[messages.length - 1]
-    if (lastMsg) {
-        displayBattleTxt(lastMsg)
-    }
 }

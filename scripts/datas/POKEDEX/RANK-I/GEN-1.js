@@ -444,7 +444,7 @@ const racaillou = new Pokemon({
 
 // SOL
 const osselait = new Pokemon({
-    name: 'Osselai',
+    name: 'Osselait',
     type: TYPES.SOL,
     hp: 116,
     attack: 15,

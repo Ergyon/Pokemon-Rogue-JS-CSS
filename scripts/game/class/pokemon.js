@@ -125,12 +125,7 @@ export class Pokemon {
             
             if (target.hp <= 0) {
             messages.push(`${target.name} est KO...`)
-            } 
-
-            // if (typeof move.effect === 'function') {
-            //     move.effect(this, target, messages)
-            // }
-            
+            }     
         }
 
         // attaque non physique

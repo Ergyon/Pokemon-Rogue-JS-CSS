@@ -12,6 +12,12 @@ import { turnBasedLoop } from "./turn-based-loop.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initFirstFight()
+
+
+    // const trainer = getRandomTrainer()
+    //         trainer.generateTeam(2, 1)
+    
+    //         displayTrainer(trainer)
 })
 
 
@@ -33,11 +39,10 @@ function initFirstFight() {
 
     pkmnPlayer = loadStarter()
     mainPlayer.team.push(pkmnPlayer)
-    pkmnPlayer.hp = 2
     
     pkmnEnemy = getRandomPokemon({rank:1})
     updateUI()
-    // pkmnEnemy.hp = 2
+    pkmnEnemy.hp = 2
     
     if (!pkmnPlayer || !pkmnEnemy) {
         window.alert("YA PAS DE POKEMOOOONS !!!")

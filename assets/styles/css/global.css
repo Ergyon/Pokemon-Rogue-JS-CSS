@@ -1,2 +1,79 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap");/*# sourceMappingURL=global.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap");
+.type-Feu:hover {
+  background-color: rgba(226, 14, 14, 0.76);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Eau:hover {
+  background-color: rgba(69, 122, 238, 0.863);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Plante:hover {
+  background-color: rgb(39, 175, 62);
+  color: wheat;
+}
+
+.type-Foudre:hover {
+  background-color: rgb(238, 238, 0);
+}
+
+.type-Psy:hover {
+  background-color: rgba(184, 73, 184, 0.87);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Poison:hover {
+  background-color: rgba(95, 10, 77, 0.877);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Vol:hover {
+  background-color: rgb(158, 179, 175);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Roche:hover {
+  background-color: rgba(105, 105, 105, 0.836);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Combat:hover {
+  background-color: rgba(134, 71, 12, 0.753);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Sol:hover {
+  background-color: rgb(160, 141, 58);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Dragon:hover {
+  background-color: rgb(56, 35, 46);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Tenebres:hover {
+  background-color: rgba(29, 29, 29, 0.89);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Spectre:hover {
+  background-color: rgba(130, 110, 141, 0.89);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Glace:hover {
+  background-color: rgb(38, 201, 255);
+  color: rgb(255, 246, 246);
+}
+
+.type-Insecte:hover {
+  background-color: rgba(19, 78, 19, 0.87);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Normal:hover {
+  background: linear-gradient(90deg, rgba(224, 238, 224, 0.719) 0%, rgba(184, 248, 164, 0.96) 93%);
+}/*# sourceMappingURL=global.css.map */

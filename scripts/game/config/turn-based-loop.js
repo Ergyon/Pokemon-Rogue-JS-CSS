@@ -44,6 +44,7 @@ export async function turnBasedLoop(
     // si pokemon player ko
     if (pkmnPlayer.isKO()) {
         await displayKO('player')
+        
         const playerTeam = player.team.filter(p => !p.isKO())
         if (playerTeam.length === 0) {
             if (resolve) resolve('lose')

@@ -33,8 +33,11 @@ export function getRandomMove(pokemon) {
 }
 
 // genere un trainer aleatoire
-export function getRandomTrainer() {
-    const source = allTrainers
+export function getRandomTrainer({round= null} = {}) {
+    let source = allTrainers
+    if (round !== null) {
+        source = source.filter(t => t.round === round)
+    }
     const index = Math.floor(Math.random() * source.length)
     return source[index]
 }

@@ -7,6 +7,10 @@ $pixel-font: 'Pixelify Sans', 'Jost';
 $pixel-font-large: 'Jersey 20', 'Jost';
 $font-arena: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
+// Shadows
+$boxshadow: 10px 20px 60px rgba(63, 1, 1, 0.205);
+$btnshadow: rgba(241, 238, 238, 0.479) 0px 3px 10px;
+
 // Colors 
     // Types 
 $colorFeu: rgba(226, 14, 14, 0.76);
@@ -26,6 +30,70 @@ $colorGlace: rgb(38, 201, 255);
 $colorInsecte: rgba(19, 78, 19, 0.87);
 $colorNormal: linear-gradient(90deg, rgba(224, 238, 224, 0.719) 0%, rgba(184, 248, 164, 0.96) 93%);
 
+    // Moveset 
+.type-Feu:hover {
+    background-color: $colorFeu;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Eau:hover {
+    background-color: $colorEau;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Plante:hover {
+    background-color: $colorplante;
+    color: wheat;
+}
+.type-Foudre:hover {
+    background-color: $colorFoudre;
+}
+.type-Psy:hover {
+    background-color: $colorPsy;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Poison:hover {
+    background-color: $colorPoison;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Vol:hover {
+    background-color: $colorVol;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Roche:hover {
+    background-color: $colorRoche;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Combat:hover {
+    background-color: $colorCombat;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Sol:hover {
+    background-color: $colorSol;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Dragon:hover{
+    background-color: $colorDragon;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Tenebres:hover {
+    background-color: $colorTenebres;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Spectre:hover {
+    background-color: $colorSpectre;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Glace:hover {
+    background-color: $colorGlace;
+    color: rgb(255, 246, 246);
+}
+.type-Insecte:hover {
+    background-color: $colorInsecte;
+    color: rgba(227, 235, 190, 0.96);
+}
+.type-Normal:hover {
+    background: $colorNormal;   
+}
+
     // Hp 
 $colorHp: #42e947;
 $colorHp-mid: orange;
@@ -35,6 +103,3 @@ $colorHp-low: red;
 $colorAttackMenu: linear-gradient(90deg, rgba(161, 185, 175, 0.945) 0%, rgba(205, 214, 166, 0.96) 93%);
 
 
-// Shadows
-$boxshadow: 10px 20px 60px rgba(63, 1, 1, 0.205);
-$btnshadow: rgba(241, 238, 238, 0.479) 0px 3px 10px;

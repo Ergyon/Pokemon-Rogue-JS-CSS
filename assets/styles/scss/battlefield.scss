@@ -184,68 +184,24 @@
     padding: 2px;
 }
 
-// Couleurs types attaques
-.type-Feu:hover {
-    background-color: $colorFeu;
-    color: rgba(227, 235, 190, 0.96);
+.trainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: fixed;
+    bottom: 130px;
+    right: 80px;
+    opacity: 0;
+    animation: displayTrainer 1s ease-out forwards;
+    &__img {
+        width: 16rem;
+        height: 18rem;
+        object-fit: contain;
+    }
+    &__name {
+        font-family: $pixel-font;
+        color: wheat;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
 }
-.type-Eau:hover {
-    background-color: $colorEau;
-    color: rgba(227, 235, 190, 0.96);
-}
-.type-Plante:hover {
-    background-color: $colorplante;
-    color: wheat;
-}
-.type-Foudre:hover {
-    background-color: $colorFoudre;
-}
-.type-Psy:hover {
-    background-color: $colorPsy;
-    color: rgba(227, 235, 190, 0.96);
-}
-.type-Poison:hover {
-    background-color: $colorPoison;
-    color: rgba(227, 235, 190, 0.96);
-}
-.type-Vol:hover {
-    background-color: $colorVol;
-    color: rgba(227, 235, 190, 0.96);
-}
-.type-Roche:hover {
-    background-color: $colorRoche;
-    color: rgba(227, 235, 190, 0.96);
-}
-.type-Combat:hover {
-    background-color: $colorCombat;
-    color: rgba(227, 235, 190, 0.96);
-}
-.type-Sol:hover {
-    background-color: $colorSol;
-    color: rgba(227, 235, 190, 0.96);
-}
-.type-Dragon:hover{
-    background-color: $colorDragon;
-    color: rgba(227, 235, 190, 0.96);
-}
-.type-Tenebres:hover {
-    background-color: $colorTenebres;
-    color: rgba(227, 235, 190, 0.96);
-}
-.type-Spectre:hover {
-    background-color: $colorSpectre;
-    color: rgba(227, 235, 190, 0.96);
-}
-.type-Glace:hover {
-    background-color: $colorGlace;
-    color: rgb(255, 246, 246);
-}
-.type-Insecte:hover {
-    background-color: $colorInsecte;
-    color: rgba(227, 235, 190, 0.96);
-}
-.type-Normal:hover {
-    background: $colorNormal;
-    
-}
-

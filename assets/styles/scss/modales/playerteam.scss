@@ -31,6 +31,7 @@
         text-align: center;
         margin-bottom: 2rem;
         gap: 10px;
+        width: auto;
     }
 
     &__card {
@@ -51,17 +52,18 @@
 
     &__img {
         image-rendering: pixelated;
-        min-width: 2.8rem;
+        min-width: 2.5rem;
         height: auto;
         object-fit: contain;
-        margin-right: 1rem;
+        margin-right: 0.5rem;
     }
 
     &__name {
         font-family: $pixel-font-large;
         color: darken($colorCombat, 20%);
-        font-size: 1.1rem;
+        font-size: 1rem;
         padding-right: 20px;
+        margin-bottom: auto;
     }
 
     &__hp {
@@ -73,13 +75,6 @@
         width: 40px;
         padding-inline: 3px;
         opacity: 0.8;
-        transition: 0.2s;
-        // &:hover {
-        //     font-size: 12px;
-        //     width: 45px;
-        //     background-color: darken($colorHp, 30%);
-        //     opacity: 1;
-        // }
     }
 
     &__cancel {

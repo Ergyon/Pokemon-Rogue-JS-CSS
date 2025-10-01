@@ -34,7 +34,7 @@ function createPokemonCard(pokemon, side, doAttack) {
 
 
 // Display les deux pokemons
-export function displayPokemons(player, enemy, doAttack) {
+export function displayPokemons(player, enemy, doAttack, trainerName = null) {
     const arena = document.getElementById('arena')
 
     const cardPlayer = createPokemonCard(player, 'player', doAttack)
@@ -44,8 +44,24 @@ export function displayPokemons(player, enemy, doAttack) {
     const textWrapper = document.querySelector(".battle-txt-container")
 
     const pokemonText = document.createElement('span')
-    pokemonText.textContent = `Un ${enemy.name} sauvage apparait !`
+    // si pokemon dresseur
+    if (trainerName) {
+        pokemonText.textContent = `${trainerName} envoie ${enemy.name} !`
+    }
+    // si pokemon sauvage 
+    else {
+        pokemonText.textContent = `Un ${enemy.name} sauvage apparait !`
+    }
+    
     pokemonText.classList.add('pokemon-txt')
     textWrapper.appendChild(pokemonText)
+}
+
+
+// Nouveau pokemon en cours de combat (apres ko ou switch)
+export function displayNewPokemon(pokemon, side) {
+    const arena = document.getElementById('arena')
+    const card = createPokemonCard(pokemon, side, null)
+    arena.appendChild(card)
 }
 

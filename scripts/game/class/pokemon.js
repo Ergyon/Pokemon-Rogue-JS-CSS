@@ -121,11 +121,7 @@ export class Pokemon {
        
             // apllication des degats
             target.hp -= Math.floor(totalDamage)
-            move.pp--
-            
-            if (target.hp <= 0) {
-            messages.push(`${target.name} est KO...`)
-            }     
+            move.pp--    
         }
 
         // attaque non physique

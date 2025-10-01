@@ -108,6 +108,7 @@
   text-align: center;
   margin-bottom: 2rem;
   gap: 10px;
+  width: auto;
 }
 .modal-team__card {
   width: auto;
@@ -126,17 +127,18 @@
 }
 .modal-team__img {
   image-rendering: pixelated;
-  min-width: 2.8rem;
+  min-width: 2.5rem;
   height: auto;
   -o-object-fit: contain;
      object-fit: contain;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 .modal-team__name {
   font-family: "Jersey 20", "Jost";
   color: rgba(40.3835616438, 21.397260274, 3.6164383562, 0.753);
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding-right: 20px;
+  margin-bottom: auto;
 }
 .modal-team__hp {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -147,7 +149,6 @@
   width: 40px;
   padding-inline: 3px;
   opacity: 0.8;
-  transition: 0.2s;
 }
 .modal-team__cancel {
   font-family: "Jersey 20", "Jost";

@@ -3,6 +3,8 @@ import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js"
 import { turnBasedLoop } from "./turn-based-loop.js"
 
 export async function initDuel(player, trainer) {
+    player.healTeam()
+
     let pkmnPlayer = player.team.find(p => !p.isKO())
     let pkmnEnemy = trainer.team.find(p => !p.isKO())
 
@@ -23,10 +25,10 @@ export async function initDuel(player, trainer) {
                 { type: 'move', payload: move },
                 player,
                 trainer,
-                { player: pkmnPlayer, enemy: pkmnEnemy },
-                () => updateBattleUI(pkmnPlayer, pkmnEnemy),
+                active,
+                updateUI,
                 resolve
             )
-        })
+        }, trainer.name)
     })
 }

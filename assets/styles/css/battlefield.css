@@ -415,8 +415,8 @@ body {
   color: beige;
 }
 .arena__card__pkmn {
-  width: 14rem;
-  height: 15rem;
+  width: 13rem;
+  height: 14rem;
   -o-object-fit: contain;
      object-fit: contain;
   animation: breathing 2s 0.5s linear infinite alternate-reverse;

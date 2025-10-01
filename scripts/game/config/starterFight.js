@@ -1,6 +1,5 @@
 import { constructPokemon } from "../../datas/storage.js";
 import { gameOver } from "../../datas/text.js";
-import { displayTeam } from "../../UI/displayBattle/displayMenus/displayTeam.js";
 import { updateBattleUI } from "../../UI/displayBattle/displayMove.js";
 import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js";
 import { undisplayPokemons } from "../../UI/displayBattle/undisplay.js";
@@ -38,11 +37,6 @@ function initFirstFight() {
     pkmnEnemy = getRandomPokemon({rank:1})
     updateUI()
     pkmnEnemy.hp = 2
-    mainPlayer.team.push(pkmnEnemy)
-    mainPlayer.team.push(pkmnPlayer)
-    mainPlayer.team.push(pkmnEnemy)
-    console.log(mainPlayer.team)
-    displayTeam({team: mainPlayer.team}, pkmnPlayer)
     
     if (!pkmnPlayer || !pkmnEnemy) {
         window.alert("YA PAS DE POKEMOOOONS !!!")

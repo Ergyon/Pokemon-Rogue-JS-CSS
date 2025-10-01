@@ -19,13 +19,13 @@ export class Player {
     } 
 
     // choisir un autre pokemon en combat
-    async choosePokemon({current=null, force=false, onCancel=null} = {}) {
+    async choosePokemon({current=null, force=true} = {}) {
         const chosen = await displayTeam({
             team: this.team,
-            current,
-            disableKo: force,
+            current: current,
+            disableKo: true,
             title: 'Choisissez un Pokémon',
-            onCancel
+            onCancel: force ? null : () => null
         })
         return chosen || null
     }
@@ -70,7 +70,22 @@ export class Player {
             this.inventory.push(item)
         }
     }
+
+    // soigner equipe
+    healTeam() {
+        this.team.forEach(pokemon => {
+            pokemon.hp = pokemon.maxHP
+            pokemon.moves.forEach(move => {
+                move.pp = move.maxPP
+            })
+            pokemon.resetStage()
+            pokemon.status = null
+            pokemon.statusDuration = 0
+        })
+    }
 }
+
+
 
 // nom et avatar du joueur
 export const mainPlayer = new Player({

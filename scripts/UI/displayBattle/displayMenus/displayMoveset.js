@@ -11,7 +11,6 @@ export function displayMenuAttack(pokemon, doAttack) {
 
     pokemon.moves.forEach((move) => {
         const row = document.createElement('tr')
-
         const moveName = document.createElement('td')
         moveName.classList.add('attack')
         moveName.textContent = move.name
@@ -27,10 +26,7 @@ export function displayMenuAttack(pokemon, doAttack) {
         row.appendChild(movePP)
 
         moveName.addEventListener("click", () => {
-            if (move.pp <= 0) {
-                // petite animation
-                return
-            }
+            if (move.pp <= 0) return
             hideMenu()
             doAttack(move)
         })

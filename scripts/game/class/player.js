@@ -8,7 +8,7 @@ export class Player {
         this.img = img
     }
 
-
+    // ajouter un pokemon
     addPokemon(pokemon) {
         if (this.team.length < 3) {
             this.team.push(pokemon)
@@ -18,18 +18,29 @@ export class Player {
         }
     } 
 
-    choosePokemon(pokemon) {
-        
+    // choisir un autre pokemon en combat
+    async choosePokemon({current=null, force=false, onCancel=null} = {}) {
+        const chosen = await displayTeam({
+            team: this.team,
+            current,
+            disableKo: force,
+            title: 'Choisissez un Pokémon',
+            onCancel
+        })
+        return chosen || null
     }
 
+    // gagner de l'argent
     earnMoney(amount) {
-        this.money += amount
+        this.money += amount 
     }
 
+    // obtenir un badge
     getBadge(badge) {
         this.badges.push(badge)
     }
 
+    // posseder un objet
     getItem(item) {
         if (this.inventory.length < 3) {
             this.inventory.push(item)
@@ -38,6 +49,7 @@ export class Player {
         }
     }
 
+    // utiliser un objet
     useItem(item, pokemon) {
         if (item.canUse(pokemon)) {
             item.applyEffect(pokemon)
@@ -45,11 +57,13 @@ export class Player {
         }
     }
 
+    // retirer un objet
     removeItem(item) {
         const index = this.inventory.indexOf(item)
         if (index !== -1) this.inventory.splice(item)
     }
 
+    // acheter un objet
     buyItem(item, price) {
         if (this.money >= price) {
             this.money -= price
@@ -58,6 +72,7 @@ export class Player {
     }
 }
 
+// nom et avatar du joueur
 export const mainPlayer = new Player({
     name: '',
     img: ''

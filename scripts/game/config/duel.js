@@ -8,14 +8,24 @@ export async function initDuel(player, trainer) {
 
     if (!pkmnPlayer) return 'lose'
     if (!pkmnEnemy) return 'win'
-    
     if(player.team.every(p => p.isKO())) return 'lose'
     if(trainer.team.every(p => p.isKO())) return 'win'
 
+    const active = {player:pkmnPlayer, enemy:pkmnEnemy}
+
+    function updateUI(){
+        updateBattleUI(active.player, active.enemy)
+    }
+
     return new Promise(resolve => {
         displayPokemons(pkmnPlayer, pkmnEnemy, (move) => {
-            turnBasedLoop(move, player, trainer, pkmnPlayer, pkmnEnemy, () => 
-                updateBattleUI(pkmnPlayer, pkmnEnemy), resolve              
+            turnBasedLoop(
+                { type: 'move', payload: move },
+                player,
+                trainer,
+                { player: pkmnPlayer, enemy: pkmnEnemy },
+                () => updateBattleUI(pkmnPlayer, pkmnEnemy),
+                resolve
             )
         })
     })

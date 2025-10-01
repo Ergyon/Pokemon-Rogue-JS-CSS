@@ -1,3 +1,4 @@
+import { displayTeam } from '../../UI/displayBattle/displayMenus/displayTeam.js'
 import { showBattleTxt } from '../../UI/displayBattle/displayText.js'
 import { displayTrainer } from '../../UI/displayBattle/displayTrainers.js'
 import { delay } from '../../UI/utils/utils.js'
@@ -8,6 +9,7 @@ export async function mainGameRun(mainPlayer) {
     let round = 1 
 
     while (round <= 5) {
+        displayTeam(mainPlayer.team)
         const trainer = getRandomTrainer({round})
         trainer.generateTeam(2, 1)
 

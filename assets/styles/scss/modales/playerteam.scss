@@ -1,0 +1,102 @@
+@use '../global' as *;
+
+.modal-team {
+    z-index: 5;
+    position: absolute;
+    bottom: 17%;
+    left: 40%;
+    background-color: $colorControlsBg;
+    border: 5px double darken($colorGlace, 50%);
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    &__title {
+        text-align: center;
+        font-family: $pixel-font-large;
+        font-weight: 300;
+        color: darken($colorEau, 50%);
+        font-size: 1.4rem;
+        margin: 0;
+        margin-bottom: 25px;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+        margin-bottom: 2rem;
+        gap: 10px;
+    }
+
+    &__card {
+        width: auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        margin-bottom: 16px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        border-radius: 20px;
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+        &:hover {
+            box-shadow: $boxshadow;
+        }
+    }
+
+    &__img {
+        image-rendering: pixelated;
+        min-width: 2.8rem;
+        height: auto;
+        object-fit: contain;
+        margin-right: 1rem;
+    }
+
+    &__name {
+        font-family: $pixel-font-large;
+        color: darken($colorCombat, 20%);
+        font-size: 1.1rem;
+        padding-right: 20px;
+    }
+
+    &__hp {
+        font-family: $font-arena;
+        font-size: 8px;
+        background-color: darken($colorHp, 40%);
+        border-radius: 5px;
+        color: rgb(245, 232, 207);
+        width: 40px;
+        padding-inline: 3px;
+        opacity: 0.8;
+        transition: 0.2s;
+        // &:hover {
+        //     font-size: 12px;
+        //     width: 45px;
+        //     background-color: darken($colorHp, 30%);
+        //     opacity: 1;
+        // }
+    }
+
+    &__cancel {
+        font-family: $pixel-font-large;
+        font-size: 1.2rem;
+        background-color: darken($colorEau, 40%);
+        opacity: 0.8;
+        color: wheat;
+        border: 1px dotted black;
+        border-radius: 6px;
+        padding: 4px;
+        box-shadow: rgba(97, 97, 93, 0.432) 0px 3px 8px;
+        cursor: pointer;
+        transition: 0.2s;
+        &:hover {
+            background-color: darken($colorEau, 30%);
+            opacity: 1;
+        }
+    }
+}

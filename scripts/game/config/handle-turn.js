@@ -1,5 +1,6 @@
 import { delay, displayBattleTxt } from "../../UI/utils/utils.js"
 
+
 // Gestion de tour
 export async function handleTurn(attacker, defender, moves, messages, updateUI) {
     const statusMessages = []

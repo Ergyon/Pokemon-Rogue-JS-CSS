@@ -1,5 +1,6 @@
 import { constructPokemon } from "../../datas/storage.js";
 import { gameOver } from "../../datas/text.js";
+import { displayControls } from "../../UI/displayBattle/displayMenus/displayControls.js";
 import { updateBattleUI } from "../../UI/displayBattle/displayMove.js";
 import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js";
 import { undisplayPokemons } from "../../UI/displayBattle/undisplay.js";
@@ -35,7 +36,6 @@ function initFirstFight() {
     mainPlayer.team.push(pkmnPlayer)
     
     pkmnEnemy = getRandomPokemon({rank:1})
-    updateUI()
     pkmnEnemy.hp = 2
     
     if (!pkmnPlayer || !pkmnEnemy) {
@@ -43,11 +43,11 @@ function initFirstFight() {
         return
     }    
     
-    function updateUI() {
-        updateBattleUI(pkmnPlayer, pkmnEnemy)
-    }
-    updateUI()
+    const active = {player: pkmnPlayer, enemy: pkmnEnemy}
 
+    updateBattleUI(active.player, active.enemy)
+
+    // apparition pokemons
     displayPokemons(pkmnPlayer, pkmnEnemy, async (move) => {
         if (isFightOver) return
 
@@ -55,12 +55,12 @@ function initFirstFight() {
             {type: 'move', payload: move},
             mainPlayer,
             null,
-            {player: pkmnPlayer, enemy: pkmnEnemy},
-            updateUI
+            active,
+            () => updateBattleUI(active.player, active.enemy)
         )
         
         // fin de combat
-        if (pkmnEnemy.isKO()) {
+        if (active.enemy.isKO()) {
             isFightOver = true
             undisplayPokemons()
 
@@ -81,11 +81,27 @@ function initFirstFight() {
             // lancement du mainGame
             await mainGameRun(mainPlayer)
         } 
-        else if (pkmnPlayer.isKO()) {
+
+        // combat perdu
+        else if (active.player.isKO()) {
             isFightOver = true 
             undisplayPokemons()
             displayMessages(gameOver)
         }
+    })
+
+
+    // menu joueur
+    displayControls(mainPlayer, active, async (action) => {
+        if (isFightOver) return
+
+        await turnBasedLoop(
+            action,
+            mainPlayer,
+            null,
+            active,
+            () => updateBattleUI(active.player, active.enemy)
+        )
     })
 }
 

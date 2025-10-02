@@ -42,7 +42,6 @@ export function displayTeam({
             if (pkmn === current) {
                 const badge = document.createElement('span')
                 badge.classList.add('modal-team__badge', 'modal-team__badge--active')
-                badge.textContent = 'En combat'
                 card.appendChild(badge)
             }
 
@@ -50,7 +49,6 @@ export function displayTeam({
             if (pkmn.isKO()) {
                 const badge = document.createElement('span')
                 badge.classList.add('modal-team__badge', 'modal-team__badge--ko')
-                badge.textContent = "KO"
                 card.appendChild(badge)
             }
 
@@ -69,7 +67,7 @@ export function displayTeam({
 
         const cancel = document.createElement('button')
         cancel.classList.add('modal-team__cancel')
-        cancel.textContent = 'Annuler'
+        cancel.textContent = 'Fermer'
         cancel.addEventListener('click', () => {
             cleanup()
             if (typeof onCancel === 'function')onCancel()

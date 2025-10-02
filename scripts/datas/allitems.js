@@ -5,6 +5,7 @@ import { healStatus } from "../game/mechanics/status.js"
 // heals
 const potion = new Item({
     name: 'Potion',
+    desc: 'Soigne 30pv',
     effect: healingSelf(30),
     category: 'stats',
     rank: 1,
@@ -15,6 +16,7 @@ const potion = new Item({
 const superpotion = new Item({
     name: 'Super potion',
     effect: healingSelf(60),
+    desc: 'Soigne 60pv',
     category: 'stats',
     rank: 2,
     price: 800,
@@ -23,6 +25,7 @@ const superpotion = new Item({
 
 const hyperpotion = new Item({
     name: 'Hyper potion',
+    desc: 'Soigne 120pv',
     effect:healingSelf(120),
     category: 'stats',
     rank: 3,
@@ -31,7 +34,8 @@ const hyperpotion = new Item({
 })
 
 const potionmax = new Item({
-    name: 'Guérison',
+    name: 'Potion max',
+    desc: 'Soigne tous les pv',
     effect: healingSelf(300), 
     category: 'stats',
     rank: 3,
@@ -42,6 +46,7 @@ const potionmax = new Item({
 // status 
 const antipara = new Item({
     name: 'Anti-para',
+    desc: 'Soigne la paralysie',
     effect: healStatus(),
     category: 'status',
     rank: 1,
@@ -51,6 +56,7 @@ const antipara = new Item({
 
 const antidote = new Item({
     name: 'Antidote',
+    desc: 'Soigne du poison',
     effect: healStatus(),
     rank: 1,
     price: 350,
@@ -59,6 +65,7 @@ const antidote = new Item({
 
 const antibrule = new Item({
     name: 'Anti-brûle',
+    desc: 'Soigne des brûlures',
     effect: healStatus(),
     rank: 1,
     price: 350,
@@ -67,6 +74,7 @@ const antibrule = new Item({
 
 const antigele = new Item({
     name: 'Anti-gêle',
+    desc: 'Dégêle un Pokémon',
     effect: healStatus(),
     rank: 1,
     price: 350,
@@ -75,6 +83,7 @@ const antigele = new Item({
 
 const reveil = new Item({
     name: 'Réveil',
+    desc: 'Réveille un Pokémon',
     effect: healStatus(),
     rank: 1,
     price: 350,

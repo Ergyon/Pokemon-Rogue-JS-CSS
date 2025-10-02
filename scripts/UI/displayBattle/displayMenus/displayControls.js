@@ -28,6 +28,7 @@ export function displayControls(player, active, onAction) {
 
     const alivePkmn = player.team.filter(p => !p.isKO() && p !== active.player)
     switchBtn.disabled = alivePkmn.length === 0
+    console.log('Pokémon vivants disponibles:', alivePkmn.length, alivePkmn.map(p => p.name))
 
     switchBtn.onclick = async () => {
         const chosen = await displayTeam({
@@ -52,18 +53,14 @@ export function displayControls(player, active, onAction) {
     const inventoryBtn = document.createElement('button')
     inventoryBtn.classList.add('controls-menu__btn', 'controls-menu__btn--inventory')
     inventoryBtn.textContent = 'Inventaire'
-    inventoryBtn.disabled = true
+
+    inventoryBtn.disabled = !player.inventory || player.inventory.length === 0
+
     inventoryBtn.onclick = async () => {
         // await displayInventory()
-        console.log('inventaire')
+        console.log('inventaire', player.inventory)
     }
-        
-    // bouton close
-    const closeBtn = document.createElement('button')
-    closeBtn.classList.add('controls-menu__btn', 'controls-menu__btn--close')
-    closeBtn.textContent = 'x'
-    closeBtn.onclick = () => menu.remove()
 
-    menu.append(teamBtn, switchBtn, inventoryBtn, closeBtn)
+    menu.append(teamBtn, inventoryBtn, switchBtn)
     wrapper.appendChild(menu)
 }

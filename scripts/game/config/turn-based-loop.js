@@ -1,4 +1,3 @@
-import { displayControls } from "../../UI/displayBattle/displayMenus/displayControls.js"
 import { displayNewPokemon } from "../../UI/displayBattle/displayPokemons.js"
 import { displayKO } from "../../UI/displayBattle/undisplay.js"
 import { delay, displayBattleTxt } from "../../UI/utils/utils.js"
@@ -16,11 +15,6 @@ export async function turnBasedLoop(
 ) {
 
     const messages = []
-    
-    // affichage menu joueur
-    displayControls(player, active, (action) => {
-        turnBasedLoop(action, player, trainer, active, updateUI, resolve)
-    })
 
     // tour player
     if (action?.type === 'switch') {
@@ -86,7 +80,7 @@ export async function turnBasedLoop(
 
         // envoie d'un nouveau pokemon joueur
         if (alive.length === 1) {
-            active.player = pkmnPlayer = alive[0]
+            active.player = alive[0]
 
             // dernier pokemon restant
             await displayBattleTxt(`Tout repose sur toi ${active.player.name} !`, 600)
@@ -100,7 +94,7 @@ export async function turnBasedLoop(
             if (!next)  return
             active.player = next
 
-            await displayBattleTxt(`A toi de jouer ${active.player.name} !`, 6000)
+            await displayBattleTxt(`A toi de jouer ${active.player.name} !`, 600)
             displayNewPokemon(active.player, 'player')
 
             updateUI()

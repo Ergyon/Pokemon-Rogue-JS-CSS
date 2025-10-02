@@ -1,6 +1,6 @@
 import { constructPokemon } from "../../datas/storage.js";
 import { gameOver } from "../../datas/text.js";
-import { displayControls } from "../../UI/displayBattle/displayMenus/displayControls.js";
+import { displayControls, updateControls } from "../../UI/displayBattle/displayMenus/displayControls.js";
 import { updateBattleUI } from "../../UI/displayBattle/displayMove.js";
 import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js";
 import { undisplayPokemons } from "../../UI/displayBattle/undisplay.js";
@@ -77,6 +77,7 @@ function initFirstFight() {
 
             mainPlayer.team.push(choice.pokemon)
             mainPlayer.getItem(choice.item)
+            updateControls(mainPlayer, active)
 
             // lancement du mainGame
             await mainGameRun(mainPlayer)
@@ -91,7 +92,7 @@ function initFirstFight() {
     })
 
 
-    // menu joueur
+    // affiche menu joueur
     displayControls(mainPlayer, active, async (action) => {
         if (isFightOver) return
 

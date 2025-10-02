@@ -5,6 +5,7 @@ export function displayTeam({
     current = null,
     disableKo = false,
     title = 'Votre équipe',
+    mode = 'view',
     onCancel = null
 } = {}) {
     return new Promise((resolve) => {
@@ -59,18 +60,25 @@ export function displayTeam({
             card.append(img, name, hp)
             list.appendChild(card)
 
-            card.addEventListener('click', () => {
-                cleanup()
-                resolve(pkmn)
-            })
+            // pokemon selectionnable ou non selon le mode (view, item, switch)
+            const canSelect = isSelectable(pkmn, mode, current, disableKo)
+
+            if (!canSelect) {
+                card.classList.add('modal-team__card--disabled')
+            } else {
+                card.addEventListener('click', () => {
+                    cleanup()
+                    resolve(pkmn)
+                })
+            }
         })
 
         const cancel = document.createElement('button')
         cancel.classList.add('modal-team__cancel')
-        cancel.textContent = 'Fermer'
+        cancel.textContent = mode === 'view' ? 'Fermer' : 'Annuler'
         cancel.addEventListener('click', () => {
             cleanup()
-            if (typeof onCancel === 'function')onCancel()
+            if (typeof onCancel=== 'function') onCancel()
                 resolve(null)
         })
 
@@ -81,4 +89,26 @@ export function displayTeam({
             modal.remove()
         }
     })
+}
+
+function isSelectable(pkmn, mode, current, disableKo) {
+    switch(mode) {
+        case 'view':
+            return false
+
+        case 'switch':
+            return !pkmn.isKO() && pkmn !== current
+
+        case 'useItem':
+            if (disableKo) {
+                return !pkmn.isKO()
+            }
+            return true
+
+        default:
+            if (disableKo) {
+                return !pkmn.isKO() && pkmn !== current
+            }
+            return pkmn !== current
+    }
 }

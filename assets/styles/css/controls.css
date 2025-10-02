@@ -374,7 +374,7 @@
   transition: 0.2s;
 }
 .controls-menu__btn--inventory:hover {
-  background: linear-gradient(140deg, rgb(207, 196, 101) 0%, rgb(87, 79, 5) 100%);
+  background: linear-gradient(140deg, rgb(7, 42, 44) 0%, rgb(16, 112, 72) 100%);
   color: white;
 }
 .controls-menu__btn--switch {
@@ -385,4 +385,23 @@
 .controls-menu__btn--switch:hover {
   background: linear-gradient(140deg, rgb(92, 82, 119) 0%, rgb(38, 35, 78) 100%);
   color: beige;
+}
+.controls-menu__btn--badges {
+  transform: translateX(-300px);
+  animation: slideInLeft 1s ease forwards 0.6s;
+  transition: 0.2s;
+}
+.controls-menu__btn--badges:hover {
+  background: linear-gradient(140deg, rgb(207, 196, 101) 0%, rgb(87, 79, 5) 100%);
+  color: white;
+}
+
+.money {
+  position: fixed;
+  bottom: 92%;
+  right: 7%;
+  font-family: "Pixelify Sans", "Jost";
+  font-size: 18px;
+  color: rgb(238, 238, 0);
+  animation: slideInRight 2s ease-out forwards;
 }/*# sourceMappingURL=controls.css.map */

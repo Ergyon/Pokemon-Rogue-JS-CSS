@@ -17,3 +17,8 @@ export function displayTrainer(trainer) {
     card.append(name, img)
     arena.appendChild(card)
 }
+
+export function undisplayTrainer() {
+    const card = document.querySelector('.trainer')
+    card.remove()
+}

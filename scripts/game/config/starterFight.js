@@ -62,7 +62,9 @@ function initFirstFight() {
             mainPlayer,
             null,
             active,
-            () => updateBattleUI(active.player, active.enemy)
+            () => updateBattleUI(active.player, active.enemy),
+            undefined,
+            handleMove
         )
 
         // fin de combat
@@ -106,7 +108,9 @@ function initFirstFight() {
             mainPlayer,
             null,
             active,
-            () => updateBattleUI(active.player, active.enemy)
+            () => updateBattleUI(active.player, active.enemy),
+            undefined,
+            handleMove
         )
         updateControls(mainPlayer, active)
     }

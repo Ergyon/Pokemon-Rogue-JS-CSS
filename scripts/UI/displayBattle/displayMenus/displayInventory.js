@@ -126,7 +126,7 @@ export function displayInventory(player, active =null) {
 }
 
 // message utilisation objet
-function showNotif(msg, type = 'info') {
+export function showNotif(msg, type = 'info') {
     const notif = document.createElement('div')
     notif.classList.add('item-notification', `item-notification--${type}`)
     notif.textContent = msg

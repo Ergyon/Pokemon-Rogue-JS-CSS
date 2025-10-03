@@ -1,5 +1,8 @@
+import { showNotif } from '../../UI/displayBattle/displayMenus/displayInventory.js'
 import { showBattleTxt } from '../../UI/displayBattle/displayText.js'
-import { displayTrainer } from '../../UI/displayBattle/displayTrainers.js'
+import { displayTrainer, undisplayTrainer } from '../../UI/displayBattle/displayTrainers.js'
+import { undisplayPokemons } from '../../UI/displayBattle/undisplay.js'
+import { displayVictory } from '../../UI/displayCommons/displayVictory.js'
 import { delay } from '../../UI/utils/utils.js'
 import { initDuel } from './duel.js'
 import { getRandomTrainer } from './randomizer.js'
@@ -8,6 +11,26 @@ export async function mainGameRun(mainPlayer) {
     let round = 1 
 
     while (round <= 5) {
+        let pokemonRank = 1
+            let itemRank = 1
+
+            if (round === 5) {
+                pokemonRank = Math.random() < 0.5 ? 4 : 3
+                itemRank = [2,3]
+            } 
+            else if (round === 4) {
+                pokemonRank = [3]
+                itemRank = [1, 2, 3]
+            } 
+            else if (round === 3) {
+                pokemonRank = [2,3]
+                itemRank = Math.random() < 0.3 ? 3 : (Math.random() < 0.7 ? 2 : 1)
+            } 
+            else if (round === 2) {
+                pokemonRank = [2]
+                itemRank = [1,2]
+            } 
+
         const trainer = getRandomTrainer({round})
         trainer.generateTeam(2, 1)
 
@@ -19,12 +42,50 @@ export async function mainGameRun(mainPlayer) {
 
         if (result === 'lose') {
             showBattleTxt(`${trainer.name} remporte le combat.`)
+            undisplayPokemons()
             break
+
         } else if (result === 'win'){
-            showBattleTxt(`Vous gagnez le combat !`)
+            showBattleTxt(`Bien joué ! Vous avez gagné le combat contre ${trainer.name}.`)
+            undisplayPokemons()
+
+            const moneyGain = trainer.gain
             mainPlayer.earnMoney(trainer.gain)
-            showBattleTxt(`${trainer.name} vous donne ${trainer.gain}$`)
+            
+            await delay(1500)
+            undisplayTrainer()
+
+            const chosenBadge = await displayVictory({
+                money: moneyGain,
+                trainerName: trainer.name,
+                getRandomBadge: getRandomBadge
+            })
+
+            if (chosenBadge) {
+                mainPlayer.getBadge(chosenBadge)
+                chosenBadge.applyBonus(mainPlayer.team)
+                showNotif(`Vous obtenez le badge ${chosenBadge.name}`)
+                await delay (800)
+            }
+
+            const choice = await displayChoiceModal({
+                rankLeft: pokemonRank,
+                rankRight: itemRank,
+                countLeft: 3,
+                countRight:3
+            })
+            
+            if (choice.pokemon) {
+                mainPlayer.addPokemon(choice.pokemon)
+            }
+            if (choice.item) {
+                mainPlayer.getItem(choice.item)
+            }
+
+            updateControls(mainPlayer, active)
+
             round++
+
         } else {
            console.warn("Erreur", result) 
            break

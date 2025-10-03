@@ -94,6 +94,7 @@ export class Pokemon {
             const miss = precisRoll > move.precision
             if (miss) {
                 messages.push(`${this.name} rate son attaque...`)
+                move.pp--
                 return messages
             }  
             
@@ -122,6 +123,11 @@ export class Pokemon {
             // apllication des degats
             target.hp -= Math.floor(totalDamage)
             move.pp--    
+
+            // si le move a un effet 
+            if (typeof move.effect === 'function') {
+                move.effect(this, target, messages)
+            }
         }
 
         // attaque non physique

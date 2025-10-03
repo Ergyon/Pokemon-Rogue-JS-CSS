@@ -11,7 +11,8 @@ export async function turnBasedLoop(
     trainer,
     active,
     updateUI, 
-    resolve
+    resolve,
+    handleMove
 ) {
 
     const messages = []
@@ -25,7 +26,7 @@ export async function turnBasedLoop(
 
             active.player = next
 
-            displayNewPokemon(next, 'player')
+            displayNewPokemon(next, 'player', handleMove)
 
             updateUI()
             await delay(600)

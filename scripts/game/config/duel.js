@@ -31,7 +31,8 @@ export async function initDuel(player, trainer) {
                 trainer,
                 active,
                 updateUI,
-                resolve
+                resolve,
+                handleMove
             )
             updateControls(player, active)
         }
@@ -45,7 +46,8 @@ export async function initDuel(player, trainer) {
                 trainer,
                 active,
                 updateUI,
-                resolve
+                resolve,
+                handleMove
             )
             updateControls(player, active)
         }

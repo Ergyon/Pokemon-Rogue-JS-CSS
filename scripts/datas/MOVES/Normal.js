@@ -1,7 +1,7 @@
 import { TYPES } from "../../datas/types.js"
 import { createMove } from "../../game/class/move.js"
 import { boostAttack, boostDefense, healingSelf, lowerAttack, lowerDefense, lowerPrecision } from "../../game/mechanics/stats-change.js"
-import { isAsleep } from "../../game/mechanics/status.js"
+import { isAsleep, isConfused } from "../../game/mechanics/status.js"
 
 // STATS
 const rugissement = createMove({ 
@@ -78,13 +78,23 @@ const berceuse = createMove({
     effect: isAsleep(2 + Math.floor(Math.random() * 4)) })
 
     const soin = createMove({ 
-    name: 'Soin', 
-    type: TYPES.NORMAL, 
-    precision: 100, 
-    img: 'img',
-    pp: 15, 
-    category: 'stats', 
-    effect: healingSelf(45) });
+        name: 'Soin', 
+        type: TYPES.NORMAL, 
+        precision: 100, 
+        img: 'img',
+        pp: 15, 
+        category: 'stats', 
+        effect: healingSelf(45) })
+    
+    const ondefolie = createMove({
+        name: 'Onde folie',
+        type: TYPES.NORMAL,
+        precision: 75,
+        pp: 20,
+        img: 'img',
+        category: 'status',
+        effect: isConfused(1 + Math.floor(Math.random() * 4)) })
+
 
 
 // PHYSICAL
@@ -131,7 +141,7 @@ const charge = createMove({
         precision: 91, 
         criticChance: 15, 
         img: 'img', 
-         pp: 35 }); 
+        pp: 35 }); 
 
     const fauxchage = createMove({ 
         name: 'Faux-Chage', 
@@ -219,5 +229,5 @@ export const MOVES_NORMAL = {
     rugissement, brouillard, grozyeux, croissance, armure, boularmure,
     jetsable, berceuse, charge, viveattaque, griffe, coupdboule, 
     soin, charme, ligotage, fauxchage, crocmort, tranche, plaquage, meteores,
-    guillotine, ultimawashi, koudkorne, ultralaser
+    guillotine, ultimawashi, koudkorne, ultralaser, ondefolie
 }

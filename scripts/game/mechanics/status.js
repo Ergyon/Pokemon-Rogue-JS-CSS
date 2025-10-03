@@ -80,6 +80,16 @@ export function isParalyzed(chance = 0.1, duration = 0) {
     }
 }
 
+export function isConfused(duration = 0) {
+    return (user, target, messages) => {
+        if (target.status !== 'confused' && target.status !== 'sleep') {
+            target.status = STATUS.CONFUS
+            target.statusDuration = duration
+            messages.push(`${target.name} devient confus.`)
+        }
+    }
+}
+
 // heal status
 export function healStatus() {
     return (pokemon) => {

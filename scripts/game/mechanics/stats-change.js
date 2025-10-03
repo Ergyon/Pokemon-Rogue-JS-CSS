@@ -41,22 +41,27 @@ export function lowerPrecision(amount = 0) {
 // soin
 export function healingSelf(amount = 1) {
     return (user, target, messages) => {
-        // healing via attaque
-        if (messages && Array.isArray(messages)) {
-            if (user.hp < user.maxHP) {
-                const healed = Math.min(amount, user.maxHP - user.hp)
-                    user.hp = Math.min(user.hp + amount, user.maxHP)
-                    messages.push(`${user.name} récupère ${healed} PV.`)
+
+        const currentHp = user.hp
+        const maxHp = user.maxHP
+        
+        // check si pv deja au maximum
+        if (currentHp >= maxHp) {
+            if (messages && Array.isArray(messages)) {
+                messages.push(`Les PV de ${user.name} sont déjà au maximum.`)
             } else {
-                messages.push(`Les PV de ${user.name} sont déjà au maximun.`)
+                console.log(`Les PV de ${user.name} sont déjà au maximum.`)
             }
+            return
         }
-        // healing via objet 
-        else {
-            const pokemon = user
-            const healed = Math.min(amount, pokemon.maxHP - pokemon.hp)
-            pokemon.hp = Math.min(pokemon.hp + amount, pokemon.maxHP)
-            console.log(`${pokemon.name} recupere ${healed} pv`)
+
+        const healedAmount = Math.min(amount, maxHp - currentHp)
+        user.hp = currentHp + healedAmount
+
+        if (messages && Array.isArray(messages)) {
+            messages.push(`${user.name} récupère ${healedAmount} PV.`)
+        } else {
+            console.log(`${user.name} récupère ${healedAmount} PV.`)
         }
     }  
 }

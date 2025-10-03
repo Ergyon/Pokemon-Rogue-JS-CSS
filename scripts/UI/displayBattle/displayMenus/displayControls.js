@@ -1,5 +1,3 @@
-import { displayNewPokemon } from "../displayPokemons.js"
-import { showBattleTxt } from "../displayText.js"
 import { displaySwitch } from "../undisplay.js"
 import { displayInventory } from "./displayInventory.js"
 import { displayTeam } from "./displayTeam.js"
@@ -50,11 +48,7 @@ export function displayControls(player, active, onAction, doAttack=null) {
 
         if (chosen && chosen !== active.player) {
             if (typeof onAction === 'function') {
-
                 await displaySwitch('player')
-                showBattleTxt(`A toi de jouer ${chosen.name} !`)
-                displayNewPokemon(chosen, 'player', doAttack)
-
                 onAction({type: 'switch', payload: chosen})
             }
         } 

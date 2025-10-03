@@ -72,7 +72,7 @@ export function getRandomItem({rank=null} = {}) {
 
 // genere un badge random
 export function getRandomBadge() {
-    const source = allBadges
-    const index = Math.floor(Math.random() * source.length)
-    return source[index]
+    const badge = allBadges
+    const index = Math.floor(Math.random() * allBadges.length)
+    return badge[index]
 }

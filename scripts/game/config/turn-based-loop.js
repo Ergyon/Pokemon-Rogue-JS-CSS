@@ -91,7 +91,7 @@ export async function turnBasedLoop(
 
             // dernier pokemon restant
             await displayBattleTxt(`Tout repose sur toi ${active.player.name} !`, 600)
-            displayNewPokemon(active.player, 'player')
+            displayNewPokemon(active.player, 'player', handleMove)
 
             updateUI()
             await delay(600)
@@ -102,7 +102,7 @@ export async function turnBasedLoop(
             active.player = next
 
             await displayBattleTxt(`Venge le ${active.player.name} !`, 600)
-            displayNewPokemon(active.player, 'player')
+            displayNewPokemon(active.player, 'player', handleMove)
 
             updateUI()
             await delay(600)

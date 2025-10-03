@@ -18,7 +18,7 @@ export function displayTrainer(trainer) {
     arena.appendChild(card)
 }
 
-export function undisplayTrainer() {
+export async function undisplayTrainer() {
     const card = document.querySelector('.trainer')
     card.remove()
 }

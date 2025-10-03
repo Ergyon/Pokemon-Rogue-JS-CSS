@@ -83,9 +83,8 @@ function initFirstFight() {
                 countRight:3
             })
     
-            mainPlayer.team.push(choice.pokemon)
+            mainPlayer.addPokemon(choice.pokemon)
             mainPlayer.getItem(choice.item)
-            updateControls(mainPlayer, active)
     
             // lancement du mainGame
             await mainGameRun(mainPlayer)

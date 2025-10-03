@@ -14,10 +14,8 @@ export class Trainer {
         this.team = []
         for (let i = 0; i < count; i++) {
             const pkmn = (getRandomPokemon({rank}))
-            // console.log(`Ajouté à l'équipe de ${this.name} :`, pkmn.name);
             this.team.push(pkmn)            
         }
-        // console.log(`Équipe complète de ${this.name} :`, this.team);
     }
 
     choosePokemon() {

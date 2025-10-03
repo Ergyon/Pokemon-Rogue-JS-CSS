@@ -3,9 +3,8 @@ import { STATUS } from "./status.js";
 // Appliquer les effets de statuts
 export class StatusEffect {
     static apply(pokemon, messages) {
-        const { status, statusDuration } = pokemon
-
-        switch (status) {
+        
+        switch (pokemon.status) {
             case STATUS.POISON:
                 this.handlePoison(pokemon, messages)
                 break
@@ -35,19 +34,16 @@ export class StatusEffect {
 
     // poison
     static handlePoison(pokemon, messages) {
-        if (pokemon.statusDuration > 0) {
-            pokemon.hp -= pokemon.poisonDamage
-            if (pokemon.hp < 0) pokemon.hp = 0
+        pokemon.hp -= pokemon.poisonDamage
+        if (pokemon.hp < 0) pokemon.hp = 0
+        
+        messages.push(`${pokemon.name} souffre du poison...`)
+        pokemon.statusDuration--
 
-            messages.push(`${pokemon.name} souffre du poison...`)
-            pokemon.statusDuration--
-
-            if (pokemon.statusDuration <= 0) {
-                pokemon.status = null
-                messages.push(`${pokemon.name} n'est plus empoisonné !`)
-            }
-        }   
-
+        if (pokemon.statusDuration <= 0) {
+            pokemon.status = null
+            messages.push(`${pokemon.name} n'est plus empoisonné !`)
+        }
     }
 
     // brulure

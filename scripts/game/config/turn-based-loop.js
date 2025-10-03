@@ -1,5 +1,5 @@
 import { displayNewPokemon } from "../../UI/displayBattle/displayPokemons.js"
-import { displayKO } from "../../UI/displayBattle/undisplay.js"
+import { displayKO, displaySwitch } from "../../UI/displayBattle/undisplay.js"
 import { delay, displayBattleTxt } from "../../UI/utils/utils.js"
 import { handleTurn } from "./handle-turn.js"
 import { getRandomMove } from "./randomizer.js"
@@ -21,8 +21,14 @@ export async function turnBasedLoop(
         const next = action.payload
 
         if (next && next !== active.player) {
+            await displaySwitch('player')
+
             active.player = next
+
+            displayNewPokemon(next, 'player')
+
             updateUI()
+            await delay(600)
         } else {
             return
         }
@@ -94,7 +100,7 @@ export async function turnBasedLoop(
             if (!next)  return
             active.player = next
 
-            await displayBattleTxt(`A toi de jouer ${active.player.name} !`, 600)
+            await displayBattleTxt(`Venge le ${active.player.name} !`, 600)
             displayNewPokemon(active.player, 'player')
 
             updateUI()

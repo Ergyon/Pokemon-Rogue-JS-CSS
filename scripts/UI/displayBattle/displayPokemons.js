@@ -59,9 +59,9 @@ export function displayPokemons(player, enemy, doAttack, trainerName = null) {
 
 
 // Nouveau pokemon en cours de combat (apres ko ou switch)
-export function displayNewPokemon(pokemon, side) {
+export function displayNewPokemon(pokemon, side, doAttack=null) {
     const arena = document.getElementById('arena')
-    const card = createPokemonCard(pokemon, side, null)
+    const card = createPokemonCard(pokemon, side, doAttack)
     arena.appendChild(card)
 }
 

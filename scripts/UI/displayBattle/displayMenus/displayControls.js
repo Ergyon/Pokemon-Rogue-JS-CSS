@@ -1,8 +1,11 @@
+import { displayNewPokemon } from "../displayPokemons.js"
+import { showBattleTxt } from "../displayText.js"
+import { displaySwitch } from "../undisplay.js"
 import { displayInventory } from "./displayInventory.js"
 import { displayTeam } from "./displayTeam.js"
 
 // afficher menu du joueur (team, iventory, badges, switch)
-export function displayControls(player, active, onAction) {
+export function displayControls(player, active, onAction, doAttack=null) {
     const wrapper = document.querySelector('.battlefield')
 
     const existingMenu = wrapper.querySelector('.controls-menu')
@@ -21,6 +24,7 @@ export function displayControls(player, active, onAction) {
     teamBtn.classList.add('controls-menu__btn', 'controls-menu__btn--team')
     teamBtn.textContent = 'Équipe'
     teamBtn.onclick = async () => {
+        console.log('pokemon actif : ', active.player.name)
         await displayTeam({
             team: player.team,
             current: active.player,
@@ -34,7 +38,6 @@ export function displayControls(player, active, onAction) {
 
     const alivePkmn = player.team.filter(p => !p.isKO() && p !== active.player)
     switchBtn.disabled = alivePkmn.length === 0
-    console.log('Pokémon vivants disponibles:', alivePkmn.length, alivePkmn.map(p => p.name))
 
     switchBtn.onclick = async () => {
         const chosen = await displayTeam({
@@ -42,17 +45,19 @@ export function displayControls(player, active, onAction) {
             current: active.player,
             disableKo: true,
             title: 'Choisir un Pokémon',
-            onCancel: () => displayControls(player, active, onAction)
+            mode: 'switch',
         })
 
         if (chosen && chosen !== active.player) {
-            menu.remove()
             if (typeof onAction === 'function') {
+
+                await displaySwitch('player')
+                showBattleTxt(`A toi de jouer ${chosen.name} !`)
+                displayNewPokemon(chosen, 'player', doAttack)
+
                 onAction({type: 'switch', payload: chosen})
             }
-        } else if (chosen === null) {
-            displayControls(player, active, onAction)
-        }
+        } 
     }
 
     // inventaire
@@ -64,7 +69,6 @@ export function displayControls(player, active, onAction) {
 
     inventoryBtn.onclick = async () => {
         await displayInventory(player, active)
-        displayControls(player, active, onAction)
     }
 
     // badges
@@ -76,7 +80,6 @@ export function displayControls(player, active, onAction) {
 
     badgesBtn.onclick = async () => {
         // await displayBadges()
-        // displayControls(player, active, onAction)
     }
 
     menu.append(teamBtn, inventoryBtn, switchBtn, badgesBtn)

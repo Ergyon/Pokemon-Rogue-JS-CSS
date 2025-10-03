@@ -4,7 +4,7 @@ import { TYPES } from "../../types.js"
 
 // EAU
 const amonita = new Pokemon({
-    name: 'Abra',
+    name: 'Amonita',
     type: TYPES.EAU,
     hp: 130,
     attack: 16,

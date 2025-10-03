@@ -1,3 +1,4 @@
+import { allItems } from "../../datas/allitems.js";
 import { constructPokemon } from "../../datas/storage.js";
 import { gameOver } from "../../datas/text.js";
 import { displayControls, updateControls } from "../../UI/displayBattle/displayMenus/displayControls.js";
@@ -34,6 +35,11 @@ function initFirstFight() {
 
     pkmnPlayer = loadStarter()
     mainPlayer.team.push(pkmnPlayer)
+
+    // test debug
+    const test = getRandomPokemon({rank:2})
+    mainPlayer.team.push(test)
+    mainPlayer.getItem(allItems.potion)
     
     pkmnEnemy = getRandomPokemon({rank:1})
     pkmnEnemy.hp = 2
@@ -47,8 +53,8 @@ function initFirstFight() {
 
     updateBattleUI(active.player, active.enemy)
 
-    // apparition pokemons
-    displayPokemons(pkmnPlayer, pkmnEnemy, async (move) => {
+    // gestion attaques et fin de combat
+    const handleMove = async (move) => {
         if (isFightOver) return
 
         await turnBasedLoop(
@@ -58,12 +64,12 @@ function initFirstFight() {
             active,
             () => updateBattleUI(active.player, active.enemy)
         )
-        
+
         // fin de combat
         if (active.enemy.isKO()) {
             isFightOver = true
             undisplayPokemons()
-
+    
             // tuto
             // await displayMessages(tutoText)
         
@@ -74,26 +80,25 @@ function initFirstFight() {
                 countLeft: 3,
                 countRight:3
             })
-
+    
             mainPlayer.team.push(choice.pokemon)
             mainPlayer.getItem(choice.item)
             updateControls(mainPlayer, active)
-
+    
             // lancement du mainGame
             await mainGameRun(mainPlayer)
         } 
-
+    
         // combat perdu
         else if (active.player.isKO()) {
             isFightOver = true 
             undisplayPokemons()
             displayMessages(gameOver)
         }
-    })
-
-
-    // affiche menu joueur
-    displayControls(mainPlayer, active, async (action) => {
+    }
+    
+    // gestion action du menu (items, switch)
+    const handleAction = async (action) => {
         if (isFightOver) return
 
         await turnBasedLoop(
@@ -103,7 +108,15 @@ function initFirstFight() {
             active,
             () => updateBattleUI(active.player, active.enemy)
         )
-    })
+        updateControls(mainPlayer, active)
+    }
+        
+    // apparition pokemons
+    displayPokemons(pkmnPlayer, pkmnEnemy, handleMove)
+    displayControls(mainPlayer, active, handleAction, handleMove)
+        
 }
+
+
 
 

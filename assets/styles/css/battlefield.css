@@ -170,6 +170,22 @@ body {
     transform: translateY(-2px);
   }
 }
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 @keyframes pokeball {
   0%, 20%, 40%, 60%, 80% {
     transform: rotate(0deg);
@@ -294,6 +310,18 @@ body {
     opacity: 0;
   }
 }
+@keyframes switchPokemon {
+  0% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+    height: 15rem;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-400%) translateY(-500%);
+    height: 0;
+  }
+}
 @keyframes displayTrainer {
   0% {
     transform: translateX(200%) scaleY(0.2);
@@ -406,6 +434,12 @@ body {
   position: relative;
   margin-bottom: 5.2rem;
 }
+.arena__card[data-side=player] {
+  order: 1;
+}
+.arena__card[data-side=enemy] {
+  order: 2;
+}
 .arena__card__name {
   display: block;
   margin: 0;
@@ -428,13 +462,16 @@ body {
 .arena__card__pkmn--ko {
   animation: isKO 1.3s ease-in forwards;
 }
+.arena__card__pkmn--switch {
+  animation: switchPokemon 0.5s ease-in forwards;
+}
 .arena .player-appears {
   transform: translateX(-2000px);
-  animation: playerAppears 1.3s 0.8s ease-out forwards;
+  animation: playerAppears 1.3s ease-out forwards 0.6s;
 }
 .arena .enemy-appears {
   transform: translateX(2000px);
-  animation: enemyAppears 1.5s 1.6s ease-in-out forwards;
+  animation: enemyAppears 1.5s ease-in-out forwards 1.2s;
 }
 .arena .attack-menu {
   position: absolute;

@@ -1,3 +1,5 @@
+import { displayTeam } from "../../UI/displayBattle/displayMenus/displayTeam.js"
+
 export class Player {
     constructor({name, img}) {
         this.name = name
@@ -25,6 +27,7 @@ export class Player {
             current: current,
             disableKo: true,
             title: 'Choisissez un Pokémon',
+            mode: 'switch',
             onCancel: force ? null : () => null
         })
         return chosen || null
@@ -42,10 +45,10 @@ export class Player {
 
     // posseder un objet
     getItem(item) {
-        if (this.inventory.length < 3) {
+        if (this.inventory.length < 4) {
             this.inventory.push(item)
         } else {
-            console.log("Vous ne pouvez pas avoir plus de 3 objets.")
+            console.log("Vous ne pouvez pas avoir plus de 4 objets.")
         }
     }
 
@@ -60,7 +63,7 @@ export class Player {
     // retirer un objet
     removeItem(item) {
         const index = this.inventory.indexOf(item)
-        if (index !== -1) this.inventory.splice(item)
+        if (index !== -1) this.inventory.splice(index, 1)
     }
 
     // acheter un objet

@@ -44,10 +44,10 @@ export function getRandomTrainer({round= null} = {}) {
 
 // genere un item random
 export function getRandomItem({rank} = {}) {
-    const source = allItems
+    const source = Object.values(allItems)
     const pool = rank ? source.filter(it => it.rank === rank) : source
     const index = Math.floor(Math.random() * pool.length)
-    return source[index]
+    return pool[index]
 }
 
 // genere un badge random

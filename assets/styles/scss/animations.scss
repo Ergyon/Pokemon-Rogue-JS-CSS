@@ -184,6 +184,20 @@
         opacity: 0;
     }
 }
+// pokemon switch 
+@keyframes switchPokemon {
+    0% {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+        height: 15rem;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-400%) translateY(-500%);
+        height: 0;
+    }
+}
+
 
 // appariton trainer
 @keyframes displayTrainer {

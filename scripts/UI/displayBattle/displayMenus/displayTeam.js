@@ -73,6 +73,7 @@ export function displayTeam({
             }
         })
 
+        // fermer / annuler
         const cancel = document.createElement('button')
         cancel.classList.add('modal-team__cancel')
         cancel.textContent = mode === 'view' ? 'Fermer' : 'Annuler'
@@ -99,7 +100,7 @@ function isSelectable(pkmn, mode, current, disableKo) {
         case 'switch':
             return !pkmn.isKO() && pkmn !== current
 
-        case 'useItem':
+        case 'applyItem':
             if (disableKo) {
                 return !pkmn.isKO()
             }

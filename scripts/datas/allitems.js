@@ -1,6 +1,6 @@
 import { Item } from "../game/class/items.js"
 import { healingSelf } from "../game/mechanics/stats-change.js"
-import { healStatus } from "../game/mechanics/status.js"
+import { healStatus, STATUS } from "../game/mechanics/status.js"
 
 // heals
 const potion = new Item({
@@ -10,7 +10,8 @@ const potion = new Item({
     category: 'stats',
     rank: 1,
     price: 300,
-    img: '../../assets/img/items/medicine/potion.png'
+    img: '../../assets/img/items/medicine/potion.png',
+    canUse: (pkmn) => pkmn.hp < pkmn.maxHP && !pkmn.isKO()
 })
 
 const superpotion = new Item({
@@ -21,6 +22,7 @@ const superpotion = new Item({
     rank: 2,
     price: 800,
     img: '../../assets/img/items/medicine/superpotion.png',
+    canUse: (pkmn) => pkmn.hp < pkmn.maxHP && !pkmn.isKO()
 })
 
 const hyperpotion = new Item({
@@ -31,6 +33,7 @@ const hyperpotion = new Item({
     rank: 3,
     price: 1200,
     img: '../../assets/img/items/medicine/hyperpotion.png',
+    canUse: (pkmn) => pkmn.hp < pkmn.maxHP && !pkmn.isKO()
 })
 
 const potionmax = new Item({
@@ -41,6 +44,7 @@ const potionmax = new Item({
     rank: 3,
     price: 2000,
     img: '../../assets/img/items/medicine/max-potion.png',
+    canUse: (pkmn) => pkmn.hp < pkmn.maxHP && !pkmn.isKO()
 })
 
 // status 
@@ -52,6 +56,7 @@ const antipara = new Item({
     rank: 1,
     price: 350,
     img: '../../assets/img/items/medicine/antipara.png',
+    canUse: (pkmn) => pkmn.status === STATUS.PARALYZED && !pkmn.isKO()
 })
 
 const antidote = new Item({
@@ -61,6 +66,7 @@ const antidote = new Item({
     rank: 1,
     price: 350,
     img: '../../assets/img/items/medicine/antidote.png',
+    canUse: (pkmn) => pkmn.status === STATUS.POISON && !pkmn.isKO()
 })
 
 const antibrule = new Item({
@@ -70,6 +76,7 @@ const antibrule = new Item({
     rank: 1,
     price: 350,
     img: '../../assets/img/items/medicine/antibrule.png',
+    canUse: (pkmn) => pkmn.status === STATUS.BURN && !pkmn.isKO()
 })
 
 const antigele = new Item({
@@ -79,6 +86,7 @@ const antigele = new Item({
     rank: 1,
     price: 350,
     img: '../../assets/img/items/medicine/ice-heal.png',
+    canUse: (pkmn) => pkmn.status === STATUS.FROZEN && !pkmn.isKO()
 })
 
 const reveil = new Item({
@@ -88,9 +96,10 @@ const reveil = new Item({
     rank: 1,
     price: 350,
     img: '../../assets/img/items/medicine/reveil.png',
+    canUse: (pkmn) => pkmn.status === STATUS.SLEEP && !pkmn.isKO()
 })
 
-const allItems = [
+export const allItems = {
     // rank I
     potion, antipara, antidote, antibrule, antigele, reveil,
 
@@ -98,9 +107,9 @@ const allItems = [
     superpotion,
     // rank III
     hyperpotion, potionmax
-]
+}
 
 
- export { allItems }
+
 
  

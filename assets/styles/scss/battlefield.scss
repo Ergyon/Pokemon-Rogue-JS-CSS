@@ -69,6 +69,12 @@
         align-items: center;
         position: relative;
         margin-bottom: 5.2rem;
+        &[data-side='player'] {
+            order: 1
+        }
+        &[data-side='enemy'] {
+            order: 2;
+        }
         &__name {
             display: block;
             margin: 0;
@@ -89,17 +95,20 @@
             &--ko {
                 animation: isKO 1.3s ease-in forwards;
             }
-        }
-        
+            &--switch {
+                animation: switchPokemon 0.5s ease-in forwards;
+            }
+        } 
     }
+
     .player-appears {
         transform: translateX(-2000px);
-        animation: playerAppears 1.3s 0.8s ease-out forwards;
+        animation: playerAppears 1.3s ease-out forwards 0.6s;
 
     }
     .enemy-appears {
         transform: translateX(2000px);
-        animation: enemyAppears 1.5s 1.6s ease-in-out forwards;
+        animation: enemyAppears 1.5s ease-in-out forwards 1.2s;
     }
 
     // Attack menu

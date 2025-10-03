@@ -82,9 +82,9 @@ export function isParalyzed(chance = 0.1, duration = 0) {
 
 // heal status
 export function healStatus() {
-    return (user, messages) => {
-        user.status = null
-        user.statusDuration = 0
-        messages.push(`${user.name} retrouve son état normal.`)
+    return (pokemon) => {
+        pokemon.status = null
+        pokemon.statusDuration = 0
+        console.log(`${pokemon.name} retrouve son état normal.`)
     }
 }

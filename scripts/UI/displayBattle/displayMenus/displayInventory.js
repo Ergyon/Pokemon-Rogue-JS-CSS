@@ -1,3 +1,4 @@
+import { updateHp } from "../displayMove.js"
 import { displayTeam } from "./displayTeam.js"
 
 // display inventaire joueur
@@ -58,7 +59,7 @@ export function displayInventory(player, active =null) {
                         team: player.team,
                         current: active?.player || null,
                         title: 'Choisissez un Pokémon',
-                        mode: applyItem,
+                        mode: 'applyItem',
                         onCancel: () => {
                             modal.style.display = 'flex'
                         }
@@ -69,21 +70,37 @@ export function displayInventory(player, active =null) {
 
                         // applique l'effet
                         if (canUse) {
+                            const prevHp = chosenPkmn.prevHp
+
                             item.applyEffect(chosenPkmn)
+
+                            const hpHealed =chosenPkmn.hp - prevHp
+
                             player.removeItem(item)
 
-                            showNotif(`${item.name} utilisé sur ${chosenPkmn.name}`, 'success')
+                            let message
+                            if (item.category === 'stats' && hpHealed > 0) {
+                                message = `${chosenPkmn} retrouve son état normal !`
+                            } else {
+                                message = `${item.name} utilisé sur ${chosenPkmn.name}.`
+                            }
+
+                            showNotif(message, 'success')
+
+                            if (active && chosenPkmn === active.player) {
+                                updateHp(chosenPkmn, 'player')
+                            }
 
                             cleanUp()
                             resolve(chosenPkmn)    
                         } else {
                             showNotif(`${item.name} ne peut pas être utilisé sur ${chosenPkmn.name}.`, 'error')
-                            modal.style.display = 'flex'
+                            modal.style.display = 'flex'                       
                         }
                     } else {
                         modal.style.display = 'flex'
+                        }
                     }
-                }
 
                 itemCard.append(img, info, useBtn)
                 itemsList.appendChild(itemCard)
@@ -110,11 +127,13 @@ export function displayInventory(player, active =null) {
 
 // message utilisation objet
 function showNotif(msg, type = 'info') {
-    const wrapper = document.querySelector('modal-team')
-
-    const notif = document.createElement('span')
-    notif.classList.add('item-notification', `notification--${type}`)
+    const notif = document.createElement('div')
+    notif.classList.add('item-notification', `item-notification--${type}`)
     notif.textContent = msg
 
-    wrapper.appendChild(notif)
+    document.body.appendChild(notif)
+
+    setTimeout(() => {
+        setTimeout(() => notif.remove(), 300)
+    }, 2000)
 }

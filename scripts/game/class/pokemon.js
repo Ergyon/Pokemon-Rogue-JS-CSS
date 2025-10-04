@@ -32,6 +32,13 @@ export class Pokemon {
             attack: 0,
             defense: 0
         }
+
+        // bonus badges
+        this.bonuses = {
+            criticalRate: 0,
+            precision: 0,
+            typeDamage: {}
+        }
     }
 
 
@@ -60,6 +67,25 @@ export class Pokemon {
         }
     }
 
+    // effets bonus badges
+    increaseCriticalRate(amount) {
+        this.bonuses.criticalRate += amount
+    }
+    increasePrecision(amount) {
+        this.bonuses.precision += amount
+    }
+    increaseAttack(amount) {
+        this.bonuses.baseAttack += amount
+    }
+    increaseDefense(amount) {
+        this.bonuses.baseDefense += amount
+    }
+    increaseTypeDamage(type, multiplier) {
+        if (!this.bonuses.typeDamage[type]) {
+            this.bonuses.typeDamage = 1
+        }
+        this.bonuses.typeDamage[type] *= multiplier
+    }
 
     // effets status
     applyStatusEffect(messages) {
@@ -89,9 +115,22 @@ export class Pokemon {
             const {bonus:damageBonus, base: typeBase} = typeAdvantage(move.type, target.type)
             let totalDamage = Math.floor(Math.max(0, damage * damageBonus))
             
+            // application des bonus badge
+            if (this.bonuses.typeDamage[move.type]) {
+                totalDamage = Math.floor(totalDamage * this.bonuses.typeDamage[move.type])
+            }
+            let totalPrecision = move.precision
+            if (this.bonuses.precision) {
+                totalPrecision = Math.min(100, move.precision + this.bonuses.precision)
+            }
+            let totalCriticRate = move.criticChance
+            if (this.bonuses.criticalRate) {
+                totalCriticRate = Math.min(100, move.criticChance + this.bonuses.criticalRate)
+            }
+
             // attaque ratee
             const precisRoll = Math.random() * 100
-            const miss = precisRoll > move.precision
+            const miss = precisRoll > totalPrecision
             if (miss) {
                 messages.push(`${this.name} rate son attaque...`)
                 move.pp--
@@ -113,7 +152,7 @@ export class Pokemon {
             
             // coup critique
             const critRoll = Math.random() * 100;
-            const isCrit = critRoll < move.criticChance
+            const isCrit = critRoll < totalCriticRate
             if (isCrit) {
                 const critBonus = Math.floor(1 + this.critical)
                 totalDamage += critBonus

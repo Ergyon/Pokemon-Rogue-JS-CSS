@@ -15,7 +15,7 @@ export class Player {
         if (this.team.length < 3) {
             this.team.push(pokemon)
         } else {
-            console.log("Vous ne pouvez pas avoir plus de 3 Pokémons.")
+            console.log("Vous ne pouvez pas avoir plus de 4 Pokémons.")
 
         }
     } 
@@ -45,7 +45,7 @@ export class Player {
 
     // posseder un objet
     getItem(item) {
-        if (this.inventory.length < 4) {
+        if (this.inventory.length < 3) {
             this.inventory.push(item)
         } else {
             console.log("Vous ne pouvez pas avoir plus de 4 objets.")
@@ -78,9 +78,6 @@ export class Player {
     healTeam() {
         this.team.forEach(pokemon => {
             pokemon.hp = pokemon.maxHP
-            pokemon.moves.forEach(move => {
-                move.pp = move.maxPP
-            })
             pokemon.resetStage()
             pokemon.status = null
             pokemon.statusDuration = 0

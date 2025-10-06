@@ -1,10 +1,10 @@
 import { constructPokemon } from "../../datas/storage.js";
 import { gameOver } from "../../datas/text.js";
-import { displayControls, updateControls } from "../../UI/displayBattle/displayMenus/displayControls.js";
 import { updateBattleUI } from "../../UI/displayBattle/displayMove.js";
 import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js";
 import { undisplayPokemons } from "../../UI/displayBattle/undisplay.js";
 import { displayChoiceModal } from "../../UI/displayCommons/displayChoices.js";
+import { displayControls, updateControls } from "../../UI/displayCommons/displayControls.js";
 import { displayMessages } from "../../UI/displayCommons/displayMessages.js";
 import { mainPlayer } from "../class/player.js";
 import { mainGameRun } from "./mainGameRun.js";
@@ -35,9 +35,8 @@ function initFirstFight() {
     pkmnPlayer = loadStarter()
     mainPlayer.team.push(pkmnPlayer)
 
-    // test debug
-    const test = getRandomPokemon({rank:2})
-    mainPlayer.team.push(test)
+    let test = getRandomPokemon({rank:3})
+    mainPlayer.addPokemon(test)
     
     pkmnEnemy = getRandomPokemon({rank:1})
     // test

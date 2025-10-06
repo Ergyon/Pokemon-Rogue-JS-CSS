@@ -1,7 +1,7 @@
-import { showBattleTxt } from "../displayText.js"
-import { displaySwitch } from "../undisplay.js"
-import { displayInventory } from "./displayInventory.js"
-import { displayTeam } from "./displayTeam.js"
+import { displayInventory } from "../displayBattle/displayMenus/displayInventory.js"
+import { displayTeam } from "../displayBattle/displayMenus/displayTeam.js"
+import { showBattleTxt } from "../displayBattle/displayText.js"
+import { displaySwitch } from "../displayBattle/undisplay.js"
 
 // afficher menu du joueur (team, iventory, badges, switch)
 export function displayControls(player, active, onAction, doAttack=null) {
@@ -97,4 +97,10 @@ export function updateControls(player, active) {
     if (inventoryBtn) {
         inventoryBtn.disabled = !player.inventory || player.inventory.length === 0 
     }
+
+    const money = document.querySelector('.money')
+    if (money) {
+        money.textContent = `${player.money} $`
+    }
 }
+

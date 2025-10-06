@@ -12,28 +12,45 @@ export async function mainGameRun(mainPlayer) {
     let round = 1 
 
     while (round <= 5) {
-        let pokemonRank = 1
-            let itemRank = 1
-
-            if (round === 5) {
-                pokemonRank = Math.random() < 0.5 ? 4 : 3
-                itemRank = [2,3]
-            } 
-            else if (round === 4) {
-                pokemonRank = [3]
-                itemRank = [1, 2, 3]
-            } 
-            else if (round === 3) {
-                pokemonRank = [2,3]
-                itemRank = Math.random() < 0.3 ? 3 : (Math.random() < 0.7 ? 2 : 1)
-            } 
-            else if (round === 2) {
-                pokemonRank = [2]
-                itemRank = [1,2]
-            } 
-
         const trainer = getRandomTrainer({round})
-        trainer.generateTeam(2, 1)
+
+        let pokemonRank = 1
+        let itemRank = 1
+
+        let trainerRanks = [1]
+        let trainerTeam = 2
+
+        if (round === 5) {
+            pokemonRank = Math.random() < 0.5 ? 4 : 3
+            itemRank = [2, 3]
+
+            trainerRanks = [3, 4, 4]
+            trainerTeam = 4
+        } 
+        else if (round === 4) {
+            pokemonRank = [3]
+            itemRank = [1, 2, 3]
+
+            trainerRanks = [3]
+            trainerTeam = 3
+        } 
+        else if (round === 3) {
+            pokemonRank = [2, 3]
+            itemRank = Math.random() < 0.3 ? 3 : (Math.random() < 0.7 ? 2 : 1)
+
+            trainerRanks = [2, 2, 3]
+            trainerTeam = 3
+        } 
+        else if (round === 2) {
+            pokemonRank = [2]
+            itemRank = [1, 2]
+
+            trainerRanks = [2]
+            trainerTeam = 2
+        } 
+
+        trainer.generateTeam(trainerTeam, trainerRanks)
+        
 
         displayTrainer(trainer)
         showBattleTxt(`${trainer.name} vous provoque en duel !`)

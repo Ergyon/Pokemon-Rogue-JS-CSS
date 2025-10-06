@@ -10,11 +10,17 @@ export class Trainer {
         this.round = round
     }
 
-    generateTeam(count = 2, rank= 1) {
+    generateTeam(count = 2, ranks= [1]) {
         this.team = []
         for (let i = 0; i < count; i++) {
-            const pkmn = (getRandomPokemon({rank}))
-            this.team.push(pkmn)            
+            const rank = Array.isArray(ranks)
+            ? ranks[Math.floor(Math.random() * ranks.length)]
+            : ranks
+
+            const pkmn = getRandomPokemon({rank})
+            if (pkmn) {
+                this.team.push(pkmn)
+            }
         }
     }
 

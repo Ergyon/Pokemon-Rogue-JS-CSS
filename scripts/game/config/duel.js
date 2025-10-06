@@ -1,6 +1,6 @@
-import { displayControls, updateControls } from "../../UI/displayBattle/displayMenus/displayControls.js"
 import { updateBattleUI } from "../../UI/displayBattle/displayMove.js"
 import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js"
+import { displayControls, updateControls } from "../../UI/displayCommons/displayControls.js"
 import { turnBasedLoop } from "./turn-based-loop.js"
 
 export async function initDuel(player, trainer) {

@@ -76,7 +76,7 @@ export class Pokemon {
     }
     increaseTypeDamage(type, multiplier) {
         if (!this.bonuses.typeDamage[type]) {
-            this.bonuses.typeDamage = 1
+            this.bonuses.typeDamage[type] = 1
         }
         this.bonuses.typeDamage[type] *= multiplier
     }

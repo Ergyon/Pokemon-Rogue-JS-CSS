@@ -74,7 +74,7 @@ export function displayInventory(player, active =null) {
 
                             item.applyEffect(chosenPkmn)
 
-                            const hpHealed =chosenPkmn.hp - prevHp
+                            const hpHealed = chosenPkmn.hp - prevHp
 
                             player.removeItem(item)
 

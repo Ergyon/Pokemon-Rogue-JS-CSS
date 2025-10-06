@@ -32,6 +32,13 @@ export class Pokemon {
             attack: 0,
             defense: 0
         }
+
+        // bonus badges
+        this.bonuses = {
+            criticalRate: 0,
+            precision: 0,
+            typeDamage: {}
+        }
     }
 
 
@@ -58,6 +65,27 @@ export class Pokemon {
         for (let stat in this.stages) {
             this.stages[stat] = 0
         }
+    }
+
+    // application bonus badges
+    increaseCriticalRate(amount) {
+        this.bonuses.criticalRate += amount
+    }
+    increasePrecision(amount) {
+        this.bonuses.precision += amount
+    }
+    increaseTypeDamage(type, multiplier) {
+        if (!this.bonuses.typeDamage[type]) {
+            this.bonuses.typeDamage = 1
+        }
+        this.bonuses.typeDamage[type] *= multiplier
+    }
+    increaseAttack(amount) {
+        this.baseAttack+= amount
+    }
+    
+    increaseDefense(amount) {
+        this.baseDefense += amount
     }
 
 
@@ -89,19 +117,31 @@ export class Pokemon {
             const {bonus:damageBonus, base: typeBase} = typeAdvantage(move.type, target.type)
             let totalDamage = Math.floor(Math.max(0, damage * damageBonus))
             
+            //degat de type avec bonus badge
+            if (this.bonuses.typeDamage[move.type]) {
+                totalDamage = Math.floor(totalDamage * this.bonuses.typeDamage[move.type])
+            }
+            
+            // precision avec bonus badge
+            let effectivePrecision = move.precision
+            if (this.bonuses.precision) {
+                effectivePrecision = Math.min(100, move.precision + this.bonuses.precision)
+            }
+
             // attaque ratee
             const precisRoll = Math.random() * 100
-            const miss = precisRoll > move.precision
+            const miss = precisRoll > effectivePrecision
             if (miss) {
                 messages.push(`${this.name} rate son attaque...`)
                 move.pp--
                 return messages
             }  
             
-            // avatange de type ou non
+            // avantage de type ou non
             if (typeBase === 0) {
                 totalDamage = 0 
                 messages.push(`Ça n'affecte pas ${target.name}`)
+                move.pp--
                 return messages
             } 
             else if (typeBase === 2) {
@@ -111,16 +151,22 @@ export class Pokemon {
                 messages.push("Ce n'est pas très efficace...")
             }
             
+            // critique avec bonus badge
+            let effectiveCritChance = move.criticChance
+            if (this.bonuses.criticalRate) {
+                effectiveCritChance = Math.min(100, move.criticChance + this.bonuses.criticalRate)
+            }
+            
             // coup critique
             const critRoll = Math.random() * 100;
-            const isCrit = critRoll < move.criticChance
+            const isCrit = critRoll < effectiveCritChance
             if (isCrit) {
                 const critBonus = Math.floor(1 + this.critical)
                 totalDamage += critBonus
                 messages.push('Coup critique !')
             }
        
-            // apllication des degats
+            // application des degats
             target.hp -= Math.floor(totalDamage)
             move.pp--    
 

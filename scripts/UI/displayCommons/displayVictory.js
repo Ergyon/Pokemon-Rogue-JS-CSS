@@ -18,18 +18,19 @@ export function displayVictory({
 
         const msg = document.createElement('h4')
         msg.classList.add('modal-victory__message')
-        msg.textContent = `Félicitations, Vous avez vaincu ${trainerName}.`
+        msg.textContent = `Félicitations, vous avez vaincu ${trainerName}.`
 
         const moneyTxt = document.createElement('span')
         moneyTxt.classList.add('modal-victory__money')
-        moneyTxt.textContent = `Vous gagnez ${money}$ de la part de ${trainerName}.`
-
-        const badgeSection = document.createElement('div')
-        badgeSection.classList.add('modal-victory__badge-section')
+        moneyTxt.textContent = `Vous gagnez ${money}$`
 
         const badgeTitle = document.createElement('h3')
         badgeTitle.classList.add('modal-victory__badge-title')
         badgeTitle.textContent = 'Choisissez un Badge'
+
+        const badgeSection = document.createElement('div')
+        badgeSection.classList.add('modal-victory__badge-section')
+
 
         // genere 2 badges random
         const badge1 = getRandomBadge()
@@ -74,6 +75,9 @@ function createBadge(badge, onSelect) {
     img.src = badge.img
     img.alt = badge.name
 
+    const infos = document.createElement('div')
+    infos.classList.add('modal-victory__badge-infos')
+
     const name = document.createElement('span')
     name.classList.add('modal-victory__badge-name')
     name.textContent = badge.name
@@ -89,6 +93,7 @@ function createBadge(badge, onSelect) {
         }, 1000) 
     })
 
-    card.append(img, name, desc)
+    infos.append(name, desc)
+    card.append(img, infos)
     return card
 }

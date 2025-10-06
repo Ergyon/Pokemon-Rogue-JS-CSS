@@ -2,10 +2,11 @@ import { showNotif } from '../../UI/displayBattle/displayMenus/displayInventory.
 import { showBattleTxt } from '../../UI/displayBattle/displayText.js'
 import { displayTrainer, undisplayTrainer } from '../../UI/displayBattle/displayTrainers.js'
 import { undisplayPokemons } from '../../UI/displayBattle/undisplay.js'
+import { displayChoiceModal } from '../../UI/displayCommons/displayChoices.js'
 import { displayVictory } from '../../UI/displayCommons/displayVictory.js'
 import { delay } from '../../UI/utils/utils.js'
 import { initDuel } from './duel.js'
-import { getRandomTrainer } from './randomizer.js'
+import { getRandomBadge, getRandomTrainer } from './randomizer.js'
 
 export async function mainGameRun(mainPlayer) {
     let round = 1 
@@ -81,8 +82,6 @@ export async function mainGameRun(mainPlayer) {
             if (choice.item) {
                 mainPlayer.getItem(choice.item)
             }
-
-            updateControls(mainPlayer, active)
 
             round++
 

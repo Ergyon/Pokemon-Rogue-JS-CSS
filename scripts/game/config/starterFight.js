@@ -1,4 +1,3 @@
-import { allItems } from "../../datas/allitems.js";
 import { constructPokemon } from "../../datas/storage.js";
 import { gameOver } from "../../datas/text.js";
 import { displayControls, updateControls } from "../../UI/displayBattle/displayMenus/displayControls.js";
@@ -39,9 +38,9 @@ function initFirstFight() {
     // test debug
     const test = getRandomPokemon({rank:2})
     mainPlayer.team.push(test)
-    mainPlayer.getItem(allItems.potion)
     
     pkmnEnemy = getRandomPokemon({rank:1})
+    // test
     pkmnEnemy.hp = 2
     
     if (!pkmnPlayer || !pkmnEnemy) {

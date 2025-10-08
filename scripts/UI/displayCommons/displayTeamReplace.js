@@ -3,8 +3,9 @@ import { showPokemonResume } from "./showResume.js"
 // modale remplacer un pokemon (si equipe pleine)
 export function displayTeamReplace(team) {
     return new Promise((resolve) => {   
-        const container = document.querySelector('.battlefield')
-        
+        const overlay = document.createElement('div')
+        overlay.classList.add('overlay', 'overlay--top')
+
         const modal = document.createElement('div')
         modal.classList.add('modal-team-replace')
 
@@ -33,7 +34,7 @@ export function displayTeamReplace(team) {
             name.textContent = pkmn.name
 
             const type = document.createElement('span')
-            type.classList.add('modal-team__type')
+            type.classList.add('modal-team-replace__type')
             type.textContent = `${pkmn.type}`
 
             // bouton 'voir details' pokemon
@@ -67,10 +68,11 @@ export function displayTeamReplace(team) {
         })
 
         modal.append(modalTitle, list, cancel)
-        container.appendChild(modal)
+        overlay.appendChild(modal)
+        document.body.appendChild(overlay)
         
         function cleanup() {
-            modal.remove()
+            overlay.remove()
         }
     })
 }

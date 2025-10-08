@@ -34,7 +34,7 @@ export function createRandomCard(el, onSelect, container,) {
         if (alreadySelected && alreadySelected !== card) {
             alreadySelected.classList.remove('random-card--selected')
             container.querySelectorAll('.random-card').forEach(c => {
-                c.style.pointEvents = 'auto'
+                c.style.pointerEvents = 'auto'
                 c.classList.remove('random-card--disbaled')
             })
         }
@@ -47,7 +47,7 @@ export function createRandomCard(el, onSelect, container,) {
         if (isNowSelected) {
             container.querySelectorAll('.random-card').forEach(c => {
                 if (c!== card) {
-                    c.style.pointEvents = 'none'
+                    c.style.pointerEvents = 'none'
                     c.classList.add('random-card--disabled')
                 }
             })

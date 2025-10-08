@@ -4,18 +4,18 @@ import { createRandomCard } from "./createRandomCard.js"
 import { displayTeamReplace } from "./displayTeamReplace.js"
 
 // Creer une section d'elements random
-function createRandomSection({ count, rank, getRandom, select }) {
-    const container = document.createElement('div')
-    container.classList.add('random-container')
+function createRandomSection({ count, rank, getRandom, select, container }) {
+    const sectionContainer = document.createElement('div')
+    sectionContainer.classList.add('random-container')
 
     const elements = Array.from({ length: count }, () => getRandom({ rank })).filter(Boolean)
 
     elements.forEach(el => {
-        const card = createRandomCard(el, select, container)
-        if (card) container.appendChild(card)
+        const card = createRandomCard(el, select, sectionContainer)
+        if (card) sectionContainer.appendChild(card)
     })
 
-    return container
+    return sectionContainer
 }
 
 // Modale de choix randoms
@@ -42,7 +42,11 @@ export function displayChoiceModal({
         modalTitle.classList.add('modal-choice__title')
         modalTitle.textContent = "Faites votre choix"
         modal.appendChild(modalTitle)
-    
+
+        // message info
+        const message = document.createElement('span')
+        message.classList.add('modal-choice__message')
+        message.textContent = ''
     
         const container = document.createElement('div')
         container.classList.add('modal-choice__content')
@@ -52,11 +56,12 @@ export function displayChoiceModal({
             count: countLeft,
             rank: rankLeft,
             getRandom: getRandomPokemon,
-            select: async (pkmn) => {
+            select: async (pkmn) => {                
                 // remplacer un pokemon si equipe pleine
                 if (player && player.team.length >= 4) {
+                    message.textContent = 'Votre équipe est pleine, cependant vous pouvez remplacer un de vos Pokémons'
                     const toReplace = await displayTeamReplace(player.team)
-
+                    
                     if (toReplace) {
                         selectedPokemon = {new: pkmn, replace: toReplace}
                     } else {
@@ -78,6 +83,7 @@ export function displayChoiceModal({
             select: async (item) => {
                 // si inventaire plein
                 if (player && player.inventory.length >= 4) {
+                    
                     const toReplace = await displayInventory(player, null, 'replace')
 
                     if (toReplace) {
@@ -92,16 +98,23 @@ export function displayChoiceModal({
                 }
             }
         })
-    
+
+        
         container.append(leftSection, rightSection)
         modal.appendChild(container)
-    
-        // confiramtion
+        
+        const btnsContainer = document.createElement('div')
+        btnsContainer.classList.add('modal-choice__btnsContainer')
+
+        // confirmation
         const confirmBtn = document.createElement('button')
-        confirmBtn.classList.add('modal-choice__confirmBtn')
-        confirmBtn.textContent = "Confirmer mon choix"
+        confirmBtn.classList.add('modal-choice__btn', 'modal-choice__btn--confirm')
+        confirmBtn.textContent = "Valider"
         
         confirmBtn.addEventListener('click', () => {
+            console.log('selectedPokemon:', selectedPokemon)
+            console.log('selectedItem:', selectedItem)
+            
             const hasValidPkmn = selectedPokemon !== null
             const hasValidItem = selectedItem !== null
     
@@ -113,12 +126,20 @@ export function displayChoiceModal({
                     pokemonToReplace: selectedPokemon.replace,
                     itemToReplace: selectedItem.replace
                 })
+            } else {
+                if (!hasValidPkmn && !hasValidItem) {
+                    message.textContent = 'Vous devez choisir 1 Pokémon et 1 objet'
+                } else if (!hasValidPkmn) {
+                    message.textContent = 'Vous devez choisir un Pokémon'
+                } else {
+                    message.textContent = 'Vous devez choisir un objet'
+                }
             }
         })
         
         // passer les choix
         const skipBtn = document.createElement('button')
-        skipBtn.classList.add('modal-choice__skipBtn')
+        skipBtn.classList.add('modal-choice__btn', 'modal-choice__btn--skip')
         skipBtn.textContent = 'Passer'
         skipBtn.addEventListener('click', () => {
             closeModal()
@@ -130,7 +151,9 @@ export function displayChoiceModal({
             })
         })
 
-        modal.append(confirmBtn, skipBtn)
+
+        btnsContainer.append(confirmBtn, skipBtn)
+        modal.append(btnsContainer, message)
         overlay.appendChild(modal)
         document.body.appendChild(overlay)
         

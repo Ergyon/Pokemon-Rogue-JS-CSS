@@ -35,10 +35,16 @@ function initFirstFight() {
     pkmnPlayer = loadStarter()
     mainPlayer.team.push(pkmnPlayer)
 
+    // displayChoiceModal({
+    //             rankLeft: 1,
+    //             rankRight: 1,
+    //             countLeft: 3,
+    //             countRight:3,
+    //             player: mainPlayer
+    //         })
+
     let test = getRandomPokemon({rank:3})
     mainPlayer.addPokemon(test)
-    let test2 = getRandomPokemon({rank:3})
-    mainPlayer.addPokemon(test2)
     let test3 = getRandomPokemon({rank:2})
     mainPlayer.addPokemon(test3)
     

@@ -10,7 +10,7 @@ const feurisson = new Pokemon({
     defense: 26,
     critical: 0.7,
     moves: [allMoves.rouedefeu, allMoves.brouillard, allMoves.morsure, allMoves.flammeche],
-    img: '../assets/img/pokemons/feurisson.png',
+    img: "https://img.pokemondb.net/sprites/black-white/anim/normal/quilava.gif",
     rank: 2
 })
 

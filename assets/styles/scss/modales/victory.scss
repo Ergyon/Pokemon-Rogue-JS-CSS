@@ -1,5 +1,6 @@
 @use '../global' as *;
 @use '../animations' as*;
+@use '../style.scss' as*;
 
 .modal-victory {
     width: 50%;
@@ -22,7 +23,7 @@
 
     &__message {
         font-family: $font-family-pkmn;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 400;
         margin-bottom: 0.8rem;
     }

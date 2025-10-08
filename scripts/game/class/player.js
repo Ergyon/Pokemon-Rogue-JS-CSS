@@ -39,10 +39,7 @@ export class Player {
         const index = this.team.indexOf(oldPkmn)
         if (index !== -1) {
             this.team[index] = newPkmn
-            showNotif(`${oldPkmn.name} à été remplacé par ${newPkmn.name}`, 'success')
-        } else {
-            showNotif('Pokemon à remplacer introuvable', 'error')
-        }
+        } 
     }
 
     // gagner de l'argent

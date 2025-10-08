@@ -138,7 +138,7 @@ const badgeBrut = new Badge({
 
 const badgeFlamme = new Badge({
     name: 'Flamme',
-    img: '../../assets/img/items/badges/brut.png',
+    img: '../../assets/img/items/badges/flamme.png',
     description: 'Augmente les attaques de type Feu',
     effect: (team) => {
         team.forEach(pkmn => {

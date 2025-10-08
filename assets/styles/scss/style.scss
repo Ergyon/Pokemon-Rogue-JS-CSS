@@ -7,40 +7,21 @@ body {
     overflow: hidden;
 }
 
-// Bulles attaques
-.battle-txt-container {
-    display: flex;
-    justify-content: center;
-    margin-inline: auto;
-    .battle-txt {
-        border: 1px solid rgba(54, 53, 50, 0.897);
-        border-radius: 6px;
-        background-color: rgb(236, 229, 216);
-        width: 25%;
-        height: auto;
-        text-align: center;
-        font-family: $pixel-font;
-        padding: 4px;
-        font-weight: 100;
-        font-size: 1.3rem;
-        color: rgba(65, 65, 65, 0.87);
-        opacity: 0;
-        animation: messageBubble 2s ease forwards;
-    }
-    .pokemon-txt {
-        border: 1px solid rgba(54, 53, 50, 0.897);
-        border-radius: 6px;
-        background-color: rgb(235, 221, 196);
-        width: 30%;
-        height: auto;
-        text-align: center;
-        font-family: $pixel-font;
-        padding: 4px;
-        font-weight: 100;
-        font-size: 1.3rem;
-        color: rgba(14, 4, 102, 0.74);
-        opacity: 0;
-        animation: messageBubble 2.4s ease forwards 2.7s;
-    }
+// overlay
+.overlay {
+  position: fixed;
+  inset: 0; 
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
 }
+
+.overlay--top {
+    z-index: 200 !important;  
+    background: rgba(0, 0, 0, 0.7);  
+}
+
 

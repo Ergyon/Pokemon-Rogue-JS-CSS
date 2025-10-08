@@ -1,24 +1,11 @@
 @use '../global.scss' as * ;
 @use '../animations.scss' as * ;
-
-
-$poke-bg:       #fdfdfd;
-$poke-border:   #808ea7;
-$poke-shadow:   rgba(0, 0, 0, 0.35);
-$poke-accent:   #ffcc00;
-
-.overlay {
-  position: fixed;
-  inset: 0; 
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(2px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-}
+@use '../style.scss' as*;
 
 .modal-choice {
+  position: fixed;
+  bottom: 15%;
+  left: 25%;
   background: $poke-bg linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
   border: 2px solid $poke-shadow;
   border-radius: 12px;
@@ -32,47 +19,79 @@ $poke-accent:   #ffcc00;
   flex-direction: column;
   gap: 16px;
   animation: slideUp 1.5s ease-out forwards;
-}
 
-.modal-choice__title {
-  font-size: 2rem;
-  font-family: $pixel-font-large;
-  text-align: center;
-  margin: 0;
-  padding-bottom: 2rem;
-  border-bottom: 2px solid rgba($poke-border, 0.15);
-}
-
-.modal-choice__content {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 3rem;
-}
-
-.modal-choice__confirmBtn {
-  align-self: center;
-  padding: 8px 16px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: rgb(231, 226, 217);
-  // background: $colorSpectre;
-  background: darken($colorPsy, 35%);
-  border: 1px solid $poke-accent;
-  border-radius: 15px;
-  cursor: pointer;
-  box-shadow: 0 2px 0 0 $poke-border;
-  opacity: 0;
-  animation: slideUp 1.3s ease-out forwards 1.5s;
-  &:hover {
-    background: $poke-bg linear-gradient(90deg, #063c5eb4 0%, #544868 100%);
-    border-radius: 17px;
+  &__title {
+    font-size: 3rem;
+    font-family: $pixel-font-large;
+    color: darken($colorEau, 40%);
+    text-align: center;
+    margin: 0;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgba($poke-border, 0.15);
   }
 
-  &:active {
-    transform: translateY(2px);
-    box-shadow: 0 1px 0 0 $poke-border;
+  &__content {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 3rem;
+  }
+
+  &__btnsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  &__btn {
+    align-self: center;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    opacity: 0;
+    animation: slideUp 1.3s ease-out forwards 1s;
+  
+    &--confirm {
+      color: darken($colorEau, 55%);
+      background: darken($colorFoudre, 5%);
+      border: 1px solid $poke-accent;
+      box-shadow: 0 2px 0 0 $poke-border;
+      &:hover {
+        background: $poke-bg linear-gradient(90deg, #063c5eb4 0%, #544868 100%);
+        border-radius: 17px;
+        color: beige;
+      }
+      &:active {
+        transform: translateY(2px);
+        box-shadow: 0 1px 0 0 $poke-border;
+      }
+    }
+  
+    &--skip {
+      color: rgb(221, 217, 231);
+      background: darken($colorEau, 20%);
+      border: 1px solid $poke-accent;
+      box-shadow: 0 2px 0 0 $poke-border;
+      &:hover {
+        background: $poke-bg linear-gradient(90deg, #0e85cfb4 0%, #26045e 100%);
+        border-radius: 17px;
+      }
+      &:active {
+        transform: translateY(2px);
+        box-shadow: 0 1px 0 0 $poke-border;
+      }
+    }
+  }
+
+  &__message {
+    font-family: $font-arena;
+    color: darken($colorFeu, 10%);
+    text-align: center;
   }
 }
+
 
 // Random card
 .random-container {
@@ -125,47 +144,48 @@ $poke-accent:   #ffcc00;
       0 2px 0 0 $poke-border,
       0 6px 12px $poke-shadow;
   }
-}
 
-.random-card__img {
-  width: 5rem;
-  aspect-ratio: 4 / 3; 
-  object-fit: contain;
-  display: block;
-  padding: 1rem;
-}
-
-.random-card__title {
-  font-weight: 700;
-  font-size: 1rem;
-  color: #111;
-  font-family: $pixel-font;
-  padding-bottom: 0.5rem;
-}
-
-.random-card__description {
-  font-size: .9rem;
-  color: #333;
-  padding: 0 12px 12px;
-  min-height: 2.2em; 
-}
-
-// Modificateurs
-.random-card--selected {
-  outline: 3px solid $poke-accent;
-  transform: translateY(-2px);
-  background: $poke-bg linear-gradient(180deg, #063c5eb4 0%, #f6f6f6 100%);
-  box-shadow:
-    0 2px 0 0 $poke-border,
-    0 10px 20px $poke-shadow;
-
-  &::before {
-    opacity: 1;
+  &__img {
+    width: 5rem;
+    aspect-ratio: 4 / 3; 
+    object-fit: contain;
+    display: block;
+    padding: 1rem;
   }
+  
+  &__title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #111;
+    font-family: $pixel-font;
+    padding-bottom: 0.5rem;
+  }
+  
+  &__description {
+    font-size: .9rem;
+    color: #333;
+    padding: 0 12px 12px;
+    min-height: 2.2em; 
+  }
+  
+  &--selected {
+    outline: 3px solid $poke-accent;
+    transform: translateY(-2px);
+    background: $poke-bg linear-gradient(180deg, #063c5eb4 0%, #f6f6f6 100%);
+    box-shadow:
+      0 2px 0 0 $poke-border,
+      0 10px 20px $poke-shadow;
+  
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  &--disabled {
+    filter: grayscale(0.7) brightness(0.95);
+    opacity: 0.7;
+    cursor: default;
+  }
+
 }
 
-.random-card--disabled {
-  filter: grayscale(0.7) brightness(0.95);
-  opacity: 0.7;
-  cursor: default;
-}

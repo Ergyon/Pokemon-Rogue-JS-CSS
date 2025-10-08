@@ -1,6 +1,7 @@
 @use '../global' as *;
 @use '../animations' as *;
 
+// afficher team player
 .modal-team {
     z-index: 5;
     position: absolute;
@@ -111,4 +112,41 @@
             background: linear-gradient(120deg,rgb(146, 117, 100) 0%, rgb(196, 63, 11) 100%);   
         }
     }
+}
+
+
+// remplacer un pokemon si equipe pleine
+.overlay--top {
+    z-index: 10000 !important;
+}
+
+.modal-team-replace {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+}
+
+.modal-team-replace__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.modal-team-replace__card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal-team-replace__card:hover {
+    background: #f0f0f0;
+    border-color: #4CAF50;
 }

@@ -1,0 +1,480 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap");
+.type-Feu:hover {
+  background-color: rgba(226, 14, 14, 0.76);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Eau:hover {
+  background-color: rgba(69, 122, 238, 0.863);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Plante:hover {
+  background-color: rgb(39, 175, 62);
+  color: wheat;
+}
+
+.type-Foudre:hover {
+  background-color: rgb(238, 238, 0);
+}
+
+.type-Psy:hover {
+  background-color: rgba(184, 73, 184, 0.87);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Poison:hover {
+  background-color: rgba(95, 10, 77, 0.877);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Vol:hover {
+  background-color: rgb(158, 179, 175);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Roche:hover {
+  background-color: rgba(105, 105, 105, 0.836);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Combat:hover {
+  background-color: rgba(134, 71, 12, 0.753);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Sol:hover {
+  background-color: rgb(160, 141, 58);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Dragon:hover {
+  background-color: rgb(56, 35, 46);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Tenebres:hover {
+  background-color: rgba(29, 29, 29, 0.89);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Spectre:hover {
+  background-color: rgba(130, 110, 141, 0.89);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Glace:hover {
+  background-color: rgb(38, 201, 255);
+  color: rgb(255, 246, 246);
+}
+
+.type-Insecte:hover {
+  background-color: rgba(19, 78, 19, 0.87);
+  color: rgba(227, 235, 190, 0.96);
+}
+
+.type-Normal:hover {
+  background: linear-gradient(90deg, rgba(224, 238, 224, 0.719) 0%, rgba(184, 248, 164, 0.96) 93%);
+}
+
+@keyframes leftToRight {
+  from {
+    transform: translateX(-800px);
+  }
+  to {
+    transform: translateX(2100px);
+  }
+}
+@keyframes rightToLeft {
+  from {
+    transform: translateX(2000px);
+  }
+  to {
+    transform: translateX(-1400px);
+  }
+}
+@keyframes breathingColored {
+  from {
+    transform: scale(97%);
+    color: rgb(146, 57, 5);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(100%);
+    color: rgba(74, 57, 221, 0.678);
+    opacity: 1;
+  }
+}
+@keyframes breathing {
+  from {
+    transform: scale(95%);
+  }
+  to {
+    transform: scale(100%);
+  }
+}
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes nextPulse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes pokeball {
+  0%, 20%, 40%, 60%, 80% {
+    transform: rotate(0deg);
+  }
+  10%, 50%, 90% {
+    transform: rotate(10deg);
+  }
+  30%, 70% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes pokeballDisabled {
+  from {
+    opacity: 1;
+    transform: scale(100%);
+  }
+  to {
+    opacity: 0.5;
+    transform: scale(75%);
+  }
+}
+@keyframes pokeballmessage {
+  from {
+    opacity: 0;
+    transform: scale(0%);
+  }
+  to {
+    opacity: 1;
+    transform: scale(100%);
+  }
+}
+@keyframes battleTitle {
+  0% {
+    transform: scale(0.8) scaleX(1.6);
+    opacity: 0.3;
+    color: linear-gradient(90deg, rgba(224, 238, 224, 0.719) 0%, rgba(184, 248, 164, 0.96) 93%);
+  }
+  100% {
+    transform: scale(0.7) scaleX(1.5);
+    opacity: 0.7;
+    color: rgba(130, 110, 141, 0.89);
+  }
+}
+@keyframes playerAppears {
+  0% {
+    transform: translateX(-100%) scaleY(1);
+  }
+  30% {
+    transform: scaleY(1.3);
+  }
+  60% {
+    transform: scaleY(0.8);
+  }
+  70% {
+    transform: scaleY(1.6);
+  }
+  80% {
+    transform: scaleY(0.5);
+  }
+  90% {
+    transform: scaleY(1.2);
+  }
+  100% {
+    transform: translateX(0) scaleY(1);
+  }
+}
+@keyframes enemyAppears {
+  0% {
+    transform: translateX(200%) scaleY(1);
+  }
+  30% {
+    transform: scaleY(1.3);
+  }
+  60% {
+    transform: scaleY(0.8);
+  }
+  70% {
+    transform: scaleY(1.6);
+  }
+  80% {
+    transform: scaleY(0.5);
+  }
+  90% {
+    transform: scaleY(1.2);
+  }
+  100% {
+    transform: translateX(0) scaleY(1);
+  }
+}
+@keyframes isKO {
+  0% {
+    height: 15rem;
+    opacity: 1;
+  }
+  10% {
+    height: 15.5rem;
+    opacity: 1;
+  }
+  25% {
+    height: 15rem;
+    opacity: 1;
+  }
+  90% {
+    height: 10rem;
+    opacity: 1;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+}
+@keyframes switchPokemon {
+  0% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+    height: 15rem;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-400%) translateY(-500%);
+    height: 0;
+  }
+}
+@keyframes displayTrainer {
+  0% {
+    transform: translateX(200%) scaleY(0.2);
+    opacity: 1;
+  }
+  30% {
+    transform: scaleY(1.3);
+  }
+  60% {
+    transform: scaleY(0.9);
+  }
+  70% {
+    transform: scaleY(1.2);
+  }
+  100% {
+    transform: translateX(0) scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes messageBubble {
+  0% {
+    opacity: 1;
+    transform: translateY(8px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  95% {
+    opacity: 1;
+    transform: translateY(7px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(60px);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-choice {
+  background: #fdfdfd linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
+  border: 2px solid rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 2px 0 0 #808ea7, 0 12px 20px rgba(0, 0, 0, 0.35);
+  max-width: 800px;
+  width: 100%;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: slideUp 1.5s ease-out forwards;
+}
+
+.modal-choice__title {
+  font-size: 2rem;
+  font-family: "Jersey 20", "Jost";
+  text-align: center;
+  margin: 0;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(128, 142, 167, 0.15);
+}
+
+.modal-choice__content {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 3rem;
+}
+
+.modal-choice__confirmBtn {
+  align-self: center;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(231, 226, 217);
+  background: rgba(56.4703557312, 22.0296442688, 56.4703557312, 0.87);
+  border: 1px solid #ffcc00;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 0 0 #808ea7;
+  opacity: 0;
+  animation: slideUp 1.3s ease-out forwards 1.5s;
+}
+.modal-choice__confirmBtn:hover {
+  background: #fdfdfd linear-gradient(90deg, rgba(6, 60, 94, 0.7058823529) 0%, #544868 100%);
+  border-radius: 17px;
+}
+.modal-choice__confirmBtn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 0 #808ea7;
+}
+
+.random-container {
+  width: 100%;
+}
+@media (max-width: 620px) {
+  .random-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 420px) {
+  .random-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.random-card {
+  background: #fdfdfd linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
+  border: 1px solid #808ea7;
+  border-radius: 100px;
+  box-shadow: 0 1px 0 0 #808ea7, 0 10px 18px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.08s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.random-card::before {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border: 1px solid #808ea7;
+  border-radius: 100px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+.random-card:hover {
+  transform: translateY(-2px);
+}
+.random-card:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 0 0 #808ea7, 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+.random-card__img {
+  width: 5rem;
+  aspect-ratio: 4/3;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
+  padding: 1rem;
+}
+
+.random-card__title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #111;
+  font-family: "Pixelify Sans", "Jost";
+  padding-bottom: 0.5rem;
+}
+
+.random-card__description {
+  font-size: 0.9rem;
+  color: #333;
+  padding: 0 12px 12px;
+  min-height: 2.2em;
+}
+
+.random-card--selected {
+  outline: 3px solid #ffcc00;
+  transform: translateY(-2px);
+  background: #fdfdfd linear-gradient(180deg, rgba(6, 60, 94, 0.7058823529) 0%, #f6f6f6 100%);
+  box-shadow: 0 2px 0 0 #808ea7, 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+.random-card--selected::before {
+  opacity: 1;
+}
+
+.random-card--disabled {
+  filter: grayscale(0.7) brightness(0.95);
+  opacity: 0.7;
+  cursor: default;
+}/*# sourceMappingURL=randomizer.css.map */

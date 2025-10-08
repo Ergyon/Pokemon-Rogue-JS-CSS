@@ -49,6 +49,7 @@ export function displayTeam({
             // pokemon(s) ko
             if (pkmn.isKO()) {
                 const badge = document.createElement('span')
+                badge.classList.remove('modal-team__badge--active')
                 badge.classList.add('modal-team__badge', 'modal-team__badge--ko')
                 card.appendChild(badge)
             }
@@ -92,14 +93,22 @@ export function displayTeam({
     })
 }
 
+// pokemon valide ou non pour une action
 function isSelectable(pkmn, mode, current, disableKo) {
     switch(mode) {
+            // voir
         case 'view':
             return false
 
+            // echanger
         case 'switch':
             return !pkmn.isKO() && pkmn !== current
 
+            // remplacer
+        case 'replace':
+            return true
+
+            // recevoir l'effet d'un objet
         case 'applyItem':
             if (disableKo) {
                 return !pkmn.isKO()

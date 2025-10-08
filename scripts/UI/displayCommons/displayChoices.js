@@ -1,5 +1,7 @@
 import { getRandomItem, getRandomPokemon } from "../../game/config/randomizer.js"
+import { displayInventory } from "../displayBattle/displayMenus/displayInventory.js"
 import { createRandomCard } from "./createRandomCard.js"
+import { displayTeamReplace } from "./displayTeamReplace.js"
 
 // Creer une section d'elements random
 function createRandomSection({ count, rank, getRandom, select }) {
@@ -22,6 +24,7 @@ export function displayChoiceModal({
     rankRight = 1,
     countLeft = 3,
     countRight = 3,
+    player = null
 }) {
     return new Promise((resolve) => {
         let selectedPokemon = null
@@ -49,7 +52,22 @@ export function displayChoiceModal({
             count: countLeft,
             rank: rankLeft,
             getRandom: getRandomPokemon,
-            select: (pkmn) => { selectedPokemon = pkmn }
+            select: async (pkmn) => {
+                // remplacer un pokemon si equipe pleine
+                if (player && player.team.length >= 4) {
+                    const toReplace = await displayTeamReplace(player.team)
+
+                    if (toReplace) {
+                        selectedPokemon = {new: pkmn, replace: toReplace}
+                    } else {
+                        selectedPokemon = null
+                    }
+                } 
+                // si equipe non complete
+                else {
+                    selectedPokemon = {new: pkmn, replace: null}
+                }
+            }
         })
     
         // section right
@@ -57,7 +75,22 @@ export function displayChoiceModal({
             count: countRight,
             rank: rankRight,
             getRandom: getRandomItem,
-            select: (item) => { selectedItem = item }
+            select: async (item) => {
+                // si inventaire plein
+                if (player && player.inventory.length >= 4) {
+                    const toReplace = await displayInventory(player, null, 'replace')
+
+                    if (toReplace) {
+                        selectedItem = {new: item, replace: toReplace}
+                    } else {
+                        selectedItem = null
+                    }
+                } 
+                // si inventaire non complet
+                else {
+                    selectedItem = {new: item, replace: null}
+                }
+            }
         })
     
         container.append(leftSection, rightSection)
@@ -67,18 +100,37 @@ export function displayChoiceModal({
         const confirmBtn = document.createElement('button')
         confirmBtn.classList.add('modal-choice__confirmBtn')
         confirmBtn.textContent = "Confirmer mon choix"
-    
+        
         confirmBtn.addEventListener('click', () => {
-            if (selectedPokemon && selectedItem) {
+            const hasValidPkmn = selectedPokemon !== null
+            const hasValidItem = selectedItem !== null
+    
+            if (hasValidPkmn && hasValidItem) {
                 closeModal()
-                resolve({ pokemon: selectedPokemon, item: selectedItem })
-            } else {
-                console.log('Vous devez choisir 1 Pokémon et 1 item.')
+                resolve({
+                    pokemon: selectedPokemon.new,
+                    item: selectedItem.new,
+                    pokemonToReplace: selectedPokemon.replace,
+                    itemToReplace: selectedItem.replace
+                })
             }
         })
-
         
-        modal.appendChild(confirmBtn)
+        // passer les choix
+        const skipBtn = document.createElement('button')
+        skipBtn.classList.add('modal-choice__skipBtn')
+        skipBtn.textContent = 'Passer'
+        skipBtn.addEventListener('click', () => {
+            closeModal()
+            resolve({
+                pokemon: null,
+                item: null,
+                pokemonToReplace: null,
+                itemToReplace: null
+            })
+        })
+
+        modal.append(confirmBtn, skipBtn)
         overlay.appendChild(modal)
         document.body.appendChild(overlay)
         

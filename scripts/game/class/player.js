@@ -1,4 +1,5 @@
 import { displayTeam } from "../../UI/displayBattle/displayMenus/displayTeam.js"
+import { showNotif } from "../../UI/displayBattle/displayText.js"
 
 export class Player {
     constructor({name, img}) {
@@ -12,10 +13,10 @@ export class Player {
 
     // ajouter un pokemon
     addPokemon(pokemon) {
-        if (this.team.length < 3) {
+        if (this.team.length < 4) {
             this.team.push(pokemon)
         } else {
-            console.log("Vous ne pouvez pas avoir plus de 4 Pokémons.")
+            showNotif("Vous ne pouvez pas avoir plus de 4 Pokémons.", 'error')
 
         }
     } 
@@ -33,6 +34,17 @@ export class Player {
         return chosen || null
     }
 
+    // remplacer un pokemon
+    replacePokemon(oldPkmn, newPkmn) {
+        const index = this.team.indexOf(oldPkmn)
+        if (index !== -1) {
+            this.team[index] = newPkmn
+            showNotif(`${oldPkmn.name} à été remplacé par ${newPkmn.name}`, 'success')
+        } else {
+            showNotif('Pokemon à remplacer introuvable', 'error')
+        }
+    }
+
     // gagner de l'argent
     earnMoney(amount) {
         this.money += amount 
@@ -45,7 +57,7 @@ export class Player {
 
     // posseder un objet
     getItem(item) {
-        if (this.inventory.length < 3) {
+        if (this.inventory.length < 4) {
             this.inventory.push(item)
         } else {
             console.log("Vous ne pouvez pas avoir plus de 4 objets.")
@@ -73,6 +85,18 @@ export class Player {
             this.inventory.push(item)
         }
     }
+
+    // remplacer un objet
+    replaceItem(oldItem, newItem) {
+        const index = this.inventory.indexOf(oldItem)
+        if (index !== -1) {
+            this.inventory[index] = newItem
+            showNotif(`${oldItem.name} à été remplacé par ${newItem.name}`, 'success')
+        } else {
+            showNotif('Objet à remplacer introuvable', 'error')
+        }
+    }
+
 
     // soigner equipe
     healTeam() {

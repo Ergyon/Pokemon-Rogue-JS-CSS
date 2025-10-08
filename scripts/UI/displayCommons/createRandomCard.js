@@ -28,18 +28,32 @@ export function createRandomCard(el, onSelect, container,) {
     }
 
     // selectionne
-    card.addEventListener('click', () => {
+    card.addEventListener('click', async () => {
         const alreadySelected = container.querySelector('.random-card--selected')
-        if (alreadySelected) return 
         
-        card.classList.add('random-card--selected')
+        if (alreadySelected && alreadySelected !== card) {
+            alreadySelected.classList.remove('random-card--selected')
+            container.querySelectorAll('.random-card').forEach(c => {
+                c.style.pointEvents = 'auto'
+                c.classList.remove('random-card--disbaled')
+            })
+        }
 
-        // desactive
-        container.querySelectorAll('.random-card').forEach(c => {
-            if (c !== card) c.style.pointerEvents = 'none'
-            c.classList.add('random-card--disabled')
-        })
-        onSelect(el)
+        card.style.pointerEvents = 'none'
+
+        await onSelect(el)
+
+        const isNowSelected = card.classList.contains('random-card--selected')
+        if (isNowSelected) {
+            container.querySelectorAll('.random-card').forEach(c => {
+                if (c!== card) {
+                    c.style.pointEvents = 'none'
+                    c.classList.add('random-card--disabled')
+                }
+            })
+        } else {
+            card.style.pointerEvents = 'auto'
+        }
     })
 
     return card

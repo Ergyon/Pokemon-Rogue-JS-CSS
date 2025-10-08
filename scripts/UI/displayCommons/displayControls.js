@@ -23,7 +23,6 @@ export function displayControls(player, active, onAction, doAttack=null) {
     teamBtn.classList.add('controls-menu__btn', 'controls-menu__btn--team')
     teamBtn.textContent = 'Équipe'
     teamBtn.onclick = async () => {
-        console.log('pokemon actif : ', active.player.name)
         await displayTeam({
             team: player.team,
             current: active.player,

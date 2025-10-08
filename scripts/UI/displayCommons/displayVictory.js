@@ -33,8 +33,8 @@ export function displayVictory({
 
 
         // genere 2 badges random
-        const badge1 = getRandomBadge()
-        const badge2 = getRandomBadge()
+        let badge1 = getRandomBadge()
+        let badge2 = getRandomBadge()
 
         while (badge1.name === badge2.name) {
             badge2 = getRandomBadge()

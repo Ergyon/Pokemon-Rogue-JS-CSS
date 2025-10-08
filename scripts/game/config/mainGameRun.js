@@ -1,5 +1,4 @@
-import { showNotif } from '../../UI/displayBattle/displayMenus/displayInventory.js'
-import { showBattleTxt } from '../../UI/displayBattle/displayText.js'
+import { showBattleTxt, showNotif } from '../../UI/displayBattle/displayText.js'
 import { displayTrainer, undisplayTrainer } from '../../UI/displayBattle/displayTrainers.js'
 import { undisplayPokemons } from '../../UI/displayBattle/undisplay.js'
 import { displayChoiceModal } from '../../UI/displayCommons/displayChoices.js'
@@ -42,12 +41,15 @@ export async function mainGameRun(mainPlayer) {
             trainerTeam = 3
         } 
         else if (round === 2) {
-            pokemonRank = [2]
+            pokemonRank = [2, 2, 3]
             itemRank = [1, 2]
 
             trainerRanks = [2]
             trainerTeam = 2
-        } 
+        } else {
+            pokemonRank = [2]
+            itemRank = [1, 1 ,2]
+        }
 
         trainer.generateTeam(trainerTeam, trainerRanks)
         
@@ -67,7 +69,7 @@ export async function mainGameRun(mainPlayer) {
             showBattleTxt(`Bien joué ! Vous avez gagné le combat contre ${trainer.name}.`)
             undisplayPokemons()
 
-            const moneyGain = trainer.gain
+            let moneyGain = trainer.gain
             mainPlayer.earnMoney(trainer.gain)
             
             await delay(1500)
@@ -90,24 +92,35 @@ export async function mainGameRun(mainPlayer) {
                 rankLeft: pokemonRank,
                 rankRight: itemRank,
                 countLeft: 3,
-                countRight:3
+                countRight:3,
+                player: mainPlayer
             })
             
             if (choice.pokemon) {
-                mainPlayer.addPokemon(choice.pokemon)
+                if (choice.pokemonToReplace) {
+                    mainPlayer.replacePokemon(choice.pokemonToReplace, choice.pokemon)
+                } else {
+                    mainPlayer.addPokemon(choice.pokemon)
+                }
             }
             if (choice.item) {
-                mainPlayer.getItem(choice.item)
+                if (choice.itemToReplace) {
+                    mainPlayer.replaceItem(choice.itemToReplace, choice.item)
+                } else {
+                    mainPlayer.getItem(choice.item)
+                }
             }
 
             round++
-
+            
         } else {
-           console.warn("Erreur", result) 
-           break
+            console.warn("Erreur", result) 
+            break
         }
+        
     }
     
+
     if (round > 5) {
         showBattleTxt("Vous devenez Maitre Pokemon !")
     }

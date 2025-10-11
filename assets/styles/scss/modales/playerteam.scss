@@ -116,17 +116,34 @@
 }
 
 
+
 // remplacer un pokemon si equipe pleine
-.overlay--top {
-    z-index: 10000 !important;
+.container {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 150;
 }
 
 .modal-team-replace {
-    background: white;
+    background: rgb(219, 212, 212);
     padding: 20px;
     border-radius: 10px;
+    border: 10px double #0f3442b4;
     max-width: 500px;
     width: 90%;
+    font-family: $font-arena;
+    position: relative;
+    text-align: center;
+
+    &__title {
+        text-align: center;
+        margin: 0;
+        color:  #0f3442;
+    }
 
     &__list {
         display: flex;
@@ -137,17 +154,100 @@
     
     &__card {
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        gap: 15px;
+        height: 4.5rem;
         padding: 10px;
-        border: 2px solid #ddd;
+        border: 2px solid #373b4136;
         border-radius: 8px;
         cursor: pointer;
         transition: all 0.2s;
         &:hover {
-            background: #f0f0f0;
-            border-color: #4CAF50;
+            background-color: rgb(240, 240, 229);
+            border-color: #1e7a9ec4;
+        }
+    }
+
+    &__img {
+        image-rendering: pixelated;
+        object-fit: contain;
+        width: 4rem;
+        margin-right: 3rem;
+    }
+
+    &__infos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__name {
+        font-family: $pixel-font-large;
+        font-size: 1.2rem;
+    }
+
+    &__type {
+        font-size: 0.9rem;
+        border-radius: 8px;
+        padding-inline: 8px;
+        color: beige;
+  }
+
+
+    &__showBtn {
+        margin-right: 1.5rem;
+        margin-left: auto;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        background-color: #a0d7ecb4;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        &:hover {
+            background-color: #187da1;
+            color: beige;
+        }
+    }
+
+    &__cancel {
+        font-size: 14px;
+        color: beige;
+        border: none;
+        border-radius: 10px;
+        padding-inline: 18px;
+        padding-block: 6px;
+        background-color:  #187da1;
+        cursor: pointer;
+        &:hover {
+            color: white;
+            background-color:  #105770;
         }
     }
 }
 
+$type-base-colors: (
+  'Feu': #f08030,
+  'Eau': #6890f0,
+  'Plante': #78c850,
+  'Foudre': #f8d030,
+  'Psy': #f85888,
+  'Combat': #c03028,
+  'Normal': #a8a878,
+  'Vol': #a890f0,
+  'Poison': #a040a0,
+  'Sol': #e0c068,
+  'Roche': #b8a038,
+  'Insecte': #a8b820,
+  'Spectre': #705898,
+  'Dragon': #7038f8,
+  'Tenebres': #705848,
+  'Glace': #98d8d8
+);
+
+.modal-team-replace__type {
+  @each $type, $color in $type-base-colors {
+    &[class*="#{$type}"] {
+      background: $color
+    }
+  }
+}

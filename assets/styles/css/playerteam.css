@@ -432,16 +432,30 @@
   background: linear-gradient(120deg, rgb(146, 117, 100) 0%, rgb(196, 63, 11) 100%);
 }
 
-.overlay--top {
-  z-index: 10000 !important;
+.container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 150;
 }
 
 .modal-team-replace {
-  background: white;
+  background: rgb(219, 212, 212);
   padding: 20px;
   border-radius: 10px;
+  border: 10px double rgba(15, 52, 66, 0.7058823529);
   max-width: 500px;
   width: 90%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  position: relative;
+  text-align: center;
+}
+.modal-team-replace__title {
+  text-align: center;
+  margin: 0;
+  color: #0f3442;
 }
 .modal-team-replace__list {
   display: flex;
@@ -451,15 +465,115 @@
 }
 .modal-team-replace__card {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  height: 4.5rem;
   padding: 10px;
-  border: 2px solid #ddd;
+  border: 2px solid rgba(55, 59, 65, 0.2117647059);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
 }
 .modal-team-replace__card:hover {
-  background: #f0f0f0;
-  border-color: #4CAF50;
+  background-color: rgb(240, 240, 229);
+  border-color: rgba(30, 122, 158, 0.768627451);
+}
+.modal-team-replace__img {
+  image-rendering: pixelated;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 4rem;
+  margin-right: 3rem;
+}
+.modal-team-replace__infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.modal-team-replace__name {
+  font-family: "Jersey 20", "Jost";
+  font-size: 1.2rem;
+}
+.modal-team-replace__type {
+  font-size: 0.9rem;
+  border-radius: 8px;
+  padding-inline: 8px;
+  color: beige;
+}
+.modal-team-replace__showBtn {
+  margin-right: 1.5rem;
+  margin-left: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(160, 215, 236, 0.7058823529);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.modal-team-replace__showBtn:hover {
+  background-color: #187da1;
+  color: beige;
+}
+.modal-team-replace__cancel {
+  font-size: 14px;
+  color: beige;
+  border: none;
+  border-radius: 10px;
+  padding-inline: 18px;
+  padding-block: 6px;
+  background-color: #187da1;
+  cursor: pointer;
+}
+.modal-team-replace__cancel:hover {
+  color: white;
+  background-color: #105770;
+}
+
+.modal-team-replace__type[class*=Feu] {
+  background: #f08030;
+}
+.modal-team-replace__type[class*=Eau] {
+  background: #6890f0;
+}
+.modal-team-replace__type[class*=Plante] {
+  background: #78c850;
+}
+.modal-team-replace__type[class*=Foudre] {
+  background: #f8d030;
+}
+.modal-team-replace__type[class*=Psy] {
+  background: #f85888;
+}
+.modal-team-replace__type[class*=Combat] {
+  background: #c03028;
+}
+.modal-team-replace__type[class*=Normal] {
+  background: #a8a878;
+}
+.modal-team-replace__type[class*=Vol] {
+  background: #a890f0;
+}
+.modal-team-replace__type[class*=Poison] {
+  background: #a040a0;
+}
+.modal-team-replace__type[class*=Sol] {
+  background: #e0c068;
+}
+.modal-team-replace__type[class*=Roche] {
+  background: #b8a038;
+}
+.modal-team-replace__type[class*=Insecte] {
+  background: #a8b820;
+}
+.modal-team-replace__type[class*=Spectre] {
+  background: #705898;
+}
+.modal-team-replace__type[class*=Dragon] {
+  background: #7038f8;
+}
+.modal-team-replace__type[class*=Tenebres] {
+  background: #705848;
+}
+.modal-team-replace__type[class*=Glace] {
+  background: #98d8d8;
 }/*# sourceMappingURL=playerteam.css.map */

@@ -15,8 +15,8 @@ export function displayMenuAttack(pokemon, doAttack) {
         moveName.classList.add('attack')
         moveName.textContent = move.name
 
-        const typeColor = attackColor(move.type)
-        moveName.classList.add(typeColor)
+        const colorType = typeColor(move.type)
+        moveName.classList.add(colorType)
 
         const movePP = document.createElement('td')
         movePP.classList.add('pp')
@@ -54,7 +54,7 @@ document.addEventListener("click", (e) => {
 
 
 // colorer les attaques dans le menu en fonction du type
-function attackColor(type) {
+export function typeColor(type) {
     switch(type) {
         case 'FEU': return 'type-Feu'
         case 'EAU': return 'type-Eau'

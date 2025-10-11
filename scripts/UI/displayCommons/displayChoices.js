@@ -4,7 +4,7 @@ import { createRandomCard } from "./createRandomCard.js"
 import { displayTeamReplace } from "./displayTeamReplace.js"
 
 // Creer une section d'elements random
-function createRandomSection({ count, rank, getRandom, select, container }) {
+function createRandomSection({ count, rank, getRandom, select }) {
     const sectionContainer = document.createElement('div')
     sectionContainer.classList.add('random-container')
 
@@ -64,13 +64,17 @@ export function displayChoiceModal({
                     
                     if (toReplace) {
                         selectedPokemon = {new: pkmn, replace: toReplace}
+                        message.textContent = `${toReplace.name} sera remplacé par ${pkmn.name}`
+                        return true
                     } else {
                         selectedPokemon = null
+                        return false
                     }
                 } 
                 // si equipe non complete
                 else {
                     selectedPokemon = {new: pkmn, replace: null}
+                    return true
                 }
             }
         })
@@ -83,18 +87,22 @@ export function displayChoiceModal({
             select: async (item) => {
                 // si inventaire plein
                 if (player && player.inventory.length >= 4) {
-                    
+                    message.textContent = 'Votre inventaire est plein'
                     const toReplace = await displayInventory(player, null, 'replace')
 
                     if (toReplace) {
                         selectedItem = {new: item, replace: toReplace}
+                        message.textContent = `${toReplace.name} sera remplacé par ${item.name}`
+                        return true
                     } else {
                         selectedItem = null
+                        return false
                     }
                 } 
                 // si inventaire non complet
                 else {
                     selectedItem = {new: item, replace: null}
+                    return true
                 }
             }
         })

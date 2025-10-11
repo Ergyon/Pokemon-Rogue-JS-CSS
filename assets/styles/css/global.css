@@ -17,6 +17,7 @@
 
 .type-Foudre:hover {
   background-color: rgb(238, 238, 0);
+  color: black;
 }
 
 .type-Psy:hover {
@@ -76,4 +77,5 @@
 
 .type-Normal:hover {
   background: linear-gradient(90deg, rgba(224, 238, 224, 0.719) 0%, rgba(184, 248, 164, 0.96) 93%);
+  color: black;
 }/*# sourceMappingURL=global.css.map */

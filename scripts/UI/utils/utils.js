@@ -16,3 +16,4 @@ export function displayBattleTxt(text, wait = 1000) {
 export function delay(ms) {
     return new Promise(resume => setTimeout(resume, ms))
 }
+

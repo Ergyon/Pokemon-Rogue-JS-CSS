@@ -1,7 +1,7 @@
 // Creer une carte random selectionnable
 export function createRandomCard(el, onSelect, container,) {
     if (!el) {
-    console.warn('[createRandomCard] élément invalide:', el);
+    console.warn('createRandomCard élément invalide:', el);
     return null;
     }
 
@@ -41,10 +41,11 @@ export function createRandomCard(el, onSelect, container,) {
 
         card.style.pointerEvents = 'none'
 
-        await onSelect(el)
+        const shouldSelect = await onSelect(el)
 
-        const isNowSelected = card.classList.contains('random-card--selected')
-        if (isNowSelected) {
+        if (shouldSelect) {
+            card.classList.add('random-card--selected')
+
             container.querySelectorAll('.random-card').forEach(c => {
                 if (c!== card) {
                     c.style.pointerEvents = 'none'
@@ -52,6 +53,11 @@ export function createRandomCard(el, onSelect, container,) {
                 }
             })
         } else {
+            card.classList.remove('random-card--selected')
+            container.querySelectorAll('.random-card').forEach(c => {
+                c.style.pointerEvents = 'auto'
+                c.classList.remove('.random-card--disabled')
+            })
             card.style.pointerEvents = 'auto'
         }
     })

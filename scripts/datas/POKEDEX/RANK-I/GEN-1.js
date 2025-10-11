@@ -150,7 +150,7 @@ const chetiflor = new Pokemon({
 
 const mystherbe = new Pokemon({
     name: 'Mystherbe',
-    types: TYPES.PLANTE,
+    type: TYPES.PLANTE,
     hp: 120,
     attack: 14,
     defense: 12,

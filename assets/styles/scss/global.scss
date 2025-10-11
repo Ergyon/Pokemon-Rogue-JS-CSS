@@ -45,6 +45,7 @@ $colorNormal: linear-gradient(90deg, rgba(224, 238, 224, 0.719) 0%, rgba(184, 24
 }
 .type-Foudre:hover {
     background-color: $colorFoudre;
+    color: black;
 }
 .type-Psy:hover {
     background-color: $colorPsy;
@@ -92,7 +93,9 @@ $colorNormal: linear-gradient(90deg, rgba(224, 238, 224, 0.719) 0%, rgba(184, 24
 }
 .type-Normal:hover {
     background: $colorNormal;   
+    color: black
 }
+
 
     // Hp 
 $colorHp: #42e947;

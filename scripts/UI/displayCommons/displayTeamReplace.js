@@ -1,10 +1,10 @@
+import { typeColor } from "../displayBattle/displayMenus/displayMoveset.js"
 import { showPokemonResume } from "./showResume.js"
-
 // modale remplacer un pokemon (si equipe pleine)
 export function displayTeamReplace(team) {
     return new Promise((resolve) => {   
-        const overlay = document.createElement('div')
-        overlay.classList.add('overlay', 'overlay--top')
+        const container = document.createElement('div')
+        container.classList.add('container')
 
         const modal = document.createElement('div')
         modal.classList.add('modal-team-replace')
@@ -34,7 +34,8 @@ export function displayTeamReplace(team) {
             name.textContent = pkmn.name
 
             const type = document.createElement('span')
-            type.classList.add('modal-team-replace__type')
+            const colorType= typeColor(pkmn.type)
+            type.classList.add('modal-team-replace__type', colorType)
             type.textContent = `${pkmn.type}`
 
             // bouton 'voir details' pokemon
@@ -68,11 +69,11 @@ export function displayTeamReplace(team) {
         })
 
         modal.append(modalTitle, list, cancel)
-        overlay.appendChild(modal)
-        document.body.appendChild(overlay)
+        container.appendChild(modal)
+        document.body.appendChild(container)
         
         function cleanup() {
-            overlay.remove()
+            container.remove()
         }
     })
 }

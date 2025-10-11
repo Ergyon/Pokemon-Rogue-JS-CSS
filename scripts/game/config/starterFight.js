@@ -6,6 +6,7 @@ import { undisplayPokemons } from "../../UI/displayBattle/undisplay.js";
 import { displayChoiceModal } from "../../UI/displayCommons/displayChoices.js";
 import { displayControls, updateControls } from "../../UI/displayCommons/displayControls.js";
 import { displayMessages } from "../../UI/displayCommons/displayMessages.js";
+import { displayTeamReplace } from "../../UI/displayCommons/displayTeamReplace.js";
 import { mainPlayer } from "../class/player.js";
 import { mainGameRun } from "./mainGameRun.js";
 import { getRandomPokemon } from "./randomizer.js";
@@ -47,7 +48,11 @@ function initFirstFight() {
     mainPlayer.addPokemon(test)
     let test3 = getRandomPokemon({rank:2})
     mainPlayer.addPokemon(test3)
+    let test4 = getRandomPokemon({rank:1})
+    mainPlayer.addPokemon(test4)
+    displayTeamReplace(mainPlayer.team)
     
+
     pkmnEnemy = getRandomPokemon({rank:1})
     // test
     pkmnEnemy.hp = 2

@@ -1,3 +1,4 @@
+import { capitalize } from "../utils/utils.js"
 
 // Fiche de details pokemon
 export function showPokemonResume(pkmn) {
@@ -23,7 +24,7 @@ export function showPokemonResume(pkmn) {
 
         const type = document.createElement('span')
         type.classList.add('pokemon-resume__type', `type--${pkmn.type.toLowerCase()}`)
-        type.textContent = pkmn.type
+        type.textContent = capitalize(pkmn.type)
 
         const hp = document.createElement('span')
         hp.classList.add('pokemon-resume__hp')
@@ -48,30 +49,31 @@ export function showPokemonResume(pkmn) {
 
             const moveType = document.createElement('span')
             moveType.classList.add('pokemon-resume__moveset__type', `type--${move.type.toLowerCase()}`)
-            moveType.textContent = move.type
+            moveType.textContent = capitalize(move.type)
 
             // stats
             const stats = document.createElement('div')
-            stats.classList.add('pokemon-resume__moveset__statsSection')
+            stats.classList.add('pokemon-resume__moveset__stats')
 
             const pp = document.createElement('span')
-            pp.classList.add('pokemon-resume__moveset__stats')
-            pp.textContent = `PP : ${move.maxPP}`
+            pp.classList.add('pokemon-resume__moveset__pp')
+            pp.textContent = `PP : ${move.pp}/${move.maxPP}`
 
-            const damage = document.createElement('span')
-            damage.classList.add('pokemon-resume__moveset__stats')
-            damage.textContent = `Puissance : ${move.damage}`
+            // const damage = document.createElement('span')
+            // damage.classList.add('pokemon-resume__moveset__stats')
+            // damage.textContent = `Puissance : ${move.damage}`
 
             const precis = document.createElement('span')
             precis.classList.add('pokemon-resume__moveset__stats')
-            precis.textContent = `Précision : ${move.precision}%`
+            precis.textContent = `Précision : ${move.precision}`
 
-            const critic = document.createElement('span')
-            critic.classList.add('pokemon-resume__moveset__stats')
-            critic.textContent = `Puissance critique : ${move.critical}`
+            // const critic = document.createElement('span')
+            // critic.classList.add('pokemon-resume__moveset__stats')
+            // critic.textContent = `Chance critique : ${move.criticChance} %`
+
 
             headerCard.append(moveName, moveType)
-            stats.append(pp, damage, precis, critic)
+            stats.append(pp, precis)
             moveCard.append(headerCard, stats)
             moveset.appendChild(moveCard)
         })

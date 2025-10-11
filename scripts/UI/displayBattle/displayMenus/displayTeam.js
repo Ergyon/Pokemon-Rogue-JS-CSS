@@ -1,3 +1,4 @@
+import { showPokemonResume } from "../../displayCommons/showResume.js"
 
 // display equipe player
 export function displayTeam({
@@ -25,6 +26,9 @@ export function displayTeam({
         team.forEach(pkmn => {
             const card = document.createElement('div')
             card.classList.add('modal-team__card')
+            card.addEventListener('click', () => {
+                showPokemonResume(pkmn)
+            })
 
             const img = document.createElement('img')
             img.src = pkmn.img
@@ -88,7 +92,13 @@ export function displayTeam({
         wrapper.appendChild(modal)
         
         function cleanup() {
-            modal.remove()
+            const resume = document.querySelectorAll('.pokemon-resume')
+            if (resume) {
+                resume.forEach(res => {
+                    res.remove()
+                })
+                modal.remove()
+            }
         }
     })
 }

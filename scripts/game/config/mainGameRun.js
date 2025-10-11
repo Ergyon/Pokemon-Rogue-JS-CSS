@@ -28,7 +28,7 @@ export async function mainGameRun(mainPlayer) {
         } 
         else if (round === 4) {
             pokemonRank = [3]
-            itemRank = [1, 2, 3]
+            itemRank = [2, 3]
 
             trainerRanks = [3]
             trainerTeam = 3

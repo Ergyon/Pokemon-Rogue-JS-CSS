@@ -503,34 +503,6 @@
   padding-inline: 8px;
   color: beige;
 }
-.modal-team-replace__showBtn {
-  margin-right: 1.5rem;
-  margin-left: auto;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  background-color: rgba(160, 215, 236, 0.7058823529);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-.modal-team-replace__showBtn:hover {
-  background-color: #187da1;
-  color: beige;
-}
-.modal-team-replace__cancel {
-  font-size: 14px;
-  color: beige;
-  border: none;
-  border-radius: 10px;
-  padding-inline: 18px;
-  padding-block: 6px;
-  background-color: #187da1;
-  cursor: pointer;
-}
-.modal-team-replace__cancel:hover {
-  color: white;
-  background-color: #105770;
-}
-
 .modal-team-replace__type[class*=Feu] {
   background: #f08030;
 }
@@ -576,6 +548,39 @@
 .modal-team-replace__type[class*=Tenebres] {
   background: #705848;
 }
+.modal-team-replace__type[class*=Acier] {
+  background: #b8b8d0;
+}
+.modal-team-replace__type[class*=Fee] {
+  background: #ee99ac;
+}
 .modal-team-replace__type[class*=Glace] {
   background: #98d8d8;
+}
+.modal-team-replace__showBtn {
+  margin-right: 1.5rem;
+  margin-left: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(160, 215, 236, 0.7058823529);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.modal-team-replace__showBtn:hover {
+  background-color: #187da1;
+  color: beige;
+}
+.modal-team-replace__cancel {
+  font-size: 14px;
+  color: beige;
+  border: none;
+  border-radius: 10px;
+  padding-inline: 18px;
+  padding-block: 6px;
+  background-color: #187da1;
+  cursor: pointer;
+}
+.modal-team-replace__cancel:hover {
+  color: white;
+  background-color: #105770;
 }/*# sourceMappingURL=playerteam.css.map */

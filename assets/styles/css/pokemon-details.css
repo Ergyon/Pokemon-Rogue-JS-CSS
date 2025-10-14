@@ -116,10 +116,83 @@
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   margin-top: 1rem;
   margin-left: 2.5rem;
-  border: 1px dotted;
   border-radius: 20px;
-  width: 100%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pokemon-resume__type[class*=feu] {
+  background: #f05630;
+  color: white;
+}
+.pokemon-resume__type[class*=eau] {
+  background: #6890f0;
+  color: white;
+}
+.pokemon-resume__type[class*=plante] {
+  background: #78c850;
+  color: white;
+}
+.pokemon-resume__type[class*=foudre] {
+  background: #face1e;
+  color: white;
+}
+.pokemon-resume__type[class*=psy] {
+  background: #f85888;
+  color: white;
+}
+.pokemon-resume__type[class*=combat] {
+  background: #c03028;
+  color: white;
+}
+.pokemon-resume__type[class*=normal] {
+  background: #a8a878;
+  color: white;
+}
+.pokemon-resume__type[class*=vol] {
+  background: #a890f0;
+  color: white;
+}
+.pokemon-resume__type[class*=poison] {
+  background: #a040a0;
+  color: white;
+}
+.pokemon-resume__type[class*=sol] {
+  background: #ad9246;
+  color: white;
+}
+.pokemon-resume__type[class*=roche] {
+  background: #acaaa2;
+  color: white;
+}
+.pokemon-resume__type[class*=insecte] {
+  background: #a8b820;
+  color: white;
+}
+.pokemon-resume__type[class*=spectre] {
+  background: #705898;
+  color: white;
+}
+.pokemon-resume__type[class*=dragon] {
+  background: #7038f8;
+  color: white;
+}
+.pokemon-resume__type[class*=tenebres] {
+  background: #252423;
+  color: white;
+}
+.pokemon-resume__type[class*=acier] {
+  background: #b8b8d0;
+  color: white;
+}
+.pokemon-resume__type[class*=fee] {
+  background: #ee99ac;
+  color: white;
+}
+.pokemon-resume__type[class*=glace] {
+  background: #98d8d8;
+  color: white;
 }
 .pokemon-resume__hp {
   margin-left: auto;
@@ -161,6 +234,80 @@
 }
 .pokemon-resume__moveset__type {
   font-size: 14px;
+  padding-inline: 6px;
+  border-radius: 10px;
+}
+.pokemon-resume__moveset__type[class*=feu] {
+  background: #f05630;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=eau] {
+  background: #6890f0;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=plante] {
+  background: #78c850;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=foudre] {
+  background: #face1e;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=psy] {
+  background: #f85888;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=combat] {
+  background: #c03028;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=normal] {
+  background: #a8a878;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=vol] {
+  background: #a890f0;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=poison] {
+  background: #a040a0;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=sol] {
+  background: #ad9246;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=roche] {
+  background: #acaaa2;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=insecte] {
+  background: #a8b820;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=spectre] {
+  background: #705898;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=dragon] {
+  background: #7038f8;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=tenebres] {
+  background: #252423;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=acier] {
+  background: #b8b8d0;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=fee] {
+  background: #ee99ac;
+  color: white;
+}
+.pokemon-resume__moveset__type[class*=glace] {
+  background: #98d8d8;
+  color: white;
 }
 .pokemon-resume__moveset__stats {
   font-size: 0.9rem;

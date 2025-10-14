@@ -1,3 +1,4 @@
+import { displayBadges } from "../displayBattle/displayMenus/displayBadges.js"
 import { displayInventory } from "../displayBattle/displayMenus/displayInventory.js"
 import { displayTeam } from "../displayBattle/displayMenus/displayTeam.js"
 import { showBattleTxt } from "../displayBattle/displayText.js"
@@ -73,8 +74,8 @@ export function displayControls(player, active, onAction, doAttack=null) {
 
     badgesBtn.disabled = !player.badges || player.badges.length === 0
 
-    badgesBtn.onclick = async () => {
-        // await displayBadges()
+    badgesBtn.onclick = () => {
+        displayBadges(player.badges)
     }
 
     menu.append(teamBtn, inventoryBtn, switchBtn, badgesBtn)

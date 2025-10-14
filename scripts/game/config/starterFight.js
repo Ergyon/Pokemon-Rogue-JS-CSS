@@ -8,7 +8,7 @@ import { displayControls, updateControls } from "../../UI/displayCommons/display
 import { displayMessages } from "../../UI/displayCommons/displayMessages.js";
 import { mainPlayer } from "../class/player.js";
 import { mainGameRun } from "./mainGameRun.js";
-import { getRandomPokemon } from "./randomizer.js";
+import { getRandomBadge, getRandomPokemon } from "./randomizer.js";
 import { turnBasedLoop } from "./turn-based-loop.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,12 +43,17 @@ function initFirstFight() {
     //             player: mainPlayer
     //         })
 
-    // let test = getRandomPokemon({rank:3})
-    // mainPlayer.addPokemon(test)
-    // let test3 = getRandomPokemon({rank:2})
-    // mainPlayer.addPokemon(test3)
-    // let test4 = getRandomPokemon({rank:1})
-    // mainPlayer.addPokemon(test4)    
+    let test = getRandomPokemon({rank:3})
+    mainPlayer.addPokemon(test)
+    let test3 = getRandomPokemon({rank:2})
+    mainPlayer.addPokemon(test3)
+    let test4 = getRandomPokemon({rank:1})
+    mainPlayer.addPokemon(test4)   
+    let badgetest = getRandomBadge()
+    let badgetest2 = getRandomBadge()
+    mainPlayer.getBadge(badgetest2)
+    mainPlayer.getBadge(badgetest)
+
 
     pkmnEnemy = getRandomPokemon({rank:1})
     // test

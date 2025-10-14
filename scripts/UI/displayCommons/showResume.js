@@ -59,18 +59,9 @@ export function showPokemonResume(pkmn) {
             pp.classList.add('pokemon-resume__moveset__pp')
             pp.textContent = `PP : ${move.pp}/${move.maxPP}`
 
-            // const damage = document.createElement('span')
-            // damage.classList.add('pokemon-resume__moveset__stats')
-            // damage.textContent = `Puissance : ${move.damage}`
-
             const precis = document.createElement('span')
             precis.classList.add('pokemon-resume__moveset__stats')
             precis.textContent = `Précision : ${move.precision}`
-
-            // const critic = document.createElement('span')
-            // critic.classList.add('pokemon-resume__moveset__stats')
-            // critic.textContent = `Chance critique : ${move.criticChance} %`
-
 
             headerCard.append(moveName, moveType)
             stats.append(pp, precis)

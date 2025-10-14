@@ -1,0 +1,30 @@
+
+$type-colors: (
+  'feu': #f05630,
+  'eau': #6890f0,
+  'plante': #78c850,
+  'foudre': #face1e,
+  'psy': #f85888,
+  'combat': #c03028,
+  'normal': #a8a878,
+  'vol': #a890f0,
+  'poison': #a040a0,
+  'sol': #ad9246,
+  'roche': #acaaa2,
+  'insecte': #a8b820,
+  'spectre': #705898,
+  'dragon': #7038f8,
+  'tenebres': #252423,
+  'acier': #b8b8d0,
+  'fee': #ee99ac,
+  'glace': #98d8d8
+);
+
+@mixin apply-type-colors($selector) {
+  @each $type, $color in $type-colors {
+    #{$selector}[class*="#{$type}"] {
+      background: $color;
+      color: white;
+    }
+  }
+}

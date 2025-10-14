@@ -3,6 +3,12 @@ import { capitalize } from "../utils/utils.js"
 // Fiche de details pokemon
 export function showPokemonResume(pkmn) {
     return new Promise((resolve) =>  {
+
+        const existingModal = document.querySelector('.pokemon-resume')
+        if (existingModal) {
+            existingModal.remove()
+        }
+
         const modal = document.createElement('div')
         modal.classList.add('pokemon-resume')
 

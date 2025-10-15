@@ -10,6 +10,9 @@ const badgeForce = new Badge({
             pkmn.increaseAttack(1)
         })
     },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => pkmn.decreaseAttack(1))
+    }
 })
 
 const badgePuissance = new Badge({
@@ -21,6 +24,9 @@ const badgePuissance = new Badge({
             pkmn.increaseAttack(2)
         })
     },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => decreaseAttack(2))
+    }
 })
 
 const badgeTitan= new Badge({
@@ -32,6 +38,9 @@ const badgeTitan= new Badge({
             pkmn.increaseAttack(3)
         })
     },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => decreaseAttack(3))
+    }
 })
 
 const badgeDefense = new Badge({
@@ -42,6 +51,9 @@ const badgeDefense = new Badge({
         team.forEach(pkmn => {
             pkmn.increaseDefense(1)
         })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => decreaseDefense(1))
     }
 })
 
@@ -52,6 +64,11 @@ const badgeArmure = new Badge({
     effect: (team) => {
         team.forEach(pkmn => {
             pkmn.increaseDefense(2)
+        })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseDefense(2)
         })
     }
 })
@@ -64,6 +81,11 @@ const badgeForteresse = new Badge({
         team.forEach(pkmn => {
             pkmn.increaseDefense(3)
         })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseDefense(3)
+        })
     }
 })
 
@@ -74,6 +96,11 @@ const badgeVitalite = new Badge({
     effect: (team) => {
         team.forEach(pkmn => {
             pkmn.maxHP += 30
+        })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.maxHP -= 30
         })
     }
 })
@@ -86,6 +113,11 @@ const badgeGaia = new Badge({
         team.forEach(pkmn => {
             pkmn.maxHP += 50
         })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.maxHP -= 50
+        })
     }
 })
 
@@ -97,6 +129,11 @@ const badgeCritic = new Badge({
         team.forEach(pkmn => {
             pkmn.increaseCriticalRate(8)
         })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseCriticalRate(8)
+        })
     }
 })
 
@@ -107,6 +144,11 @@ const badgePrecision = new Badge({
     effect: (team) => {
         team.forEach(pkmn => {
             pkmn.increasePrecision(10)
+        })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreasePrecision(10)
         })
     }
 })
@@ -122,6 +164,13 @@ const badgeEndurance = new Badge({
                 move.pp += 5
             })
         })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.moves.forEach(move => {
+                move.maxPP -= 5
+            })
+        })
     }
 })
 
@@ -132,6 +181,11 @@ const badgeBrut = new Badge({
     effect: (team) => {
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.NORMAL, 1.15)
+        })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.NORMAL, 1.15)
         })
     }
 })
@@ -144,6 +198,11 @@ const badgeFlamme = new Badge({
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.FEU, 1.15)
         })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.FEU, 1.15)
+        })
     }
 })
 
@@ -154,6 +213,11 @@ const badgeMer = new Badge({
     effect: (team) => {
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.EAU, 1.15)
+        })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.EAU, 1.15)
         })
     }
 })
@@ -166,6 +230,11 @@ const badgeJardin = new Badge({
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.PLANTE, 1.15)
         })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.PLANTE, 1.15)
+        })
     }
 })
 
@@ -176,6 +245,11 @@ const badgeOrage = new Badge({
     effect: (team) => {
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.FOUDRE, 1.15)
+        })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.FOUDRE, 1.15)
         })
     }
 })
@@ -188,6 +262,11 @@ const badgePoing = new Badge({
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.COMBAT, 1.15)
         })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.COMBAT, 1.15)
+        })
     }
 })
 
@@ -198,6 +277,11 @@ const badgeTempete = new Badge({
     effect: (team) => {
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.VOL, 1.15)
+        })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.VOL, 1.15)
         })
     }
 })
@@ -210,6 +294,11 @@ const badgeMental = new Badge({
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.PSY, 1.15)
         })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.PSY, 1.15)
+        })
     }
 })
 
@@ -220,6 +309,11 @@ const badgeTerre = new Badge({
     effect: (team) => {
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.SOL, 1.15)
+        })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.SOLL, 1.15)
         })
     }
 })
@@ -232,6 +326,11 @@ const badgeNeige = new Badge({
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.GLACE, 1.15)
         })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.GLACE, 1.15)
+        })
     }
 })
 
@@ -243,6 +342,11 @@ const badgeEsprit = new Badge({
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.SPECTRE, 1.15)
         })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.SPECTRE, 1.15)
+        })
     }
 })
 
@@ -253,6 +357,11 @@ const badgeTemple = new Badge({
     effect: (team) => {
         team.forEach(pkmn => {
             pkmn.increaseTypeDamage(TYPES.DRAGON, 1.15)
+        })
+    },
+    reverseEffect: (team) => {
+        team.forEach(pkmn => {
+            pkmn.decreaseTypeDamage(TYPES.DRAGON, 1.15)
         })
     }
 })

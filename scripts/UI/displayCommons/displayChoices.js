@@ -59,7 +59,6 @@ export function displayChoiceModal({
             select: async (pkmn) => {                
                 // remplacer un pokemon si equipe pleine
                 if (player && player.team.length >= 4) {
-                    message.textContent = 'Votre équipe est pleine, cependant vous pouvez remplacer un de vos Pokémons'
                     const toReplace = await displayTeamReplace(player.team)
                     
                     if (toReplace) {
@@ -87,7 +86,6 @@ export function displayChoiceModal({
             select: async (item) => {
                 // si inventaire plein
                 if (player && player.inventory.length >= 4) {
-                    message.textContent = 'Votre inventaire est plein'
                     const toReplace = await displayInventory(player, null, 'replace')
 
                     if (toReplace) {

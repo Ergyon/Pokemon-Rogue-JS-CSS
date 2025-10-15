@@ -13,6 +13,10 @@ export function displayTeamReplace(team) {
         modalTitle.classList.add('modal-team-replace__title')
         modalTitle.textContent = 'Remplacer un Pokémon'
 
+        const message = document.createElement('p')
+        message.classList.add('modal-team-replace__message')
+        message.textContent = 'Votre équipe est pleine. Remplacez un Pokémon de votre équipe ou bien annulez et consrvez votre équipe actuelle.'
+
         const list = document.createElement('div')
         list.classList.add('modal-team-replace__list')
 
@@ -68,7 +72,7 @@ export function displayTeamReplace(team) {
             resolve(null)
         })
 
-        modal.append(modalTitle, list, cancel)
+        modal.append(modalTitle, list, message, cancel)
         container.appendChild(modal)
         document.body.appendChild(container)
         

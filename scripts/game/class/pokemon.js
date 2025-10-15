@@ -67,27 +67,46 @@ export class Pokemon {
         }
     }
 
-    // application bonus badges
+    // application (et supression) bonus badges
     increaseCriticalRate(amount) {
         this.bonuses.criticalRate += amount
     }
+    decreaseCriticalRate(amount) {
+        this.bonuses.criticalRate -= amount
+    }
+
     increasePrecision(amount) {
         this.bonuses.precision += amount
     }
+    decreasePrecision(amount) {
+        this.bonuses.precision -= amount
+    }
+
+    increaseAttack(amount) {
+        this.baseAttack+= amount
+    }
+    decreaseAttack(amount) {
+        this.baseAttack -= amount
+    }
+
+    increaseDefense(amount) {
+        this.baseDefense += amount
+    }
+    decreaseDefense(amount) {
+        this.baseDefense -= amount
+    }
+
     increaseTypeDamage(type, multiplier) {
         if (!this.bonuses.typeDamage[type]) {
             this.bonuses.typeDamage[type] = 1
         }
         this.bonuses.typeDamage[type] *= multiplier
     }
-    increaseAttack(amount) {
-        this.baseAttack+= amount
+    decreaseTypeDamage(type, multiplier) {
+        if (this.bonuses.typeDamage[type]) {
+            this.bonuses.typeDamage[type] /= multiplier
+        }
     }
-    
-    increaseDefense(amount) {
-        this.baseDefense += amount
-    }
-
 
     // effets status
     applyStatusEffect(messages) {

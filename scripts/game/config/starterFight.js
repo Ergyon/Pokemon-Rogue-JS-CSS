@@ -1,7 +1,6 @@
 import { constructPokemon } from "../../datas/storage.js";
 import { gameOver } from "../../datas/text.js";
-import { displayBadges } from "../../UI/displayBattle/displayMenus/displayBadges.js";
-import { updateBattleUI } from "../../UI/displayBattle/displayMove.js";
+import { updateBattleUI } from "../../UI/displayBattle/displayHP.js";
 import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js";
 import { undisplayPokemons } from "../../UI/displayBattle/undisplay.js";
 import { displayChoiceModal } from "../../UI/displayCommons/displayChoices.js";
@@ -50,11 +49,12 @@ function initFirstFight() {
     mainPlayer.addPokemon(test3)
     let test4 = getRandomPokemon({rank:1})
     mainPlayer.addPokemon(test4)   
-    let badgetest = getRandomBadge()
+    // let badgetest = getRandomBadge()
     let badgetest2 = getRandomBadge()
     mainPlayer.getBadge(badgetest2)
-    mainPlayer.getBadge(badgetest)
-    displayBadges(mainPlayer.badges)
+    // mainPlayer.getBadge(badgetest)
+    // displayBadgeReplace(mainPlayer.badges)
+    // displayTeamReplace(mainPlayer.team)
 
     pkmnEnemy = getRandomPokemon({rank:1})
     // test

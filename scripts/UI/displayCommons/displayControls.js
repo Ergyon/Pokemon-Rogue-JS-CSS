@@ -1,8 +1,8 @@
-import { displayBadges } from "../displayBattle/displayMenus/displayBadges.js"
 import { displayInventory } from "../displayBattle/displayMenus/displayInventory.js"
 import { displayTeam } from "../displayBattle/displayMenus/displayTeam.js"
 import { showBattleTxt } from "../displayBattle/displayText.js"
 import { displaySwitch } from "../displayBattle/undisplay.js"
+import { displayBadges } from "./displayBadges.js"
 
 // afficher menu du joueur (team, iventory, badges, switch)
 export function displayControls(player, active, onAction, doAttack=null) {

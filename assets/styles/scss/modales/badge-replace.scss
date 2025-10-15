@@ -1,0 +1,103 @@
+@use '../global.scss' as *;
+
+
+.badges-replace {
+    position: absolute;
+    left: 40%;
+    bottom: 35%;
+    max-width: 550px;
+    border: 3px double;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lighten($colorControlsBg, 10%);
+    font-family: $font-arena;
+
+    
+    &__title {
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    &__list {
+        width: 100%;
+    }
+
+    &__card {
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        border-radius: 20px;
+        padding: 6px;
+        margin-bottom: 0.8rem;
+        display: flex;
+        text-align: center;
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(55, 131, 156, 0.336);
+        }
+    }
+
+    &__infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    &__name {
+        font-weight: 600;
+        text-align: center;
+        margin-right: 5rem;
+    }
+
+    &__desc {
+        text-align: center;
+        font-size: 14px;
+        padding: 4px;
+    }
+
+    &__message {
+        margin-bottom: 10px;
+        background-color: rgba(218, 48, 18, 0.918); 
+        color: beige;   
+        border-radius: 10px;
+        padding: 6px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    &__img {
+        width: 4rem;
+        height: 5rem;
+        object-fit: contain;
+        margin-inline: 1rem;
+    }
+
+    &__cancel {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        font-size: 0.9rem;
+        border-radius: 8px;
+        border: none;
+        padding-inline: 6px;
+        padding-block: 4px;
+        margin-top: 1rem;
+        background: linear-gradient(to right, #294b5a, #306172, #47829b);
+        color: rgb(245, 245, 231);
+        box-shadow: rgba(138, 132, 103, 0.555) 2px 2px 15px 2px;
+        transition: 0.2s ease;
+        opacity: 0.8;
+        cursor: pointer;
+        &:hover {
+            background: linear-gradient(to top, #294b5a, #306172, #47829b);
+            box-shadow: rgba(196, 191, 170, 0.753) 2px 2px 15px 2px;;
+            opacity: 1;
+        }
+    }
+}

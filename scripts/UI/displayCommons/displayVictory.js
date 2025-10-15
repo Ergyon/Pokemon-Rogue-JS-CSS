@@ -1,9 +1,11 @@
+import { displayBadgeReplace } from "./displayBadgeReplace.js"
 
 // Modale de victoire + choix de badges
 export function displayVictory({
     money = 0,
     trainerName = '',
-    getRandomBadge
+    getRandomBadge,
+    player
 } = {} ) {
     return new Promise ((resolve) => {
         const overlay = document.createElement('div')
@@ -43,13 +45,37 @@ export function displayVictory({
         const badgeWrapper = document.createElement('div')
         badgeWrapper.classList.add('modal-victory__badge-wrapper')
 
-        const card1 = createBadge(badge1, () => {
+        const card1 = createBadge(badge1, async () => {
             cleanup()
-            resolve(badge1)
+
+            // remplacer un badge si deja 2 badges
+            if (player && player.badges.length >= 2) {
+                const toReplace = await displayBadgeReplace(player.badges)
+                if (toReplace) {
+                    resolve({badge: badge1, replace: toReplace})
+                } else {
+                    resolve({badge: null, replace: null})
+                }
+            } else {
+                resolve({badge: badge1, replace: null})
+            }
+            
         })
-        const card2 = createBadge(badge2, () => {
+
+
+        const card2 = createBadge(badge2, async ()  => {
             cleanup()
-            resolve(badge2)
+
+            if (player && player.badges.length >= 2) {
+                const toReplace = await displayBadgeReplace(player.badges)
+                if (toReplace) {
+                    resolve({badge: badge2, replace: toReplace})
+                } else {
+                    resolve({badge: null, replace: null})
+                }
+            } else {
+                resolve({badge: badge2, replace: null})
+            }
         })
 
         badgeWrapper.append(card1, card2)
@@ -86,7 +112,7 @@ function createBadge(badge, onSelect) {
     desc.classList.add('modal-victory__badge-desc')
     desc.textContent = badge.description
 
-    card.addEventListener('click', () => {
+    card.addEventListener('click', async () => {
         card.classList.add('modal-victory__badge-card--selected')
         setTimeout(() => {
             onSelect()

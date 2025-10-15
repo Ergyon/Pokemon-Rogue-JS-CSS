@@ -1,4 +1,4 @@
-import { updateBattleUI } from "../../UI/displayBattle/displayMove.js"
+import { updateBattleUI } from "../../UI/displayBattle/displayHP.js"
 import { displayPokemons } from "../../UI/displayBattle/displayPokemons.js"
 import { displayControls, updateControls } from "../../UI/displayCommons/displayControls.js"
 import { turnBasedLoop } from "./turn-based-loop.js"

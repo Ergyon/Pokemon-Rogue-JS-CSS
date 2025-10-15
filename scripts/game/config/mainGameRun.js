@@ -78,13 +78,19 @@ export async function mainGameRun(mainPlayer) {
             const chosenBadge = await displayVictory({
                 money: moneyGain,
                 trainerName: trainer.name,
-                getRandomBadge: getRandomBadge
+                getRandomBadge: getRandomBadge,
+                player: mainPlayer
             })
 
-            if (chosenBadge) {
-                mainPlayer.getBadge(chosenBadge)
-                chosenBadge.applyBonus(mainPlayer.team)
-                showNotif(`Vous obtenez le badge ${chosenBadge.name}`)
+            if (chosenBadge && chosenBadge.badge) {
+                if (chosenBadge.replace) {
+                    mainPlayer.replaceBadge(chosenBadge.replace, chosenBadge.badge)
+                    showNotif(`Vous remplacer le badge ${chosenBadge.replace.name} par le badge ${chosenBadge.badge.name}`)
+                } else {
+                    mainPlayer.getBadge(chosenBadge.badge)
+                    chosenBadge.applyBonus(mainPlayer.team)
+                    showNotif(`Vous obtenez le badge ${chosenBadge.badge.name}`)
+                }
                 await delay (800)
             }
 

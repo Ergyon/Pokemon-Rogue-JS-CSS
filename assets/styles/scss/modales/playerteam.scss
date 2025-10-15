@@ -122,7 +122,6 @@
 .container {
     position: fixed;
     inset: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,7 +129,7 @@
 }
 
 .modal-team-replace {
-    background: rgb(219, 212, 212);
+    background: rgb(243, 236, 236);
     padding: 20px;
     border-radius: 10px;
     border: 10px double #0f3442b4;
@@ -211,6 +210,14 @@
         }
     }
 
+    &__message {
+        background-color: rgb(219, 48, 18); 
+        color: beige;   
+        border-radius: 10px;
+        padding: 6px;
+        font-size: 14px;
+    }
+
     &__cancel {
         font-size: 14px;
         color: beige;
@@ -227,30 +234,30 @@
     }
 }
 
-// // colorer les types
-// $type-base-colors: (
-//   'Feu': #f08030,
-//   'Eau': #6890f0,
-//   'Plante': #78c850,
-//   'Foudre': #f8d030,
-//   'Psy': #f85888,
-//   'Combat': #c03028,
-//   'Normal': #a8a878,
-//   'Vol': #a890f0,
-//   'Poison': #a040a0,
-//   'Sol': #e0c068,
-//   'Roche': #b8a038,
-//   'Insecte': #a8b820,
-//   'Spectre': #705898,
-//   'Dragon': #7038f8,
-//   'Tenebres': #705848,
-//   'Glace': #98d8d8
-// );
+// colorer les types
+$type-base-colors: (
+  'Feu': #f08030,
+  'Eau': #6890f0,
+  'Plante': #78c850,
+  'Foudre': #f8d030,
+  'Psy': #f85888,
+  'Combat': #c03028,
+  'Normal': #a8a878,
+  'Vol': #a890f0,
+  'Poison': #a040a0,
+  'Sol': #e0c068,
+  'Roche': #b8a038,
+  'Insecte': #a8b820,
+  'Spectre': #705898,
+  'Dragon': #7038f8,
+  'Tenebres': #705848,
+  'Glace': #98d8d8
+);
 
-// .modal-team-replace__type {
-//   @each $type, $color in $type-base-colors {
-//     &[class*="#{$type}"] {
-//       background: $color
-//     }
-//   }
-// }
+.modal-team-replace__type {
+  @each $type, $color in $type-base-colors {
+    &[class*="#{$type}"] {
+      background: $color
+    }
+  }
+}

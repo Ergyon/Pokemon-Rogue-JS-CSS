@@ -16,7 +16,7 @@ export class Player {
         if (this.team.length < 4) {
             this.team.push(pokemon)
         } else {
-            showNotif("Vous ne pouvez pas avoir plus de 4 Pokémons.", 'error')
+            console.log('Equipe pleine')
 
         }
     } 
@@ -52,12 +52,28 @@ export class Player {
         this.badges.push(badge)
     }
 
+    // remplacer un badge
+    replaceBadge(oldBadge, newBadge) {
+        const index = this.badges.indexOf(oldBadge)
+        if (index !== 1) {
+            oldBadge.removeBonus(this.team)
+
+            this.badges[index] = newBadge
+
+            newBadge.applyBonus(this.team)
+
+            showNotif(`${oldBadge.name} a été remplacé par ${newBadge.name}`, 'success')
+        } else {
+            showNotif('Badge à remplacer introuvable', 'error')
+        }
+    }
+
     // posseder un objet
     getItem(item) {
         if (this.inventory.length < 4) {
             this.inventory.push(item)
         } else {
-            console.log("Vous ne pouvez pas avoir plus de 4 objets.")
+            console.log("inventaire plein")
         }
     }
 

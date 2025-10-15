@@ -1,4 +1,4 @@
-import { updateHp } from "../displayMove.js"
+import { updateHp } from "../displayHP.js"
 import { showNotif } from "../displayText.js"
 import { displayTeam } from "./displayTeam.js"
 

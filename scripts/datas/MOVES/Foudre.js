@@ -39,7 +39,7 @@ const eclair = createMove({
     const rayoncharge = createMove({ 
         name: 'Rayon chargé', 
         type: TYPES.FOUDRE, 
-        damage: 21, 
+        damage: 25, 
         precision: 95, 
         criticChance: 33, 
         img: 'img', 
@@ -69,7 +69,7 @@ const eclair = createMove({
         effect: isParalyzed(0.08, (1 + Math.floor(Math.random() * 3))),
         pp: 15 })
 
-    const fatalfoudre= createMove({ 
+    const fatalfoudre = createMove({ 
         name: "Fatal Foudre", 
         type: TYPES.FOUDRE, 
         damage: 110, 
@@ -80,6 +80,18 @@ const eclair = createMove({
         effect: isParalyzed(0.2, (1 + Math.floor(Math.random() * 3))),
         pp: 10 })
 
+    const crocseclair = createMove({ 
+        name: "Crocs Eclair", 
+        type: TYPES.FOUDRE, 
+        damage: 50, 
+        precision: 80, 
+        criticChance: 13, 
+        img: 'img', 
+        category: 'physical',
+        effect: isParalyzed(0.3, (1 + Math.floor(Math.random() * 3))),
+        pp: 10 })
+
 export const MOVES_FOUDRE = {
-    eclair, etincelle, cageeclair, rayoncharge, tonnerre, poingeclair, fatalfoudre
+    eclair, etincelle, cageeclair, rayoncharge, tonnerre, poingeclair,
+    fatalfoudre, crocseclair
 }

@@ -25,11 +25,47 @@ const tranchherb = createMove({
     const megafouet = createMove({ 
         name: 'Mégafouet', 
         type: TYPES.PLANTE, 
-        damage: 105, 
+        damage: 100, 
         precision: 77, 
         criticChance: 16, 
         img: 'img', 
         pp: 10 })    
+
+    const tempeteflorale = createMove({ 
+        name: "Tempête Florale", 
+        type: TYPES.PLANTE, 
+        damage: 85, 
+        precision: 90, 
+        criticChance: 17, 
+        img: 'img', 
+        pp: 15 })   
+
+    const ecosphere = createMove({ 
+        name: "Eco-Sphère", 
+        type: TYPES.PLANTE, 
+        damage: 90, 
+        precision: 95, 
+        criticChance: 20, 
+        img: 'img', 
+        pp: 10 })   
+
+    const lamefeuille = createMove({ 
+        name: "Lame Feuille", 
+        type: TYPES.PLANTE, 
+        damage: 85, 
+        precision: 90, 
+        criticChance: 30, 
+        img: 'img', 
+        pp: 15 }) 
+
+    const tempeteverte = createMove({ 
+        name: "Tempête verte", 
+        type: TYPES.PLANTE, 
+        damage: 115, 
+        precision: 75, 
+        criticChance: 30, 
+        img: 'img', 
+        pp: 5 }) 
 
 
 // HYBRIDES
@@ -65,33 +101,7 @@ const volvie = createMove({
         effect: healingSelf(55),
         category: 'physical',
         pp: 10 })    
-
-    const tempeteflorale = createMove({ 
-        name: "Tempête Florale", 
-        type: TYPES.PLANTE, 
-        damage: 85, 
-        precision: 90, 
-        criticChance: 17, 
-        img: 'img', 
-        pp: 15 })   
-
-    const ecosphere = createMove({ 
-        name: "Eco-Sphère", 
-        type: TYPES.PLANTE, 
-        damage: 90, 
-        precision: 95, 
-        criticChance: 20, 
-        img: 'img', 
-        pp: 10 })   
-
-    const lamefeuille = createMove({ 
-        name: "Lame Feuille", 
-        type: TYPES.PLANTE, 
-        damage: 85, 
-        precision: 90, 
-        criticChance: 30, 
-        img: 'img', 
-        pp: 15 })   
+  
 
 // STATS
 const synthese = createMove({ 
@@ -105,5 +115,5 @@ const synthese = createMove({
 
     export const MOVES_PLANTE = {
         tranchherb, fouetliane, volvie, gigasangsue, synthese, megasangsue,
-        megafouet, tempeteflorale, ecosphere, lamefeuille
+        megafouet, tempeteflorale, ecosphere, lamefeuille, tempeteverte
     }

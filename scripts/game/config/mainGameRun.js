@@ -88,7 +88,7 @@ export async function mainGameRun(mainPlayer) {
                     showNotif(`Vous remplacer le badge ${chosenBadge.replace.name} par le badge ${chosenBadge.badge.name}`)
                 } else {
                     mainPlayer.getBadge(chosenBadge.badge)
-                    chosenBadge.applyBonus(mainPlayer.team)
+                    chosenBadge.badge.applyBonus(mainPlayer.team)
                     showNotif(`Vous obtenez le badge ${chosenBadge.badge.name}`)
                 }
                 await delay (800)

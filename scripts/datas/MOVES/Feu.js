@@ -16,13 +16,13 @@ const flammeche = createMove({
     const crocsfeu = createMove({ 
         name: 'Crocs Feu', 
         type: TYPES.FEU, 
-        damage: 60, 
+        damage: 55, 
         precision: 85, 
         criticChance: 10, 
         img: '../img/moves/flame-1.png', 
         category: 'physical',
         effect: isBurned(0.05, 1 + Math.floor(Math.random() * 3)),
-        pp: 15 })
+        pp: 10 })
 
     const poingfeu = createMove({ 
         name: 'Poing Feu', 
@@ -82,7 +82,7 @@ const flammeche = createMove({
     const deflagration = createMove({ 
         name: 'Déflagration', 
         type: TYPES.FEU, 
-        damage: 110, 
+        damage: 100, 
         precision: 75, 
         criticChance: 10, 
         img: '../img/moves/flame-1.png', 
@@ -90,7 +90,18 @@ const flammeche = createMove({
         effect: isBurned(0.1, 1 + Math.floor(Math.random() * 3)),
         pp: 5 })
 
+    const surchauffe = createMove({ 
+        name: 'Surchauffe', 
+        type: TYPES.FEU, 
+        damage: 110, 
+        precision: 75, 
+        criticChance: 10, 
+        img: '../img/moves/flame-1.png', 
+        category: 'physical',
+        effect: isBurned(0.4, 1 + Math.floor(Math.random() * 3)),
+        pp: 5 })
+
 export const MOVES_FEU = {
     flammeche, crocsfeu, poingfeu, rouedefeu, piedbruleur, lanceflamme, canicule, 
-    deflagration
+    deflagration, surchauffe
 }

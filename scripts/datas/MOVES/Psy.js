@@ -49,6 +49,15 @@ const chocmental = createMove({
         img: 'img', 
         pp: 15 })   
 
+    const extrasenseur = createMove({ 
+        name: "Extrasenseur", 
+        type: TYPES.PSY, 
+        damage: 50, 
+        precision: 95, 
+        criticChance: 20, 
+        img: 'img', 
+        pp: 15 })   
+
 export const MOVES_PSY = {
-    hypnose, chocmental, rafalepsy, psykoudboul, psyko
+    hypnose, chocmental, rafalepsy, psykoudboul, psyko, extrasenseur
 }

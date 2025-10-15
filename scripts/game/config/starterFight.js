@@ -43,11 +43,11 @@ function initFirstFight() {
     //             player: mainPlayer
     //         })
 
-    let test = getRandomPokemon({rank:3})
+    let test = getRandomPokemon({rank:4})
     mainPlayer.addPokemon(test)
-    let test3 = getRandomPokemon({rank:2})
+    let test3 = getRandomPokemon({rank:4})
     mainPlayer.addPokemon(test3)
-    let test4 = getRandomPokemon({rank:1})
+    let test4 = getRandomPokemon({rank:3})
     mainPlayer.addPokemon(test4)   
     // let badgetest = getRandomBadge()
     let badgetest2 = getRandomBadge()
@@ -56,9 +56,9 @@ function initFirstFight() {
     // displayBadgeReplace(mainPlayer.badges)
     // displayTeamReplace(mainPlayer.team)
 
-    pkmnEnemy = getRandomPokemon({rank:1})
+    pkmnEnemy = getRandomPokemon({rank:3})
     // test
-    pkmnEnemy.hp = 2
+    // pkmnEnemy.hp = 2
     
     if (!pkmnPlayer || !pkmnEnemy) {
         window.alert("YA PAS DE POKEMOOOONS !!!")

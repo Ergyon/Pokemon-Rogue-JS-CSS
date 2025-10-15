@@ -51,6 +51,15 @@ const plaiecroix = createMove({
         img: 'img',
         pp: 10 })
 
+    const piqure = createMove({ 
+        name: 'Piqûre', 
+        type: TYPES.INSECTE, 
+        damage: 50,
+        precision: 85, 
+        criticChance: 15,
+        img: 'img',
+        pp: 10 })
+
 export const MOVES_INSECTE = {
-    paraspore, poudredodo, poudretoxic, plaiecroix, megacorne
+    paraspore, poudredodo, poudretoxic, plaiecroix, megacorne, piqure
 }

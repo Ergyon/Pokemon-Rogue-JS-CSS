@@ -28,7 +28,7 @@ const poudreuse = createMove({
     const ondeboreale = createMove({ 
         name: "Onde Boréale", 
         type: TYPES.GLACE, 
-        damage: 52, 
+        damage: 40, 
         precision: 81, 
         criticChance: 18, 
         img: 'img', 
@@ -69,6 +69,18 @@ const poudreuse = createMove({
         effect: isFrozen(0.05, (1 + Math.floor(Math.random() * 3))),
         pp: 15 })
 
+    const crocsgivre = createMove({ 
+        name: "Crocs Givrés", 
+        type: TYPES.GLACE, 
+        damage: 55, 
+        precision: 85, 
+        criticChance: 10, 
+        img: 'img', 
+        category: 'physical',
+        effect: isFrozen(0.05, (1 + Math.floor(Math.random() * 3))),
+        pp: 10 })
+
 export const MOVES_GLACE = {
-    poudreuse, ventglace, ondeboreale, poingglace, blizzard, laserglace
+    poudreuse, ventglace, ondeboreale, poingglace, blizzard, laserglace,
+    crocsgivre
 }

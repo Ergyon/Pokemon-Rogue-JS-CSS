@@ -50,13 +50,22 @@ const tornade = createMove({
     const ventviolent = createMove({
         name: "Vent Violent",
         type: TYPES.VOL,
-        damage: 110,
+        damage: 90,
         precision: 70,
         criticChance: 7,
         img: 'img',
         pp: 10 })
 
+    const aeroblast = createMove({
+        name: "Aéroblast",
+        type: TYPES.VOL,
+        damage: 120,
+        precision: 75,
+        criticChance: 7,
+        img: 'img',
+        pp: 5 })
+
 
 export const MOVES_VOL = {
-    tornade, picpic, cruailes, lamedair, aeropique, ventviolent
+    tornade, picpic, cruailes, lamedair, aeropique, ventviolent, aeroblast
 }

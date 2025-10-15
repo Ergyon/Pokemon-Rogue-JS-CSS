@@ -33,7 +33,7 @@ const morsure = createMove({
     const vibrobscur = createMove({ 
     name: 'Vibrobscur', 
     type: TYPES.TENEBRES, 
-    damage: 55, 
+    damage: 60, 
     precision: 83, 
     criticChance: 11, 
     img: 'img', 

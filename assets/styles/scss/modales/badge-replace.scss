@@ -1,5 +1,4 @@
-@use '../global.scss' as *;
-
+@use "../global.scss" as *;
 
 .badges-replace {
     position: absolute;
@@ -15,7 +14,6 @@
     background-color: lighten($colorControlsBg, 10%);
     font-family: $font-arena;
 
-    
     &__title {
         font-size: 1.3rem;
         font-weight: 500;
@@ -28,7 +26,10 @@
     }
 
     &__card {
-        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        box-shadow:
+            rgba(0, 0, 0, 0.4) 0px 2px 4px,
+            rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+            rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
         border-radius: 20px;
         padding: 6px;
         margin-bottom: 0.8rem;
@@ -61,8 +62,8 @@
 
     &__message {
         margin-bottom: 10px;
-        background-color: rgba(218, 48, 18, 0.918); 
-        color: beige;   
+        background-color: rgba(218, 48, 18, 0.918);
+        color: beige;
         border-radius: 10px;
         padding: 6px;
         font-size: 14px;
@@ -96,7 +97,7 @@
         cursor: pointer;
         &:hover {
             background: linear-gradient(to top, #294b5a, #306172, #47829b);
-            box-shadow: rgba(196, 191, 170, 0.753) 2px 2px 15px 2px;;
+            box-shadow: rgba(196, 191, 170, 0.753) 2px 2px 15px 2px;
             opacity: 1;
         }
     }
